@@ -36,3 +36,12 @@
     transform: rotate(360deg);
   }
 }
+/* app starts */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+.main{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+/* ends */
