@@ -1,0 +1,118 @@
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import { Container,Table } from "semantic-ui-react";
+
+export default function MyComponent() {
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    const apiUrl = "http://localhost:3000/api/getId/?id=101&form_Id=1001";
+    const headers = {
+      Authorization:
+        "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEwMSwidXNlcm5hbWUiOiJ1c2VyMSIsImlhdCI6MTY3NDQ1NjM2MX0.JIRtmiHXnrUnUUA53RgTE3p1HTNr-l0t1jbwqBistQ8",
+    };
+    axios
+      .get(apiUrl, { headers })
+      .then((response) => {
+        setData(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
+
+  return (
+    <Container className="table-container">
+    <Table >
+      <Table.Header>
+        <Table.Row>
+          <Table.HeaderCell rowSpan="2">ITI Name</Table.HeaderCell>
+          <Table.HeaderCell rowSpan="2">Cluster</Table.HeaderCell>
+
+          <Table.HeaderCell textAlign="center" colSpan="15">
+            Workshop
+          </Table.HeaderCell>
+       
+        </Table.Row>
+
+        <Table.Row>
+          <Table.HeaderCell>Basic Infra</Table.HeaderCell>
+          <Table.HeaderCell>Flooring</Table.HeaderCell>
+          <Table.HeaderCell>False_Ceiling</Table.HeaderCell>
+          <Table.HeaderCell>Internal_Painting</Table.HeaderCell>
+          <Table.HeaderCell>Windows</Table.HeaderCell>
+          <Table.HeaderCell>Doors</Table.HeaderCell>
+          <Table.HeaderCell>Aluminium_Partition</Table.HeaderCell>
+          <Table.HeaderCell>AC</Table.HeaderCell>
+          <Table.HeaderCell>MCB</Table.HeaderCell>
+          <Table.HeaderCell>Networking</Table.HeaderCell>
+          <Table.HeaderCell>LT_Pannel</Table.HeaderCell>
+          <Table.HeaderCell>Electric_Supply</Table.HeaderCell>
+          <Table.HeaderCell>UPS</Table.HeaderCell>
+          <Table.HeaderCell>External_Painting</Table.HeaderCell>
+          <Table.HeaderCell>__v</Table.HeaderCell>
+        </Table.Row>
+      </Table.Header>
+
+      <Table.Body>
+        {data.map((dataa) => {
+          return (
+            <Table.Row>
+              <Table.Cell>{dataa.ITI_Name}</Table.Cell>
+              <Table.Cell>{dataa.Cluster}</Table.Cell>
+
+              <Table.Cell textAlign="center">
+                {dataa.Basic_Infra}
+              </Table.Cell>
+              <Table.Cell textAlign="center">
+                {dataa.Flooring}
+              </Table.Cell>
+              <Table.Cell textAlign="center">
+                {dataa.False_Ceiling}
+              </Table.Cell>
+              <Table.Cell textAlign="center">
+                {dataa.Internal_Painting}
+              </Table.Cell>
+              <Table.Cell textAlign="center">
+                {dataa.Windows}
+              </Table.Cell>
+              <Table.Cell textAlign="center">
+                {dataa.Doors}
+              </Table.Cell>
+              <Table.Cell textAlign="center">
+                {dataa.Aluminium_Partition}
+              </Table.Cell>
+              <Table.Cell textAlign="center">
+                {dataa.AC}
+              </Table.Cell>
+              <Table.Cell textAlign="center">
+                {dataa.MCB}
+              </Table.Cell>
+              <Table.Cell textAlign="center">
+                {dataa.Networking}
+              </Table.Cell>
+              <Table.Cell textAlign="center">
+                {dataa.LT_Pannel}
+              </Table.Cell>
+              <Table.Cell textAlign="center">
+                {dataa.Electric_Supply}
+              </Table.Cell>
+              <Table.Cell textAlign="center">
+                {dataa.UPS}
+              </Table.Cell>
+              <Table.Cell textAlign="center">
+                {dataa.External_Painting}
+              </Table.Cell>
+              <Table.Cell textAlign="center">
+                {dataa.__v}
+              </Table.Cell>
+             
+            </Table.Row>
+          );
+        })}
+      </Table.Body>
+      
+    </Table>
+    </Container>
+  );
+}

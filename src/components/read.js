@@ -3,18 +3,26 @@ import { Icon, Table, Button, Dropdown } from "semantic-ui-react";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import {NotificationManager,NotificationContainer} from 'react-notifications';
+import 'react-notifications/lib/notifications.css';
+
+
+// import { useAlert } from 'react-alert';
+// import 'C:\Users\Apurv\Desktop\Tata full\tatafronted\dshboard\src\App.css';
 
 export default function Read() {
   const options = [
-    { key: "option1", text: "Not Yet started", value: "0" },
-    { key: "option2", text: "Work in Progress", value: "1" },
-    { key: "option3", text: "Work Completed", value: "2" },
+    { key: "option1", text: "", value: "-1" },
+    { key: "option2", text: "", value: "0" },
+    { key: "option3", text: "", value: "1" },
   ];
 
   const [APIData, setAPIData] = useState([]);
+
   useEffect(() => {
     axios
       .get(`https://63c94eb3904f040a965b22d7.mockapi.io/fakenew`)
+      // .get(`http://localhost:3000/api/103`)
       .then((response) => {
         setAPIData(response.data);
       });
@@ -34,12 +42,12 @@ export default function Read() {
 
   function renderIcon(val) {
     let color;
-    if (val === "0") {
-      color = "green";
-    } else if (val === "1") {
+    if (val === "-1") {
+      color = "black";
+    } else if (val === "0") {
       color = "yellow";
-    } else if (val === "2") {
-      color = "blue";
+    } else if (val === "1") {
+      color = "green";
     }
     return <Icon color={color} name="check circle outline" size="large" />;
   }
@@ -53,7 +61,7 @@ export default function Read() {
         return item;
       })
     );
-
+    
     // Update the backend using axios
     axios
       .put(`https://63c94eb3904f040a965b22d7.mockapi.io/fakenew/${id}`, {
@@ -96,43 +104,64 @@ export default function Read() {
               <Table.Cell>{data.Cluster}</Table.Cell>
 
               <Table.Cell textAlign="center">
-          
-                  <Dropdown
-                    options={options}
-                    value= {data.val1}
-                    onChange={(e, { value }) => {
-                      if (window.confirm("Are you sure you want to update the progress?")) {
-                          handleChange(data.id, value, 'val1');
-                      }
-                  }}
-                    
-                  />
-                  {renderIcon(data.val1)}
+                <Dropdown
+                   options={options}
+                   value={data.val1}
+                   onChange={(e, {value}) => {
+                     handleChange(data.id, value, "val1");
+                     switch(value) {
+                       case '-1':
+                         NotificationManager.success(`Updated ${data.ITIName}'s Basic Infra to Not yet started`, '', 6000, {
+                         });
+                         break;
+                       case '0':
+                         NotificationManager.success('Updated to work in Progress', '', 6000, {
+                         });
+                         break;
+                       case '1':
+                         NotificationManager.success('Updated to work completed', '', 6000, {
+                         });
+                         break;
+                       default:
+                         break;
+                     }
+                   }}
+                 
+                />
+                {renderIcon(data.val1)}
                 
               </Table.Cell>
               <Table.Cell textAlign="center">
-              <Dropdown
-                    options={options}
-                    value= {data.val2}
-                    onChange={(e, { value }) => {
-                      if (window.confirm("Are you sure you want to update the progress?")) {
-                          handleChange(data.id, value, 'val2');
-                      }
+                <Dropdown
+                  options={options}
+                  value={data.val2}
+                  onChange={(e, { value }) => {
+                    if (
+                      window.confirm(
+                        "Are you sure you want to update the progress?"
+                      )
+                    ) {
+                      handleChange(data.id, value, "val2");
+                    }
                   }}
-                  />
-                  {renderIcon(data.val2)}
+                />
+                {renderIcon(data.val2)}
               </Table.Cell>
               <Table.Cell textAlign="center">
-              <Dropdown
-                    options={options}
-                    value= {data.val3}
-                    onChange={(e, { value }) => {
-                      if (window.confirm("Are you sure you want to update the progress?")) {
-                          handleChange(data.id, value, 'val3');
-                      }
+                <Dropdown
+                  options={options}
+                  value={data.val3}
+                  onChange={(e, { value }) => {
+                    if (
+                      window.confirm(
+                        "Are you sure you want to update the progress?"
+                      )
+                    ) {
+                      handleChange(data.id, value, "val3");
+                    }
                   }}
-                  />
-                  {renderIcon(data.val3)}
+                />
+                {renderIcon(data.val3)}
               </Table.Cell>
               <Link to="/update">
                 <Table.Cell>
@@ -143,6 +172,8 @@ export default function Read() {
           );
         })}
       </Table.Body>
+      <NotificationContainer className="notification-container"/>
     </Table>
+   
   );
 }

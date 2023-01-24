@@ -45,3 +45,13 @@
   height: 100vh;
 }
 /* ends */
+/* read */
+.table-container {
+  
+  overflow-x: auto;
+}
+.th{
+  writing-mode: vertical-rl;
+}
+
+/* read ends */
