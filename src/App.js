@@ -3,6 +3,8 @@ import Read from "./components/read.js";
 import Update from "./components/update.js";
 import MyComponent from "./components/prac";
 import Comp from "./components/gets";
+import Tabz from "./components/tablecell.js";
+import Clus from "./components/clus.js";
 import "./App.css";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 <link
@@ -22,6 +24,9 @@ function App() {
           {/* <Route path='/update' element={<Update/>}/> */}
           <Route path="/prac" element={<MyComponent />} />
           <Route path="/gets" element={<Comp />} />
+          <Route path="/tab" element={<Tabz/>}/>
+          <Route path="/clus" element={<Clus/>}/>
+          
         </Routes>
       </div>
     </Router>

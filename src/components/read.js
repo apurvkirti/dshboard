@@ -25,6 +25,7 @@ export default function Read() {
       // .get(`http://localhost:3000/api/103`)
       .then((response) => {
         setAPIData(response.data);
+      
       });
   }, []);
 
