@@ -1,17 +1,17 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Icon, Table } from "semantic-ui-react";
-const fId = 1001; // for selecting form among cl_tlab, cl_wkshp, dlv_tlab, dlv_wkshp, ins_tlab, int_wkshp
+const fId = 3002; // 3 for installation and 2 for wks 
 const ClustName = "PATNA";
-
+const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEwMSwidXNlcm5hbWUiOiJ1c2VyMSIsImlhdCI6MTY3NDczNDM5Mn0.QOlymyyu-XPFTdryPa6EeLAKlk-WYSGYgz8XAn8iQQs";
 export default function MyComponent() {
-  //geting data and storing in data
+
   const [data, setData] = useState([]);
   useEffect(() => {
     const apiUrl = `http://localhost:3000/api/getCluster/?form_Id=${fId}&cluster=${ClustName}`;
     const headers = {
       Authorization:
-        "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEwMSwidXNlcm5hbWUiOiJ1c2VyMSIsImlhdCI6MTY3NDczNDM5Mn0.QOlymyyu-XPFTdryPa6EeLAKlk-WYSGYgz8XAn8iQQs",
+        `Bearer ${token}`,
     };
     axios
       .get(apiUrl, { headers })
@@ -37,6 +37,10 @@ export default function MyComponent() {
   }
 
   return (
+    <div>
+          <h2 className="topheader1">TTL Installation status</h2>
+
+ 
     <Table celled structured collapsing color="orange" striped>
       <Table.Header>
         <Table.Row>
@@ -56,23 +60,21 @@ export default function MyComponent() {
         </Table.Row>
 
         <Table.Row>
-          <Table.HeaderCell className="th">Basic Infra</Table.HeaderCell>
-          <Table.HeaderCell className="th">Flooring</Table.HeaderCell>
-          <Table.HeaderCell className="th">False Ceiling</Table.HeaderCell>
-          <Table.HeaderCell className="th">Internal Painting</Table.HeaderCell>
-          <Table.HeaderCell className="th">Windows</Table.HeaderCell>
-          <Table.HeaderCell className="th">Doors</Table.HeaderCell>
-          <Table.HeaderCell className="th">
-            Aluminium Partition
-          </Table.HeaderCell>
-          <Table.HeaderCell className="th">AC</Table.HeaderCell>
-          <Table.HeaderCell className="th">MCB</Table.HeaderCell>
-          <Table.HeaderCell className="th">Networking</Table.HeaderCell>
-          <Table.HeaderCell className="th">LT Pannel</Table.HeaderCell>
-          <Table.HeaderCell className="th">Electric Supply</Table.HeaderCell>
-          <Table.HeaderCell className="th">UPS</Table.HeaderCell>
-          <Table.HeaderCell className="th">External Painting</Table.HeaderCell>
-          <Table.HeaderCell className="th">Cleaning</Table.HeaderCell>
+        <Table.HeaderCell className="th">Ind Paint Booth</Table.HeaderCell>
+          <Table.HeaderCell className="th">Car Lift</Table.HeaderCell>
+          <Table.HeaderCell className="th">IPC AVEVA</Table.HeaderCell>
+          <Table.HeaderCell className="th">VR Welding Painting</Table.HeaderCell>
+          <Table.HeaderCell className="th">Auto MRO Cut Sections</Table.HeaderCell>
+          <Table.HeaderCell className="th">TIGOR EV</Table.HeaderCell>
+          <Table.HeaderCell className="th">TATA Ace</Table.HeaderCell>
+          <Table.HeaderCell className="th">EV Kit</Table.HeaderCell>
+          <Table.HeaderCell className="th">Industrial Robotics</Table.HeaderCell>
+          <Table.HeaderCell className="th">VFD</Table.HeaderCell>
+          <Table.HeaderCell className="th">Plumbing Kit</Table.HeaderCell>
+          <Table.HeaderCell className="th">CNC Tsugami</Table.HeaderCell>
+          <Table.HeaderCell className="th">VMC HAAS</Table.HeaderCell>
+          <Table.HeaderCell className="th">HAAS Tools Meters</Table.HeaderCell>
+          <Table.HeaderCell className="th">HAAS Simulators</Table.HeaderCell>
         </Table.Row>
       </Table.Header>
 
@@ -87,54 +89,55 @@ export default function MyComponent() {
               {/* cells */}
 
               <Table.Cell textAlign="center" selectable>
-                {renderIcon(data.Basic_Infra)}
+                {renderIcon(data.Ind_Paint_Booth)}
               </Table.Cell>
               <Table.Cell textAlign="center" selectable>
-                {renderIcon(data.Flooring)}
+                {renderIcon(data.Car_Lift)}
               </Table.Cell>
               <Table.Cell textAlign="center" selectable>
-                {renderIcon(data.False_Ceiling)}
+                {renderIcon(data.IPC_AVEVA)}
               </Table.Cell>
               <Table.Cell textAlign="center" selectable>
-                {renderIcon(data.Internal_Painting)}
+                {renderIcon(data.VR_welding_Painting)}
               </Table.Cell>
               <Table.Cell textAlign="center" selectable>
-                {renderIcon(data.Windows)}
+                {renderIcon(data.Auto_MRO_Cut_Sections)}
               </Table.Cell>
               <Table.Cell textAlign="center" selectable>
-                {renderIcon(data.Doors)}
+                {renderIcon(data.TIGOR_EV)}
               </Table.Cell>
               <Table.Cell textAlign="center" selectable>
-                {renderIcon(data.Aluminium_Partition)}
+                {renderIcon(data.TATA_Ace)}
               </Table.Cell>
               <Table.Cell textAlign="center" selectable>
-                {renderIcon(data.AC)}
+                {renderIcon(data.EV_Kit)}
               </Table.Cell>
               <Table.Cell textAlign="center" selectable>
-                {renderIcon(data.MCB)}
+                {renderIcon(data.Industrial_Robotics)}
               </Table.Cell>
               <Table.Cell textAlign="center" selectable>
-                {renderIcon(data.Networking)}
+                {renderIcon(data.VFD)}
               </Table.Cell>
               <Table.Cell textAlign="center" selectable>
-                {renderIcon(data.LT_Pannel)}
+                {renderIcon(data.Plumbing_Kit)}
               </Table.Cell>
               <Table.Cell textAlign="center" selectable>
-                {renderIcon(data.Electric_Supply)}
+                {renderIcon(data.CNC_Tsugami)}
               </Table.Cell>
               <Table.Cell textAlign="center" selectable>
-                {renderIcon(data.UPS)}
+                {renderIcon(data.VMC_HAAS)}
               </Table.Cell>
               <Table.Cell textAlign="center" selectable>
-                {renderIcon(data.External_Painting)}
+                {renderIcon(data.HAAS_Tools_Meters)}
               </Table.Cell>
               <Table.Cell textAlign="center" selectable>
-                {renderIcon(data.Cleaning)}
+                {renderIcon(data.HAAS_Simulators)}
               </Table.Cell>
             </Table.Row>
           );
         })}
       </Table.Body>
     </Table>
+    </div>
   );
 }

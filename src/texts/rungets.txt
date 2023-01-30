@@ -59,4 +59,20 @@ function MyComponent() {
   );
 }
 
-export default MyComponent;
+
+"Ind_Paint_Booth": -1,
+    "Car_Lift": -1,
+    "IPC_AVEVA": -1,
+    "VR_welding_Painting": -1,
+    "Auto_MRO_Cut_Sections": -1,
+    "TIGOR_EV": -1,
+    "TATA_Ace": -1,
+    "EV_Kit": -1,
+    "Industrial_Robotics": -1,
+    "VFD": -1,
+    "Plumbing_Kit": -1,
+    "CNC_Tsugami": -1,
+    "VMC_HAAS": -1,
+    "HAAS_Tools_Meters": -1,
+    "HAAS_Simulators": -1,
+

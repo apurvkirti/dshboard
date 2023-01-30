@@ -1,0 +1,98 @@
+.App {
+    text-align: center;
+  }
+  
+  
+  
+  
+  .App-header {
+    background-color: #282c34;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
+  }
+  
+  .App-link {
+    color: #61dafb;
+  }
+  
+  
+  /* app starts */
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+  .main{
+    background-color: #f5f4ff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    
+  }
+  /* ends */
+  /* read */
+  .table-container {
+    
+    overflow-x: auto !important;
+  }
+  .th{
+    
+    writing-mode: vertical-rl;
+  }
+  .ui.table thead th {
+    
+    background: #fce4d6 !important;
+    border-bottom: 2px solid rgba(34,36,38,.1) !important;
+  
+  }
+  .ui.table thead tr:first-child>th:last-child {
+    background: #f4b084 !important;
+  
+  }
+ .topheader1{
+    background-color: rgb(184,72,72);
+    color:white;
+    text-align: center;
+    padding-top: 3px;
+    padding-bottom:3px;
+    box-shadow: 2px 2px 5px rgb(168, 164, 164);
+             
+    margin-bottom: 0px;
+ }
+  
+  .ui.structured.table thead th{
+    border-top: 2px solid orange !important;
+  
+  }
+  
+  .boxes-container {
+    display: flex;
+    /* flex-wrap: wrap; */
+    width:100%;
+   
+      box-shadow: 2px 2px 10px rgb(168, 164, 164);
+    
+    /* justify-content: space-between; */
+  }
+  .tabcontainer{
+    box-shadow: 2px 2px 10px rgb(168, 164, 164) !important;
+  }
+  /* .ui.table tr:first-child td{
+    background-color: #f5f4ff;
+  } */
+  .box {
+    flex: 1;
+    min-width: 0;
+    padding: 16px;
+  }
+  
+  
+  
+  
+  /* .ui.table thead tr:first-child>th:first-child{
+    background-color: #1f4e78 !important;
+  } */
+  
+  /* read ends */

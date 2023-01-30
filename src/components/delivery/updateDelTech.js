@@ -2,6 +2,7 @@ import React from "react";
 import { Icon, Table, Dropdown } from "semantic-ui-react";
 import { useEffect, useState } from "react";
 import axios from "axios";
+// import "../stylesheets/del.css";
 
 // import { Link } from "react-router-dom";
 import {
@@ -11,8 +12,8 @@ import {
 import "react-notifications/lib/notifications.css";
 
 const Cluster = "PATNA";
-const form_Id = 1001;
-
+const form_Id = 2001; //2 for delivery 1 for tech
+const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEwMiwidXNlcm5hbWUiOiJ1c2VyMiIsImlhdCI6MTY3NTAyMzM4N30.IY7hrBwkJtWGto3Ur817MIAX4AVF_0fkKsstQUc6Q8I";
 
 
 export default function UpdateForm() {
@@ -35,7 +36,7 @@ export default function UpdateForm() {
     // Fetch prefilled data from the backend
     const headers = {
       Authorization:
-        "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEwMSwidXNlcm5hbWUiOiJ1c2VyMSIsImlhdCI6MTY3NDczNDM5Mn0.QOlymyyu-XPFTdryPa6EeLAKlk-WYSGYgz8XAn8iQQs",
+        `Bearer ${token}`,
     };
     axios
       .get(
@@ -44,8 +45,6 @@ export default function UpdateForm() {
       )
       .then((response) => {
         setAPIData(response.data);
-        //  console.log(`here is the form data initially ${formData.Basic_Infra}`);
-        // setIsLoading(false);
       });
   }, []);
   const setData = (data) => {
@@ -53,44 +52,44 @@ export default function UpdateForm() {
       customId,
       ITI_Name,
       Cluster,
-      Basic_Infra,
-      Flooring,
-      False_Ceiling,
-      Internal_Painting,
-      Windows,
-      Doors,
-      Aluminium_Partition,
-      AC,
-      MCB,
-      Networking,
-      LT_Pannel,
-      Electric_Supply,
-      UPS,
-      External_Painting,
-      Cleaning,
-      deliverable,
-      completed_percentage,
+      Furniture,
+      Server_Rack,
+      Dell_Workstations,
+      Dell_Server,
+      VSAT,
+      VSAT_Studio,
+      IOT_Kit_and_Sensors,
+      IOTLab_Laptop,
+      D3_Printer_EOS,
+      D3_Printer_3DS,
+      Laser_Cutter,
+      Product_Design_DS,
+      POD_CARVELCO,
+      PVA_ANSYS,
+      PVA_FEAST,
+      MASTERCAM,
+      IGETIT,
     } = data;
     localStorage.setItem("ID", customId);
     localStorage.setItem("ITI_Name", ITI_Name);
     localStorage.setItem("Cluster", Cluster);
-    localStorage.setItem("Basic_Infra", Basic_Infra);
-    localStorage.setItem("Flooring", Flooring);
-    localStorage.setItem("False_Ceiling", False_Ceiling);
-    localStorage.setItem("Internal_Painting", Internal_Painting);
-    localStorage.setItem("Windows", Windows);
-    localStorage.setItem("Doors", Doors);
-    localStorage.setItem("Aluminium_Partition", Aluminium_Partition);
-    localStorage.setItem("AC", AC);
-    localStorage.setItem("MCB", MCB);
-    localStorage.setItem("Networking", Networking);
-    localStorage.setItem("LT_Pannel", LT_Pannel);
-    localStorage.setItem("Electric_Supply", Electric_Supply);
-    localStorage.setItem("UPS", UPS);
-    localStorage.setItem("External_Painting", External_Painting);
-    localStorage.setItem("Cleaning", Cleaning);
-    localStorage.setItem("deliverable", deliverable);
-    localStorage.setItem("completed_percentage", completed_percentage);
+    localStorage.setItem("Furniture", Furniture);
+    localStorage.setItem("Server_Rack", Server_Rack);
+    localStorage.setItem("Dell_Workstations", Dell_Workstations);
+    localStorage.setItem("Dell_Server", Dell_Server);
+    localStorage.setItem("VSAT", VSAT);
+    localStorage.setItem("VSAT_Studio", VSAT_Studio);
+    localStorage.setItem("IOT_Kit_and_Sensors", IOT_Kit_and_Sensors);
+    localStorage.setItem("IOTLab_Laptop", IOTLab_Laptop);
+    localStorage.setItem("D3_Printer_EOS", D3_Printer_EOS);
+    localStorage.setItem("D3_Printer_3DS", D3_Printer_3DS);
+    localStorage.setItem("Laser_Cutter", Laser_Cutter);
+    localStorage.setItem("Product_Design_DS", Product_Design_DS);
+    localStorage.setItem("POD_CARVELCO", POD_CARVELCO);
+    localStorage.setItem("PVA_ANSYS", PVA_ANSYS);
+    localStorage.setItem("PVA_FEAST", PVA_FEAST);
+    localStorage.setItem("MASTERCAM", MASTERCAM);
+    localStorage.setItem("IGETIT", IGETIT);
     
    
     // console.log(data);
@@ -123,7 +122,7 @@ export default function UpdateForm() {
     const headers = {
       "Content-Type": "application/json",
       Authorization:
-        "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEwMSwidXNlcm5hbWUiOiJ1c2VyMSIsImlhdCI6MTY3NDczNDM5Mn0.QOlymyyu-XPFTdryPa6EeLAKlk-WYSGYgz8XAn8iQQs",
+        `Bearer ${token}`,
     };
     axios
       .patch(
@@ -140,17 +139,12 @@ export default function UpdateForm() {
         console.log(error);
       });
   }
-
-
- 
    
   return (
     <div>
-    
-   
-    
-    <Table celled structured collapsing striped>
-      <Table.Header color="orange">
+    <h2 className="topheader1">TTL Delivery Status</h2>
+    <Table celled structured collapsing className="tabcontainer">
+      <Table.Header >
         <Table.Row>
           <Table.HeaderCell rowSpan="3" textAlign="center">
             ITI Name
@@ -162,31 +156,30 @@ export default function UpdateForm() {
             District
           </Table.HeaderCell>
 
-          <Table.HeaderCell textAlign="center" colSpan="15">
+          <Table.HeaderCell textAlign="center" colSpan="17" style={{backgroundColor: "blue"}}>
             TECHNOLOGY LAB
           </Table.HeaderCell>
         </Table.Row>
-
+        
         <Table.Row>
-          <Table.HeaderCell className="th">Basic Infra</Table.HeaderCell>
-          <Table.HeaderCell className="th">Flooring</Table.HeaderCell>
-          <Table.HeaderCell className="th">False Ceiling</Table.HeaderCell>
-          <Table.HeaderCell className="th">Internal Painting</Table.HeaderCell>
-          <Table.HeaderCell className="th">Windows</Table.HeaderCell>
-          <Table.HeaderCell className="th">Doors</Table.HeaderCell>
-          <Table.HeaderCell className="th">
-            Aluminium Partition
-          </Table.HeaderCell>
-          <Table.HeaderCell className="th">AC</Table.HeaderCell>
-          <Table.HeaderCell className="th">MCB</Table.HeaderCell>
-          <Table.HeaderCell className="th">Networking</Table.HeaderCell>
-          <Table.HeaderCell className="th">LT Panel</Table.HeaderCell>
-          <Table.HeaderCell className="th">Electric Supply</Table.HeaderCell>
-          <Table.HeaderCell className="th">UPS</Table.HeaderCell>
-          <Table.HeaderCell className="th">External Painting</Table.HeaderCell>
-          <Table.HeaderCell className="th">Cleaning</Table.HeaderCell>
-          {/* <Table.HeaderCell className="th">Deliverable</Table.HeaderCell> */}
-          {/* <Table.HeaderCell className="th">Completed Percentage</Table.HeaderCell> */}
+          <Table.HeaderCell className="th">Furniture</Table.HeaderCell>
+          <Table.HeaderCell className="th">Server Rack</Table.HeaderCell>
+          <Table.HeaderCell className="th">Dell Workstations</Table.HeaderCell>
+          <Table.HeaderCell className="th">Dell Server</Table.HeaderCell>
+          <Table.HeaderCell className="th">VSAT</Table.HeaderCell>
+          <Table.HeaderCell className="th">VSAT Studio</Table.HeaderCell>
+          <Table.HeaderCell className="th">IOT Kit and Sensors</Table.HeaderCell>
+          <Table.HeaderCell className="th">IOTLab Laptop</Table.HeaderCell>
+          <Table.HeaderCell className="th">D3 Printer EOS</Table.HeaderCell>
+          <Table.HeaderCell className="th">D3 Printer 3DS</Table.HeaderCell>
+          <Table.HeaderCell className="th">Laser Cutter</Table.HeaderCell>
+          <Table.HeaderCell className="th">Product Design DS</Table.HeaderCell>
+          <Table.HeaderCell className="th">POD CARVELCO</Table.HeaderCell>
+          <Table.HeaderCell className="th">PVA ANSYS</Table.HeaderCell>
+          <Table.HeaderCell className="th">PVA FEAST</Table.HeaderCell>
+          <Table.HeaderCell className="th">MASTERCAM</Table.HeaderCell>
+          <Table.HeaderCell className="th">IGETIT</Table.HeaderCell>
+         
         </Table.Row>
       </Table.Header>
 
@@ -201,9 +194,9 @@ export default function UpdateForm() {
               <Table.Cell textAlign="center" selectable>
                 <Dropdown
                   options={options}
-                  value={data.Basic_Infra}
+                  value={data.Furniture}
                   onChange={(e, { value }) => {
-                    handleChange(data.customId, value, "Basic_Infra");
+                    handleChange(data.customId, value, "Furniture");
                     switch (value) {
                       case -1:
                         NotificationManager.success(
@@ -234,23 +227,23 @@ export default function UpdateForm() {
                     }
                   }}
                 />
-                {renderIcon(data.Basic_Infra)}
+                {renderIcon(data.Furniture)}
               </Table.Cell>
               <Table.Cell textAlign="center" selectable>
                 <Dropdown
                   options={options}
-                  value={data.Flooring}
+                  value={data.Server_Rack}
                   onChange={(e, { value }) => {
                     if (
                       window.confirm(
                         "Are you sure you want to update the progress?"
                       )
                     ) {
-                      handleChange(data.customId, value, "Flooring");
+                      handleChange(data.customId, value, "Server_Rack");
                       switch (value) {
                         case -1:
                           NotificationManager.success(
-                            `Updated ${data.ITI_Name}'s Flooring to Not yet started`,
+                            `Updated ${data.ITI_Name}'s Server_Rack to Not yet started`,
                             "",
                             6000,
                             {}
@@ -278,230 +271,250 @@ export default function UpdateForm() {
                     }
                   }}
                 />
-                {renderIcon(data.Flooring)}
+                {renderIcon(data.Server_Rack)}
               </Table.Cell>
 
               <Table.Cell textAlign="center" selectable>
                 <Dropdown
                   options={options}
-                  value={data.False_Ceiling}
+                  value={data.Dell_Workstations}
                   onChange={(e, { value }) => {
                     if (
                       window.confirm(
                         "Are you sure you want to update the progress?"
                       )
                     ) {
-                      handleChange(data.customId, value, "False_Ceiling");
+                      handleChange(data.customId, value, "Dell_Workstations");
                     }
                   }}
                 />
-                {renderIcon(data.False_Ceiling)}
+                {renderIcon(data.Dell_Workstations)}
               </Table.Cell>
               <Table.Cell textAlign="center" selectable>
                 <Dropdown
                   options={options}
-                  value={data.Internal_Painting}
+                  value={data.Dell_Server}
                   onChange={(e, { value }) => {
                     if (
                       window.confirm(
                         "Are you sure you want to update the progress?"
                       )
                     ) {
-                      handleChange(data.customId, value, "Internal_Painting");
+                      handleChange(data.customId, value, "Dell_Server");
                     }
                   }}
                 />
-                {renderIcon(data.Internal_Painting)}
+                {renderIcon(data.Dell_Server)}
               </Table.Cell>
               <Table.Cell textAlign="center" selectable>
                 <Dropdown
                   options={options}
-                  value={data.Windows}
+                  value={data.VSAT}
                   onChange={(e, { value }) => {
                     if (
                       window.confirm(
                         "Are you sure you want to update the progress?"
                       )
                     ) {
-                      handleChange(data.customId, value, "Windows");
+                      handleChange(data.customId, value, "VSAT");
                     }
                   }}
                 />
-                {renderIcon(data.Windows)}
+                {renderIcon(data.VSAT)}
               </Table.Cell>
               <Table.Cell textAlign="center" selectable>
                 <Dropdown
                   options={options}
-                  value={data.Doors}
+                  value={data.VSAT_Studio}
                   onChange={(e, { value }) => {
                     if (
                       window.confirm(
                         "Are you sure you want to update the progress?"
                       )
                     ) {
-                      handleChange(data.customId, value, "Doors");
+                      handleChange(data.customId, value, "VSAT_Studio");
                     }
                   }}
                 />
-                {renderIcon(data.Doors)}
+                {renderIcon(data.VSAT_Studio)}
               </Table.Cell>
               <Table.Cell textAlign="center" selectable>
                 <Dropdown
                   options={options}
-                  value={data.Aluminium_Partition}
+                  value={data.IOT_Kit_and_Sensors}
                   onChange={(e, { value }) => {
                     if (
                       window.confirm(
                         "Are you sure you want to update the progress?"
                       )
                     ) {
-                      handleChange(data.customId, value, "Aluminium_Partition");
+                      handleChange(data.customId, value, "IOT_Kit_and_Sensors");
                     }
                   }}
                 />
-                {renderIcon(data.Aluminium_Partition)}
+                {renderIcon(data.IOT_Kit_and_Sensors)}
               </Table.Cell>
               <Table.Cell textAlign="center" selectable>
                 <Dropdown
                   options={options}
-                  value={data.AC}
+                  value={data.IOTLab_Laptop}
                   onChange={(e, { value }) => {
                     if (
                       window.confirm(
                         "Are you sure you want to update the progress?"
                       )
                     ) {
-                      handleChange(data.customId, value, "AC");
+                      handleChange(data.customId, value, "IOTLab_Laptop");
                     }
                   }}
                 />
-                {renderIcon(data.AC)}
+                {renderIcon(data.IOTLab_Laptop)}
               </Table.Cell>
               <Table.Cell textAlign="center" selectable>
                 <Dropdown
                   options={options}
-                  value={data.MCB}
+                  value={data.D3_Printer_EOS}
                   onChange={(e, { value }) => {
                     if (
                       window.confirm(
                         "Are you sure you want to update the progress?"
                       )
                     ) {
-                      handleChange(data.customId, value, "MCB");
+                      handleChange(data.customId, value, "D3_Printer_EOS");
                     }
                   }}
                 />
-                {renderIcon(data.MCB)}
+                {renderIcon(data.D3_Printer_EOS)}
               </Table.Cell>
               <Table.Cell textAlign="center" selectable>
                 <Dropdown
                   options={options}
-                  value={data.Networking}
+                  value={data.D3_Printer_3DS}
                   onChange={(e, { value }) => {
                     if (
                       window.confirm(
                         "Are you sure you want to update the progress?"
                       )
                     ) {
-                      handleChange(data.customId, value, "Networking");
+                      handleChange(data.customId, value, "D3_Printer_3DS");
                     }
                   }}
                 />
-                {renderIcon(data.Networking)}
+                {renderIcon(data.D3_Printer_3DS)}
               </Table.Cell>
               <Table.Cell textAlign="center" selectable>
                 <Dropdown
                   options={options}
-                  value={data.LT_Pannel}
+                  value={data.Laser_Cutter}
                   onChange={(e, { value }) => {
                     if (
                       window.confirm(
                         "Are you sure you want to update the progress?"
                       )
                     ) {
-                      handleChange(data.customId, value, "LT_Pannel");
+                      handleChange(data.customId, value, "Laser_Cutter");
                     }
                   }}
                 />
-                {renderIcon(data.LT_Pannel)}
+                {renderIcon(data.Laser_Cutter)}
               </Table.Cell>
               <Table.Cell textAlign="center" selectable>
                 <Dropdown
                   options={options}
-                  value={data.Electric_Supply}
+                  value={data.Product_Design_DS}
                   onChange={(e, { value }) => {
                     if (
                       window.confirm(
                         "Are you sure you want to update the progress?"
                       )
                     ) {
-                      handleChange(data.customId, value, "Electric_Supply");
+                      handleChange(data.customId, value, "Product_Design_DS");
                     }
                   }}
                 />
-                {renderIcon(data.Electric_Supply)}
+                {renderIcon(data.Product_Design_DS)}
               </Table.Cell>
               <Table.Cell textAlign="center" selectable>
                 <Dropdown
                   options={options}
-                  value={data.UPS}
+                  value={data.POD_CARVELCO}
                   onChange={(e, { value }) => {
                     if (
                       window.confirm(
                         "Are you sure you want to update the progress?"
                       )
                     ) {
-                      handleChange(data.customId, value, "UPS");
+                      handleChange(data.customId, value, "POD_CARVELCO");
                     }
                   }}
                 />
-                {renderIcon(data.UPS)}
+                {renderIcon(data.POD_CARVELCO)}
               </Table.Cell>
               <Table.Cell textAlign="center" selectable>
                 <Dropdown
                   options={options}
-                  value={data.External_Painting}
+                  value={data.PVA_ANSYS}
                   onChange={(e, { value }) => {
                     if (
                       window.confirm(
                         "Are you sure you want to update the progress?"
                       )
                     ) {
-                      handleChange(data.customId, value, "External_Painting");
+                      handleChange(data.customId, value, "PVA_ANSYS");
                     }
                   }}
                 />
-                {renderIcon(data.External_Painting)}
+                {renderIcon(data.PVA_ANSYS)}
               </Table.Cell>
               <Table.Cell textAlign="center" selectable>
                 <Dropdown
                   options={options}
-                  value={data.Cleaning}
+                  value={data.MASTERCAM}
                   onChange={(e, { value }) => {
                     if (
                       window.confirm(
                         "Are you sure you want to update the progress?"
                       )
                     ) {
-                      handleChange(data.customId, value, "Cleaning");
+                      handleChange(data.customId, value, "MASTERCAM");
                     }
                   }}
                 />
-                {renderIcon(data.Cleaning)}
+                {renderIcon(data.MASTERCAM)}
               </Table.Cell>
-              {/* <Table.Cell textAlign="center" selectable>
+              <Table.Cell textAlign="center" selectable>
+                <Dropdown
+                  options={options}
+                  value={data.PVA_FEAST}
+                  onChange={(e, { value }) => {
+                    if (
+                      window.confirm(
+                        "Are you sure you want to update the progress?"
+                      )
+                    ) {
+                      handleChange(data.customId, value, "PVA_FEAST");
+                    }
+                  }}
+                />
+                {renderIcon(data.PVA_FEAST)}
+              </Table.Cell>
+              <Table.Cell textAlign="center" selectable>
+                <Dropdown
+                  options={options}
+                  value={data.IGETIT}
+                  onChange={(e, { value }) => {
+                    if (
+                      window.confirm(
+                        "Are you sure you want to update the progress?"
+                      )
+                    ) {
+                      handleChange(data.customId, value, "IGETIT");
+                    }
+                  }}
+                />
+                {renderIcon(data.IGETIT)}
+              </Table.Cell>
               
-                {data.deliverable}
-              </Table.Cell> */}
-              {/* <Table.Cell textAlign="center" selectable>
-                {data.completed_percentage}
-              </Table.Cell> */}
-              
-              {/* <Link to="">
-                <Table.Cell>
-                  <Button onClick={() => setData(data)}>Update</Button>
-                </Table.Cell>
-              </Link> */}
             </Table.Row>
           );
         })}
@@ -511,93 +524,3 @@ export default function UpdateForm() {
     </div>
   );
 }
-// const handleSubmit = async (event) => {
-//   event.preventDefault();
-//   try {
-//     const headers = {
-//       "Content-Type": "application/json",
-//       Authorization:
-//         "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEwMSwidXNlcm5hbWUiOiJ1c2VyMSIsImlhdCI6MTY3NDQ3MzE4N30.p4zCxkBx4-vXuLOAon3JbUlOqXHIDcE-jAd4sU6FH1M",
-//     };
-//     await axios.patch(
-//       `http://localhost:3000/api/update_tmp/?id=101&form_Id=1001`,
-//       formData,
-//       { headers }
-//     );
-//     console.log(`here is the form data ${formData.Basic_Infra}`);
-//     alert("Form updated successfully!");
-//   } catch (error) {
-//     console.log(error);
-//     alert("An error occurred while updating the form. Please try again.");
-//   }
-// };
-
-// if (isLoading) {
-//   return <div>Loading...</div>;
-// }
-
-// return (
-// <>
-// <p style={{ background: "red", fontSize: "20px" }}>{formData.Basic_Infra}</p>
-// <form onSubmit={handleSubmit}>
-//   <label htmlFor="Basic_Infra">Basic Infra:</label>
-//   <input
-//     type="number"
-//     id="Basic_Infra"
-//     name="Basic_Infra"
-//     value={formData.Basic_Infra}
-//     onChange={(event) =>
-//       setFormData({ ...formData, Basic_Infra: event.target.value })
-//     }
-//   />
-//   <br />
-
-//   <label htmlFor="AC">AC:</label>
-//   <input
-//     type="number"
-//     id="AC"
-//     name="AC"
-//     value={formData.AC}
-//     onChange={(event) =>
-//       setFormData({ ...formData, AC: event.target.value })
-//     }
-//   />
-//   <br />
-//   <label htmlFor="Flooring">Flooring:</label>
-//   <input
-//     type="number"
-//     id="Flooring"
-//     name="Flooring"
-//     value={formData.Flooring}
-//     onChange={(event) =>
-//       setFormData({ ...formData, Flooring: event.target.value })
-//     }
-//   />
-//   <br />
-//   <label htmlFor="UPS">UPS:</label>
-//   <input
-//     type="number"
-//     id="UPS"
-//     name="UPS"
-//     value={formData.UPS}
-//     onChange={(event) =>
-//       setFormData({ ...formData, UPS: event.target.value })
-//     }
-//   />
-//   <br />
-//   <label htmlFor="Cleaning">Cleaning:</label>
-//   <input
-//     type="number"
-//     id="Cleaning"
-//     name="Cleaning"
-//     value={formData.Cleaning}
-//     onChange={(event) =>
-//       setFormData({ ...formData, Cleaning: event.target.value })
-//     }
-//   />
-//   <br />
-//   <button type="submit" onClick={() => setData(formData)}>Update</button>
-// </form>
-// </>
-// );
-// }

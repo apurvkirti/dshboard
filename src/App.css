@@ -1,17 +1,9 @@
-.App {
+/* .App {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
+
 
 .App-header {
   background-color: #282c34;
@@ -28,17 +20,11 @@
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+
 /* app starts */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 .main{
+  background-color: #f5f4ff;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -65,6 +51,9 @@
   background: #f4b084 !important;
 
 }
+.blue{
+  background: blue !important;
+}
 
 .ui.structured.table thead th{
   border-top: 2px solid orange !important;
@@ -75,19 +64,23 @@
   display: flex;
   /* flex-wrap: wrap; */
   width:100%;
+ 
+    box-shadow: 2px 2px 10px rgb(168, 164, 164);
+  
   /* justify-content: space-between; */
 }
-
+.tabcontainer{
+  box-shadow: 2px 2px 10px rgb(168, 164, 164) !important;
+}
+/* .ui.table tr:first-child td{
+  background-color: #f5f4ff;
+} */
 .box {
   flex: 1;
   min-width: 0;
   padding: 16px;
-}
+} 
 
 
 
-/* .ui.table thead tr:first-child>th:first-child{
-  background-color: #1f4e78 !important;
-} */
 
-/* read ends */

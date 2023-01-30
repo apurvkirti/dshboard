@@ -1,11 +1,22 @@
-import Create from "./components/create.js";
-import Read from "./components/read.js";
-import Update from "./components/update.js";
-import MyComponent from "./components/prac";
-import Comp from "./components/gets";
-import Tabz from "./components/tablecell.js";
-import Clus from "./components/clus.js";
-import "./App.css";
+import GetCivilTech from "./components/civil/getCivilTech.js";
+import UpdateCivilTech from "./components/civil/updateCivilTech.js";
+import GetCivilWks from "./components/civil/getCivilWks.js";
+import UpdateCivilWks from "./components/civil/updateCivilWks.js";
+
+import UpdateDelTech from "./components/delivery/updateDelTech.js";
+import GetDelTech from "./components/delivery/getDelTech.js";
+import GetDelWks from "./components/delivery/getDelWks.js";
+import UpdateDelWks from "./components/delivery/updateDelWks.js";
+
+import UpdateInsTech from "./components/installation/updateInsTech.js";
+import GetInsTech from "./components/installation/getInsTech.js";
+import GetInsWks from "./components/installation/getInsWks.js";
+import UpdateInsWks from "./components/installation/updateInsWks.js";
+
+
+import Clus from "./components/clusterChart.js";
+import Chart from "./components/chart.js";
+
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 <link
   rel="stylesheet"
@@ -18,16 +29,36 @@ function App() {
     <Router>
       <div className="main">
         <Routes>
-          <Route path="/create" element={<Create />} />
-          <Route path="/read" element={<Read />} />
-          <Route path="/update" element={<Update />} />
+          
+
+       
+        
           {/* <Route path='/update' element={<Update/>}/> */}
-          <Route path="/prac" element={<MyComponent />} />
-          <Route path="/gets" element={<Comp />} />
-          <Route path="/tab" element={<Tabz/>}/>
+      
+
+          <Route path="/getct" element={<GetCivilTech/>} />
+          <Route path="/updct" element={<UpdateCivilTech/>}/>
+          <Route path="/getcwks" element={<GetCivilWks/>}/>
+          <Route path="/updcwks" element={<UpdateCivilWks/>}/>
+
+          <Route path="/getdt" element={<GetDelTech/>}/>
+          <Route path="/getdwks" element={<GetDelWks/>}/>
+          <Route path="/upddt" element={<UpdateDelTech/>}/>
+          <Route path="/upddwks" element={<UpdateDelWks/>}/>
+
+          <Route path="/updit" element={<UpdateInsTech/>}/>
+          <Route path="/getit" element={<GetInsTech/>}/>
+          <Route path="/getiwks" element={<GetInsWks/>}/>
+          <Route path="/updiwks" element={<UpdateInsWks/>}/>
+
           <Route path="/clus" element={<Clus/>}/>
+          <Route path="/chart" element={<Chart/>}/>
           
         </Routes>
+        {/* <div>
+         <GetCivilTech/>
+         <GetDelTech/>
+        </div> */}
       </div>
     </Router>
   );
