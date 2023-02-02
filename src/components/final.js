@@ -6,22 +6,14 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 import { useNavigate } from 'react-router-dom';
-
-import React from 'react';
+import React, { useState } from "react";
 import NotesList from "./getnotice";
 
 // import Civil from "./civil/getCivilTech";
 export default function Final() {
    
-    // const newCompRef = useRef(null);
+    const [date, setDate] = useState(new Date());
 
-    // const handleClick = () => {
-    //   newCompRef.current.scrollIntoView({ behavior: 'smooth' });
-    // };
-  
-    // useEffect(() => {
-    //   newCompRef.current.scrollIntoView({ behavior: 'smooth' });
-    // }, []);
     let navigate = useNavigate();
     const handleClick = () => {
       navigate('/notice')
@@ -29,14 +21,29 @@ export default function Final() {
 
   return (
     <>
-    
     <Container className="cont">
+        <Row>
+            <Col className="topbox">
+            <div className="col1">TATA BIHAR ITI UPGRADATION PROJECT</div>
+            <div className="col2">
+                <div className="date">{date.toLocaleDateString()}</div>
+                <div>
+                    <Button className="fbutton">Download PDF</Button>
+                </div>
+            </div>
+            </Col>
+            
+        </Row>
+
     <Row>
       <Col><Chart/></Col>
     </Row>
     <Row>
-       <div ><Button variant="secondary" size="sm" onClick={handleClick}>Add a Note</Button></div>
-       <div> <NotesList/></div>
+       
+      <Col xs={3}>
+      <div className="addnote" ><Button className ="btnclass " onClick={handleClick}>Add a Note</Button></div>
+         <div> <NotesList/></div></Col>
+      {/* <Col xs={2}></Col> */}
       <Col><IndChart/></Col>
     </Row>
     <Row>

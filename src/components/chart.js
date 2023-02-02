@@ -86,7 +86,7 @@ export default function Chart() {
           <div className="fourthsec">Overall Installation Readiness %</div>
         </div>
         </Col>
-        <Col><Table bordered hover size="lg" className='childtable'>
+        <Col><Table bordered hover className='childtable'>
         <thead>
           <tr className="headingfirst">
             <th>TECH</th>

@@ -3,22 +3,27 @@ import axios from "axios";
 import Button from 'react-bootstrap/Button';
 import { useNavigate } from 'react-router-dom';
 const AddNotice = () => {
+
+  
+
   let navigate = useNavigate();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
+  const [designation, setDesignation] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!title || !content) {
-        return alert("Both 'title' and 'content' fields are required.");
-      }
+    if (!title || !content || !designation) {
+    return alert("Both 'title' and 'content' fields are required.");
+  }
     try {
       const response = await axios.post(
         "http://localhost:3000/note/addNote",
         {
           title,
           content,
+          designation,
         },
         {
           headers: {
@@ -65,6 +70,16 @@ const AddNotice = () => {
               cols='50'
             />
           </div>
+          <div className="titlearea">
+             <input
+              className="inputtitle"
+              type="text"
+              placeholder="Designation"
+              value={designation}
+              onChange={(e) => setDesignation(e.target.value)}
+           
+            />   
+            </div> 
           <div className="buttonnotice">
           <Button type="submit" variant="primary">Add Notice</Button>
             {/* <button className="btn" type="submit">Add Notice</button> */}

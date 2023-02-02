@@ -2,10 +2,10 @@ import ChildComponent from "./child";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import Container from "react-bootstrap/Container";
-import Button from "react-bootstrap/Button";
+import Table from 'react-bootstrap/Table';
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import { useNavigate } from 'react-router-dom';
+
 const token =
   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEwMSwidXNlcm5hbWUiOiJ1c2VyMSIsImlhdCI6MTY3NDkwOTQ4M30.2REqNRyDjfmAi0vOUm9zClisuBsoect5HPoouJk25_U";
 
@@ -106,28 +106,47 @@ export default function Chart() {
     }
     // console.log(threeDMap);
   }
-  let navigate = useNavigate();
-  const handleClick = () => {
-    navigate('/notice')
-  };
   return (
     <div>
       <Container>
         
         <Row>
-        {/* <Col>
-        <div>
-        <Button variant="secondary" size="sm" onClick={handleClick}>Add a Note</Button>
-        </div>
-       </Col> */}
-          <Col><ChildComponent data = {threeDMap} cnum = {(threeDMap.length===16)?8:0}/></Col>
-          <Col><ChildComponent data = {threeDMap} cnum = {(threeDMap.length===16)?9:0}/></Col>
-          <Col><ChildComponent data = {threeDMap} cnum = {(threeDMap.length===16)?10:0}/></Col>
-          <Col><ChildComponent data = {threeDMap} cnum = {(threeDMap.length===16)?11:0}/></Col>
-          <Col><ChildComponent data = {threeDMap} cnum = {(threeDMap.length===16)?12:0}/></Col>
-          <Col><ChildComponent data = {threeDMap} cnum = {(threeDMap.length===16)?13:0}/></Col>
-          <Col><ChildComponent data = {threeDMap} cnum = {(threeDMap.length===16)?14:0}/></Col>
-          <Col><ChildComponent data = {threeDMap} cnum = {(threeDMap.length===16)?15:0}/></Col>
+       
+          <Col className="colls"> <div className='topcont'>
+        <Table striped bordered hover className='childtable'>
+        <thead>
+          <tr>
+            <th className="tb">Cluster Wise Status <div className="inner">(total 8 cluster)</div></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            
+            <td>Civil %</td>
+           
+           
+          </tr>
+          <tr>
+            
+            <td>Delivery %</td>
+       
+       
+          </tr>
+          <tr>
+            <td>Installation %</td>
+      
+          </tr>
+        </tbody>
+      </Table>
+      </div></Col>
+          <Col className="colls"><ChildComponent data = {threeDMap} cnum = {(threeDMap.length===16)?8:0}/></Col>
+          <Col className="colls"><ChildComponent data = {threeDMap} cnum = {(threeDMap.length===16)?9:0}/></Col>
+          <Col className="colls"><ChildComponent data = {threeDMap} cnum = {(threeDMap.length===16)?10:0}/></Col>
+          <Col className="colls"><ChildComponent data = {threeDMap} cnum = {(threeDMap.length===16)?11:0}/></Col>
+          <Col className="colls"><ChildComponent data = {threeDMap} cnum = {(threeDMap.length===16)?12:0}/></Col>
+          <Col className="colls"><ChildComponent data = {threeDMap} cnum = {(threeDMap.length===16)?13:0}/></Col>
+          <Col className="colls"><ChildComponent data = {threeDMap} cnum = {(threeDMap.length===16)?14:0}/></Col>
+          <Col className="colls"><ChildComponent data = {threeDMap} cnum = {(threeDMap.length===16)?15:0}/></Col>
         </Row>
       
       </Container>

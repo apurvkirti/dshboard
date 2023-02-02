@@ -7,12 +7,12 @@ export default function ChildComponent(props){
     return (
         <>
         <p className='childheading'>{arr[(props.cnum ===0)?0:props.cnum-8+1]}</p>
-        <Table striped bordered hover size="lg" className='childtable'>
+        <div className='topcont'>
+        <Table striped bordered hover className='childtable'>
         <thead>
           <tr>
             <th>TECH</th>
             <th>WKS</th>
-          
           </tr>
         </thead>
         <tbody>
@@ -34,6 +34,7 @@ export default function ChildComponent(props){
           </tr>
         </tbody>
       </Table>
+      </div>
       </>
 
     );
