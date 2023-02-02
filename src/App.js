@@ -16,7 +16,16 @@ import UpdateInsWks from "./components/installation/updateInsWks.js";
 
 import Clus from "./components/clusterChart.js";
 import Chart from "./components/chart.js";
+import Final from "./components/final.js";
+import LastChanges from "./components/updatebox";
+import AddNotice from "./components/notice";
+import NotesList from "./components/getnotice";
+import Helper from "./components/helper";
 
+import New from "./components/indchart.js";
+
+
+import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 <link
   rel="stylesheet"
@@ -54,6 +63,13 @@ function App() {
           <Route path="/clus" element={<Clus/>}/>
           <Route path="/chart" element={<Chart/>}/>
           
+          <Route path="/new" element={<New/>}/>
+          <Route path="/db" element={<Final/>}/>
+          <Route path="/ub" element={<LastChanges/>}/>
+          <Route path="/notice" element={<AddNotice/>}/>
+          <Route path="/getnotice" element={<NotesList/>}/>
+          <Route path="/helper" element={<Helper/>}/>
+      
         </Routes>
         {/* <div>
          <GetCivilTech/>
