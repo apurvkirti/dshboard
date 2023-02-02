@@ -64,9 +64,7 @@ export default function MyComponent() {
           <Table.HeaderCell className="th">Internal Painting</Table.HeaderCell>
           <Table.HeaderCell className="th">Windows</Table.HeaderCell>
           <Table.HeaderCell className="th">Doors</Table.HeaderCell>
-          <Table.HeaderCell className="th">
-            Aluminium Partition
-          </Table.HeaderCell>
+          <Table.HeaderCell className="th">Aluminium Partition</Table.HeaderCell>
           <Table.HeaderCell className="th">AC</Table.HeaderCell>
           <Table.HeaderCell className="th">MCB</Table.HeaderCell>
           <Table.HeaderCell className="th">Networking</Table.HeaderCell>
