@@ -33,7 +33,7 @@ const AddNotice = () => {
           },
         }
       );
-      console.log(response.data);
+      // console.log(response.data);
       setIsModalOpen(false);
       navigate('/db')
     } catch (error) {

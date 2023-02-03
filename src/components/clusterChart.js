@@ -2,10 +2,11 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { LabelList, BarChart, Bar, XAxis, YAxis, Tooltip } from "recharts";
 
-const form_Id = 1001;
+// const form_Id = 3002;
 const token =
   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEwMSwidXNlcm5hbWUiOiJ1c2VyMSIsImlhdCI6MTY3NDczNDM5Mn0.QOlymyyu-XPFTdryPa6EeLAKlk-WYSGYgz8XAn8iQQs";
-export default function Clus() {
+export default function Clus(props) {
+  let form_Id = (props.fid)?props.fid:1001;
   const [data, setData] = useState({});
   useEffect(() => {
     const apiUrl = `http://localhost:3000/api/dataDashboard/?form_Id=${form_Id}`;
@@ -20,7 +21,7 @@ export default function Clus() {
       .catch((error) => {
         console.log(error);
       });
-  }, []);
+  }, [form_Id]);
 
   const dataa = [
     { name: "Total", Total: data.tot },
@@ -29,12 +30,24 @@ export default function Clus() {
     { name: "YTS", YTS: data.yts },
   ];
 
+  function getname(fid){
+    if(fid === 1001) return "Techlab Civil";
+    else if(fid ===1002) return "Workshop Civil";
+    else if(fid === 2001) return "Techlab Delivery";
+    else if(fid ===2002) return "Workshop Delivery";
+    else if(fid === 3001) return "Techlab Installation";
+    else return "Workshop Installation";
+  }
+
   return (
+    <>
+    
     <div className="boxes-container">
-      <BarChart width={250} height={200} data={dataa}>
+      <BarChart className="bcc" width={220} height={150} data={dataa}>
         <XAxis dataKey="name" />
-        <YAxis type="number" domain={[0, 65]} />
+        <YAxis type="number" domain={[0, 70]} />
         <Tooltip />
+        
         <Bar
           isAnimationActive={false}
           dataKey="Total"
@@ -54,5 +67,7 @@ export default function Clus() {
         </Bar>
       </BarChart>
     </div>
+    <h1 className="stats">{getname(props.fid)} Status</h1>
+    </>
   );
 }

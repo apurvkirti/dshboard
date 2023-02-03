@@ -2,7 +2,7 @@ import React from "react";
 import { Icon, Table, Dropdown } from "semantic-ui-react";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import "../../stylesheets/civil.css";
+
 // import { Link } from "react-router-dom";
 import {
   NotificationManager,

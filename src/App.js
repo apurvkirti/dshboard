@@ -69,6 +69,7 @@ function App() {
           <Route path="/notice" element={<AddNotice/>}/>
           <Route path="/getnotice" element={<NotesList/>}/>
           <Route path="/helper" element={<Helper/>}/>
+         
       
         </Routes>
         {/* <div>

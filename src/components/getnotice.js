@@ -24,7 +24,6 @@ function NotesList() {
     var fulltime = time.split(":");
     var hr = parseInt(fulltime[0].trim());
     var min = parseInt(fulltime[1].trim());
-
     // var hours = parseInt(time.substr(0, 2));
     // var minutes = time.substr(3, 2);
     var ampm = hr >= 12 ? "PM" : "AM";
@@ -52,8 +51,11 @@ function NotesList() {
       {notes.map((note) => (
         <div key={note._id}>{note.title}
           <div className="notec">
+            {/* eslint-disable-next-line */}
             <marquee width="100%" direction="left" scrollamount="3">
-              {note.content}
+             <div className="intext">
+               {note.content}
+              </div>
             </marquee>
             <div className="des">
               -{note.designation}, ({formatDate(note.createdAt)},{" "}

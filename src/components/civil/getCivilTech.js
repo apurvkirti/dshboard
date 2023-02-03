@@ -2,16 +2,17 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Icon, Table } from "semantic-ui-react";
 const fId = 1001; // 1 for civil 1 for tech
-const ClustName = "PATNA";
+// const ClustName = "KATIHAR";
 
-export default function MyComponent() {
-  //geting data and storing in data
+export default function MyComponent(props) {
+  
+  let ClustName = (props.clust)?props.clust:"PATNA";
   const [data, setData] = useState([]);
   useEffect(() => {
     const apiUrl = `http://localhost:3000/api/getCluster/?form_Id=${fId}&cluster=${ClustName}`;
     const headers = {
       Authorization:
-        "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEwMSwidXNlcm5hbWUiOiJ1c2VyMSIsImlhdCI6MTY3NDczNDM5Mn0.QOlymyyu-XPFTdryPa6EeLAKlk-WYSGYgz8XAn8iQQs",
+        "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEwMSwidXNlcm5hbWUiOiJ1c2VyMSIsImlhdCI6MTY3NTQxNTYwNH0.W-CkN_NQBXSh-twBbwcEKakfnUom1JOBGhVaiNJyk8E",
     };
     axios
       .get(apiUrl, { headers })
@@ -21,7 +22,7 @@ export default function MyComponent() {
       .catch((error) => {
         console.log(error);
       });
-  }, []);
+  }, [ClustName]);
 
   // rendering Icon
   function renderIcon(val) {
@@ -38,10 +39,11 @@ export default function MyComponent() {
 
   return (
     <div>
-      <h2 className="topheader1">BSBCCL Civil Status</h2>
-    <Table celled structured collapsing color="orange" striped>
-      <Table.Header>
-        <Table.Row>
+    <h2 className="formheader">BSBCCL Civil Status</h2>
+    <Table className="tc" celled structured collapsing color="orange" striped>
+      <Table.Header >
+        
+        <Table.Row >
           <Table.HeaderCell rowSpan="3" textAlign="center">
             ITI Name
           </Table.HeaderCell>

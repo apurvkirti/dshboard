@@ -2,10 +2,10 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Icon, Table } from "semantic-ui-react";
 const fId = 1002; //1 for civil 2 for workshop 
-const ClustName = "PATNA";
 
-export default function MyComponent() {
-  //geting data and storing in data
+
+export default function MyComponent(props) {
+  let ClustName = (props.clust)?props.clust:"PATNA";
   const [data, setData] = useState([]);
   useEffect(() => {
     const apiUrl = `http://localhost:3000/api/getCluster/?form_Id=${fId}&cluster=${ClustName}`;
@@ -21,7 +21,7 @@ export default function MyComponent() {
       .catch((error) => {
         console.log(error);
       });
-  }, []);
+  }, [ClustName]);
 
   // rendering Icon
   function renderIcon(val) {
@@ -38,8 +38,8 @@ export default function MyComponent() {
 
   return (
     <div>
-      <h2 className="topheader1">BSBCCL Civil Status</h2>
-      <Table celled structured collapsing color="orange" striped>
+      <h2 className="formheader">BSBCCL Civil Status</h2>
+      <Table className="tc" celled structured collapsing color="orange" striped>
         <Table.Header>
           <Table.Row>
             <Table.HeaderCell rowSpan="3" textAlign="center">

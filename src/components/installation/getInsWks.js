@@ -2,10 +2,10 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Icon, Table } from "semantic-ui-react";
 const fId = 3002; // 3 for installation and 2 for wks 
-const ClustName = "PATNA";
-const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEwMSwidXNlcm5hbWUiOiJ1c2VyMSIsImlhdCI6MTY3NDczNDM5Mn0.QOlymyyu-XPFTdryPa6EeLAKlk-WYSGYgz8XAn8iQQs";
-export default function MyComponent() {
 
+const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEwMSwidXNlcm5hbWUiOiJ1c2VyMSIsImlhdCI6MTY3NDczNDM5Mn0.QOlymyyu-XPFTdryPa6EeLAKlk-WYSGYgz8XAn8iQQs";
+export default function MyComponent(props) {
+  let ClustName = (props.clust)?props.clust:"PATNA";
   const [data, setData] = useState([]);
   useEffect(() => {
     const apiUrl = `http://localhost:3000/api/getCluster/?form_Id=${fId}&cluster=${ClustName}`;
@@ -21,7 +21,7 @@ export default function MyComponent() {
       .catch((error) => {
         console.log(error);
       });
-  }, []);
+  }, [ClustName]);
 
   // rendering Icon
   function renderIcon(val) {
@@ -38,10 +38,10 @@ export default function MyComponent() {
 
   return (
     <div>
-          <h2 className="topheader1">TTL Installation status</h2>
+          <h2 className="formheader3">TTL Installation status</h2>
 
  
-    <Table celled structured collapsing color="orange" striped>
+    <Table className="ti" celled structured collapsing color="orange" striped>
       <Table.Header>
         <Table.Row>
           <Table.HeaderCell rowSpan="3" textAlign="center">
