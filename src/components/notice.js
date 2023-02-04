@@ -15,9 +15,10 @@ const AddNotice = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!title || !content || !designation) {
-    return alert("Both 'title' and 'content' fields are required.");
+    return alert("All fields are required.");
   }
     try {
+      // eslint-disable-next-line
       const response = await axios.post(
         "http://localhost:3000/note/addNote",
         {
@@ -57,7 +58,7 @@ const AddNotice = () => {
               placeholder="title"
               value={title}
               onChange={(e) => setTitle(e.target.value)}
-           
+              required
             />   
             </div> 
           </div>
@@ -68,6 +69,7 @@ const AddNotice = () => {
               onChange={(e) => setContent(e.target.value)}
               rows='8'
               cols='50'
+              required
             />
           </div>
           <div className="titlearea">
@@ -77,7 +79,7 @@ const AddNotice = () => {
               placeholder="Designation"
               value={designation}
               onChange={(e) => setDesignation(e.target.value)}
-           
+              required
             />   
             </div> 
           <div className="buttonnotice">

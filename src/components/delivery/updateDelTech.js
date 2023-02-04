@@ -11,15 +11,15 @@ import {
 } from "react-notifications";
 import "react-notifications/lib/notifications.css";
 
-const Cluster = "PATNA";
+
 const form_Id = 2001; //2 for delivery 1 for tech
 const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEwMiwidXNlcm5hbWUiOiJ1c2VyMiIsImlhdCI6MTY3NTAyMzM4N30.IY7hrBwkJtWGto3Ur817MIAX4AVF_0fkKsstQUc6Q8I";
 
 
-export default function UpdateForm() {
+export default function UpdateForm(props) {
 
 
-
+  let ClustName = (props.clust)?props.clust:"PATNA";
 
   const options = [
     { key: "option1", text: "", value: -1 },
@@ -40,13 +40,13 @@ export default function UpdateForm() {
     };
     axios
       .get(
-        `http://localhost:3000/api/getCluster/?form_Id=${form_Id}&cluster=${Cluster}`,
+        `http://localhost:3000/api/getCluster/?form_Id=${form_Id}&cluster=${ClustName}`,
         { headers }
       )
       .then((response) => {
         setAPIData(response.data);
       });
-  }, []);
+  }, [ClustName]);
   const setData = (data) => {
     let {
       customId,
@@ -142,8 +142,8 @@ export default function UpdateForm() {
    
   return (
     <div>
-    <h2 className="topheader1">TTL Delivery Status</h2>
-    <Table celled structured collapsing className="tabcontainer">
+    <h2 className="formheader1">TTL Delivery Status</h2>
+    <Table className="td" celled structured collapsing >
       <Table.Header >
         <Table.Row>
           <Table.HeaderCell rowSpan="3" textAlign="center">

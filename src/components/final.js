@@ -4,22 +4,36 @@ import Chart from "./chart";
 import Container from "react-bootstrap/Container";
 import Carousel from "react-bootstrap/Carousel";
 import { useNavigate } from "react-router-dom";
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import NotesList from "./getnotice";
 import { AiFillEdit, AiFillFilePdf } from "react-icons/ai";
 
 import { Button, Col, Dropdown, DropdownButton, Row } from "react-bootstrap";
 
 import CivilTech from "./civil/getCivilTech";
+import UpdateCivilTech from "./civil/updateCivilTech";
+import UpdateCivilWks from "./civil/updateCivilWks";
 import CivilWks from "./civil/getCivilWks";
+
 import DeliveryTech from "./delivery/getDelTech";
+import UpdateDeliveryTech from "./delivery/updateDelTech";
+import UpdateDeliveryWks from "./delivery/updateDelWks";
 import DeliveryWks from "./delivery/getDelWks";
+
 import InsTech from "./installation/getInsTech";
+import UpdateInsTech from "./installation/updateInsTech";
+import UpdateInsWks from "./installation/updateInsWks";
 import InsWks from "./installation/getInsWks";
 
 import Clus from "./clusterChart";
-
+import { FiLogOut } from 'react-icons/fi';
 export default function Final() {
+  const username = localStorage.getItem("username");
+  const jwt = localStorage.getItem("jwt");
+
+  console.log(username);
+  console.log(jwt);
+
   // eslint-disable-next-line
   const [date, setDate] = useState(new Date());
   function formatDate(date) {
@@ -40,6 +54,10 @@ export default function Final() {
     navigate("/notice");
   };
 
+  const handleLogout = () => {
+    localStorage.removeItem('jwt');
+    navigate('/login');
+  };
   //eslint-disable-next-line
   const [selectedOption, setSelectedOption] = useState(null);
   const civilRef = useRef(null);
@@ -73,8 +91,133 @@ export default function Final() {
     setIndex(selectedIndex);
   };
 
+  // for user_selective view
+
+  function RenderCivilTech({ selectedTitle }) {
+    if (username === "user1") {
+      return (
+        <>
+          <UpdateCivilTech clust={selectedTitle} />
+        </>
+      );
+    } else {
+      return (
+        <>
+          <CivilTech clust={selectedTitle} />
+        </>
+      );
+    }
+  }
+  function RenderCivilWks({ selectedTitle }) {
+    if (username === "user1") {
+      return (
+        <>
+          <UpdateCivilWks clust={selectedTitle} />
+        </>
+      );
+    } else {
+      return (
+        <>
+          <CivilWks clust={selectedTitle} />
+        </>
+      );
+    }
+  }
+  function RenderDelTech({ selectedTitle }) {
+    if (username === "user2") {
+      return (
+        <>
+          <UpdateDeliveryTech clust={selectedTitle} />
+        </>
+      );
+    } else {
+      return (
+        <>
+          <DeliveryTech clust={selectedTitle} />
+        </>
+      );
+    }
+  }
+  function RenderDelWks({ selectedTitle }) {
+    if (username === "user2" ) {
+      return (
+        <>
+          <UpdateDeliveryWks clust={selectedTitle} />
+        </>
+      );
+    } else {
+      return (
+        <>
+          <DeliveryWks clust={selectedTitle} />
+        </>
+      );
+    }
+  }
+  function RenderInsTech({ selectedTitle }) {
+    if ( username === "user3") {
+      return (
+        <>
+          <UpdateInsTech clust={selectedTitle} />
+        </>
+      );
+    } else {
+      return (
+        <>
+          <InsTech clust={selectedTitle} />
+        </>
+      );
+    }
+  }
+  function RenderInsWks({ selectedTitle }) {
+    if (username === "user3") {
+      return (
+        <>
+          <UpdateInsWks clust={selectedTitle} />
+        </>
+      );
+    } else {
+      return (
+        <>
+          <InsWks clust={selectedTitle} />
+        </>
+      );
+    }
+  }
+
+  // const [showNavbar, setShowNavbar] = useState(false);
+
+  // useEffect(() => {
+  //   const handleScroll = () => {
+  //     if (window.scrollY > 500) {
+  //       setShowNavbar(true);
+  //     } else {
+  //       setShowNavbar(false);
+  //     }
+  //   };
+
+  //   window.addEventListener("scroll", handleScroll);
+
+  //   return () => {
+  //     window.removeEventListener("scroll", handleScroll);
+  //   };
+  // }, []);
+
+  // const navigate = useNavigate();
+
+  useEffect(() => {
+    const token = localStorage.getItem('jwt');
+    if (!token) {
+      navigate('/login');
+    }
+  }, [navigate]);
+
   return (
     <>
+      {/* <div id="navbar" style={{ display: showNavbar ? "block" : "none" }}>
+        <button>Button 1</button>
+        <button>Button 2</button>
+        <button>Button 8</button>
+      </div> */}
       <Container className="cont">
         <Row>
           <Col className="topbox">
@@ -85,7 +228,12 @@ export default function Final() {
                 <Button className="fbutton">
                   Download PDF <AiFillFilePdf />
                 </Button>
+               
               </div>
+            </div>
+            <div>
+            <Button className="buttonlogout" onClick={handleLogout}>Logout <FiLogOut/></Button>
+          
             </div>
           </Col>
         </Row>
@@ -117,7 +265,11 @@ export default function Final() {
         </Row>
         <Row>
           <Col>
-            <DropdownButton className="fixer" id="dropdown-basic-button" title="KATIHAR">
+            <DropdownButton
+              className="fixer"
+              id="dropdown-basic-button"
+              title="KATIHAR"
+            >
               <Dropdown.Item
                 onClick={() => {
                   handleDropdownSelect("Civil");
@@ -145,7 +297,11 @@ export default function Final() {
             </DropdownButton>
           </Col>
           <Col>
-            <DropdownButton className="fixer" id="dropdown-basic-button" title="MOTIHARI">
+            <DropdownButton
+              className="fixer"
+              id="dropdown-basic-button"
+              title="MOTIHARI"
+            >
               <Dropdown.Item
                 onClick={() => {
                   handleDropdownSelect("Civil");
@@ -173,7 +329,11 @@ export default function Final() {
             </DropdownButton>
           </Col>
           <Col>
-            <DropdownButton className="fixer" id="dropdown-basic-button" title="MUZAFFARPUR">
+            <DropdownButton
+              className="fixer"
+              id="dropdown-basic-button"
+              title="MUZAFFARPUR"
+            >
               <Dropdown.Item
                 onClick={() => {
                   handleDropdownSelect("Civil");
@@ -201,7 +361,11 @@ export default function Final() {
             </DropdownButton>
           </Col>
           <Col>
-            <DropdownButton className="fixer" id="dropdown-basic-button" title="MUNGER">
+            <DropdownButton
+              className="fixer"
+              id="dropdown-basic-button"
+              title="MUNGER"
+            >
               <Dropdown.Item
                 onClick={() => {
                   handleDropdownSelect("Civil");
@@ -229,7 +393,11 @@ export default function Final() {
             </DropdownButton>
           </Col>
           <Col>
-            <DropdownButton className="fixer" id="dropdown-basic-button" title="NALANDA">
+            <DropdownButton
+              className="fixer"
+              id="dropdown-basic-button"
+              title="NALANDA"
+            >
               <Dropdown.Item
                 onClick={() => {
                   handleDropdownSelect("Civil");
@@ -257,7 +425,11 @@ export default function Final() {
             </DropdownButton>
           </Col>
           <Col>
-            <DropdownButton className="fixer" id="dropdown-basic-button" title="PATNA">
+            <DropdownButton
+              className="fixer"
+              id="dropdown-basic-button"
+              title="PATNA"
+            >
               <Dropdown.Item
                 onClick={() => {
                   handleDropdownSelect("Civil");
@@ -285,7 +457,11 @@ export default function Final() {
             </DropdownButton>
           </Col>
           <Col>
-            <DropdownButton className="fixer" id="dropdown-basic-button" title="ROHTAS">
+            <DropdownButton
+              className="fixer"
+              id="dropdown-basic-button"
+              title="ROHTAS"
+            >
               <Dropdown.Item
                 onClick={() => {
                   handleDropdownSelect("Civil");
@@ -313,7 +489,11 @@ export default function Final() {
             </DropdownButton>
           </Col>
           <Col>
-            <DropdownButton className="fixer" id="dropdown-basic-button" title="SUPAUL">
+            <DropdownButton
+              className="fixer"
+              id="dropdown-basic-button"
+              title="SUPAUL"
+            >
               <Dropdown.Item
                 onClick={() => {
                   handleDropdownSelect("Civil");
@@ -341,47 +521,68 @@ export default function Final() {
             </DropdownButton>
           </Col>
         </Row>
-        <Row className="wolf" >
-          <div className="bcc"><Clus fid={1001}/></div>
-          <div className="bcc"><Clus fid={1002}/></div>
-          <div className="bcc"><Clus fid={2001}/></div>
-          <div className="bcc"><Clus fid={2002}/></div>
-          <div className="bcc"><Clus fid={3001}/></div>
-          <div className="bcc"><Clus fid={3002}/></div>
+        <Row className="wolf">
+          <div className="bcc">
+            <Clus fid={1001} />
+          </div>
+          <div className="bcc">
+            <Clus fid={1002} />
+          </div>
+          <div className="bcc">
+            <Clus fid={2001} />
+          </div>
+          <div className="bcc">
+            <Clus fid={2002} />
+          </div>
+          <div className="bcc">
+            <Clus fid={3001} />
+          </div>
+          <div className="bcc">
+            <Clus fid={3002} />
+          </div>
         </Row>
+
         <Row className="downf" ref={civilRef}>
-          <Carousel
+          <Carousel slide={false}
             activeIndex={index}
             onSelect={handleSelect}
             interval={60000}
           >
             <Carousel.Item>
-              <CivilTech clust={selectedTitle} />
+              <RenderCivilTech selectedTitle={selectedTitle} />
             </Carousel.Item>
             <Carousel.Item>
-              <CivilWks clust={selectedTitle} />
+            <RenderCivilWks selectedTitle={selectedTitle} />
             </Carousel.Item>
           </Carousel>
         </Row>
         <Row className="downs" ref={deliveryRef}>
-        <Carousel activeIndex={index} onSelect={handleSelect} interval={60000}>
-      <Carousel.Item>
-      <DeliveryTech clust={selectedTitle} />
-      </Carousel.Item>
-      <Carousel.Item>
-      <DeliveryWks clust={selectedTitle} />
-      </Carousel.Item>
-    </Carousel>
+          <Carousel slide={false}
+            activeIndex={index}
+            onSelect={handleSelect}
+            interval={60000}
+          >
+            <Carousel.Item>
+            <RenderDelTech selectedTitle={selectedTitle} />
+            </Carousel.Item>
+            <Carousel.Item>
+            <RenderDelWks selectedTitle={selectedTitle} />
+            </Carousel.Item>
+          </Carousel>
         </Row>
         <Row className="downt" ref={installationRef}>
-            <Carousel activeIndex={index} onSelect={handleSelect} interval={60000}>
-      <Carousel.Item>
-      <InsTech clust={selectedTitle} />
-      </Carousel.Item>
-      <Carousel.Item>
-      <InsWks clust={selectedTitle} />
-      </Carousel.Item>
-    </Carousel>
+          <Carousel slide={false}
+            activeIndex={index}
+            onSelect={handleSelect}
+            interval={60000}
+          >
+            <Carousel.Item>
+            <RenderInsTech selectedTitle={selectedTitle} />
+            </Carousel.Item>
+            <Carousel.Item>
+            <RenderInsWks selectedTitle={selectedTitle} />
+            </Carousel.Item>
+          </Carousel>
         </Row>
       </Container>
     </>

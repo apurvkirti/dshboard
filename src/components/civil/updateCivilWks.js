@@ -10,13 +10,13 @@ import {
 } from "react-notifications";
 import "react-notifications/lib/notifications.css";
 
-const Cluster = "PATNA";
+
 const form_Id = 1002; //1 for civil 2 for workshop
 const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEwMSwidXNlcm5hbWUiOiJ1c2VyMSIsImlhdCI6MTY3NTA3MzcxNH0.l6NvZuYIt-P43B53uN1P_zAwmOWCgiB0uJhoyoU7-c4";
 
 
-export default function UpdateForm() {
-
+export default function UpdateForm(props) {
+  let ClustName = (props.clust)?props.clust:"PATNA";
   const options = [
     { key: "option1", text: "", value: -1 },
     { key: "option2", text: "", value: 0 },
@@ -36,7 +36,7 @@ export default function UpdateForm() {
     };
     axios
       .get(
-        `http://localhost:3000/api/getCluster/?form_Id=${form_Id}&cluster=${Cluster}`,
+        `http://localhost:3000/api/getCluster/?form_Id=${form_Id}&cluster=${ClustName}`,
         { headers }
       )
       .then((response) => {
@@ -44,7 +44,7 @@ export default function UpdateForm() {
         //  console.log(`here is the form data initially ${formData.Basic_Infra}`);
         // setIsLoading(false);
       });
-  }, []);
+  }, [ClustName]);
   const setData = (data) => {
     let {
       customId,
@@ -141,8 +141,8 @@ export default function UpdateForm() {
     <div>
     
    
-    <h2 className="topheader1">BSBCCL CIVIL STATUS</h2>
-    <Table celled structured collapsing className="tabcontainer">
+    <h2 className="formheader">BSBCCL CIVIL STATUS</h2>
+    <Table className="tc" celled structured collapsing >
       <Table.Header color="orange">
         <Table.Row>
           <Table.HeaderCell rowSpan="3" textAlign="center">

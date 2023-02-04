@@ -23,10 +23,11 @@ import NotesList from "./components/getnotice";
 import Helper from "./components/helper";
 
 import New from "./components/indchart.js";
+import Login from "./Login";
 
 
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes  } from "react-router-dom";
 <link
   rel="stylesheet"
   href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css"
@@ -69,13 +70,14 @@ function App() {
           <Route path="/notice" element={<AddNotice/>}/>
           <Route path="/getnotice" element={<NotesList/>}/>
           <Route path="/helper" element={<Helper/>}/>
-         
-      
+          <Route path="/login" element={<Login/>}/>
+          {/* <Route path='/' element={<PrivateRoute path="/db" component={Final}/>}/> */}
+            {/* <Route exact path='/' element={<Home/>}/> */}
+          {/* <PrivateRoute path="/db" component={Final} /> */}
+          {/* <Route exact path='/db' element={<PrivateRoute/>}></Route> */}
         </Routes>
-        {/* <div>
-         <GetCivilTech/>
-         <GetDelTech/>
-        </div> */}
+      
+      
       </div>
     </Router>
   );
