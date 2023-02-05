@@ -6,10 +6,10 @@ import Table from 'react-bootstrap/Table';
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
-const token =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEwMSwidXNlcm5hbWUiOiJ1c2VyMSIsImlhdCI6MTY3NDkwOTQ4M30.2REqNRyDjfmAi0vOUm9zClisuBsoect5HPoouJk25_U";
+
 
 export default function Chart() {
+  const jwt = localStorage.getItem("jwt");
   const [data1, setData1] = useState([]);
   const [data2, setData2] = useState([]);
   const [data3, setData3] = useState([]);
@@ -19,7 +19,7 @@ export default function Chart() {
     const apiUrl2 = `http://localhost:3000/api/test/?formCode=2000`;
     const apiUrl3 = `http://localhost:3000/api/test/?formCode=3000`;
     const headers = {
-      Authorization: `Bearer ${token}`,
+      Authorization: `Bearer ${jwt}`,
     };
 
     Promise.all([
@@ -35,7 +35,7 @@ export default function Chart() {
       .catch((error) => {
         console.log(error);
       });
-  }, []);
+  }, [jwt]);
 
   let threeDMap = [];
 

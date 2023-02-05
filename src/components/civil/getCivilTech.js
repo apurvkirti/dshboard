@@ -2,17 +2,17 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Icon, Table } from "semantic-ui-react";
 const fId = 1001; // 1 for civil 1 for tech
-// const ClustName = "KATIHAR";
+
 
 export default function MyComponent(props) {
-  
+  const jwt = localStorage.getItem("jwt");
   let ClustName = (props.clust)?props.clust:"PATNA";
   const [data, setData] = useState([]);
   useEffect(() => {
     const apiUrl = `http://localhost:3000/api/getCluster/?form_Id=${fId}&cluster=${ClustName}`;
     const headers = {
       Authorization:
-        "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEwMSwidXNlcm5hbWUiOiJ1c2VyMSIsImlhdCI6MTY3NTQxNTYwNH0.W-CkN_NQBXSh-twBbwcEKakfnUom1JOBGhVaiNJyk8E",
+        `Bearer ${jwt}`,
     };
     axios
       .get(apiUrl, { headers })
@@ -22,7 +22,7 @@ export default function MyComponent(props) {
       .catch((error) => {
         console.log(error);
       });
-  }, [ClustName]);
+  }, [ClustName,jwt]);
 
   // rendering Icon
   function renderIcon(val) {

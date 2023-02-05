@@ -3,15 +3,15 @@ import { useEffect, useState } from "react";
 import { LabelList, BarChart, Bar, XAxis, YAxis, Tooltip } from "recharts";
 
 // const form_Id = 3002;
-const token =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEwMSwidXNlcm5hbWUiOiJ1c2VyMSIsImlhdCI6MTY3NDczNDM5Mn0.QOlymyyu-XPFTdryPa6EeLAKlk-WYSGYgz8XAn8iQQs";
+
 export default function Clus(props) {
+  const jwt = localStorage.getItem("jwt");
   let form_Id = (props.fid)?props.fid:1001;
   const [data, setData] = useState({});
   useEffect(() => {
     const apiUrl = `http://localhost:3000/api/dataDashboard/?form_Id=${form_Id}`;
     const headers = {
-      Authorization: `Bearer ${token}`,
+      Authorization: `Bearer ${jwt}`,
     };
     axios
       .get(apiUrl, { headers })
@@ -21,7 +21,7 @@ export default function Clus(props) {
       .catch((error) => {
         console.log(error);
       });
-  }, [form_Id]);
+  }, [form_Id,jwt]);
 
   const dataa = [
     { name: "Total", Total: data.tot },

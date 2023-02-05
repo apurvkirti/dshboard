@@ -29,10 +29,6 @@ import Clus from "./clusterChart";
 import { FiLogOut } from 'react-icons/fi';
 export default function Final() {
   const username = localStorage.getItem("username");
-  const jwt = localStorage.getItem("jwt");
-
-  console.log(username);
-  console.log(jwt);
 
   // eslint-disable-next-line
   const [date, setDate] = useState(new Date());

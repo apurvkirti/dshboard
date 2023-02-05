@@ -9,8 +9,7 @@ import Col from 'react-bootstrap/Col';
 import Table from 'react-bootstrap/Table';
 import "../App.css";
 
-const token =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEwMSwidXNlcm5hbWUiOiJ1c2VyMSIsImlhdCI6MTY3NDczNDM5Mn0.QOlymyyu-XPFTdryPa6EeLAKlk-WYSGYgz8XAn8iQQs";
+
 
 let civilTechCompleted =0;
 let civilWorkshopCompleted =0;
@@ -25,6 +24,7 @@ let insWorkshopCompleted =0;
 
 
 export default function Chart() {
+  const jwt = localStorage.getItem("jwt");
   const [data1, setData1] = useState([]);
   const [data2, setData2] = useState([]);
   const [data3, setData3] = useState([]);
@@ -34,7 +34,7 @@ export default function Chart() {
     const apiUrl2 = `http://localhost:3000/api/test/?formCode=2000`;
     const apiUrl3 = `http://localhost:3000/api/test/?formCode=3000`;
     const headers = {
-      Authorization: `Bearer ${token}`,
+      Authorization: `Bearer ${jwt}`,
     };
   
     Promise.all([
@@ -50,7 +50,7 @@ export default function Chart() {
       .catch((error) => {
         console.log(error);
       });
-  }, []);
+  }, [jwt]);
  
   if ((data1 && data1.length > 1) && (data2 && data2.length > 1) && (data3 && data3.length > 1)) {
     civilTechCompleted =((data1[1].tech_actual)/9).toFixed(2);
@@ -121,7 +121,7 @@ export default function Chart() {
       layout="vertical"
       margin={{ top: 20, right: 30, left: 20, bottom: 5 }}>
       <YAxis type="category" dataKey="name" />
-      <XAxis type="number" domain={[0, 60]} />
+      <XAxis type="number" domain={[0, 100]} />
       
       <Tooltip />
       <Bar isAnimationActive={false} dataKey="techlab" fill="#221f1e">

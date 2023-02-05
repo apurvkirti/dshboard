@@ -13,11 +13,11 @@ import "react-notifications/lib/notifications.css";
 
 
 const form_Id = 3001; //3 for workshop 1 for tech
-const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEwMywidXNlcm5hbWUiOiJ1c2VyMyIsImlhdCI6MTY3NTA2MzEwM30.nfLryFeBG18l4hrUTUTRTWPrWziQhWvmwacyN3b16bc";
+
 
 
 export default function UpdateForminsttech(props) {
-
+  const jwt = localStorage.getItem("jwt");
   let ClustName = (props.clust)?props.clust:"PATNA";
 
 
@@ -36,7 +36,7 @@ export default function UpdateForminsttech(props) {
     // Fetch prefilled data from the backend
     const headers = {
       Authorization:
-        `Bearer ${token}`,
+        `Bearer ${jwt}`,
     };
     axios
       .get(
@@ -46,7 +46,7 @@ export default function UpdateForminsttech(props) {
       .then((response) => {
         setAPIData(response.data);
       });
-  }, [ClustName]);
+  }, [ClustName,jwt]);
   const setData = (data) => {
     let {
       customId,
@@ -122,7 +122,7 @@ export default function UpdateForminsttech(props) {
     const headers = {
       "Content-Type": "application/json",
       Authorization:
-        `Bearer ${token}`,
+        `Bearer ${jwt}`,
     };
     axios
       .patch(

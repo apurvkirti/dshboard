@@ -3,15 +3,16 @@ import axios from "axios";
 import { Icon, Table } from "semantic-ui-react";
 const fId = 3002; // 3 for installation and 2 for wks 
 
-const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEwMSwidXNlcm5hbWUiOiJ1c2VyMSIsImlhdCI6MTY3NDczNDM5Mn0.QOlymyyu-XPFTdryPa6EeLAKlk-WYSGYgz8XAn8iQQs";
+
 export default function MyComponent(props) {
+  const jwt = localStorage.getItem("jwt");
   let ClustName = (props.clust)?props.clust:"PATNA";
   const [data, setData] = useState([]);
   useEffect(() => {
     const apiUrl = `http://localhost:3000/api/getCluster/?form_Id=${fId}&cluster=${ClustName}`;
     const headers = {
       Authorization:
-        `Bearer ${token}`,
+        `Bearer ${jwt}`,
     };
     axios
       .get(apiUrl, { headers })
@@ -21,7 +22,7 @@ export default function MyComponent(props) {
       .catch((error) => {
         console.log(error);
       });
-  }, [ClustName]);
+  }, [ClustName,jwt]);
 
   // rendering Icon
   function renderIcon(val) {

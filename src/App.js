@@ -1,5 +1,6 @@
 import Login from "./Login";
 import Dashboard from "./components/final";
+import Notice from "./components/notice";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
@@ -15,6 +16,7 @@ function App() {
     <Router>
       <div className="main">
         <Routes>
+          <Route path="/notice" element={<Notice/>}/>
           <Route path="/dashboard" element={<Dashboard/>} />
           <Route path="/login" element={<Login/>} />
         </Routes>

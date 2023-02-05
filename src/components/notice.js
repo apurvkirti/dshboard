@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import axios from "axios";
 import Button from 'react-bootstrap/Button';
 import { useNavigate } from 'react-router-dom';
@@ -11,7 +11,7 @@ const AddNotice = () => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const [designation, setDesignation] = useState("");
-
+  const jwt = localStorage.getItem("jwt");
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!title || !content || !designation) {
@@ -30,7 +30,7 @@ const AddNotice = () => {
           headers: {
             "Content-Type": "application/json",
             Authorization:
-              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEwMSwidXNlcm5hbWUiOiJ1c2VyMSIsImlhdCI6MTY3NTMzNzYyNX0.11OgSMViw9JyjIWzY2E9a0PWHhdsh-PMA10IoL3zWto",
+              `Bearer ${jwt}`,
           },
         }
       );
@@ -42,7 +42,12 @@ const AddNotice = () => {
       console.error(error);
     }
   };
-
+  useEffect(() => {
+    const token = localStorage.getItem('jwt');
+    if (!token) {
+      navigate('/login');
+    }
+  }, [navigate]);
   return (
     <>
       {!isModalOpen && (
