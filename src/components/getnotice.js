@@ -19,14 +19,15 @@ function NotesList() {
     return ` ${finalday[1].trim()} ${finalday[0].trim()}, ${dateParts[1].trim()}`;
   }
 
-  //   0:12:29
+ 
+
   function convert24to12(time) {
+  
     var fulltime = time.split(":");
     var hr = parseInt(fulltime[0].trim());
     var min = parseInt(fulltime[1].trim());
-    // var hours = parseInt(time.substr(0, 2));
-    // var minutes = time.substr(3, 2);
-    var ampm = hr >= 12 ? "PM" : "AM";
+    
+    var ampm = (hr >= 12) ? "PM" : "AM";
     hr = hr % 12;
     hr = hr ? hr : 12; // the hour '0' should be '12'
     return `${hr}:${min} ${ampm}`;

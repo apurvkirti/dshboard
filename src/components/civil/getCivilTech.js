@@ -38,7 +38,7 @@ export default function MyComponent(props) {
   }
 
   return (
-    <div>
+    <div className="ttop">
     <h2 className="formheader">BSBCCL Civil Status</h2>
     <Table className="tc" celled structured collapsing color="orange" striped>
       <Table.Header >
@@ -88,49 +88,49 @@ export default function MyComponent(props) {
 
               {/* cells */}
 
-              <Table.Cell textAlign="center" selectable>
+              <Table.Cell className="ttt" textAlign="center" selectable>
                 {renderIcon(data.Basic_Infra)}
               </Table.Cell>
-              <Table.Cell textAlign="center" selectable>
+              <Table.Cell className="ttt" textAlign="center" selectable>
                 {renderIcon(data.Flooring)}
               </Table.Cell>
-              <Table.Cell textAlign="center" selectable>
+              <Table.Cell className="ttt" textAlign="center" selectable>
                 {renderIcon(data.False_Ceiling)}
               </Table.Cell>
-              <Table.Cell textAlign="center" selectable>
+              <Table.Cell className="ttt" textAlign="center" selectable>
                 {renderIcon(data.Internal_Painting)}
               </Table.Cell>
-              <Table.Cell textAlign="center" selectable>
+              <Table.Cell className="ttt" textAlign="center" selectable>
                 {renderIcon(data.Windows)}
               </Table.Cell>
-              <Table.Cell textAlign="center" selectable>
+              <Table.Cell className="ttt" textAlign="center" selectable>
                 {renderIcon(data.Doors)}
               </Table.Cell>
-              <Table.Cell textAlign="center" selectable>
+              <Table.Cell className="ttt" textAlign="center" selectable>
                 {renderIcon(data.Aluminium_Partition)}
               </Table.Cell>
-              <Table.Cell textAlign="center" selectable>
+              <Table.Cell className="ttt" textAlign="center" selectable>
                 {renderIcon(data.AC)}
               </Table.Cell>
-              <Table.Cell textAlign="center" selectable>
+              <Table.Cell className="ttt" textAlign="center" selectable>
                 {renderIcon(data.MCB)}
               </Table.Cell>
-              <Table.Cell textAlign="center" selectable>
+              <Table.Cell className="ttt" textAlign="center" selectable>
                 {renderIcon(data.Networking)}
               </Table.Cell>
-              <Table.Cell textAlign="center" selectable>
+              <Table.Cell className="ttt" textAlign="center" selectable>
                 {renderIcon(data.LT_Pannel)}
               </Table.Cell>
-              <Table.Cell textAlign="center" selectable>
+              <Table.Cell className="ttt" textAlign="center" selectable>
                 {renderIcon(data.Electric_Supply)}
               </Table.Cell>
-              <Table.Cell textAlign="center" selectable>
+              <Table.Cell className="ttt" textAlign="center" selectable>
                 {renderIcon(data.UPS)}
               </Table.Cell>
-              <Table.Cell textAlign="center" selectable>
+              <Table.Cell className="ttt" textAlign="center" selectable>
                 {renderIcon(data.External_Painting)}
               </Table.Cell>
-              <Table.Cell textAlign="center" selectable>
+              <Table.Cell className="ttt" textAlign="center" selectable>
                 {renderIcon(data.Cleaning)}
               </Table.Cell>
             </Table.Row>

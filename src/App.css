@@ -39,8 +39,12 @@
   margin: 10px 10px 20px 10px;
   color:white;
 }
+.ttt{
+  padding-top:10px !important;
+}
 .table-container {
   overflow-x: auto !important;
+  align-items: center !important;
 }
 .th{
   writing-mode:vertical-rl !important;
@@ -68,6 +72,9 @@
 .ti.ui.table thead tr:first-child>th:last-child {
   background: #22c95f !important;
 }
+.tc{
+  z-index: 2000 !important;
+}
 
 .carousel-control-next-icon{
   margin-left:auto !important;
@@ -77,7 +84,15 @@
   margin-right:auto !important;
   background-image: url(./components/left.png) !important;
 }
-
+.carousel-control-prev {
+  width: 30px !important;
+}
+.carousel-control-next {
+  width: 30px !important;
+}
+.notification-container{
+  z-index: 1001 !important;
+}
 
 .tc,.td,.ti{
   margin-left: auto !important;
@@ -420,8 +435,8 @@
   margin-top: 10px !important;
  align-items: center !important;
  /* padding-left: 200px !important; */
-  background-color: #bebcbb;
-
+  /* background-color: #bebcbb; */
+ 
   height: 800px !important;
 }
 
@@ -539,3 +554,15 @@
   color: red;
   margin-top: 0.5rem;
 }
+.usern{
+  margin-bottom: -30px;
+  margin-top:50px;
+  width:auto;
+  text-align: center;
+  font-weight: 1000;
+  font-size:30px
+}
+.ttop{
+  height:700px !important;
+}
+ 

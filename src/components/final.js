@@ -546,7 +546,8 @@ export default function Final() {
           <Carousel slide={false}
             activeIndex={index}
             onSelect={handleSelect}
-            interval={60000}
+            interval={120000}
+            indicators={false}
           >
             <Carousel.Item>
               <RenderCivilTech selectedTitle={selectedTitle} />
@@ -560,7 +561,8 @@ export default function Final() {
           <Carousel slide={false}
             activeIndex={index}
             onSelect={handleSelect}
-            interval={60000}
+            interval={120000}
+            indicators={false}
           >
             <Carousel.Item>
             <RenderDelTech selectedTitle={selectedTitle} />
@@ -574,7 +576,8 @@ export default function Final() {
           <Carousel slide={false}
             activeIndex={index}
             onSelect={handleSelect}
-            interval={60000}
+            interval={120000}
+            indicators={false}
           >
             <Carousel.Item>
             <RenderInsTech selectedTitle={selectedTitle} />

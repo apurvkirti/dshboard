@@ -36,7 +36,8 @@ const AddNotice = () => {
       );
       // console.log(response.data);
       setIsModalOpen(false);
-      navigate('/db')
+      navigate('/dashboard')
+
     } catch (error) {
       console.error(error);
     }
@@ -84,7 +85,6 @@ const AddNotice = () => {
             </div> 
           <div className="buttonnotice">
           <Button type="submit" variant="primary">Add Notice</Button>
-            {/* <button className="btn" type="submit">Add Notice</button> */}
           </div>
         </form>
       )}

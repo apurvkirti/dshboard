@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { Button } from "react-bootstrap";
-
+// import {FaSignInAlt} from "react-icons/fa";
 const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -18,7 +18,7 @@ const Login = () => {
 
       localStorage.setItem("jwt", response.data.token);
       localStorage.setItem("username", username);
-      window.location.href = "/db";
+      window.location.href = "/dashboard";
     } catch (err) {
       setError(err.response.data.message);
     }
@@ -31,6 +31,7 @@ const Login = () => {
       <div className="formcont">
         <form onSubmit={handleSubmit}>
           <div className="username">
+            <div className="usern">Sign in to continue!</div>
             <input
               className="beta"
               type="text"
@@ -41,8 +42,10 @@ const Login = () => {
               required
             />
           </div>
+          {/* <div className="pasw">Password:</div> */}
           <div className="pwd">
             <input
+              label="Password"
               className="gamma"
               type="password"
               placeholder="Password"

@@ -37,7 +37,7 @@ export default function MyComponent(props) {
   }
 
   return (
-    <div>
+    <div className="ttop">
           <h2 className="formheader1">TTL Delivery Status</h2>
 
  
@@ -90,55 +90,55 @@ export default function MyComponent(props) {
 
               {/* cells */}
 
-              <Table.Cell textAlign="center" selectable>
+              <Table.Cell className="ttt" textAlign="center" selectable>
                 {renderIcon(data.Furniture)}
               </Table.Cell>
-              <Table.Cell textAlign="center" selectable>
+              <Table.Cell className="ttt" textAlign="center" selectable>
                 {renderIcon(data.Server_Rack)}
               </Table.Cell>
-              <Table.Cell textAlign="center" selectable>
+              <Table.Cell className="ttt" textAlign="center" selectable>
                 {renderIcon(data.Dell_Workstations)}
               </Table.Cell>
-              <Table.Cell textAlign="center" selectable>
+              <Table.Cell className="ttt" textAlign="center" selectable>
                 {renderIcon(data.Dell_Server)}
               </Table.Cell>
-              <Table.Cell textAlign="center" selectable>
+              <Table.Cell className="ttt" textAlign="center" selectable>
                 {renderIcon(data.VSAT)}
               </Table.Cell>
-              <Table.Cell textAlign="center" selectable>
+              <Table.Cell className="ttt" textAlign="center" selectable>
                 {renderIcon(data.VSAT_Studio)}
               </Table.Cell>
-              <Table.Cell textAlign="center" selectable>
+              <Table.Cell className="ttt" textAlign="center" selectable>
                 {renderIcon(data.IOT_Kit_and_Sensors)}
               </Table.Cell>
-              <Table.Cell textAlign="center" selectable>
+              <Table.Cell className="ttt" textAlign="center" selectable>
                 {renderIcon(data.IOTLab_Laptop)}
               </Table.Cell>
-              <Table.Cell textAlign="center" selectable>
+              <Table.Cell className="ttt" textAlign="center" selectable>
                 {renderIcon(data.D3_Printer_EOS)}
               </Table.Cell>
-              <Table.Cell textAlign="center" selectable>
+              <Table.Cell className="ttt" textAlign="center" selectable>
                 {renderIcon(data.D3_Printer_3DS)}
               </Table.Cell>
-              <Table.Cell textAlign="center" selectable>
+              <Table.Cell className="ttt" textAlign="center" selectable>
                 {renderIcon(data.Laser_Cutter)}
               </Table.Cell>
-              <Table.Cell textAlign="center" selectable>
+              <Table.Cell className="ttt" textAlign="center" selectable>
                 {renderIcon(data.Product_Design_DS)}
               </Table.Cell>
-              <Table.Cell textAlign="center" selectable>
+              <Table.Cell className="ttt" textAlign="center" selectable>
                 {renderIcon(data.POD_CARVELCO)}
               </Table.Cell>
-              <Table.Cell textAlign="center" selectable>
+              <Table.Cell className="ttt" textAlign="center" selectable>
                 {renderIcon(data.PVA_ANSYS)}
               </Table.Cell>
-              <Table.Cell textAlign="center" selectable>
+              <Table.Cell className="ttt" textAlign="center" selectable>
                 {renderIcon(data.PVA_FEAST)}
               </Table.Cell>
-              <Table.Cell textAlign="center" selectable>
+              <Table.Cell className="ttt" textAlign="center" selectable>
                 {renderIcon(data.MASTERCAM)}
               </Table.Cell>
-              <Table.Cell textAlign="center" selectable>
+              <Table.Cell className="ttt" textAlign="center" selectable>
                 {renderIcon(data.IGETIT)}
               </Table.Cell>
             </Table.Row>

@@ -37,7 +37,7 @@ export default function MyComponent(props) {
   }
 
   return (
-    <div>
+    <div className="ttop">
           <h2 className="formheader3">TTL Installation status</h2>
 
  
@@ -88,49 +88,49 @@ export default function MyComponent(props) {
 
               {/* cells */}
 
-              <Table.Cell textAlign="center" selectable>
+              <Table.Cell className="ttt" textAlign="center" selectable>
                 {renderIcon(data.Ind_Paint_Booth)}
               </Table.Cell>
-              <Table.Cell textAlign="center" selectable>
+              <Table.Cell className="ttt" textAlign="center" selectable>
                 {renderIcon(data.Car_Lift)}
               </Table.Cell>
-              <Table.Cell textAlign="center" selectable>
+              <Table.Cell className="ttt" textAlign="center" selectable>
                 {renderIcon(data.IPC_AVEVA)}
               </Table.Cell>
-              <Table.Cell textAlign="center" selectable>
+              <Table.Cell className="ttt" textAlign="center" selectable>
                 {renderIcon(data.VR_welding_Painting)}
               </Table.Cell>
-              <Table.Cell textAlign="center" selectable>
+              <Table.Cell className="ttt" textAlign="center" selectable>
                 {renderIcon(data.Auto_MRO_Cut_Sections)}
               </Table.Cell>
-              <Table.Cell textAlign="center" selectable>
+              <Table.Cell className="ttt" textAlign="center" selectable>
                 {renderIcon(data.TIGOR_EV)}
               </Table.Cell>
-              <Table.Cell textAlign="center" selectable>
+              <Table.Cell className="ttt" textAlign="center" selectable>
                 {renderIcon(data.TATA_Ace)}
               </Table.Cell>
-              <Table.Cell textAlign="center" selectable>
+              <Table.Cell className="ttt" textAlign="center" selectable>
                 {renderIcon(data.EV_Kit)}
               </Table.Cell>
-              <Table.Cell textAlign="center" selectable>
+              <Table.Cell className="ttt" textAlign="center" selectable>
                 {renderIcon(data.Industrial_Robotics)}
               </Table.Cell>
-              <Table.Cell textAlign="center" selectable>
+              <Table.Cell className="ttt" textAlign="center" selectable>
                 {renderIcon(data.VFD)}
               </Table.Cell>
-              <Table.Cell textAlign="center" selectable>
+              <Table.Cell className="ttt" textAlign="center" selectable>
                 {renderIcon(data.Plumbing_Kit)}
               </Table.Cell>
-              <Table.Cell textAlign="center" selectable>
+              <Table.Cell className="ttt" textAlign="center" selectable>
                 {renderIcon(data.CNC_Tsugami)}
               </Table.Cell>
-              <Table.Cell textAlign="center" selectable>
+              <Table.Cell className="ttt" textAlign="center" selectable>
                 {renderIcon(data.VMC_HAAS)}
               </Table.Cell>
-              <Table.Cell textAlign="center" selectable>
+              <Table.Cell className="ttt" textAlign="center" selectable>
                 {renderIcon(data.HAAS_Tools_Meters)}
               </Table.Cell>
-              <Table.Cell textAlign="center" selectable>
+              <Table.Cell className="ttt" textAlign="center" selectable>
                 {renderIcon(data.HAAS_Simulators)}
               </Table.Cell>
             </Table.Row>
