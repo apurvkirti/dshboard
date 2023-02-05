@@ -45,7 +45,7 @@ const AddNotice = () => {
   useEffect(() => {
     const token = localStorage.getItem('jwt');
     if (!token) {
-      navigate('/login');
+      navigate('/');
     }
   }, [navigate]);
   return (

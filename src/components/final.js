@@ -52,7 +52,7 @@ export default function Final() {
 
   const handleLogout = () => {
     localStorage.removeItem('jwt');
-    navigate('/login');
+    navigate('/');
   };
   //eslint-disable-next-line
   const [selectedOption, setSelectedOption] = useState(null);
@@ -203,7 +203,7 @@ export default function Final() {
   useEffect(() => {
     const token = localStorage.getItem('jwt');
     if (!token) {
-      navigate('/login');
+      navigate('/');
     }
   }, [navigate]);
 
