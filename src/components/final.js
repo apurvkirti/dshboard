@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 import React, { useState, useRef, useEffect } from "react";
 import NotesList from "./getnotice";
 import { AiFillEdit, AiFillFilePdf } from "react-icons/ai";
-
+import html2canvas from "html2canvas";
 import { Button, Col, Dropdown, DropdownButton, Row } from "react-bootstrap";
 
 import CivilTech from "./civil/getCivilTech";
@@ -207,6 +207,24 @@ export default function Final() {
     }
   }, [navigate]);
 
+  //screenshot:
+  
+  const targetRef = useRef(null);
+  // eslint-disable-next-line
+  const [screenshot, setScreenshot] = useState(null);
+
+  const handlescreenClick = () => {
+    html2canvas(targetRef.current).then(canvas => {
+      const dataURL = canvas.toDataURL();
+      setScreenshot(dataURL);
+      const link = document.createElement("a");
+      link.download = "screenshot.png";
+      link.href = dataURL;
+      link.click();
+    });
+  };
+    
+
   return (
     <>
       {/* <div id="navbar" style={{ display: showNavbar ? "block" : "none" }}>
@@ -214,16 +232,21 @@ export default function Final() {
         <button>Button 2</button>
         <button>Button 8</button>
       </div> */}
-      <Container className="cont">
+      <Container className="cont" ref={targetRef}>
         <Row>
           <Col className="topbox">
             <div className="col1">TATA BIHAR ITI UPGRADATION PROJECT</div>
             <div className="col2">
               <div className="date">{formatDate(date)}</div>
               <div>
-                <Button className="fbutton">
-                  Download PDF <AiFillFilePdf />
+                <Button className="fbutton" onClick={handlescreenClick}>
+                  Download PDF <AiFillFilePdf  />
                 </Button>
+                 {/* {screenshot && (
+        <a download="screenshot.png" href={screenshot}>
+          <img src={screenshot} alt="Screenshot" />
+        </a>
+      )} */}
                
               </div>
             </div>

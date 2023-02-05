@@ -1,6 +1,10 @@
 import Login from "./Login";
 import Dashboard from "./components/final";
 import Notice from "./components/notice";
+//adding for download button:
+
+import Ss from "./components/screenshot";
+
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
@@ -19,6 +23,7 @@ function App() {
           <Route path="/notice" element={<Notice/>}/>
           <Route path="/dashboard" element={<Dashboard/>} />
           <Route path="/login" element={<Login/>} />
+          <Route path="/ss" element={<Ss/>} />
         </Routes>
       </div>
     </Router>

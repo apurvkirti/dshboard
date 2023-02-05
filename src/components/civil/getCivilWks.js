@@ -5,13 +5,14 @@ const fId = 1002; //1 for civil 2 for workshop
 
 
 export default function MyComponent(props) {
+  const jwt = localStorage.getItem("jwt");
   let ClustName = (props.clust)?props.clust:"PATNA";
   const [data, setData] = useState([]);
   useEffect(() => {
     const apiUrl = `http://localhost:3000/api/getCluster/?form_Id=${fId}&cluster=${ClustName}`;
     const headers = {
       Authorization:
-        "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEwMSwidXNlcm5hbWUiOiJ1c2VyMSIsImlhdCI6MTY3NDczNDM5Mn0.QOlymyyu-XPFTdryPa6EeLAKlk-WYSGYgz8XAn8iQQs",
+        `Bearer ${jwt}`,
     };
     axios
       .get(apiUrl, { headers })
@@ -21,7 +22,7 @@ export default function MyComponent(props) {
       .catch((error) => {
         console.log(error);
       });
-  }, [ClustName]);
+  }, [ClustName,jwt]);
 
   // rendering Icon
   function renderIcon(val) {

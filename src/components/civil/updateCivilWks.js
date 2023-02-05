@@ -13,8 +13,6 @@ import "react-notifications/lib/notifications.css";
 
 const form_Id = 1002; //1 for civil 2 for workshop
 
-
-
 export default function UpdateForm(props) {
   const jwt = localStorage.getItem("jwt");
   let ClustName = (props.clust)?props.clust:"PATNA";
