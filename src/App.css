@@ -78,11 +78,11 @@
 
 .carousel-control-next-icon{
   margin-left:auto !important;
-  background-image: url(./components/right.png) !important;
+  background-image: url(./components/images/right.png) !important;
 }
 .carousel-control-prev-icon{
   margin-right:auto !important;
-  background-image: url(./components/left.png) !important;
+  background-image: url(./components/images/left.png) !important;
 }
 .carousel-control-prev {
   width: 30px !important;
@@ -180,7 +180,7 @@
   color:white;
   font-size: 20px;
   box-shadow: -2px 2px 10px rgb(168, 164, 164);
-  background-image: url("./bihar.png");
+  background-image: url("./components/images/bihar.png");
   background-size:cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -505,7 +505,7 @@
   color:#1e4452
 }
 .imagecont{
-  background-image: url(./loginImg.png);
+  background-image: url(./components/images/loginImg.png);
   /* margin-left: -630px; */
   margin-bottom: -40px;
    width:800px;
