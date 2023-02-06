@@ -19,23 +19,25 @@ function NotesList() {
     return ` ${finalday[1].trim()} ${finalday[0].trim()}, ${dateParts[1].trim()}`;
   }
 
- 
-
   function convert24to12(time) {
-  
     var fulltime = time.split(":");
     var hr = parseInt(fulltime[0].trim());
     var min = parseInt(fulltime[1].trim());
-    
-    var ampm = (hr >= 12) ? "PM" : "AM";
+
+    var ampm = hr >= 12 ? "PM" : "AM";
     hr = hr % 12;
     hr = hr ? hr : 12; // the hour '0' should be '12'
     return `${hr}:${min} ${ampm}`;
   }
-
+  const jwt = localStorage.getItem("jwt");
   useEffect(() => {
     axios
-      .get("http://localhost:3000/note/allNotes")
+      .get("/note/allNotes", {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${jwt}`,
+        },
+      })
       .then((response) => {
         setNotes(response.data.notes);
       })
@@ -50,13 +52,12 @@ function NotesList() {
       style={{ width: "235px", height: "148px", overflow: "auto" }}
     >
       {notes.map((note) => (
-        <div key={note._id}>{note.title}
+        <div key={note._id}>
+          {note.title}
           <div className="notec">
             {/* eslint-disable-next-line */}
             <marquee width="100%" direction="left" scrollamount="3">
-             <div className="intext">
-               {note.content}
-              </div>
+              <div className="intext">{note.content}</div>
             </marquee>
             <div className="des">
               -{note.designation}, ({formatDate(note.createdAt)},{" "}

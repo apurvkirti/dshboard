@@ -20,7 +20,7 @@ const AddNotice = () => {
     try {
       // eslint-disable-next-line
       const response = await axios.post(
-        "http://localhost:3000/note/addNote",
+        "/note/addNote",
         {
           title,
           content,

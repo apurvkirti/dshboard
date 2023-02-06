@@ -6,7 +6,7 @@ const LastChanges = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const result = await axios.get("http://localhost:3000/api/lastChanges");
+      const result = await axios.get("/api/lastChanges");
       setData(result.data.tmp_changes);
     };
     fetchData();
