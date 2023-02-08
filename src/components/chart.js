@@ -7,6 +7,8 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Table from 'react-bootstrap/Table';
+import Button from 'react-bootstrap/Button';
+import { useNavigate } from 'react-router-dom';
 import "../App.css";
 
 
@@ -24,6 +26,7 @@ let insWorkshopCompleted =0;
 
 
 export default function Chart() {
+  let navigate = useNavigate();
   const jwt = localStorage.getItem("jwt");
   const [data1, setData1] = useState([]);
   const [data2, setData2] = useState([]);
@@ -71,14 +74,25 @@ export default function Chart() {
    
   ];
 
+  const handleUpload = () => {
+    navigate('/upd');
+  };
+
   return (
     <>
     <Container fluid>
       <Row>
         <Col className="first">
-        <div> <p>Phase 1</p>(60 ITI's) Project overview</div>
+        <Row className="namer"> <p>Phase 1</p>(60 ITI's) Project overview</Row>
+        <Row className="updimg">
+     
+          <Button className="uploadimage" onClick={handleUpload}>uplaod image</Button>
+    
+        </Row>
         </Col>
+        
         <Col>
+        
         <div className="secondcontainer">
           <div className="firstsec">Execution Activity</div>
           <div className="secsec">Overall BSBCCL Civil Readiness %</div>

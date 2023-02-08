@@ -181,25 +181,6 @@ export default function Final() {
     }
   }
 
-  // const [showNavbar, setShowNavbar] = useState(false);
-
-  // useEffect(() => {
-  //   const handleScroll = () => {
-  //     if (window.scrollY > 500) {
-  //       setShowNavbar(true);
-  //     } else {
-  //       setShowNavbar(false);
-  //     }
-  //   };
-
-  //   window.addEventListener("scroll", handleScroll);
-
-  //   return () => {
-  //     window.removeEventListener("scroll", handleScroll);
-  //   };
-  // }, []);
-
-  // const navigate = useNavigate();
 
   useEffect(() => {
     const token = localStorage.getItem('jwt');
@@ -230,11 +211,7 @@ export default function Final() {
 
   return (
     <>
-      {/* <div id="navbar" style={{ display: showNavbar ? "block" : "none" }}>
-        <button>Button 1</button>
-        <button>Button 2</button>
-        <button>Button 8</button>
-      </div> */}
+    
       
       <Container fluid className="cont" ref={targetRef}>
         <Row className="abcd">

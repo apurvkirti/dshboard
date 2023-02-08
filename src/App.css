@@ -174,7 +174,7 @@
 .first{
   background-color: #686c8b;
   text-align: center ;
-  display: flex;
+
   align-items: center;
   color:white;
   font-size: 20px;
@@ -183,7 +183,20 @@
   background-size:cover;
   background-repeat: no-repeat;
   background-position: center;
-  height:185px;
+  height:150px;
+}
+.namer{
+   margin-top:40px !important;
+}
+.updimg{
+  margin-top: 52px !important;
+}
+.uploadimage{
+  border-radius: 0 !important;
+  box-shadow: 2px 2px 10px rgb(168, 164, 164);
+}
+.link{
+  width:100px !important;
 }
 .secondcontainer{
   text-align: center;

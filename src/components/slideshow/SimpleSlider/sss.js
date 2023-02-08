@@ -6,14 +6,22 @@ import MovieCard from "../MovieCard/index";
 import axios from 'axios';
 
 export default function SimpleSlider  ({ initialSlide = 0 }) {
+  const jwt = localStorage.getItem("jwt");
   const [images, setImages] = useState([]);
 
   useEffect(() => {
     axios
-    .get("http://localhost:3000/cloudImg/allImages")
+    .get("http://localhost:3000/cloudImg/allImages",
+    {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization:
+          `Bearer ${jwt}`,
+      },
+    })
     .then(res => setImages(res.data))
     .catch(err => console.error(err));
-  }, []);
+  }, [jwt]);
 
   const [hasSetPosition, setHasSetPosition] = useState(false);
   const slider = useRef();
