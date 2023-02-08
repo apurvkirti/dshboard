@@ -34,7 +34,7 @@ function ImageUploader() {
     formData.append("caption", caption);
     formData.append("siteName", siteName);
 
-    fetch("http://localhost:3000/cloudImg/upload", {
+    // fetch("http://localhost:3000/cloudImg/upload", {
       method: "POST",
       body: formData,
     },

@@ -37,7 +37,7 @@ function NotesList() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3000/note/allNotes",
+      // .get("http://localhost:3000/note/allNotes",
       {
         headers: {
           "Content-Type": "application/json",

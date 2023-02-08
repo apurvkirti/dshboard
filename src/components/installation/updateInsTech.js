@@ -40,7 +40,7 @@ export default function UpdateForminsttech(props) {
     };
     axios
       .get(
-        `http://localhost:3000/api/getCluster/?form_Id=${form_Id}&cluster=${ClustName}`,
+        // `http://localhost:3000/api/getCluster/?form_Id=${form_Id}&cluster=${ClustName}`,
         { headers }
       )
       .then((response) => {
@@ -126,7 +126,7 @@ export default function UpdateForminsttech(props) {
     };
     axios
       .patch(
-        `http://localhost:3000/api/update_tmp/?id=${customId}&form_Id=${form_Id}`,
+        // `http://localhost:3000/api/update_tmp/?id=${customId}&form_Id=${form_Id}`,
         {
           [val]: value,
         },

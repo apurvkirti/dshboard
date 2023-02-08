@@ -9,7 +9,7 @@ export default function Clus(props) {
   let form_Id = (props.fid)?props.fid:1001;
   const [data, setData] = useState({});
   useEffect(() => {
-    const apiUrl = `http://localhost:3000/api/dataDashboard/?form_Id=${form_Id}`;
+    // const apiUrl = `http://localhost:3000/api/dataDashboard/?form_Id=${form_Id}`;
     const headers = {
       Authorization: `Bearer ${jwt}`,
     };
