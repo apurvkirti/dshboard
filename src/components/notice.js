@@ -12,6 +12,7 @@ const AddNotice = () => {
   const [content, setContent] = useState("");
   const [designation, setDesignation] = useState("");
   const jwt = localStorage.getItem("jwt");
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!title || !content || !designation) {
@@ -42,6 +43,8 @@ const AddNotice = () => {
       console.error(error);
     }
   };
+
+  
   useEffect(() => {
     const token = localStorage.getItem('jwt');
     if (!token) {

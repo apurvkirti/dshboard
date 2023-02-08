@@ -45,24 +45,24 @@ export default function Clus(props) {
     <div className="boxes-container">
       <BarChart className="bcc" width={220} height={150} data={dataa}>
         <XAxis dataKey="name" />
-        <YAxis type="number" domain={[0, 70]} />
+        <YAxis type="number" domain={[0, 80]} />
         <Tooltip />
         
         <Bar
           isAnimationActive={false}
           dataKey="Total"
           stackId="a"
-          fill="#f8cbad"
+          fill="#4472c4"
         >
           <LabelList className="labellist" dataKey="Total" position="top" />
         </Bar>
-        <Bar isAnimationActive={false} dataKey="WIP" stackId="a" fill="#ffc000">
+        <Bar isAnimationActive={false} dataKey="WIP" stackId="a" fill="#ffd966">
           <LabelList dataKey="WIP" position="top" />
         </Bar>
-        <Bar isAnimationActive={false} dataKey="CPL" stackId="a" fill="#009900">
+        <Bar isAnimationActive={false} dataKey="CPL" stackId="a" fill="#70ad47">
           <LabelList dataKey="CPL" position="top" />
         </Bar>
-        <Bar isAnimationActive={false} dataKey="YTS" stackId="a" fill="#1E90FF">
+        <Bar isAnimationActive={false} dataKey="YTS" stackId="a" fill="#ff0000">
           <LabelList dataKey="YTS" position="top" />
         </Bar>
        

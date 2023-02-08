@@ -2,7 +2,7 @@ import Table from 'react-bootstrap/Table';
 import "../App.css";
 export default function ChildComponent(props){
 
-    const arr = ["","KATIHAR", "MOTIHARI", "MUZAFFARPUR", "MUNGER", "NALANDA", "PATNA", "ROHTAS", "SUPAUL"];
+    const arr = ["...","KATIHAR", "MOTIHARI", "MUZAFFARPUR", "MUNGER", "NALANDA", "PATNA", "ROHTAS", "SUPAUL"];
 
     return (
         <>
@@ -11,8 +11,8 @@ export default function ChildComponent(props){
         <Table striped bordered hover className='childtable'>
         <thead>
           <tr>
-            <th>TECH</th>
-            <th>WKS</th>
+            <th className='techcolor'>TECH</th>
+            <th className='wkscolor'>WKS</th>
           </tr>
         </thead>
         <tbody>

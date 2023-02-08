@@ -132,7 +132,11 @@ export default function UpdateForm(props) {
 
   return (
     <div className="ttop">
+      <div>
       <h2 className="formheader1">TTL Delivery Status</h2>
+      <div className="legend">Yet to start: <Icon color= "grey" name="check circle" size="large" />  Work in progress: <Icon color="yellow" name="check circle" size="large" />  Completed: <Icon color="green" name="check circle" size="large" /></div>
+
+      </div>
       <Table className="td" celled structured collapsing>
         <Table.Header>
           <Table.Row>

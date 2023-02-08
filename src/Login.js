@@ -26,7 +26,7 @@ const Login = () => {
 
   return (
     <div className="logincontainer">
-      <h1 className="head_er">TATA EDUCATION SERVICES AND INITIATIVES</h1>
+      <h1 className="head_er">TATA EDUCATION AND SKILL DEVELOPMENT</h1>
       <div className="imagecont"></div>
       <div className="formcont">
         <form onSubmit={handleSubmit}>

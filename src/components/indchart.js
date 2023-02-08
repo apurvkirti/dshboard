@@ -2,11 +2,9 @@ import ChildComponent from "./child";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import Container from "react-bootstrap/Container";
-import Table from 'react-bootstrap/Table';
+import Table from "react-bootstrap/Table";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-
-
 
 export default function Chart() {
   const jwt = localStorage.getItem("jwt");
@@ -109,53 +107,83 @@ export default function Chart() {
   return (
     <div>
       <Container>
-        
         <Row>
-       
-          <Col className="colls"> <div className='topcont'>
-        <Table striped bordered hover className='childtable'>
-        <thead>
-          <tr>
-            <th className="tb">Cluster Wise Status <div className="inner">(total 8 cluster)</div></th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            
-            <td>Civil %</td>
+          <Col className="colls">
            
-           
-          </tr>
-          <tr>
-            
-            <td>Delivery %</td>
-       
-       
-          </tr>
-          <tr>
-            <td>Installation %</td>
-      
-          </tr>
-        </tbody>
-      </Table>
-      </div></Col>
-          <Col className="colls"><ChildComponent data = {threeDMap} cnum = {(threeDMap.length===16)?8:0}/></Col>
-          <Col className="colls"><ChildComponent data = {threeDMap} cnum = {(threeDMap.length===16)?9:0}/></Col>
-          <Col className="colls"><ChildComponent data = {threeDMap} cnum = {(threeDMap.length===16)?10:0}/></Col>
-          <Col className="colls"><ChildComponent data = {threeDMap} cnum = {(threeDMap.length===16)?11:0}/></Col>
-          <Col className="colls"><ChildComponent data = {threeDMap} cnum = {(threeDMap.length===16)?12:0}/></Col>
-          <Col className="colls"><ChildComponent data = {threeDMap} cnum = {(threeDMap.length===16)?13:0}/></Col>
-          <Col className="colls"><ChildComponent data = {threeDMap} cnum = {(threeDMap.length===16)?14:0}/></Col>
-          <Col className="colls"><ChildComponent data = {threeDMap} cnum = {(threeDMap.length===16)?15:0}/></Col>
+            <div className="topcont">
+              <Table striped bordered hover className="childtable">
+                <thead>
+                  <tr>
+                    <th className="tb">
+                      Cluster Wise Status
+                      <div className="inner">(total 8 cluster)</div>
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Civil %</td>
+                  </tr>
+                  <tr>
+                    <td>Delivery %</td>
+                  </tr>
+                  <tr>
+                    <td>Installation %</td>
+                  </tr>
+                </tbody>
+              </Table>
+            </div>
+          </Col>
+          <Col className="colls">
+            <ChildComponent
+              data={threeDMap}
+              cnum={threeDMap.length === 16 ? 8 : 0}
+            />
+          </Col>
+          <Col className="colls">
+            <ChildComponent
+              data={threeDMap}
+              cnum={threeDMap.length === 16 ? 9 : 0}
+            />
+          </Col>
+          <Col className="colls">
+            <ChildComponent
+              data={threeDMap}
+              cnum={threeDMap.length === 16 ? 10 : 0}
+            />
+          </Col>
+          <Col className="colls">
+            <ChildComponent
+              data={threeDMap}
+              cnum={threeDMap.length === 16 ? 11 : 0}
+            />
+          </Col>
+          <Col className="colls">
+            <ChildComponent
+              data={threeDMap}
+              cnum={threeDMap.length === 16 ? 12 : 0}
+            />
+          </Col>
+          <Col className="colls">
+            <ChildComponent
+              data={threeDMap}
+              cnum={threeDMap.length === 16 ? 13 : 0}
+            />
+          </Col>
+          <Col className="colls">
+            <ChildComponent
+              data={threeDMap}
+              cnum={threeDMap.length === 16 ? 14 : 0}
+            />
+          </Col>
+          <Col className="colls">
+            <ChildComponent
+              data={threeDMap}
+              cnum={threeDMap.length === 16 ? 15 : 0}
+            />
+          </Col>
         </Row>
-      
       </Container>
-
-  
-    
-    
-    
-    
     </div>
   );
 }

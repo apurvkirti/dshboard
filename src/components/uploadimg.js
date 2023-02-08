@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 function ImageUploader() {
   let navigate = useNavigate();
-  
+  const jwt = localStorage.getItem("jwt");
   useEffect(() => {
     const token = localStorage.getItem("jwt");
     if (!token) {
@@ -37,7 +37,15 @@ function ImageUploader() {
     fetch("http://localhost:3000/cloudImg/upload", {
       method: "POST",
       body: formData,
-    }).then((response) => response.json());
+    },
+    {
+           headers: {
+          "Content-Type": "application/json",
+          Authorization:
+            `Bearer ${jwt}`,
+        },
+      }
+    ).then((response) => response.json());
     navigate("/dashboard");
   };
 

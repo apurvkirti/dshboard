@@ -211,25 +211,23 @@ export default function Final() {
 
   return (
     <>
-    
-      
       <Container fluid className="cont" ref={targetRef}>
         <Row className="abcd">
           <Col className="topbox">
-            <div className="col1">TATA EDUCATION AND SKILL DEVELOPMENT</div>
+            <div className="leftlogo"></div>
+            <div className="col1">
+            TATA EDUCATION AND SKILL DEVELOPMENT</div>
+            <div className="rightlogo"></div>
             <div className="col2">
               <div className="date">{formatDate(date)}</div>
               <div>
                 <Button className="fbutton" onClick={handlescreenClick}>
                   Download PDF <AiFillFilePdf  />
                 </Button>
-               
-               
               </div>
             </div>
             <div>
             <Button className="buttonlogout" onClick={handleLogout}>Logout <FiLogOut/></Button>
-          
             </div>
           </Col>
         </Row>

@@ -39,7 +39,11 @@ export default function MyComponent(props) {
 
   return (
     <div className="ttop ">
+      <div>
           <h2 className="formheader3">TTL Installation status</h2>
+          <div className="legend">Yet to start: <Icon color= "grey" name="check circle" size="large" />  Work in progress: <Icon color="yellow" name="check circle" size="large" />  Completed: <Icon color="green" name="check circle" size="large" /></div>
+
+      </div>
 
  
     <Table className="ti" celled structured collapsing color="orange" striped>
