@@ -24,6 +24,7 @@ import InsTech from "./installation/getInsTech";
 import UpdateInsTech from "./installation/updateInsTech";
 import UpdateInsWks from "./installation/updateInsWks";
 import InsWks from "./installation/getInsWks";
+import Img from "./imgs";
 
 import Clus from "./clusterChart";
 import { FiLogOut } from 'react-icons/fi';
@@ -225,6 +226,8 @@ export default function Final() {
   };
     
 
+  
+
   return (
     <>
       {/* <div id="navbar" style={{ display: showNavbar ? "block" : "none" }}>
@@ -232,21 +235,18 @@ export default function Final() {
         <button>Button 2</button>
         <button>Button 8</button>
       </div> */}
-      <Container className="cont" ref={targetRef}>
-        <Row>
+      
+      <Container fluid className="cont" ref={targetRef}>
+        <Row className="abcd">
           <Col className="topbox">
-            <div className="col1">TATA BIHAR ITI UPGRADATION PROJECT</div>
+            <div className="col1">TATA EDUCATION AND SKILL DEVELOPMENT</div>
             <div className="col2">
               <div className="date">{formatDate(date)}</div>
               <div>
                 <Button className="fbutton" onClick={handlescreenClick}>
                   Download PDF <AiFillFilePdf  />
                 </Button>
-                 {/* {screenshot && (
-        <a download="screenshot.png" href={screenshot}>
-          <img src={screenshot} alt="Screenshot" />
-        </a>
-      )} */}
+               
                
               </div>
             </div>
@@ -274,16 +274,17 @@ export default function Final() {
               <NotesList />
             </div>
           </Col>
+          
           {/* <Col xs={2}></Col> */}
           <Col>
             <IndChart />
           </Col>
         </Row>
         <Row>
-          <Col className="ims">images</Col>
+          <Col className="ims"><Img/></Col>
         </Row>
-        <Row>
-          <Col>
+         <Row className="buttonsallrow">
+          <Col className="colclust">
             <DropdownButton
               className="fixer"
               id="dropdown-basic-button"
@@ -315,7 +316,7 @@ export default function Final() {
               </Dropdown.Item>
             </DropdownButton>
           </Col>
-          <Col>
+          <Col className="colclust">
             <DropdownButton
               className="fixer"
               id="dropdown-basic-button"
@@ -347,9 +348,10 @@ export default function Final() {
               </Dropdown.Item>
             </DropdownButton>
           </Col>
-          <Col>
+          <Col className="colclust">
             <DropdownButton
-              className="fixer"
+              className="muzz"
+             
               id="dropdown-basic-button"
               title="MUZAFFARPUR"
             >
@@ -379,7 +381,7 @@ export default function Final() {
               </Dropdown.Item>
             </DropdownButton>
           </Col>
-          <Col>
+          <Col className="colclust">
             <DropdownButton
               className="fixer"
               id="dropdown-basic-button"
@@ -411,7 +413,7 @@ export default function Final() {
               </Dropdown.Item>
             </DropdownButton>
           </Col>
-          <Col>
+          <Col className="colclust">
             <DropdownButton
               className="fixer"
               id="dropdown-basic-button"
@@ -443,7 +445,7 @@ export default function Final() {
               </Dropdown.Item>
             </DropdownButton>
           </Col>
-          <Col>
+          <Col className="colclust">
             <DropdownButton
               className="fixer"
               id="dropdown-basic-button"
@@ -475,7 +477,7 @@ export default function Final() {
               </Dropdown.Item>
             </DropdownButton>
           </Col>
-          <Col>
+          <Col className="colclust">
             <DropdownButton
               className="fixer"
               id="dropdown-basic-button"
@@ -540,32 +542,34 @@ export default function Final() {
             </DropdownButton>
           </Col>
         </Row>
+     
+        
         <Row className="wolf">
-          <div className="bcc">
+          <Col className="bcc">
             <Clus fid={1001} />
-          </div>
-          <div className="bcc">
+          </Col>
+          <Col className="bcc">
             <Clus fid={1002} />
-          </div>
-          <div className="bcc">
+          </Col>
+          <Col className="bcc">
             <Clus fid={2001} />
-          </div>
-          <div className="bcc">
+          </Col>
+          <Col className="bcc">
             <Clus fid={2002} />
-          </div>
-          <div className="bcc">
+          </Col>
+          <Col className="bcc">
             <Clus fid={3001} />
-          </div>
-          <div className="bcc">
+          </Col>
+          <Col className="bcc">
             <Clus fid={3002} />
-          </div>
+          </Col>
         </Row>
 
         <Row className="downf" ref={civilRef}>
           <Carousel slide={false}
             activeIndex={index}
             onSelect={handleSelect}
-            interval={120000}
+            interval={1000000000}
             indicators={false}
           >
             <Carousel.Item>
@@ -580,7 +584,7 @@ export default function Final() {
           <Carousel slide={false}
             activeIndex={index}
             onSelect={handleSelect}
-            interval={120000}
+            interval={1000000000}
             indicators={false}
           >
             <Carousel.Item>
@@ -595,7 +599,7 @@ export default function Final() {
           <Carousel slide={false}
             activeIndex={index}
             onSelect={handleSelect}
-            interval={120000}
+            interval={1000000000}
             indicators={false}
           >
             <Carousel.Item>

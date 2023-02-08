@@ -3,6 +3,7 @@ import axios from "axios";
 
 function NotesList() {
   const [notes, setNotes] = useState([]);
+  const jwt = localStorage.getItem("jwt");
 
   function formatDate(dateString) {
     const date = new Date(dateString);
@@ -30,19 +31,30 @@ function NotesList() {
     var ampm = (hr >= 12) ? "PM" : "AM";
     hr = hr % 12;
     hr = hr ? hr : 12; // the hour '0' should be '12'
-    return `${hr}:${min} ${ampm}`;
+
+    return `${hr }:${min } ${ampm}`;
   }
 
   useEffect(() => {
     axios
-      .get("http://localhost:3000/note/allNotes")
+      .get("http://localhost:3000/note/allNotes",
+      {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization:
+            `Bearer ${jwt}`,
+        },
+      }
+      )
       .then((response) => {
         setNotes(response.data.notes);
-      })
+      },
+      
+      )
       .catch((error) => {
         console.error(error);
       });
-  }, []);
+  }, [jwt]);
 
   return (
     <div

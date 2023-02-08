@@ -73,10 +73,10 @@ export default function Chart() {
 
   return (
     <>
-    <Container>
+    <Container fluid>
       <Row>
         <Col className="first">
-        <div >Phase 1 (60 ITI's) Project overview</div>
+        <div> <p>Phase 1</p>(60 ITI's) Project overview</div>
         </Col>
         <Col>
         <div className="secondcontainer">
@@ -124,7 +124,7 @@ export default function Chart() {
       <XAxis type="number" domain={[0, 100]} />
       
       <Tooltip />
-      <Bar isAnimationActive={false} dataKey="techlab" fill="#221f1e">
+      <Bar isAnimationActive={false} dataKey="techlab" fill="#350FA2">
         <LabelList dataKey="techlab" position="right" />
       </Bar> 
       <Bar isAnimationActive={false} dataKey="workshop" fill="#776e6a">

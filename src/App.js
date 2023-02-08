@@ -1,8 +1,7 @@
 import Login from "./Login";
 import Dashboard from "./components/final";
 import Notice from "./components/notice";
-
-
+import Img from "./components/imgs";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
@@ -21,7 +20,7 @@ function App() {
           <Route path="/notice" element={<Notice/>}/>
           <Route path="/dashboard" element={<Dashboard/>} />
           <Route path="/" element={<Login/>} />
-         
+          <Route path="/img" element={<Img/>} />
         </Routes>
       </div>
     </Router>
