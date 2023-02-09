@@ -21,22 +21,23 @@ export default function UpdateForm(props) {
   ];
 
   const [APIData, setAPIData] = useState([]);
-
+  const apiUrl =
+    process.env.NODE_ENV === "production"
+      ? process.env.REACT_APP_API_URL_PROD
+      : process.env.REACT_APP_API_URL_DEV;
   useEffect(() => {
-   
     const headers = {
-      Authorization:
-        `Bearer ${jwt}`,
+      Authorization: `Bearer ${jwt}`,
     };
     axios
       .get(
-        // `http://localhost:3000/api/getCluster/?form_Id=${form_Id}&cluster=${ClustName}`,
+        `${apiUrl}/college/getCluster/?form_Id=${form_Id}&cluster=${ClustName}`,
         { headers }
       )
       .then((response) => {
         setAPIData(response.data);
       });
-  }, [ClustName,jwt]);
+  }, [ClustName, jwt, apiUrl]);
   const setData = (data) => {
     let {
       customId,
@@ -110,12 +111,15 @@ export default function UpdateForm(props) {
     );
     const headers = {
       "Content-Type": "application/json",
-      Authorization:
-        `Bearer ${jwt}`,
+      Authorization: `Bearer ${jwt}`,
     };
+    const apiUrl =
+      process.env.NODE_ENV === "production"
+        ? process.env.REACT_APP_API_URL_PROD
+        : process.env.REACT_APP_API_URL_DEV;
     axios
       .patch(
-        // `http://localhost:3000/api/update_tmp/?id=${customId}&form_Id=${form_Id}`,
+        `${apiUrl}/college/update_tmp/?id=${customId}&form_Id=${form_Id}`,
         {
           [val]: value,
         },
@@ -129,14 +133,16 @@ export default function UpdateForm(props) {
       });
   }
 
-
   return (
     <div className="ttop">
       <div>
-
-      <h2 className="formheader">BSBCCL CIVIL STATUS</h2>
-      <div className="legend">Yet to start: <Icon color= "grey" name="check circle" size="large" />  Work in progress: <Icon color="yellow" name="check circle" size="large" />  Completed: <Icon color="green" name="check circle" size="large" /></div>
-
+        <h2 className="formheader">BSBCCL CIVIL STATUS</h2>
+        <div className="legend">
+          Yet to start: <Icon color="grey" name="check circle" size="large" />{" "}
+          Work in progress:{" "}
+          <Icon color="yellow" name="check circle" size="large" /> Completed:{" "}
+          <Icon color="green" name="check circle" size="large" />
+        </div>
       </div>
       <Table className="tc" celled structured collapsing>
         <Table.Header color="orange">
@@ -193,59 +199,52 @@ export default function UpdateForm(props) {
 
                 <Table.Cell className="ttt" textAlign="center" selectable>
                   <Dropdown
-                    text=' '
+                    text=" "
                     options={options}
                     value={data.Basic_Infra}
                     onChange={(e, { value }) => {
-                      if (
-                        window.confirm(
-                          "Are you sure you want to Update?"
-                        )
-                      ) {
-                      handleChange(data.customId, value, "Basic_Infra");
-                      switch (value) {
-                        case -1:
-                          NotificationManager.info(
-                            `Updated ${data.ITI_Name}'s Basic Infra to Not yet started`,
-                            "",
-                            6000,
-                            {}
-                          );
-                          break;
-                        case 0:
-                          NotificationManager.warning(
-                            `Updated ${data.ITI_Name}'s Basic Infra to work in Progress`,
-                            "",
-                            6000,
-                            {}
-                          );
-                          break;
-                        case 1:
-                          NotificationManager.success(
-                            `${data.ITI_Name}'s Basic Infra marked Completed`,
-                            "",
-                            6000,
-                            {}
-                          );
-                          break;
-                        default:
-                          break;
+                      if (window.confirm("Are you sure you want to Update?")) {
+                        handleChange(data.customId, value, "Basic_Infra");
+                        switch (value) {
+                          case -1:
+                            NotificationManager.info(
+                              `Updated ${data.ITI_Name}'s Basic Infra to Not yet started`,
+                              "",
+                              6000,
+                              {}
+                            );
+                            break;
+                          case 0:
+                            NotificationManager.warning(
+                              `Updated ${data.ITI_Name}'s Basic Infra to work in Progress`,
+                              "",
+                              6000,
+                              {}
+                            );
+                            break;
+                          case 1:
+                            NotificationManager.success(
+                              `${data.ITI_Name}'s Basic Infra marked Completed`,
+                              "",
+                              6000,
+                              {}
+                            );
+                            break;
+                          default:
+                            break;
+                        }
                       }
-                    }
                     }}
                   />
                   {renderIcon(data.Basic_Infra)}
                 </Table.Cell>
                 <Table.Cell className="ttt" textAlign="center" selectable>
-                  <Dropdown text=' '
+                  <Dropdown
+                    text=" "
                     options={options}
                     value={data.Flooring}
                     onChange={(e, { value }) => {
-                      if (
-                        window.confirm(
-                          "Are you sure you want to Update?"
-                        )
-                      ) {
+                      if (window.confirm("Are you sure you want to Update?")) {
                         handleChange(data.customId, value, "Flooring");
                         switch (value) {
                           case -1:
@@ -282,591 +281,542 @@ export default function UpdateForm(props) {
                 </Table.Cell>
 
                 <Table.Cell className="ttt" textAlign="center" selectable>
-                <Dropdown
-                    text=' '
+                  <Dropdown
+                    text=" "
                     options={options}
                     value={data.False_Ceiling}
                     onChange={(e, { value }) => {
-                      if (
-                        window.confirm(
-                          "Are you sure you want to Update?"
-                        )
-                      ) {
-                      handleChange(data.customId, value, "False_Ceiling");
-                      switch (value) {
-                        case -1:
-                          NotificationManager.info(
-                            `Updated ${data.ITI_Name}'s False Ceiling to Not yet started`,
-                            "",
-                            6000,
-                            {}
-                          );
-                          break;
-                        case 0:
-                          NotificationManager.warning(
-                            `Updated ${data.ITI_Name}'s False Ceiling to work in Progress`,
-                            "",
-                            6000,
-                            {}
-                          );
-                          break;
-                        case 1:
-                          NotificationManager.success(
-                            `${data.ITI_Name}'s False Ceiling marked Completed`,
-                            "",
-                            6000,
-                            {}
-                          );
-                          break;
-                        default:
-                          break;
+                      if (window.confirm("Are you sure you want to Update?")) {
+                        handleChange(data.customId, value, "False_Ceiling");
+                        switch (value) {
+                          case -1:
+                            NotificationManager.info(
+                              `Updated ${data.ITI_Name}'s False Ceiling to Not yet started`,
+                              "",
+                              6000,
+                              {}
+                            );
+                            break;
+                          case 0:
+                            NotificationManager.warning(
+                              `Updated ${data.ITI_Name}'s False Ceiling to work in Progress`,
+                              "",
+                              6000,
+                              {}
+                            );
+                            break;
+                          case 1:
+                            NotificationManager.success(
+                              `${data.ITI_Name}'s False Ceiling marked Completed`,
+                              "",
+                              6000,
+                              {}
+                            );
+                            break;
+                          default:
+                            break;
+                        }
                       }
-                    }
                     }}
                   />
                   {renderIcon(data.False_Ceiling)}
                 </Table.Cell>
                 <Table.Cell className="ttt" textAlign="center" selectable>
-                <Dropdown
-                    text=' '
+                  <Dropdown
+                    text=" "
                     options={options}
                     value={data.Internal_Painting}
                     onChange={(e, { value }) => {
-                      if (
-                        window.confirm(
-                          "Are you sure you want to Update?"
-                        )
-                      ) {
-                      handleChange(data.customId, value, "Internal_Painting");
-                      switch (value) {
-                        case -1:
-                          NotificationManager.info(
-                            `Updated ${data.ITI_Name}'s Internal Painting to Not yet started`,
-                            "",
-                            6000,
-                            {}
-                          );
-                          break;
-                        case 0:
-                          NotificationManager.warning(
-                            `Updated ${data.ITI_Name}'s Internal Painting to work in Progress`,
-                            "",
-                            6000,
-                            {}
-                          );
-                          break;
-                        case 1:
-                          NotificationManager.success(
-                            `${data.ITI_Name}'s Internal Painting marked Completed`,
-                            "",
-                            6000,
-                            {}
-                          );
-                          break;
-                        default:
-                          break;
+                      if (window.confirm("Are you sure you want to Update?")) {
+                        handleChange(data.customId, value, "Internal_Painting");
+                        switch (value) {
+                          case -1:
+                            NotificationManager.info(
+                              `Updated ${data.ITI_Name}'s Internal Painting to Not yet started`,
+                              "",
+                              6000,
+                              {}
+                            );
+                            break;
+                          case 0:
+                            NotificationManager.warning(
+                              `Updated ${data.ITI_Name}'s Internal Painting to work in Progress`,
+                              "",
+                              6000,
+                              {}
+                            );
+                            break;
+                          case 1:
+                            NotificationManager.success(
+                              `${data.ITI_Name}'s Internal Painting marked Completed`,
+                              "",
+                              6000,
+                              {}
+                            );
+                            break;
+                          default:
+                            break;
+                        }
                       }
-                    }
                     }}
                   />
                   {renderIcon(data.Internal_Painting)}
                 </Table.Cell>
                 <Table.Cell className="ttt" textAlign="center" selectable>
-                <Dropdown
-                    text=' '
+                  <Dropdown
+                    text=" "
                     options={options}
                     value={data.Windows}
                     onChange={(e, { value }) => {
-                      if (
-                        window.confirm(
-                          "Are you sure you want to Update?"
-                        )
-                      ) {
-                      handleChange(data.customId, value, "Windows");
-                      switch (value) {
-                        case -1:
-                          NotificationManager.info(
-                            `Updated ${data.ITI_Name}'s Windows to Not yet started`,
-                            "",
-                            6000,
-                            {}
-                          );
-                          break;
-                        case 0:
-                          NotificationManager.warning(
-                            `Updated ${data.ITI_Name}'s Windows to work in Progress`,
-                            "",
-                            6000,
-                            {}
-                          );
-                          break;
-                        case 1:
-                          NotificationManager.success(
-                            `${data.ITI_Name}'s Windows marked Completed`,
-                            "",
-                            6000,
-                            {}
-                          );
-                          break;
-                        default:
-                          break;
+                      if (window.confirm("Are you sure you want to Update?")) {
+                        handleChange(data.customId, value, "Windows");
+                        switch (value) {
+                          case -1:
+                            NotificationManager.info(
+                              `Updated ${data.ITI_Name}'s Windows to Not yet started`,
+                              "",
+                              6000,
+                              {}
+                            );
+                            break;
+                          case 0:
+                            NotificationManager.warning(
+                              `Updated ${data.ITI_Name}'s Windows to work in Progress`,
+                              "",
+                              6000,
+                              {}
+                            );
+                            break;
+                          case 1:
+                            NotificationManager.success(
+                              `${data.ITI_Name}'s Windows marked Completed`,
+                              "",
+                              6000,
+                              {}
+                            );
+                            break;
+                          default:
+                            break;
+                        }
                       }
-                    }
                     }}
                   />
                   {renderIcon(data.Windows)}
                 </Table.Cell>
                 <Table.Cell className="ttt" textAlign="center" selectable>
-                <Dropdown
-                    text=' '
+                  <Dropdown
+                    text=" "
                     options={options}
                     value={data.Doors}
                     onChange={(e, { value }) => {
-                      if (
-                        window.confirm(
-                          "Are you sure you want to Update?"
-                        )
-                      ) {
-                      handleChange(data.customId, value, "Doors");
-                      switch (value) {
-                        case -1:
-                          NotificationManager.info(
-                            `Updated ${data.ITI_Name}'s Doors to Not yet started`,
-                            "",
-                            6000,
-                            {}
-                          );
-                          break;
-                        case 0:
-                          NotificationManager.warning(
-                            `Updated ${data.ITI_Name}'s Doors to work in Progress`,
-                            "",
-                            6000,
-                            {}
-                          );
-                          break;
-                        case 1:
-                          NotificationManager.success(
-                            `${data.ITI_Name}'s Doors marked Completed`,
-                            "",
-                            6000,
-                            {}
-                          );
-                          break;
-                        default:
-                          break;
+                      if (window.confirm("Are you sure you want to Update?")) {
+                        handleChange(data.customId, value, "Doors");
+                        switch (value) {
+                          case -1:
+                            NotificationManager.info(
+                              `Updated ${data.ITI_Name}'s Doors to Not yet started`,
+                              "",
+                              6000,
+                              {}
+                            );
+                            break;
+                          case 0:
+                            NotificationManager.warning(
+                              `Updated ${data.ITI_Name}'s Doors to work in Progress`,
+                              "",
+                              6000,
+                              {}
+                            );
+                            break;
+                          case 1:
+                            NotificationManager.success(
+                              `${data.ITI_Name}'s Doors marked Completed`,
+                              "",
+                              6000,
+                              {}
+                            );
+                            break;
+                          default:
+                            break;
+                        }
                       }
-                    }
                     }}
                   />
                   {renderIcon(data.Doors)}
                 </Table.Cell>
                 <Table.Cell className="ttt" textAlign="center" selectable>
-                <Dropdown
-                    text=' '
+                  <Dropdown
+                    text=" "
                     options={options}
                     value={data.Aluminium_Partition}
                     onChange={(e, { value }) => {
-                      if (
-                        window.confirm(
-                          "Are you sure you want to Update?"
-                        )
-                      ) {
-                      handleChange(data.customId, value, "Aluminium_Partition");
-                      switch (value) {
-                        case -1:
-                          NotificationManager.info(
-                            `Updated ${data.ITI_Name}'s Aluminium Partition to Not yet started`,
-                            "",
-                            6000,
-                            {}
-                          );
-                          break;
-                        case 0:
-                          NotificationManager.warning(
-                            `Updated ${data.ITI_Name}'s Aluminium Partition to work in Progress`,
-                            "",
-                            6000,
-                            {}
-                          );
-                          break;
-                        case 1:
-                          NotificationManager.success(
-                            `${data.ITI_Name}'s Aluminium Partition marked Completed`,
-                            "",
-                            6000,
-                            {}
-                          );
-                          break;
-                        default:
-                          break;
+                      if (window.confirm("Are you sure you want to Update?")) {
+                        handleChange(
+                          data.customId,
+                          value,
+                          "Aluminium_Partition"
+                        );
+                        switch (value) {
+                          case -1:
+                            NotificationManager.info(
+                              `Updated ${data.ITI_Name}'s Aluminium Partition to Not yet started`,
+                              "",
+                              6000,
+                              {}
+                            );
+                            break;
+                          case 0:
+                            NotificationManager.warning(
+                              `Updated ${data.ITI_Name}'s Aluminium Partition to work in Progress`,
+                              "",
+                              6000,
+                              {}
+                            );
+                            break;
+                          case 1:
+                            NotificationManager.success(
+                              `${data.ITI_Name}'s Aluminium Partition marked Completed`,
+                              "",
+                              6000,
+                              {}
+                            );
+                            break;
+                          default:
+                            break;
+                        }
                       }
-                    }
                     }}
                   />
                   {renderIcon(data.Aluminium_Partition)}
                 </Table.Cell>
                 <Table.Cell className="ttt" textAlign="center" selectable>
-                <Dropdown
-                    text=' '
+                  <Dropdown
+                    text=" "
                     options={options}
                     value={data.AC}
                     onChange={(e, { value }) => {
-                      if (
-                        window.confirm(
-                          "Are you sure you want to Update?"
-                        )
-                      ) {
-                      handleChange(data.customId, value, "AC");
-                      switch (value) {
-                        case -1:
-                          NotificationManager.info(
-                            `Updated ${data.ITI_Name}'s AC to Not yet started`,
-                            "",
-                            6000,
-                            {}
-                          );
-                          break;
-                        case 0:
-                          NotificationManager.warning(
-                            `Updated ${data.ITI_Name}'s AC to work in Progress`,
-                            "",
-                            6000,
-                            {}
-                          );
-                          break;
-                        case 1:
-                          NotificationManager.success(
-                            `${data.ITI_Name}'s AC marked Completed`,
-                            "",
-                            6000,
-                            {}
-                          );
-                          break;
-                        default:
-                          break;
+                      if (window.confirm("Are you sure you want to Update?")) {
+                        handleChange(data.customId, value, "AC");
+                        switch (value) {
+                          case -1:
+                            NotificationManager.info(
+                              `Updated ${data.ITI_Name}'s AC to Not yet started`,
+                              "",
+                              6000,
+                              {}
+                            );
+                            break;
+                          case 0:
+                            NotificationManager.warning(
+                              `Updated ${data.ITI_Name}'s AC to work in Progress`,
+                              "",
+                              6000,
+                              {}
+                            );
+                            break;
+                          case 1:
+                            NotificationManager.success(
+                              `${data.ITI_Name}'s AC marked Completed`,
+                              "",
+                              6000,
+                              {}
+                            );
+                            break;
+                          default:
+                            break;
+                        }
                       }
-                    }
                     }}
                   />
                   {renderIcon(data.AC)}
                 </Table.Cell>
                 <Table.Cell className="ttt" textAlign="center" selectable>
-                <Dropdown
-                    text=' '
+                  <Dropdown
+                    text=" "
                     options={options}
                     value={data.MCB}
                     onChange={(e, { value }) => {
-                      if (
-                        window.confirm(
-                          "Are you sure you want to Update?"
-                        )
-                      ) {
-                      handleChange(data.customId, value, "MCB");
-                      switch (value) {
-                        case -1:
-                          NotificationManager.info(
-                            `Updated ${data.ITI_Name}'s MCB to Not yet started`,
-                            "",
-                            6000,
-                            {}
-                          );
-                          break;
-                        case 0:
-                          NotificationManager.warning(
-                            `Updated ${data.ITI_Name}'s MCB to work in Progress`,
-                            "",
-                            6000,
-                            {}
-                          );
-                          break;
-                        case 1:
-                          NotificationManager.success(
-                            `${data.ITI_Name}'s MCB marked Completed`,
-                            "",
-                            6000,
-                            {}
-                          );
-                          break;
-                        default:
-                          break;
+                      if (window.confirm("Are you sure you want to Update?")) {
+                        handleChange(data.customId, value, "MCB");
+                        switch (value) {
+                          case -1:
+                            NotificationManager.info(
+                              `Updated ${data.ITI_Name}'s MCB to Not yet started`,
+                              "",
+                              6000,
+                              {}
+                            );
+                            break;
+                          case 0:
+                            NotificationManager.warning(
+                              `Updated ${data.ITI_Name}'s MCB to work in Progress`,
+                              "",
+                              6000,
+                              {}
+                            );
+                            break;
+                          case 1:
+                            NotificationManager.success(
+                              `${data.ITI_Name}'s MCB marked Completed`,
+                              "",
+                              6000,
+                              {}
+                            );
+                            break;
+                          default:
+                            break;
+                        }
                       }
-                    }
                     }}
                   />
                   {renderIcon(data.MCB)}
                 </Table.Cell>
                 <Table.Cell className="ttt" textAlign="center" selectable>
-                <Dropdown
-                    text=' '
+                  <Dropdown
+                    text=" "
                     options={options}
                     value={data.Networking}
                     onChange={(e, { value }) => {
-                      if (
-                        window.confirm(
-                          "Are you sure you want to Update?"
-                        )
-                      ) {
-                      handleChange(data.customId, value, "Networking");
-                      switch (value) {
-                        case -1:
-                          NotificationManager.info(
-                            `Updated ${data.ITI_Name}'s Networking to Not yet started`,
-                            "",
-                            6000,
-                            {}
-                          );
-                          break;
-                        case 0:
-                          NotificationManager.warning(
-                            `Updated ${data.ITI_Name}'s Networking to work in Progress`,
-                            "",
-                            6000,
-                            {}
-                          );
-                          break;
-                        case 1:
-                          NotificationManager.success(
-                            `${data.ITI_Name}'s Networking marked Completed`,
-                            "",
-                            6000,
-                            {}
-                          );
-                          break;
-                        default:
-                          break;
+                      if (window.confirm("Are you sure you want to Update?")) {
+                        handleChange(data.customId, value, "Networking");
+                        switch (value) {
+                          case -1:
+                            NotificationManager.info(
+                              `Updated ${data.ITI_Name}'s Networking to Not yet started`,
+                              "",
+                              6000,
+                              {}
+                            );
+                            break;
+                          case 0:
+                            NotificationManager.warning(
+                              `Updated ${data.ITI_Name}'s Networking to work in Progress`,
+                              "",
+                              6000,
+                              {}
+                            );
+                            break;
+                          case 1:
+                            NotificationManager.success(
+                              `${data.ITI_Name}'s Networking marked Completed`,
+                              "",
+                              6000,
+                              {}
+                            );
+                            break;
+                          default:
+                            break;
+                        }
                       }
-                    }
                     }}
                   />
                   {renderIcon(data.Networking)}
                 </Table.Cell>
                 <Table.Cell className="ttt" textAlign="center" selectable>
-                <Dropdown
-                    text=' '
+                  <Dropdown
+                    text=" "
                     options={options}
                     value={data.LT_Pannel}
                     onChange={(e, { value }) => {
-                      if (
-                        window.confirm(
-                          "Are you sure you want to Update?"
-                        )
-                      ) {
-                      handleChange(data.customId, value, "LT_Pannel");
-                      switch (value) {
-                        case -1:
-                          NotificationManager.info(
-                            `Updated ${data.ITI_Name}'s LT Pannel to Not yet started`,
-                            "",
-                            6000,
-                            {}
-                          );
-                          break;
-                        case 0:
-                          NotificationManager.warning(
-                            `Updated ${data.ITI_Name}'s LT Pannel to work in Progress`,
-                            "",
-                            6000,
-                            {}
-                          );
-                          break;
-                        case 1:
-                          NotificationManager.success(
-                            `${data.ITI_Name}'s LT Pannel marked Completed`,
-                            "",
-                            6000,
-                            {}
-                          );
-                          break;
-                        default:
-                          break;
+                      if (window.confirm("Are you sure you want to Update?")) {
+                        handleChange(data.customId, value, "LT_Pannel");
+                        switch (value) {
+                          case -1:
+                            NotificationManager.info(
+                              `Updated ${data.ITI_Name}'s LT Pannel to Not yet started`,
+                              "",
+                              6000,
+                              {}
+                            );
+                            break;
+                          case 0:
+                            NotificationManager.warning(
+                              `Updated ${data.ITI_Name}'s LT Pannel to work in Progress`,
+                              "",
+                              6000,
+                              {}
+                            );
+                            break;
+                          case 1:
+                            NotificationManager.success(
+                              `${data.ITI_Name}'s LT Pannel marked Completed`,
+                              "",
+                              6000,
+                              {}
+                            );
+                            break;
+                          default:
+                            break;
+                        }
                       }
-                    }
                     }}
                   />
                   {renderIcon(data.LT_Pannel)}
                 </Table.Cell>
                 <Table.Cell className="ttt" textAlign="center" selectable>
-                <Dropdown
-                    text=' '
+                  <Dropdown
+                    text=" "
                     options={options}
                     value={data.Electric_Supply}
                     onChange={(e, { value }) => {
-                      if (
-                        window.confirm(
-                          "Are you sure you want to Update?"
-                        )
-                      ) {
-                      handleChange(data.customId, value, "Electric_Supply");
-                      switch (value) {
-                        case -1:
-                          NotificationManager.info(
-                            `Updated ${data.ITI_Name}'s Electric Supply to Not yet started`,
-                            "",
-                            6000,
-                            {}
-                          );
-                          break;
-                        case 0:
-                          NotificationManager.warning(
-                            `Updated ${data.ITI_Name}'s Electric Supply to work in Progress`,
-                            "",
-                            6000,
-                            {}
-                          );
-                          break;
-                        case 1:
-                          NotificationManager.success(
-                            `${data.ITI_Name}'s Electric Supply marked Completed`,
-                            "",
-                            6000,
-                            {}
-                          );
-                          break;
-                        default:
-                          break;
+                      if (window.confirm("Are you sure you want to Update?")) {
+                        handleChange(data.customId, value, "Electric_Supply");
+                        switch (value) {
+                          case -1:
+                            NotificationManager.info(
+                              `Updated ${data.ITI_Name}'s Electric Supply to Not yet started`,
+                              "",
+                              6000,
+                              {}
+                            );
+                            break;
+                          case 0:
+                            NotificationManager.warning(
+                              `Updated ${data.ITI_Name}'s Electric Supply to work in Progress`,
+                              "",
+                              6000,
+                              {}
+                            );
+                            break;
+                          case 1:
+                            NotificationManager.success(
+                              `${data.ITI_Name}'s Electric Supply marked Completed`,
+                              "",
+                              6000,
+                              {}
+                            );
+                            break;
+                          default:
+                            break;
+                        }
                       }
-                    }
                     }}
                   />
                   {renderIcon(data.Electric_Supply)}
                 </Table.Cell>
                 <Table.Cell className="ttt" textAlign="center" selectable>
-                <Dropdown
-                    text=' '
+                  <Dropdown
+                    text=" "
                     options={options}
                     value={data.UPS}
                     onChange={(e, { value }) => {
-                      if (
-                        window.confirm(
-                          "Are you sure you want to Update?"
-                        )
-                      ) {
-                      handleChange(data.customId, value, "UPS");
-                      switch (value) {
-                        case -1:
-                          NotificationManager.info(
-                            `Updated ${data.ITI_Name}'s UPS to Not yet started`,
-                            "",
-                            6000,
-                            {}
-                          );
-                          break;
-                        case 0:
-                          NotificationManager.warning(
-                            `Updated ${data.ITI_Name}'s UPS to work in Progress`,
-                            "",
-                            6000,
-                            {}
-                          );
-                          break;
-                        case 1:
-                          NotificationManager.success(
-                            `${data.ITI_Name}'s UPS marked Completed`,
-                            "",
-                            6000,
-                            {}
-                          );
-                          break;
-                        default:
-                          break;
+                      if (window.confirm("Are you sure you want to Update?")) {
+                        handleChange(data.customId, value, "UPS");
+                        switch (value) {
+                          case -1:
+                            NotificationManager.info(
+                              `Updated ${data.ITI_Name}'s UPS to Not yet started`,
+                              "",
+                              6000,
+                              {}
+                            );
+                            break;
+                          case 0:
+                            NotificationManager.warning(
+                              `Updated ${data.ITI_Name}'s UPS to work in Progress`,
+                              "",
+                              6000,
+                              {}
+                            );
+                            break;
+                          case 1:
+                            NotificationManager.success(
+                              `${data.ITI_Name}'s UPS marked Completed`,
+                              "",
+                              6000,
+                              {}
+                            );
+                            break;
+                          default:
+                            break;
+                        }
                       }
-                    }
                     }}
                   />
                   {renderIcon(data.UPS)}
                 </Table.Cell>
                 <Table.Cell className="ttt" textAlign="center" selectable>
-                <Dropdown
-                    text=' '
+                  <Dropdown
+                    text=" "
                     options={options}
                     value={data.External_Painting}
                     onChange={(e, { value }) => {
-                      if (
-                        window.confirm(
-                          "Are you sure you want to Update?"
-                        )
-                      ) {
-                      handleChange(data.customId, value, "External_Painting");
-                      switch (value) {
-                        case -1:
-                          NotificationManager.info(
-                            `Updated ${data.ITI_Name}'s External Painting to Not yet started`,
-                            "",
-                            6000,
-                            {}
-                          );
-                          break;
-                        case 0:
-                          NotificationManager.warning(
-                            `Updated ${data.ITI_Name}'s External Painting to work in Progress`,
-                            "",
-                            6000,
-                            {}
-                          );
-                          break;
-                        case 1:
-                          NotificationManager.success(
-                            `${data.ITI_Name}'s External Painting marked Completed`,
-                            "",
-                            6000,
-                            {}
-                          );
-                          break;
-                        default:
-                          break;
+                      if (window.confirm("Are you sure you want to Update?")) {
+                        handleChange(data.customId, value, "External_Painting");
+                        switch (value) {
+                          case -1:
+                            NotificationManager.info(
+                              `Updated ${data.ITI_Name}'s External Painting to Not yet started`,
+                              "",
+                              6000,
+                              {}
+                            );
+                            break;
+                          case 0:
+                            NotificationManager.warning(
+                              `Updated ${data.ITI_Name}'s External Painting to work in Progress`,
+                              "",
+                              6000,
+                              {}
+                            );
+                            break;
+                          case 1:
+                            NotificationManager.success(
+                              `${data.ITI_Name}'s External Painting marked Completed`,
+                              "",
+                              6000,
+                              {}
+                            );
+                            break;
+                          default:
+                            break;
+                        }
                       }
-                    }
                     }}
                   />
                   {renderIcon(data.External_Painting)}
                 </Table.Cell>
                 <Table.Cell className="ttt" textAlign="center" selectable>
-                <Dropdown
-                    text=' '
+                  <Dropdown
+                    text=" "
                     options={options}
                     value={data.Cleaning}
                     onChange={(e, { value }) => {
-                      if (
-                        window.confirm(
-                          "Are you sure you want to Update?"
-                        )
-                      ) {
-                      handleChange(data.customId, value, "Cleaning");
-                      switch (value) {
-                        case -1:
-                          NotificationManager.info(
-                            `Updated ${data.ITI_Name}'s Cleaning to Not yet started`,
-                            "",
-                            6000,
-                            {}
-                          );
-                          break;
-                        case 0:
-                          NotificationManager.warning(
-                            `Updated ${data.ITI_Name}'s Cleaning to work in Progress`,
-                            "",
-                            6000,
-                            {}
-                          );
-                          break;
-                        case 1:
-                          NotificationManager.success(
-                            `${data.ITI_Name}'s Cleaning marked Completed`,
-                            "",
-                            6000,
-                            {}
-                          );
-                          break;
-                        default:
-                          break;
+                      if (window.confirm("Are you sure you want to Update?")) {
+                        handleChange(data.customId, value, "Cleaning");
+                        switch (value) {
+                          case -1:
+                            NotificationManager.info(
+                              `Updated ${data.ITI_Name}'s Cleaning to Not yet started`,
+                              "",
+                              6000,
+                              {}
+                            );
+                            break;
+                          case 0:
+                            NotificationManager.warning(
+                              `Updated ${data.ITI_Name}'s Cleaning to work in Progress`,
+                              "",
+                              6000,
+                              {}
+                            );
+                            break;
+                          case 1:
+                            NotificationManager.success(
+                              `${data.ITI_Name}'s Cleaning marked Completed`,
+                              "",
+                              6000,
+                              {}
+                            );
+                            break;
+                          default:
+                            break;
+                        }
                       }
-                    }
                     }}
                   />
                   {renderIcon(data.Cleaning)}
                 </Table.Cell>
-             
               </Table.Row>
             );
           })}

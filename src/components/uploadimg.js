@@ -33,16 +33,20 @@ function ImageUploader() {
     formData.append("image", image);
     formData.append("caption", caption);
     formData.append("siteName", siteName);
-
-    // fetch("http://localhost:3000/cloudImg/upload", {
-      method: "POST",
-      body: formData,
-    },
-    {
-           headers: {
+    const apiUrl =
+      process.env.NODE_ENV === "production"
+        ? process.env.REACT_APP_API_URL_PROD
+        : process.env.REACT_APP_API_URL_DEV;
+    fetch(
+      `${apiUrl}/cloudImg/upload`,
+      {
+        method: "POST",
+        body: formData,
+      },
+      {
+        headers: {
           "Content-Type": "application/json",
-          Authorization:
-            `Bearer ${jwt}`,
+          Authorization: `Bearer ${jwt}`,
         },
       }
     ).then((response) => response.json());

@@ -1,28 +1,33 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Icon, Table } from "semantic-ui-react";
-const fId = 1002; //1 for civil 2 for workshop 
-
+const fId = 1002; //1 for civil 2 for workshop
 
 export default function MyComponent(props) {
   const jwt = localStorage.getItem("jwt");
-  let ClustName = (props.clust)?props.clust:"PATNA";
+  let ClustName = props.clust ? props.clust : "PATNA";
   const [data, setData] = useState([]);
+  const apiUrl =
+    process.env.NODE_ENV === "production"
+      ? process.env.REACT_APP_API_URL_PROD
+      : process.env.REACT_APP_API_URL_DEV;
   useEffect(() => {
-    // const apiUrl = `http://localhost:3000/api/getCluster/?form_Id=${fId}&cluster=${ClustName}`;
+
     const headers = {
-      Authorization:
-        `Bearer ${jwt}`,
+      Authorization: `Bearer ${jwt}`,
     };
     axios
-      .get(apiUrl, { headers })
+      .get(
+        `${apiUrl}/college/getCluster/?form_Id=${fId}&cluster=${ClustName}`,
+        { headers }
+      )
       .then((response) => {
         setData(response.data);
       })
       .catch((error) => {
         console.log(error);
       });
-  }, [ClustName,jwt]);
+  }, [ClustName, jwt, apiUrl]);
 
   // rendering Icon
   function renderIcon(val) {
@@ -40,9 +45,13 @@ export default function MyComponent(props) {
   return (
     <div className="ttop">
       <div>
-      <h2 className="formheader">BSBCCL Civil Status</h2>
-      <div className="legend">Yet to start: <Icon color= "grey" name="check circle" size="large" />  Work in progress: <Icon color="yellow" name="check circle" size="large" />  Completed: <Icon color="green" name="check circle" size="large" /></div>
-
+        <h2 className="formheader">BSBCCL Civil Status</h2>
+        <div className="legend">
+          Yet to start: <Icon color="grey" name="check circle" size="large" />{" "}
+          Work in progress:{" "}
+          <Icon color="yellow" name="check circle" size="large" /> Completed:{" "}
+          <Icon color="green" name="check circle" size="large" />
+        </div>
       </div>
       <Table className="tc" celled structured collapsing color="orange" striped>
         <Table.Header>
@@ -98,7 +107,7 @@ export default function MyComponent(props) {
 
                 {/* cells */}
 
-                <Table.Cell  className="ttt" textAlign="center" selectable>
+                <Table.Cell className="ttt" textAlign="center" selectable>
                   {renderIcon(data.Basic_Infra)}
                 </Table.Cell>
                 <Table.Cell className="ttt" textAlign="center" selectable>

@@ -11,7 +11,10 @@ export default function Chart() {
   const [data1, setData1] = useState([]);
   const [data2, setData2] = useState([]);
   const [data3, setData3] = useState([]);
-
+  const apiUrl =
+    process.env.NODE_ENV === "production"
+      ? process.env.REACT_APP_API_URL_PROD
+      : process.env.REACT_APP_API_URL_DEV;
   useEffect(() => {
     // const apiUrl1 = `http://localhost:3000/api/test/?formCode=1000`;
     // const apiUrl2 = `http://localhost:3000/api/test/?formCode=2000`;
@@ -21,9 +24,9 @@ export default function Chart() {
     };
 
     Promise.all([
-      axios.get(apiUrl1, { headers }),
-      axios.get(apiUrl2, { headers }),
-      axios.get(apiUrl3, { headers }),
+      axios.get(`${apiUrl}/college/test/?formCode=1000`, { headers }),
+      axios.get(`${apiUrl}/college/test/?formCode=2000`, { headers }),
+      axios.get(`${apiUrl}/college/test/?formCode=3000`, { headers }),
     ])
       .then((responses) => {
         setData1(responses[0].data);
@@ -33,7 +36,7 @@ export default function Chart() {
       .catch((error) => {
         console.log(error);
       });
-  }, [jwt]);
+  }, [jwt, apiUrl]);
 
   let threeDMap = [];
 
@@ -109,7 +112,6 @@ export default function Chart() {
       <Container>
         <Row>
           <Col className="colls">
-           
             <div className="topcont">
               <Table striped bordered hover className="childtable">
                 <thead>
