@@ -217,7 +217,7 @@ export default function Final() {
             <div className="leftlogo"></div>
             <div className="hindi">श्रम संसाधन विभाग, बिहार</div>
             <div className="col1">
-            TATA EDUCATION AND SKILL DEVELOPMENT</div>
+            EDUCATION AND SKILL DEVELOPMENT</div>
             <div className="rightlogo"></div>
             <div className="col2">
               <div className="date">{formatDate(date)}</div>
