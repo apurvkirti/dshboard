@@ -3,11 +3,9 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 
 //for layout Container from react-bootstrap
-import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
+
 import Table from "react-bootstrap/Table";
-import Button from "react-bootstrap/Button";
+
 import { useNavigate } from "react-router-dom";
 import "../App.css";
 
@@ -28,9 +26,9 @@ export default function Chart() {
   const [data3, setData3] = useState([]);
 
   useEffect(() => {
-    // const apiUrl1 = `http://localhost:3000/api/test/?formCode=1000`;
-    // const apiUrl2 = `http://localhost:3000/api/test/?formCode=2000`;
-    // const apiUrl3 = `http://localhost:3000/api/test/?formCode=3000`;
+    const apiUrl1 = `http://localhost:3000/api/test/?formCode=1000`;
+    const apiUrl2 = `http://localhost:3000/api/test/?formCode=2000`;
+    const apiUrl3 = `http://localhost:3000/api/test/?formCode=3000`;
     const headers = {
       Authorization: `Bearer ${jwt}`,
     };
@@ -68,112 +66,208 @@ export default function Chart() {
     insWorkshopCompleted = ((data3[1].wks_actual / 51) * 5).toFixed(2);
   }
 
-  const dataa = [
-    {
-      name: "Civil Status",
-      techlab: civilTechCompleted,
-      workshop: civilWorkshopCompleted,
-    },
-    {
-      name: "Delivery Status",
-      techlab: delTechCompleted,
-      workshop: delWorkshopCompleted,
-    },
-    {
-      name: "Installation Status",
-      techlab: insTechCompleted,
-      workshop: insWorkshopCompleted,
-    },
+  const civildata = [
+    { name: "Techlab", Techlab: civilTechCompleted },
+    { name: "Workshop", Workshop: civilWorkshopCompleted },
+  ];
+  const deldata = [
+    { name: "Techlab", Techlab: delTechCompleted },
+    { name: "Workshop", Workshop: delWorkshopCompleted },
+  ];
+  const insdata = [
+    { name: "Techlab", Techlab: insTechCompleted },
+    { name: "Workshop", Workshop: insWorkshopCompleted },
   ];
 
   const handleUpload = () => {
     navigate("/upd");
   };
 
+  const [highlighted1, setHighlighted1] = useState(false);
+  const [highlighted2, setHighlighted2] = useState(false);
+  const [highlighted3, setHighlighted3] = useState(false);
+
+  const handleButtonClick1 = () => {
+    setHighlighted1(true);
+    setTimeout(() => {
+      setHighlighted1(false);
+    }, 300);
+  };
+  const handleButtonClick2 = () => {
+    setHighlighted2(true);
+    setTimeout(() => {
+      setHighlighted2(false);
+    }, 300);
+  };
+  const handleButtonClick3 = () => {
+    setHighlighted3(true);
+    setTimeout(() => {
+      setHighlighted3(false);
+    }, 300);
+  };
   return (
     <>
-      <Container fluid>
-        <Row>
-          <Col className="first">
-            <Row className="namer">
-              Phase 1 (60 ITI's) Project overview
-            </Row>
-            <Row className="updimg">
-              <Button className="uploadimage" onClick={handleUpload}>
-                Uplaod Site-Status Photo
-              </Button>
-            </Row>
-          </Col>
+      <div className="chartcontainer">
+        <div className="first">
+          <div className="namer">
+            <p className="names">Phase 1</p>
+            <p className="names">(60 ITI's)</p>
+            <p className="names">Project overview</p>
+          </div>
+          <div className="uploadimage" onClick={handleUpload}>
+            Upload Site-Status Photo
+          </div>
+        </div>
 
-          <Col>
-             <Table bordered hover className="childtable1">
+        <div>
+          <Table bordered hover className="childtable1">
             <thead>
-                <tr className="headingfirst">
-                  <td >Execution Activity</td>
-                </tr>
-              </thead>
-              <tbody>
-                <tr className="rowf1">
-                  <td className="fontsize">Overall Civil Readiness %</td>
-                 
-                </tr>
-                <tr className="rows1">
-                  <td className="fontsize">Overall Delivery Readiness %</td>
-                </tr>
-                <tr className="rowt1">
-                  <td className="fontsize">Overall Installation Readiness %</td>
-                  
-                </tr>
-              </tbody>
-            </Table>
-          </Col>
-          <Col>
-            <Table bordered hover className="childtable2">
-              <thead>
-                <tr className="headingfirst">
-                  <td>TECH</td>
-                  <td>WKS</td>
-                </tr>
-              </thead>
-              <tbody>
-                <tr className="rowf">
-                  <td className="aa">{civilTechCompleted} %</td>
-                  <td className="bb"> {civilWorkshopCompleted} %</td>
-                </tr>
-                <tr className="rows">
-                  <td className="aa">{delTechCompleted} %</td>
-                  <td className="bb">{delWorkshopCompleted} %</td>
-                </tr>
-                <tr className="rowt">
-                  <td className="aa">{insTechCompleted} %</td>
-                  <td className="bb">{insWorkshopCompleted} %</td>
-                </tr>
-              </tbody>
-            </Table>
-          </Col>
-          <Col>
-            <BarChart
-              className="barfull"
-              width={800}
-              height={198}
-              data={dataa}
-              layout="vertical"
-              margin={{ top: 20, right: 30, left: 30, bottom: 5 }}
-            >
-              <YAxis type="category" dataKey="name" />
-              <XAxis type="number" domain={[0, 100]} />
+              <tr className="headingfirst">
+                <td className="myDiv2">Execution Activity</td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr className="rowf1" onClick={handleButtonClick1}>
+                <td className="fontsize">Overall Civil Readiness %</td>
+              </tr>
+              <tr className="rows1" onClick={handleButtonClick2}>
+                <td className="fontsize">Overall Delivery Readiness %</td>
+              </tr>
+              <tr className="rowt1" onClick={handleButtonClick3}>
+                <td className="fontsize">Overall Installation Readiness %</td>
+              </tr>
+            </tbody>
+          </Table>
+        </div>
 
+        <div>
+          <Table bordered hover className="childtable2">
+            <thead>
+              <tr className="headingfirst">
+                <td id="myDiv">TECHLAB</td>
+                <td className="myDiv2">WORKSHOP</td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr className="rowf">
+                <td className="aa">{civilTechCompleted} %</td>
+                <td className="bb"> {civilWorkshopCompleted} %</td>
+              </tr>
+              <tr className="rows">
+                <td className="aa">{delTechCompleted} %</td>
+                <td className="bb">{delWorkshopCompleted} %</td>
+              </tr>
+              <tr className="rowt">
+                <td className="aa">{insTechCompleted} %</td>
+                <td className="bb">{insWorkshopCompleted} %</td>
+              </tr>
+            </tbody>
+          </Table>
+        </div>
+
+        <div className="threecharts">
+          <div
+            className={
+              highlighted1 ? "chart-container highlighted" : "barchart"
+            }
+          >
+            <BarChart width={200} height={160} data={civildata}>
+              <XAxis dataKey="name" />
+              <YAxis type="number" domain={[0, 100]} />
               <Tooltip />
-              <Bar isAnimationActive={false} dataKey="techlab" fill="#ffc000">
-                <LabelList dataKey="techlab" position="right" />
+
+              <Bar
+                isAnimationActive={false}
+                dataKey="Techlab"
+                stackId="a"
+                fill="#ffc000"
+              >
+                <LabelList
+                  className="labellist"
+                  dataKey="Techlab"
+                  position="top"
+                />
               </Bar>
-              <Bar isAnimationActive={false} dataKey="workshop" fill="#2f5597">
-                <LabelList dataKey="workshop" position="right" />
+              <Bar
+                isAnimationActive={false}
+                dataKey="Workshop"
+                stackId="a"
+                fill="#2f5597"
+              >
+                <LabelList dataKey="Workshop" position="top" />
               </Bar>
             </BarChart>
-          </Col>
-        </Row>
-      </Container>
+            <div className="textbelow">Civil Readiness</div>
+          </div>
+          <div
+            className={
+              highlighted2 ? "chart-container highlighted" : "barchart"
+            }
+          >
+            <BarChart width={200} height={160} data={deldata}>
+              <XAxis dataKey="name" />
+              <YAxis type="number" domain={[0, 100]} />
+              <Tooltip />
+
+              <Bar
+                isAnimationActive={false}
+                dataKey="Techlab"
+                stackId="a"
+                fill="#ffc000"
+              >
+                <LabelList
+                  className="labellist"
+                  dataKey="Techlab"
+                  position="top"
+                />
+              </Bar>
+              <Bar
+                isAnimationActive={false}
+                dataKey="Workshop"
+                stackId="a"
+                fill="#2f5597"
+              >
+                <LabelList dataKey="Workshop" position="top" />
+              </Bar>
+            </BarChart>
+            <div className="textbelow">Delivery Readiness</div>
+          </div>
+          <div
+            className={
+              highlighted3 ? "chart-container highlighted" : "barchart"
+            }
+          >
+            <BarChart width={200} height={160} data={insdata}>
+              <XAxis dataKey="name" />
+              <YAxis type="number" domain={[0, 100]} />
+              <Tooltip />
+
+              <Bar
+                isAnimationActive={false}
+                dataKey="Techlab"
+                stackId="a"
+                fill="#ffc000"
+              >
+                <LabelList
+                  className="labellist"
+                  dataKey="Techlab"
+                  position="top"
+                />
+              </Bar>
+              <Bar
+                isAnimationActive={false}
+                dataKey="Workshop"
+                stackId="a"
+                fill="#2f5597"
+              >
+                <LabelList dataKey="Workshop" position="top" />
+              </Bar>
+            </BarChart>
+            <div className="textbelow">Installation Readiness</div>
+          </div>
+          {/* <h1 className="stats">Overall Civil Status</h1> */}
+        </div>
+      </div>
     </>
   );
 }

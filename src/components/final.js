@@ -91,7 +91,7 @@ export default function Final() {
   // for user_selective view
 
   function RenderCivilTech({ selectedTitle }) {
-    if (username === "user1") {
+    if (username === "user1" || username === "master_admin" ) {
       return (
         <>
           <UpdateCivilTech clust={selectedTitle} />
@@ -106,7 +106,7 @@ export default function Final() {
     }
   }
   function RenderCivilWks({ selectedTitle }) {
-    if (username === "user1") {
+    if (username === "user1" || username === "master_admin") {
       return (
         <>
           <UpdateCivilWks clust={selectedTitle} />
@@ -121,7 +121,7 @@ export default function Final() {
     }
   }
   function RenderDelTech({ selectedTitle }) {
-    if (username === "user2") {
+    if (username === "user2" || username === "master_admin") {
       return (
         <>
           <UpdateDeliveryTech clust={selectedTitle} />
@@ -136,7 +136,7 @@ export default function Final() {
     }
   }
   function RenderDelWks({ selectedTitle }) {
-    if (username === "user2" ) {
+    if (username === "user2" || username === "master_admin" ) {
       return (
         <>
           <UpdateDeliveryWks clust={selectedTitle} />
@@ -151,7 +151,7 @@ export default function Final() {
     }
   }
   function RenderInsTech({ selectedTitle }) {
-    if ( username === "user3") {
+    if ( username === "user3" || username === "master_admin") {
       return (
         <>
           <UpdateInsTech clust={selectedTitle} />
@@ -166,7 +166,7 @@ export default function Final() {
     }
   }
   function RenderInsWks({ selectedTitle }) {
-    if (username === "user3") {
+    if (username === "user3" || username === "master_admin") {
       return (
         <>
           <UpdateInsWks clust={selectedTitle} />
@@ -227,7 +227,7 @@ export default function Final() {
                 </Button>
               </div>
             </div>
-            <div>
+            <div className="col3">
             <Button className="buttonlogout" onClick={handleLogout}>Logout <FiLogOut/></Button>
             </div>
           </Col>
@@ -541,20 +541,22 @@ export default function Final() {
           </Col>
         </Row>
 
-        <Row className="downf" ref={civilRef}>
-          <Carousel slide={false}
+        <Row className="downf" id="firsttable" ref={civilRef}>
+        <Carousel slide={false}
             activeIndex={index}
             onSelect={handleSelect}
             interval={1000000000}
             indicators={false}
           >
             <Carousel.Item>
-              <RenderCivilTech selectedTitle={selectedTitle} />
+            <RenderCivilTech selectedTitle={selectedTitle} />
             </Carousel.Item>
             <Carousel.Item>
             <RenderCivilWks selectedTitle={selectedTitle} />
             </Carousel.Item>
           </Carousel>
+         
+           
         </Row>
         <Row className="downs" ref={deliveryRef}>
           <Carousel slide={false}

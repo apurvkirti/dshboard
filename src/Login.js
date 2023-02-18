@@ -1,7 +1,11 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { Button } from "react-bootstrap";
-// import {FaSignInAlt} from "react-icons/fa";
+
+import Container from "react-bootstrap/Container";
+import Nav from "react-bootstrap/Nav";
+import Navbar from "react-bootstrap/Navbar";
+
 const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -11,14 +15,14 @@ const Login = () => {
     event.preventDefault();
 
     try {
-      // const response = await axios.post("http://localhost:4000/auth/login", {
+      const response = await axios.post("http://localhost:4000/auth/login", {
         username,
         password,
       });
 
       localStorage.setItem("jwt", response.data.token);
       localStorage.setItem("username", username);
-      window.location.href = "/dashboard";
+      window.location.href = "/about";
     } catch (err) {
       setError(err.response.data.message);
     }
@@ -26,7 +30,20 @@ const Login = () => {
 
   return (
     <div className="logincontainer">
-      <h1 className="head_er">TATA EDUCATION AND SKILL DEVELOPMENT</h1>
+      <Navbar className="aboutnavbar" expand="lg" fixed="top">
+        <Container fluid>
+          <Navbar.Brand className="logoleft"></Navbar.Brand>
+          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Collapse id="basic-navbar-nav">
+         
+            <Nav className="justify-content-end flex-grow-1 pe-3">
+              <Nav.Link className="logo"></Nav.Link>
+            </Nav>
+            
+          </Navbar.Collapse>
+        </Container>
+      </Navbar>
+      <h1 className="head_er">EDUCATION AND SKILL DEVELOPMENT</h1>
       <div className="imagecont"></div>
       <div className="formcont">
         <form onSubmit={handleSubmit}>
@@ -42,7 +59,7 @@ const Login = () => {
               required
             />
           </div>
-          {/* <div className="pasw">Password:</div> */}
+
           <div className="pwd">
             <input
               label="Password"
@@ -61,6 +78,9 @@ const Login = () => {
           </div>
           {error && <p>{error}</p>}
         </form>
+      </div>
+      <div className="App-footer">
+        Engineering a better world
       </div>
     </div>
   );

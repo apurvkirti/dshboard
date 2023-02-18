@@ -11,7 +11,7 @@ export default function SimpleSlider  ({ initialSlide = 0 }) {
 
   useEffect(() => {
     axios
-    // .get("http://localhost:3000/cloudImg/allImages",
+    .get("http://localhost:3000/cloudImg/allImages",
     {
       headers: {
         "Content-Type": "application/json",

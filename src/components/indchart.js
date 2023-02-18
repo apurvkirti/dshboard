@@ -13,9 +13,9 @@ export default function Chart() {
   const [data3, setData3] = useState([]);
 
   useEffect(() => {
-    // const apiUrl1 = `http://localhost:3000/api/test/?formCode=1000`;
-    // const apiUrl2 = `http://localhost:3000/api/test/?formCode=2000`;
-    // const apiUrl3 = `http://localhost:3000/api/test/?formCode=3000`;
+    const apiUrl1 = `http://localhost:3000/api/test/?formCode=1000`;
+    const apiUrl2 = `http://localhost:3000/api/test/?formCode=2000`;
+    const apiUrl3 = `http://localhost:3000/api/test/?formCode=3000`;
     const headers = {
       Authorization: `Bearer ${jwt}`,
     };

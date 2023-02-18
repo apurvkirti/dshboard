@@ -30,7 +30,7 @@ export default function UpdateForm(props) {
     };
     axios
       .get(
-        // `http://localhost:3000/api/getCluster/?form_Id=${form_Id}&cluster=${ClustName}`,
+        `http://localhost:3000/api/getCluster/?form_Id=${form_Id}&cluster=${ClustName}`,
         { headers }
       )
       .then((response) => {
@@ -115,7 +115,7 @@ export default function UpdateForm(props) {
     };
     axios
       .patch(
-        // `http://localhost:3000/api/update_tmp/?id=${customId}&form_Id=${form_Id}`,
+        `http://localhost:3000/api/update_tmp/?id=${customId}&form_Id=${form_Id}`,
         {
           [val]: value,
         },
@@ -138,7 +138,7 @@ export default function UpdateForm(props) {
       <div className="legend">Yet to start: <Icon color= "grey" name="check circle" size="large" />  Work in progress: <Icon color="yellow" name="check circle" size="large" />  Completed: <Icon color="green" name="check circle" size="large" /></div>
 
       </div>
-      <Table className="tc" celled structured collapsing>
+      <Table className="tc" celled collapsing>
         <Table.Header color="orange">
           <Table.Row>
             <Table.HeaderCell rowSpan="3" textAlign="center">
@@ -150,7 +150,6 @@ export default function UpdateForm(props) {
             <Table.HeaderCell rowSpan="3" textAlign="center">
               District
             </Table.HeaderCell>
-
             <Table.HeaderCell textAlign="center" colSpan="15">
               TECHNOLOGY LAB
             </Table.HeaderCell>

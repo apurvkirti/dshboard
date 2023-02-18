@@ -40,7 +40,7 @@ export default function UpdateForminsttech(props) {
     };
     axios
       .get(
-        // `http://localhost:3000/api/getCluster/?form_Id=${form_Id}&cluster=${ClustName}`,
+        `http://localhost:3000/api/getCluster/?form_Id=${form_Id}&cluster=${ClustName}`,
         { headers }
       )
       .then((response) => {
@@ -126,7 +126,7 @@ export default function UpdateForminsttech(props) {
     };
     axios
       .patch(
-        // `http://localhost:3000/api/update_tmp/?id=${customId}&form_Id=${form_Id}`,
+        `http://localhost:3000/api/update_tmp/?id=${customId}&form_Id=${form_Id}`,
         {
           [val]: value,
         },
@@ -174,8 +174,8 @@ export default function UpdateForminsttech(props) {
           <Table.HeaderCell className="th">VSAT_Studio</Table.HeaderCell>
           <Table.HeaderCell className="th">IOT_Kit_and_Sensors</Table.HeaderCell>
           <Table.HeaderCell className="th">IOTLab_Laptop</Table.HeaderCell>
-          <Table.HeaderCell className="th">D3_Printer_EOS</Table.HeaderCell>
-          <Table.HeaderCell className="th">D3_Printer_3DS</Table.HeaderCell>
+          <Table.HeaderCell className="th">3D_Printer_EOS</Table.HeaderCell>
+          <Table.HeaderCell className="th">3D_Printer_3DS</Table.HeaderCell>
           <Table.HeaderCell className="th">Laser_Cutter</Table.HeaderCell>
           <Table.HeaderCell className="th">Product_Design_DS</Table.HeaderCell>
           <Table.HeaderCell className="th">POD_CARVELCO</Table.HeaderCell>

@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
+import Gallary from "./gallary"
 import { useNavigate } from "react-router-dom";
+import { AiFillWindows } from "react-icons/ai";
 function ImageUploader() {
   let navigate = useNavigate();
   const jwt = localStorage.getItem("jwt");
@@ -34,7 +36,7 @@ function ImageUploader() {
     formData.append("caption", caption);
     formData.append("siteName", siteName);
 
-    // fetch("http://localhost:3000/cloudImg/upload", {
+    fetch("http://localhost:3000/cloudImg/upload", {
       method: "POST",
       body: formData,
     },
@@ -47,9 +49,24 @@ function ImageUploader() {
       }
     ).then((response) => response.json());
     navigate("/dashboard");
+    window.location.reload();
   };
+  const username = localStorage.getItem("username");
+  function handledelete(){
+    if(username === "master_admin"){
+      navigate("/gallary")
+    }else{
+      window.alert("Sorry! You are not authorized to access this feature")
+    }
+  }
+
+
 
   return (
+    <>
+    <div>
+    <button onClick={() => handledelete()}>Delete Images</button>
+    </div>
     <form onSubmit={handleSubmit}>
       <input type="file" onChange={handleImageChange} />
       <input
@@ -65,7 +82,9 @@ function ImageUploader() {
         onChange={handleSiteNameChange}
       />
       <button type="submit">Upload</button>
+     
     </form>
+    </>
   );
 }
 

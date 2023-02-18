@@ -2,6 +2,10 @@ import Login from "./Login";
 import Dashboard from "./components/final";
 import Notice from "./components/notice";
 import Upload from "./components/uploadimg";
+import Mail from "./components/sendmail";
+import Gallary from "./components/gallary";
+import Del from "./components/deletenotice";
+import Abt from "./components/about";
 
 
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -23,6 +27,10 @@ function App() {
           <Route path="/dashboard" element={<Dashboard/>} />
           <Route path="/" element={<Login/>} />
           <Route path="/upd" element={<Upload/>}/>
+          <Route path="/mail" element={<Mail/>}/>
+          <Route path="/gallary" element={<Gallary/>}/>
+          <Route path="/del" element={<Del/>}/>
+          <Route path="/about" element={<Abt/>}/>
      
         </Routes>
       </div>

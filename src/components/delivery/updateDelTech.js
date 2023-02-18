@@ -32,7 +32,7 @@ export default function UpdateForm(props) {
     };
     axios
       .get(
-        // `http://localhost:3000/api/getCluster/?form_Id=${form_Id}&cluster=${ClustName}`,
+        `http://localhost:3000/api/getCluster/?form_Id=${form_Id}&cluster=${ClustName}`,
         { headers }
       )
       .then((response) => {
@@ -116,7 +116,7 @@ export default function UpdateForm(props) {
     };
     axios
       .patch(
-        // `http://localhost:3000/api/update_tmp/?id=${customId}&form_Id=${form_Id}`,
+        `http://localhost:3000/api/update_tmp/?id=${customId}&form_Id=${form_Id}`,
         {
           [val]: value,
         },
@@ -172,8 +172,8 @@ export default function UpdateForm(props) {
               IOT Kit and Sensors
             </Table.HeaderCell>
             <Table.HeaderCell className="th">IOTLab Laptop</Table.HeaderCell>
-            <Table.HeaderCell className="th">D3 Printer EOS</Table.HeaderCell>
-            <Table.HeaderCell className="th">D3 Printer 3DS</Table.HeaderCell>
+            <Table.HeaderCell className="th">3D Printer EOS</Table.HeaderCell>
+            <Table.HeaderCell className="th">3D Printer 3DS</Table.HeaderCell>
             <Table.HeaderCell className="th">Laser Cutter</Table.HeaderCell>
             <Table.HeaderCell className="th">
               Product Design DS

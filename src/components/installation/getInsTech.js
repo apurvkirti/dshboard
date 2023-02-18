@@ -9,7 +9,7 @@ export default function MyComponent(props) {
   let ClustName = (props.clust)?props.clust:"PATNA";
   const [data, setData] = useState([]);
   useEffect(() => {
-    // const apiUrl = `http://localhost:3000/api/getCluster/?form_Id=${fId}&cluster=${ClustName}`;
+    const apiUrl = `http://localhost:3000/api/getCluster/?form_Id=${fId}&cluster=${ClustName}`;
     const headers = {
       Authorization:
         `Bearer ${jwt}`,
@@ -73,8 +73,8 @@ export default function MyComponent(props) {
           <Table.HeaderCell className="th">VSAT Studio</Table.HeaderCell>
           <Table.HeaderCell className="th">IOT Kit and Sensors</Table.HeaderCell>
           <Table.HeaderCell className="th">IOTLab Laptop</Table.HeaderCell>
-          <Table.HeaderCell className="th">D3 Printer EOS</Table.HeaderCell>
-          <Table.HeaderCell className="th">D3 Printer 3DS</Table.HeaderCell>
+          <Table.HeaderCell className="th">3D Printer EOS</Table.HeaderCell>
+          <Table.HeaderCell className="th">3D Printer 3DS</Table.HeaderCell>
           <Table.HeaderCell className="th">Laser Cutter</Table.HeaderCell>
           <Table.HeaderCell className="th">Product Design DS</Table.HeaderCell>
           <Table.HeaderCell className="th">POD CARVELCO</Table.HeaderCell>

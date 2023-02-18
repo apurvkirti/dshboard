@@ -31,13 +31,14 @@ function NotesList() {
     var ampm = (hr >= 12) ? "PM" : "AM";
     hr = hr % 12;
     hr = hr ? hr : 12; // the hour '0' should be '12'
-
-    return `${hr }:${min } ${ampm}`;
+    if(min/10 < 1){
+      return `${hr }:0${min } ${ampm}`;
+    }else return `${hr }:${min } ${ampm}`;
   }
 
   useEffect(() => {
     axios
-      // .get("http://localhost:3000/note/allNotes",
+      .get("http://localhost:3000/note/allNotes",
       {
         headers: {
           "Content-Type": "application/json",
@@ -59,7 +60,7 @@ function NotesList() {
   return (
     <div
       className="box1"
-      style={{ width: "235px", height: "148px", overflow: "auto" }}
+      style={{ width: "15vw", height: "148px", overflow: "auto" }}
     >
       {notes.map((note) => (
         <div key={note._id}>{note.title}

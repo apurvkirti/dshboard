@@ -8,7 +8,7 @@ export default function MyComponent(props) {
   let ClustName = (props.clust)?props.clust:"PATNA";
   const [data, setData] = useState([]);
   useEffect(() => {
-    // const apiUrl = `http://localhost:3000/api/getCluster/?form_Id=${fId}&cluster=${ClustName}`;
+    const apiUrl = `http://localhost:3000/api/getCluster/?form_Id=${fId}&cluster=${ClustName}`;
     const headers = {
       Authorization:
         `Bearer ${jwt}`,
