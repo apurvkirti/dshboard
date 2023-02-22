@@ -87,24 +87,28 @@ export default function Chart() {
   const [highlighted2, setHighlighted2] = useState(false);
   const [highlighted3, setHighlighted3] = useState(false);
 
-  const handleButtonClick1 = () => {
+  const handleEnter1 = () => {
     setHighlighted1(true);
-    setTimeout(() => {
-      setHighlighted1(false);
-    }, 300);
   };
-  const handleButtonClick2 = () => {
+
+  const handleLeave1 = () => {
+    setHighlighted1(false);
+  };
+  const handleEnter2 = () => {
     setHighlighted2(true);
-    setTimeout(() => {
-      setHighlighted2(false);
-    }, 300);
   };
-  const handleButtonClick3 = () => {
+
+  const handleLeave2 = () => {
+    setHighlighted2(false);
+  };
+  const handleEnter3 = () => {
     setHighlighted3(true);
-    setTimeout(() => {
-      setHighlighted3(false);
-    }, 300);
   };
+
+  const handleLeave3 = () => {
+    setHighlighted3(false);
+  };
+
   return (
     <>
       <div className="chartcontainer">
@@ -127,13 +131,13 @@ export default function Chart() {
               </tr>
             </thead>
             <tbody>
-              <tr className="rowf1" onClick={handleButtonClick1}>
+              <tr className="rowf1" onMouseEnter={handleEnter1} onMouseLeave={handleLeave1}>
                 <td className="fontsize">Overall Civil Readiness %</td>
               </tr>
-              <tr className="rows1" onClick={handleButtonClick2}>
+              <tr className="rows1" onMouseEnter={handleEnter2} onMouseLeave={handleLeave2}>
                 <td className="fontsize">Overall Delivery Readiness %</td>
               </tr>
-              <tr className="rowt1" onClick={handleButtonClick3}>
+              <tr className="rowt1" onMouseEnter={handleEnter3} onMouseLeave={handleLeave3}>
                 <td className="fontsize">Overall Installation Readiness %</td>
               </tr>
             </tbody>
@@ -194,7 +198,7 @@ export default function Chart() {
                 stackId="a"
                 fill="#2f5597"
               >
-                <LabelList dataKey="Workshop" position="top" />
+                <LabelList dataKey= "Workshop" position="top" />
               </Bar>
             </BarChart>
             <div className="textbelow">Civil Readiness</div>

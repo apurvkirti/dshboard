@@ -6,7 +6,11 @@ const fId = 1001; // 1 for civil 1 for tech
 export default function MyComponent(props) {
   const jwt = localStorage.getItem("jwt");
   let ClustName = props.clust ? props.clust : "PATNA";
+
+
   const [data, setData] = useState([]);
+
+
   useEffect(() => {
     const apiUrl = `http://localhost:3000/api/getCluster/?form_Id=${fId}&cluster=${ClustName}`;
     const headers = {
@@ -47,7 +51,7 @@ export default function MyComponent(props) {
         </div>
       </div>
 
-      <Table className="tc" celled structured collapsing color="orange" striped>
+      <Table className="tc" celled collapsing striped>
         <Table.Header>
           <Table.Row>
             <Table.HeaderCell rowSpan="3" textAlign="center">

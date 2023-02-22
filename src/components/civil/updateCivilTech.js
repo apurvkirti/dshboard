@@ -122,7 +122,7 @@ export default function UpdateForm(props) {
         { headers }
       )
       .then((res) => {
-        console.log(res);
+        console.log("updated successfully");
       })
       .catch((error) => {
         console.log(error);
@@ -150,7 +150,7 @@ export default function UpdateForm(props) {
             <Table.HeaderCell rowSpan="3" textAlign="center">
               District
             </Table.HeaderCell>
-            <Table.HeaderCell textAlign="center" colSpan="15">
+            <Table.HeaderCell id="teclabcivil" textAlign="center" colSpan="15">
               TECHNOLOGY LAB
             </Table.HeaderCell>
           </Table.Row>

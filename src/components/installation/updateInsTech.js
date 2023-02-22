@@ -11,15 +11,11 @@ import {
 } from "react-notifications";
 import "react-notifications/lib/notifications.css";
 
-
 const form_Id = 3001; //3 for workshop 1 for tech
-
-
 
 export default function UpdateForminsttech(props) {
   const jwt = localStorage.getItem("jwt");
-  let ClustName = (props.clust)?props.clust:"PATNA";
-
+  let ClustName = props.clust ? props.clust : "PATNA";
 
   const options = [
     { key: "option1", text: "Yet to Start", value: -1 },
@@ -27,16 +23,12 @@ export default function UpdateForminsttech(props) {
     { key: "option3", text: "Completed", value: 1 },
   ];
 
-
   const [APIData, setAPIData] = useState([]);
-
-  
 
   useEffect(() => {
     // Fetch prefilled data from the backend
     const headers = {
-      Authorization:
-        `Bearer ${jwt}`,
+      Authorization: `Bearer ${jwt}`,
     };
     axios
       .get(
@@ -46,7 +38,7 @@ export default function UpdateForminsttech(props) {
       .then((response) => {
         setAPIData(response.data);
       });
-  }, [ClustName,jwt]);
+  }, [ClustName, jwt]);
   const setData = (data) => {
     let {
       customId,
@@ -54,50 +46,62 @@ export default function UpdateForminsttech(props) {
       Cluster,
       Furniture,
       Server_Rack,
-      Dell_Workstations,
-      Dell_Server,
-      VSAT,
-      VSAT_Studio,
-      IOT_Kit_and_Sensors,
-      IOTLab_Laptop,
-      D3_Printer_EOS,
-      D3_Printer_3DS,
-      Laser_Cutter,
-      Product_Design_DS,
-      POD_CARVELCO,
-      PVA_ANSYS,
-      PVA_FEAST,
-      MASTERCAM,
-      IGETIT,
+      Workstations_and_Monitors,
+      Server,
+      Distance_Learning_Classroom,
+      IOT_Kit,
+      IOT_Desktops,
+      D3_Printer_Tech1,
+      D3_Printer_Tech2,
+      Tech_Tools_Product_Design1,
+      Tech_Tools_Product_Design2,
+      Tech_Tools_Product_Verification1,
+      Tech_Tools_Product_Verification2,
+      Tech_Tools_Advance_Manufacturing1,
     } = data;
     localStorage.setItem("ID", customId);
     localStorage.setItem("ITI_Name", ITI_Name);
     localStorage.setItem("Cluster", Cluster);
     localStorage.setItem("Furniture", Furniture);
     localStorage.setItem("Server_Rack", Server_Rack);
-    localStorage.setItem("Dell_Workstations", Dell_Workstations);
-    localStorage.setItem("Dell_Server", Dell_Server);
-    localStorage.setItem("VSAT", VSAT);
-    localStorage.setItem("VSAT_Studio", VSAT_Studio);
-    localStorage.setItem("IOT_Kit_and_Sensors", IOT_Kit_and_Sensors);
-    localStorage.setItem("IOTLab_Laptop", IOTLab_Laptop);
-    localStorage.setItem("D3_Printer_EOS", D3_Printer_EOS);
-    localStorage.setItem("D3_Printer_3DS", D3_Printer_3DS);
-    localStorage.setItem("Laser_Cutter", Laser_Cutter);
-    localStorage.setItem("Product_Design_DS", Product_Design_DS);
-    localStorage.setItem("POD_CARVELCO", POD_CARVELCO);
-    localStorage.setItem("PVA_ANSYS", PVA_ANSYS);
-    localStorage.setItem("PVA_FEAST", PVA_FEAST);
-    localStorage.setItem("MASTERCAM", MASTERCAM);
-    localStorage.setItem("IGETIT", IGETIT);
-    
-   
-    // console.log(data);
+    localStorage.setItem(
+      "Workstations_and_Monitors",
+      Workstations_and_Monitors
+    );
+    localStorage.setItem("Server", Server);
+    localStorage.setItem(
+      "Distance_Learning_Classroom",
+      Distance_Learning_Classroom
+    );
+    localStorage.setItem("IOT_Kit", IOT_Kit);
+    localStorage.setItem("IOT_Desktops", IOT_Desktops);
+    localStorage.setItem("D3_Printer_Tech1", D3_Printer_Tech1);
+    localStorage.setItem("D3_Printer_Tech2", D3_Printer_Tech2);
+    localStorage.setItem(
+      "Tech_Tools_Product_Design1",
+      Tech_Tools_Product_Design1
+    );
+    localStorage.setItem(
+      "Tech_Tools_Product_Design2",
+      Tech_Tools_Product_Design2
+    );
+    localStorage.setItem(
+      "Tech_Tools_Product_Verification1",
+      Tech_Tools_Product_Verification1
+    );
+    localStorage.setItem(
+      "Tech_Tools_Product_Verification2",
+      Tech_Tools_Product_Verification2
+    );
+    localStorage.setItem(
+      "Tech_Tools_Advance_Manufacturing1",
+      Tech_Tools_Advance_Manufacturing1
+    );
   };
 
   // Handle form submission
   const temp = 1;
-  if(temp === 2) setData();
+  if (temp === 2) setData();
   function renderIcon(val) {
     let color;
     if (val === -1) {
@@ -121,8 +125,7 @@ export default function UpdateForminsttech(props) {
     );
     const headers = {
       "Content-Type": "application/json",
-      Authorization:
-        `Bearer ${jwt}`,
+      Authorization: `Bearer ${jwt}`,
     };
     axios
       .patch(
@@ -133,841 +136,721 @@ export default function UpdateForminsttech(props) {
         { headers }
       )
       .then((res) => {
-        console.log(res);
+        console.log("Updated successfully");
       })
       .catch((error) => {
         console.log(error);
       });
   }
-   
+
   return (
     <div className="ttop">
       <div>
-    <h2 className="formheader3">TTL Installation status</h2>
-    <div className="legend">Yet to start: <Icon color= "grey" name="check circle" size="large" />  Work in progress: <Icon color="yellow" name="check circle" size="large" />  Completed: <Icon color="green" name="check circle" size="large" /></div>
-
+        <h2 className="formheader3">TTL Installation status</h2>
+        <div className="legend">
+          Yet to start: <Icon color="grey" name="check circle" size="large" />{" "}
+          Work in progress:{" "}
+          <Icon color="yellow" name="check circle" size="large" /> Completed:{" "}
+          <Icon color="green" name="check circle" size="large" />
+        </div>
       </div>
-    <Table celled structured collapsing className="ti">
-      <Table.Header >
-        <Table.Row>
-          <Table.HeaderCell rowSpan="3" textAlign="center">
-            ITI Name
-          </Table.HeaderCell>
-          <Table.HeaderCell rowSpan="3" textAlign="center">
-            Cluster
-          </Table.HeaderCell>
-          <Table.HeaderCell rowSpan="3" textAlign="center">
-            District
-          </Table.HeaderCell>
+      <Table celled structured collapsing className="ti">
+        <Table.Header>
+          <Table.Row>
+            <Table.HeaderCell rowSpan="3" textAlign="center">
+              ITI Name
+            </Table.HeaderCell>
+            <Table.HeaderCell rowSpan="3" textAlign="center">
+              Cluster
+            </Table.HeaderCell>
+            <Table.HeaderCell rowSpan="3" textAlign="center">
+              District
+            </Table.HeaderCell>
 
-          <Table.HeaderCell textAlign="center" colSpan="17" style={{backgroundColor: "blue"}}>
-            TECHNOLOGY LAB
-          </Table.HeaderCell>
-        </Table.Row>
-        
-        <Table.Row>
-          <Table.HeaderCell className="th">Furniture</Table.HeaderCell>
-          <Table.HeaderCell className="th">Server_Rack</Table.HeaderCell>
-          <Table.HeaderCell className="th">Dell_Workstations</Table.HeaderCell>
-          <Table.HeaderCell className="th">Dell_Server</Table.HeaderCell>
-          <Table.HeaderCell className="th">VSAT</Table.HeaderCell>
-          <Table.HeaderCell className="th">VSAT_Studio</Table.HeaderCell>
-          <Table.HeaderCell className="th">IOT_Kit_and_Sensors</Table.HeaderCell>
-          <Table.HeaderCell className="th">IOTLab_Laptop</Table.HeaderCell>
-          <Table.HeaderCell className="th">3D_Printer_EOS</Table.HeaderCell>
-          <Table.HeaderCell className="th">3D_Printer_3DS</Table.HeaderCell>
-          <Table.HeaderCell className="th">Laser_Cutter</Table.HeaderCell>
-          <Table.HeaderCell className="th">Product_Design_DS</Table.HeaderCell>
-          <Table.HeaderCell className="th">POD_CARVELCO</Table.HeaderCell>
-          <Table.HeaderCell className="th">PVA_ANSYS</Table.HeaderCell>
-          <Table.HeaderCell className="th">PVA_FEAST</Table.HeaderCell>
-          <Table.HeaderCell className="th">MASTERCAM</Table.HeaderCell>
-          <Table.HeaderCell className="th">IGETIT</Table.HeaderCell>
-         
-        </Table.Row>
-      </Table.Header>
-
-      <Table.Body>
-        {APIData.map((data) => {
-          return (
-            <Table.Row>
-            <Table.Cell collapsing>{data.ITI_Name}</Table.Cell>
-            <Table.Cell collapsing>{data.Cluster}</Table.Cell>
-            <Table.Cell collapsing>{data.District}</Table.Cell>
-
-            <Table.Cell className="ttt" textAlign="center" selectable>
-            <Dropdown
-                text=' '
-                options={options}
-                value={data.Furniture}
-                onChange={(e, { value }) => {
-                  if (
-                    window.confirm(
-                      "Are you sure you want to Update?"
-                    )
-                  ) {
-                  handleChange(data.customId, value, "Furniture");
-                  switch (value) {
-                    case -1:
-                      NotificationManager.info(
-                        `Updated ${data.ITI_Name}'s Furniture to Not yet started`,
-                        "",
-                        6000,
-                        {}
-                      );
-                      break;
-                    case 0:
-                      NotificationManager.warning(
-                        `Updated ${data.ITI_Name}'s Furniture to work in Progress`,
-                        "",
-                        6000,
-                        {}
-                      );
-                      break;
-                    case 1:
-                      NotificationManager.success(
-                        `${data.ITI_Name}'s Furniture marked Completed`,
-                        "",
-                        6000,
-                        {}
-                      );
-                      break;
-                    default:
-                      break;
-                  }
-                }
-                }}
-              />
-              {renderIcon(data.Furniture)}
-            </Table.Cell>
-            <Table.Cell className="ttt"  textAlign="center" selectable>
-            <Dropdown
-                text=' '
-                options={options}
-                value={data.Server_Rack}
-                onChange={(e, { value }) => {
-                  if (
-                    window.confirm(
-                      "Are you sure you want to Update?"
-                    )
-                  ) {
-                  handleChange(data.customId, value, "Server_Rack");
-                  switch (value) {
-                    case -1:
-                      NotificationManager.info(
-                        `Updated ${data.ITI_Name}'s Server_Rack to Not yet started`,
-                        "",
-                        6000,
-                        {}
-                      );
-                      break;
-                    case 0:
-                      NotificationManager.warning(
-                        `Updated ${data.ITI_Name}'s Server_Rack to work in Progress`,
-                        "",
-                        6000,
-                        {}
-                      );
-                      break;
-                    case 1:
-                      NotificationManager.success(
-                        `${data.ITI_Name}'s Server_Rack marked Completed`,
-                        "",
-                        6000,
-                        {}
-                      );
-                      break;
-                    default:
-                      break;
-                  }
-                }
-                }}
-              />
-              {renderIcon(data.Server_Rack)}
-            </Table.Cell>
-
-            <Table.Cell className="ttt"  textAlign="center" selectable>
-            <Dropdown
-                text=' '
-                options={options}
-                value={data.Dell_Workstations}
-                onChange={(e, { value }) => {
-                  if (
-                    window.confirm(
-                      "Are you sure you want to Update?"
-                    )
-                  ) {
-                  handleChange(data.customId, value, "Dell_Workstations");
-                  switch (value) {
-                    case -1:
-                      NotificationManager.info(
-                        `Updated ${data.ITI_Name}'s Dell_Workstations to Not yet started`,
-                        "",
-                        6000,
-                        {}
-                      );
-                      break;
-                    case 0:
-                      NotificationManager.warning(
-                        `Updated ${data.ITI_Name}'s Dell_Workstations to work in Progress`,
-                        "",
-                        6000,
-                        {}
-                      );
-                      break;
-                    case 1:
-                      NotificationManager.success(
-                        `${data.ITI_Name}'s Dell_Workstations marked Completed`,
-                        "",
-                        6000,
-                        {}
-                      );
-                      break;
-                    default:
-                      break;
-                  }
-                }
-                }}
-              />
-              {renderIcon(data.Dell_Workstations)}
-            </Table.Cell>
-            <Table.Cell className="ttt"  textAlign="center" selectable>
-            <Dropdown
-                text=' '
-                options={options}
-                value={data.Dell_Server}
-                onChange={(e, { value }) => {
-                  if (
-                    window.confirm(
-                      "Are you sure you want to Update?"
-                    )
-                  ) {
-                  handleChange(data.customId, value, "Dell_Server");
-                  switch (value) {
-                    case -1:
-                      NotificationManager.info(
-                        `Updated ${data.ITI_Name}'s Dell_Server to Not yet started`,
-                        "",
-                        6000,
-                        {}
-                      );
-                      break;
-                    case 0:
-                      NotificationManager.warning(
-                        `Updated ${data.ITI_Name}'s Dell_Server to work in Progress`,
-                        "",
-                        6000,
-                        {}
-                      );
-                      break;
-                    case 1:
-                      NotificationManager.success(
-                        `${data.ITI_Name}'s Dell_Server marked Completed`,
-                        "",
-                        6000,
-                        {}
-                      );
-                      break;
-                    default:
-                      break;
-                  }
-                }
-                }}
-              />
-              {renderIcon(data.Dell_Server)}
-            </Table.Cell>
-            <Table.Cell className="ttt"  textAlign="center" selectable>
-            <Dropdown
-                text=' '
-                options={options}
-                value={data.VSAT}
-                onChange={(e, { value }) => {
-                  if (
-                    window.confirm(
-                      "Are you sure you want to Update?"
-                    )
-                  ) {
-                  handleChange(data.customId, value, "VSAT");
-                  switch (value) {
-                    case -1:
-                      NotificationManager.info(
-                        `Updated ${data.ITI_Name}'s VSAT to Not yet started`,
-                        "",
-                        6000,
-                        {}
-                      );
-                      break;
-                    case 0:
-                      NotificationManager.warning(
-                        `Updated ${data.ITI_Name}'s VSAT to work in Progress`,
-                        "",
-                        6000,
-                        {}
-                      );
-                      break;
-                    case 1:
-                      NotificationManager.success(
-                        `${data.ITI_Name}'s VSAT marked Completed`,
-                        "",
-                        6000,
-                        {}
-                      );
-                      break;
-                    default:
-                      break;
-                  }
-                }
-                }}
-              />
-              {renderIcon(data.VSAT)}
-            </Table.Cell>
-            <Table.Cell className="ttt"  textAlign="center" selectable>
-            <Dropdown
-                text=' '
-                options={options}
-                value={data.VSAT_Studio}
-                onChange={(e, { value }) => {
-                  if (
-                    window.confirm(
-                      "Are you sure you want to Update?"
-                    )
-                  ) {
-                  handleChange(data.customId, value, "VSAT_Studio");
-                  switch (value) {
-                    case -1:
-                      NotificationManager.info(
-                        `Updated ${data.ITI_Name}'s VSAT_Studio to Not yet started`,
-                        "",
-                        6000,
-                        {}
-                      );
-                      break;
-                    case 0:
-                      NotificationManager.warning(
-                        `Updated ${data.ITI_Name}'s VSAT_Studio to work in Progress`,
-                        "",
-                        6000,
-                        {}
-                      );
-                      break;
-                    case 1:
-                      NotificationManager.success(
-                        `${data.ITI_Name}'s VSAT_Studio marked Completed`,
-                        "",
-                        6000,
-                        {}
-                      );
-                      break;
-                    default:
-                      break;
-                  }
-                }
-                }}
-              />
-              {renderIcon(data.VSAT_Studio)}
-            </Table.Cell>
-            <Table.Cell className="ttt"  textAlign="center" selectable>
-            <Dropdown
-                text=' '
-                options={options}
-                value={data.IOT_Kit_and_Sensors}
-                onChange={(e, { value }) => {
-                  if (
-                    window.confirm(
-                      "Are you sure you want to Update?"
-                    )
-                  ) {
-                  handleChange(data.customId, value, "IOT_Kit_and_Sensors");
-                  switch (value) {
-                    case -1:
-                      NotificationManager.info(
-                        `Updated ${data.ITI_Name}'s IOT_Kit_and_Sensors to Not yet started`,
-                        "",
-                        6000,
-                        {}
-                      );
-                      break;
-                    case 0:
-                      NotificationManager.warning(
-                        `Updated ${data.ITI_Name}'s IOT_Kit_and_Sensors to work in Progress`,
-                        "",
-                        6000,
-                        {}
-                      );
-                      break;
-                    case 1:
-                      NotificationManager.success(
-                        `${data.ITI_Name}'s IOT_Kit_and_Sensors marked Completed`,
-                        "",
-                        6000,
-                        {}
-                      );
-                      break;
-                    default:
-                      break;
-                  }
-                }
-                }}
-              />
-              {renderIcon(data.IOT_Kit_and_Sensors)}
-            </Table.Cell>
-            <Table.Cell className="ttt"  textAlign="center" selectable>
-            <Dropdown
-                text=' '
-                options={options}
-                value={data.IOTLab_Laptop}
-                onChange={(e, { value }) => {
-                  if (
-                    window.confirm(
-                      "Are you sure you want to Update?"
-                    )
-                  ) {
-                  handleChange(data.customId, value, "IOTLab_Laptop");
-                  switch (value) {
-                    case -1:
-                      NotificationManager.info(
-                        `Updated ${data.ITI_Name}'s IOTLab_Laptop to Not yet started`,
-                        "",
-                        6000,
-                        {}
-                      );
-                      break;
-                    case 0:
-                      NotificationManager.warning(
-                        `Updated ${data.ITI_Name}'s IOTLab_Laptop to work in Progress`,
-                        "",
-                        6000,
-                        {}
-                      );
-                      break;
-                    case 1:
-                      NotificationManager.success(
-                        `${data.ITI_Name}'s IOTLab_Laptop marked Completed`,
-                        "",
-                        6000,
-                        {}
-                      );
-                      break;
-                    default:
-                      break;
-                  }
-                }
-                }}
-              />
-              {renderIcon(data.IOTLab_Laptop)}
-            </Table.Cell>
-            <Table.Cell className="ttt"  textAlign="center" selectable>
-            <Dropdown
-                text=' '
-                options={options}
-                value={data.D3_Printer_EOS}
-                onChange={(e, { value }) => {
-                  if (
-                    window.confirm(
-                      "Are you sure you want to Update?"
-                    )
-                  ) {
-                  handleChange(data.customId, value, "D3_Printer_EOS");
-                  switch (value) {
-                    case -1:
-                      NotificationManager.info(
-                        `Updated ${data.ITI_Name}'s D3_Printer_EOS to Not yet started`,
-                        "",
-                        6000,
-                        {}
-                      );
-                      break;
-                    case 0:
-                      NotificationManager.warning(
-                        `Updated ${data.ITI_Name}'s D3_Printer_EOS to work in Progress`,
-                        "",
-                        6000,
-                        {}
-                      );
-                      break;
-                    case 1:
-                      NotificationManager.success(
-                        `${data.ITI_Name}'s D3_Printer_EOS marked Completed`,
-                        "",
-                        6000,
-                        {}
-                      );
-                      break;
-                    default:
-                      break;
-                  }
-                }
-                }}
-              />
-              {renderIcon(data.D3_Printer_EOS)}
-            </Table.Cell>
-            <Table.Cell className="ttt"  textAlign="center" selectable>
-            <Dropdown
-                text=' '
-                options={options}
-                value={data.D3_Printer_3DS}
-                onChange={(e, { value }) => {
-                  if (
-                    window.confirm(
-                      "Are you sure you want to Update?"
-                    )
-                  ) {
-                  handleChange(data.customId, value, "D3_Printer_3DS");
-                  switch (value) {
-                    case -1:
-                      NotificationManager.info(
-                        `Updated ${data.ITI_Name}'s D3_Printer_3DS to Not yet started`,
-                        "",
-                        6000,
-                        {}
-                      );
-                      break;
-                    case 0:
-                      NotificationManager.warning(
-                        `Updated ${data.ITI_Name}'s D3_Printer_3DS to work in Progress`,
-                        "",
-                        6000,
-                        {}
-                      );
-                      break;
-                    case 1:
-                      NotificationManager.success(
-                        `${data.ITI_Name}'s D3_Printer_3DS marked Completed`,
-                        "",
-                        6000,
-                        {}
-                      );
-                      break;
-                    default:
-                      break;
-                  }
-                }
-                }}
-              />
-              {renderIcon(data.D3_Printer_3DS)}
-            </Table.Cell>
-            <Table.Cell className="ttt"  textAlign="center" selectable>
-            <Dropdown
-                text=' '
-                options={options}
-                value={data.Laser_Cutter}
-                onChange={(e, { value }) => {
-                  if (
-                    window.confirm(
-                      "Are you sure you want to Update?"
-                    )
-                  ) {
-                  handleChange(data.customId, value, "Laser_Cutter");
-                  switch (value) {
-                    case -1:
-                      NotificationManager.info(
-                        `Updated ${data.ITI_Name}'s Laser_Cutter to Not yet started`,
-                        "",
-                        6000,
-                        {}
-                      );
-                      break;
-                    case 0:
-                      NotificationManager.warning(
-                        `Updated ${data.ITI_Name}'s Laser_Cutter to work in Progress`,
-                        "",
-                        6000,
-                        {}
-                      );
-                      break;
-                    case 1:
-                      NotificationManager.success(
-                        `${data.ITI_Name}'s Laser_Cutter marked Completed`,
-                        "",
-                        6000,
-                        {}
-                      );
-                      break;
-                    default:
-                      break;
-                  }
-                }
-                }}
-              />
-              {renderIcon(data.Laser_Cutter)}
-            </Table.Cell>
-            <Table.Cell className="ttt"  textAlign="center" selectable>
-            <Dropdown
-                text=' '
-                options={options}
-                value={data.Product_Design_DS}
-                onChange={(e, { value }) => {
-                  if (
-                    window.confirm(
-                      "Are you sure you want to Update?"
-                    )
-                  ) {
-                  handleChange(data.customId, value, "Product_Design_DS");
-                  switch (value) {
-                    case -1:
-                      NotificationManager.info(
-                        `Updated ${data.ITI_Name}'s Product_Design_DS to Not yet started`,
-                        "",
-                        6000,
-                        {}
-                      );
-                      break;
-                    case 0:
-                      NotificationManager.warning(
-                        `Updated ${data.ITI_Name}'s Product_Design_DS to work in Progress`,
-                        "",
-                        6000,
-                        {}
-                      );
-                      break;
-                    case 1:
-                      NotificationManager.success(
-                        `${data.ITI_Name}'s Product_Design_DS marked Completed`,
-                        "",
-                        6000,
-                        {}
-                      );
-                      break;
-                    default:
-                      break;
-                  }
-                }
-                }}
-              />
-              {renderIcon(data.Product_Design_DS)}
-            </Table.Cell>
-            <Table.Cell className="ttt"  textAlign="center" selectable>
-            <Dropdown
-                text=' '
-                options={options}
-                value={data.POD_CARVELCO}
-                onChange={(e, { value }) => {
-                  if (
-                    window.confirm(
-                      "Are you sure you want to Update?"
-                    )
-                  ) {
-                  handleChange(data.customId, value, "POD_CARVELCO");
-                  switch (value) {
-                    case -1:
-                      NotificationManager.info(
-                        `Updated ${data.ITI_Name}'s POD_CARVELCO to Not yet started`,
-                        "",
-                        6000,
-                        {}
-                      );
-                      break;
-                    case 0:
-                      NotificationManager.warning(
-                        `Updated ${data.ITI_Name}'s POD_CARVELCO to work in Progress`,
-                        "",
-                        6000,
-                        {}
-                      );
-                      break;
-                    case 1:
-                      NotificationManager.success(
-                        `${data.ITI_Name}'s POD_CARVELCO marked Completed`,
-                        "",
-                        6000,
-                        {}
-                      );
-                      break;
-                    default:
-                      break;
-                  }
-                }
-                }}
-              />
-              {renderIcon(data.POD_CARVELCO)}
-            </Table.Cell>
-            <Table.Cell className="ttt"  textAlign="center" selectable>
-            <Dropdown
-                text=' '
-                options={options}
-                value={data.PVA_ANSYS}
-                onChange={(e, { value }) => {
-                  if (
-                    window.confirm(
-                      "Are you sure you want to Update?"
-                    )
-                  ) {
-                  handleChange(data.customId, value, "PVA_ANSYS");
-                  switch (value) {
-                    case -1:
-                      NotificationManager.info(
-                        `Updated ${data.ITI_Name}'s PVA_ANSYS to Not yet started`,
-                        "",
-                        6000,
-                        {}
-                      );
-                      break;
-                    case 0:
-                      NotificationManager.warning(
-                        `Updated ${data.ITI_Name}'s PVA_ANSYS to work in Progress`,
-                        "",
-                        6000,
-                        {}
-                      );
-                      break;
-                    case 1:
-                      NotificationManager.success(
-                        `${data.ITI_Name}'s PVA_ANSYS marked Completed`,
-                        "",
-                        6000,
-                        {}
-                      );
-                      break;
-                    default:
-                      break;
-                  }
-                }
-                }}
-              />
-              {renderIcon(data.PVA_ANSYS)}
-            </Table.Cell>
-            <Table.Cell className="ttt"  textAlign="center" selectable>
-            <Dropdown
-                text=' '
-                options={options}
-                value={data.MASTERCAM}
-                onChange={(e, { value }) => {
-                  if (
-                    window.confirm(
-                      "Are you sure you want to Update?"
-                    )
-                  ) {
-                  handleChange(data.customId, value, "MASTERCAM");
-                  switch (value) {
-                    case -1:
-                      NotificationManager.info(
-                        `Updated ${data.ITI_Name}'s MASTERCAM to Not yet started`,
-                        "",
-                        6000,
-                        {}
-                      );
-                      break;
-                    case 0:
-                      NotificationManager.warning(
-                        `Updated ${data.ITI_Name}'s MASTERCAM to work in Progress`,
-                        "",
-                        6000,
-                        {}
-                      );
-                      break;
-                    case 1:
-                      NotificationManager.success(
-                        `${data.ITI_Name}'s MASTERCAM marked Completed`,
-                        "",
-                        6000,
-                        {}
-                      );
-                      break;
-                    default:
-                      break;
-                  }
-                }
-                }}
-              />
-              {renderIcon(data.MASTERCAM)}
-            </Table.Cell>
-            <Table.Cell className="ttt"  textAlign="center" selectable>
-            <Dropdown
-                text=' '
-                options={options}
-                value={data.PVA_FEAST}
-                onChange={(e, { value }) => {
-                  if (
-                    window.confirm(
-                      "Are you sure you want to Update?"
-                    )
-                  ) {
-                  handleChange(data.customId, value, "PVA_FEAST");
-                  switch (value) {
-                    case -1:
-                      NotificationManager.info(
-                        `Updated ${data.ITI_Name}'s PVA_FEAST to Not yet started`,
-                        "",
-                        6000,
-                        {}
-                      );
-                      break;
-                    case 0:
-                      NotificationManager.warning(
-                        `Updated ${data.ITI_Name}'s PVA_FEAST to work in Progress`,
-                        "",
-                        6000,
-                        {}
-                      );
-                      break;
-                    case 1:
-                      NotificationManager.success(
-                        `${data.ITI_Name}'s PVA_FEAST marked Completed`,
-                        "",
-                        6000,
-                        {}
-                      );
-                      break;
-                    default:
-                      break;
-                  }
-                }
-                }}
-              />
-              {renderIcon(data.PVA_FEAST)}
-            </Table.Cell>
-            <Table.Cell className="ttt"  textAlign="center" selectable>
-            <Dropdown
-                text=' '
-                options={options}
-                value={data.IGETIT}
-                onChange={(e, { value }) => {
-                  if (
-                    window.confirm(
-                      "Are you sure you want to Update?"
-                    )
-                  ) {
-                  handleChange(data.customId, value, "IGETIT");
-                  switch (value) {
-                    case -1:
-                      NotificationManager.info(
-                        `Updated ${data.ITI_Name}'s IGETIT to Not yet started`,
-                        "",
-                        6000,
-                        {}
-                      );
-                      break;
-                    case 0:
-                      NotificationManager.warning(
-                        `Updated ${data.ITI_Name}'s IGETIT to work in Progress`,
-                        "",
-                        6000,
-                        {}
-                      );
-                      break;
-                    case 1:
-                      NotificationManager.success(
-                        `${data.ITI_Name}'s IGETIT marked Completed`,
-                        "",
-                        6000,
-                        {}
-                      );
-                      break;
-                    default:
-                      break;
-                  }
-                }
-                }}
-              />
-              {renderIcon(data.IGETIT)}
-            </Table.Cell>
+            <Table.HeaderCell
+              textAlign="center"
+              colSpan="17"
+              style={{ backgroundColor: "blue" }}
+            >
+              TECHNOLOGY LAB
+            </Table.HeaderCell>
           </Table.Row>
-          );
-        })}
-      </Table.Body>
-      
-    </Table>
-    <NotificationContainer className="notification-container" />
+
+          <Table.Row>
+            <Table.HeaderCell className="th">Furniture</Table.HeaderCell>
+            <Table.HeaderCell className="th">Server Rack</Table.HeaderCell>
+            <Table.HeaderCell className="th">
+              Workstations and Monitors
+            </Table.HeaderCell>
+            <Table.HeaderCell className="th">Server</Table.HeaderCell>
+            <Table.HeaderCell className="th">
+              Distance Learning Classroom
+            </Table.HeaderCell>
+            <Table.HeaderCell className="th">IOT Kit</Table.HeaderCell>
+            <Table.HeaderCell className="th">IOT Desktops</Table.HeaderCell>
+            <Table.HeaderCell className="th">
+              3D Printer Tech-1
+            </Table.HeaderCell>
+            <Table.HeaderCell className="th">
+              3D Printer Tech-2
+            </Table.HeaderCell>
+            <Table.HeaderCell className="th">
+              TechTools Product Design 1
+            </Table.HeaderCell>
+            <Table.HeaderCell className="th">
+              TechTools Product Design 2
+            </Table.HeaderCell>
+            <Table.HeaderCell className="th">
+              TechTools Product Verification 1
+            </Table.HeaderCell>
+            <Table.HeaderCell className="th">
+              TechTools Product Verification 2
+            </Table.HeaderCell>
+            <Table.HeaderCell className="th">
+              TechTools Advance Manufacturing
+            </Table.HeaderCell>
+            <Table.HeaderCell className="th">
+              E-Learning Platform
+            </Table.HeaderCell>
+          </Table.Row>
+        </Table.Header>
+
+        <Table.Body>
+          {APIData.map((data) => {
+            return (
+              <Table.Row>
+                <Table.Cell collapsing>{data.ITI_Name}</Table.Cell>
+                <Table.Cell collapsing>{data.Cluster}</Table.Cell>
+                <Table.Cell collapsing>{data.District}</Table.Cell>
+
+                <Table.Cell className="ttt" textAlign="center" selectable>
+                  <Dropdown
+                    text=" "
+                    options={options}
+                    value={data.Furniture}
+                    onChange={(e, { value }) => {
+                      if (window.confirm("Are you sure you want to Update?")) {
+                        handleChange(data.customId, value, "Furniture");
+                        switch (value) {
+                          case -1:
+                            NotificationManager.info(
+                              `Updated ${data.ITI_Name}'s Furniture to Not yet started`,
+                              "",
+                              6000,
+                              {}
+                            );
+                            break;
+                          case 0:
+                            NotificationManager.warning(
+                              `Updated ${data.ITI_Name}'s Furniture to work in Progress`,
+                              "",
+                              6000,
+                              {}
+                            );
+                            break;
+                          case 1:
+                            NotificationManager.success(
+                              `${data.ITI_Name}'s Furniture marked Completed`,
+                              "",
+                              6000,
+                              {}
+                            );
+                            break;
+                          default:
+                            break;
+                        }
+                      }
+                    }}
+                  />
+                  {renderIcon(data.Furniture)}
+                </Table.Cell>
+                <Table.Cell className="ttt" textAlign="center" selectable>
+                  <Dropdown
+                    text=" "
+                    options={options}
+                    value={data.Server_Rack}
+                    onChange={(e, { value }) => {
+                      if (window.confirm("Are you sure you want to Update?")) {
+                        handleChange(data.customId, value, "Server_Rack");
+                        switch (value) {
+                          case -1:
+                            NotificationManager.info(
+                              `Updated ${data.ITI_Name}'s Server Rack to Not yet started`,
+                              "",
+                              6000,
+                              {}
+                            );
+                            break;
+                          case 0:
+                            NotificationManager.warning(
+                              `Updated ${data.ITI_Name}'s Server Rack to work in Progress`,
+                              "",
+                              6000,
+                              {}
+                            );
+                            break;
+                          case 1:
+                            NotificationManager.success(
+                              `${data.ITI_Name}'s Server Rack marked Completed`,
+                              "",
+                              6000,
+                              {}
+                            );
+                            break;
+                          default:
+                            break;
+                        }
+                      }
+                    }}
+                  />
+                  {renderIcon(data.Server_Rack)}
+                </Table.Cell>
+
+                <Table.Cell className="ttt" textAlign="center" selectable>
+                  <Dropdown
+                    text=" "
+                    options={options}
+                    value={data.Workstations_and_Monitors}
+                    onChange={(e, { value }) => {
+                      if (window.confirm("Are you sure you want to Update?")) {
+                        handleChange(data.customId, value, "Workstations_and_Monitors");
+                        switch (value) {
+                          case -1:
+                            NotificationManager.info(
+                              `Updated ${data.ITI_Name}'s Workstations_and_Monitors to Not yet started`,
+                              "",
+                              6000,
+                              {}
+                            );
+                            break;
+                          case 0:
+                            NotificationManager.warning(
+                              `Updated ${data.ITI_Name}'s Workstations_and_Monitors to work in Progress`,
+                              "",
+                              6000,
+                              {}
+                            );
+                            break;
+                          case 1:
+                            NotificationManager.success(
+                              `${data.ITI_Name}'s Workstations_and_Monitors marked Completed`,
+                              "",
+                              6000,
+                              {}
+                            );
+                            break;
+                          default:
+                            break;
+                        }
+                      }
+                    }}
+                  />
+                  {renderIcon(data.Workstations_and_Monitors)}
+                </Table.Cell>
+                <Table.Cell className="ttt" textAlign="center" selectable>
+                  <Dropdown
+                    text=" "
+                    options={options}
+                    value={data.Server}
+                    onChange={(e, { value }) => {
+                      if (window.confirm("Are you sure you want to Update?")) {
+                        handleChange(data.customId, value, "Server");
+                        switch (value) {
+                          case -1:
+                            NotificationManager.info(
+                              `Updated ${data.ITI_Name}'s Server to Not yet started`,
+                              "",
+                              6000,
+                              {}
+                            );
+                            break;
+                          case 0:
+                            NotificationManager.warning(
+                              `Updated ${data.ITI_Name}'s Server to work in Progress`,
+                              "",
+                              6000,
+                              {}
+                            );
+                            break;
+                          case 1:
+                            NotificationManager.success(
+                              `${data.ITI_Name}'s Server marked Completed`,
+                              "",
+                              6000,
+                              {}
+                            );
+                            break;
+                          default:
+                            break;
+                        }
+                      }
+                    }}
+                  />
+                  {renderIcon(data.Server)}
+                </Table.Cell>
+                <Table.Cell className="ttt" textAlign="center" selectable>
+                  <Dropdown
+                    text=" "
+                    options={options}
+                    value={data.Distance_Learning_Classroom}
+                    onChange={(e, { value }) => {
+                      if (window.confirm("Are you sure you want to Update?")) {
+                        handleChange(data.customId, value, "Distance_Learning_Classroom");
+                        switch (value) {
+                          case -1:
+                            NotificationManager.info(
+                              `Updated ${data.ITI_Name}'s Distance_Learning_Classroom to Not yet started`,
+                              "",
+                              6000,
+                              {}
+                            );
+                            break;
+                          case 0:
+                            NotificationManager.warning(
+                              `Updated ${data.ITI_Name}'s Distance_Learning_Classroom to work in Progress`,
+                              "",
+                              6000,
+                              {}
+                            );
+                            break;
+                          case 1:
+                            NotificationManager.success(
+                              `${data.ITI_Name}'s Distance_Learning_Classroom marked Completed`,
+                              "",
+                              6000,
+                              {}
+                            );
+                            break;
+                          default:
+                            break;
+                        }
+                      }
+                    }}
+                  />
+                  {renderIcon(data.Distance_Learning_Classroom)}
+                </Table.Cell>
+               
+                <Table.Cell className="ttt" textAlign="center" selectable>
+                  <Dropdown
+                    text=" "
+                    options={options}
+                    value={data.IOT_Kit}
+                    onChange={(e, { value }) => {
+                      if (window.confirm("Are you sure you want to Update?")) {
+                        handleChange(
+                          data.customId,
+                          value,
+                          "IOT_Kit"
+                        );
+                        switch (value) {
+                          case -1:
+                            NotificationManager.info(
+                              `Updated ${data.ITI_Name}'s IOT_Kit to Not yet started`,
+                              "",
+                              6000,
+                              {}
+                            );
+                            break;
+                          case 0:
+                            NotificationManager.warning(
+                              `Updated ${data.ITI_Name}'s IOT_Kit to work in Progress`,
+                              "",
+                              6000,
+                              {}
+                            );
+                            break;
+                          case 1:
+                            NotificationManager.success(
+                              `${data.ITI_Name}'s IOT_Kit marked Completed`,
+                              "",
+                              6000,
+                              {}
+                            );
+                            break;
+                          default:
+                            break;
+                        }
+                      }
+                    }}
+                  />
+                  {renderIcon(data.IOT_Kit)}
+                </Table.Cell>
+                <Table.Cell className="ttt" textAlign="center" selectable>
+                  <Dropdown
+                    text=" "
+                    options={options}
+                    value={data.IOT_Desktops}
+                    onChange={(e, { value }) => {
+                      if (window.confirm("Are you sure you want to Update?")) {
+                        handleChange(data.customId, value, "IOT_Desktops");
+                        switch (value) {
+                          case -1:
+                            NotificationManager.info(
+                              `Updated ${data.ITI_Name}'s IOT_Desktops to Not yet started`,
+                              "",
+                              6000,
+                              {}
+                            );
+                            break;
+                          case 0:
+                            NotificationManager.warning(
+                              `Updated ${data.ITI_Name}'s IOT_Desktops to work in Progress`,
+                              "",
+                              6000,
+                              {}
+                            );
+                            break;
+                          case 1:
+                            NotificationManager.success(
+                              `${data.ITI_Name}'s IOT_Desktops marked Completed`,
+                              "",
+                              6000,
+                              {}
+                            );
+                            break;
+                          default:
+                            break;
+                        }
+                      }
+                    }}
+                  />
+                  {renderIcon(data.IOT_Desktops)}
+                </Table.Cell>
+                <Table.Cell className="ttt" textAlign="center" selectable>
+                  <Dropdown
+                    text=" "
+                    options={options}
+                    value={data.D3_Printer_Tech1}
+                    onChange={(e, { value }) => {
+                      if (window.confirm("Are you sure you want to Update?")) {
+                        handleChange(data.customId, value, "D3_Printer_Tech1");
+                        switch (value) {
+                          case -1:
+                            NotificationManager.info(
+                              `Updated ${data.ITI_Name}'s 3D_Printer_Tech1 to Not yet started`,
+                              "",
+                              6000,
+                              {}
+                            );
+                            break;
+                          case 0:
+                            NotificationManager.warning(
+                              `Updated ${data.ITI_Name}'s 3D_Printer_Tech1 to work in Progress`,
+                              "",
+                              6000,
+                              {}
+                            );
+                            break;
+                          case 1:
+                            NotificationManager.success(
+                              `${data.ITI_Name}'s 3D_Printer_Tech1 marked Completed`,
+                              "",
+                              6000,
+                              {}
+                            );
+                            break;
+                          default:
+                            break;
+                        }
+                      }
+                    }}
+                  />
+                  {renderIcon(data.D3_Printer_Tech1)}
+                </Table.Cell>
+                <Table.Cell className="ttt" textAlign="center" selectable>
+                  <Dropdown
+                    text=" "
+                    options={options}
+                    value={data.D3_Printer_Tech2}
+                    onChange={(e, { value }) => {
+                      if (window.confirm("Are you sure you want to Update?")) {
+                        handleChange(data.customId, value, "D3_Printer_Tech2");
+                        switch (value) {
+                          case -1:
+                            NotificationManager.info(
+                              `Updated ${data.ITI_Name}'s 3D_Printer_Tech2 to Not yet started`,
+                              "",
+                              6000,
+                              {}
+                            );
+                            break;
+                          case 0:
+                            NotificationManager.warning(
+                              `Updated ${data.ITI_Name}'s 3D_Printer_Tech2 to work in Progress`,
+                              "",
+                              6000,
+                              {}
+                            );
+                            break;
+                          case 1:
+                            NotificationManager.success(
+                              `${data.ITI_Name}'s 3D_Printer_Tech2 marked Completed`,
+                              "",
+                              6000,
+                              {}
+                            );
+                            break;
+                          default:
+                            break;
+                        }
+                      }
+                    }}
+                  />
+                  {renderIcon(data.D3_Printer_Tech2)}
+                </Table.Cell>
+               
+                <Table.Cell className="ttt" textAlign="center" selectable>
+                  <Dropdown
+                    text=" "
+                    options={options}
+                    value={data.Tech_Tools_Product_Design1}
+                    onChange={(e, { value }) => {
+                      if (window.confirm("Are you sure you want to Update?")) {
+                        handleChange(data.customId, value, "Tech_Tools_Product_Design1");
+                        switch (value) {
+                          case -1:
+                            NotificationManager.info(
+                              `Updated ${data.ITI_Name}'s Tech_Tools_Product_Design1 to Not yet started`,
+                              "",
+                              6000,
+                              {}
+                            );
+                            break;
+                          case 0:
+                            NotificationManager.warning(
+                              `Updated ${data.ITI_Name}'s Tech_Tools_Product_Design1 to work in Progress`,
+                              "",
+                              6000,
+                              {}
+                            );
+                            break;
+                          case 1:
+                            NotificationManager.success(
+                              `${data.ITI_Name}'s Tech_Tools_Product_Design1 marked Completed`,
+                              "",
+                              6000,
+                              {}
+                            );
+                            break;
+                          default:
+                            break;
+                        }
+                      }
+                    }}
+                  />
+                  {renderIcon(data.Tech_Tools_Product_Design1)}
+                </Table.Cell>
+                <Table.Cell className="ttt" textAlign="center" selectable>
+                  <Dropdown
+                    text=" "
+                    options={options}
+                    value={data.Tech_Tools_Product_Design2}
+                    onChange={(e, { value }) => {
+                      if (window.confirm("Are you sure you want to Update?")) {
+                        handleChange(data.customId, value, "Tech_Tools_Product_Design2");
+                        switch (value) {
+                          case -1:
+                            NotificationManager.info(
+                              `Updated ${data.ITI_Name}'s Tech_Tools_Product_Design2 to Not yet started`,
+                              "",
+                              6000,
+                              {}
+                            );
+                            break;
+                          case 0:
+                            NotificationManager.warning(
+                              `Updated ${data.ITI_Name}'s Tech_Tools_Product_Design2 to work in Progress`,
+                              "",
+                              6000,
+                              {}
+                            );
+                            break;
+                          case 1:
+                            NotificationManager.success(
+                              `${data.ITI_Name}'s Tech_Tools_Product_Design2 marked Completed`,
+                              "",
+                              6000,
+                              {}
+                            );
+                            break;
+                          default:
+                            break;
+                        }
+                      }
+                    }}
+                  />
+                  {renderIcon(data.Tech_Tools_Product_Design2)}
+                </Table.Cell>
+                <Table.Cell className="ttt" textAlign="center" selectable>
+                  <Dropdown
+                    text=" "
+                    options={options}
+                    value={data.Tech_Tools_Product_Verification1}
+                    onChange={(e, { value }) => {
+                      if (window.confirm("Are you sure you want to Update?")) {
+                        handleChange(data.customId, value, "Tech_Tools_Product_Verification1");
+                        switch (value) {
+                          case -1:
+                            NotificationManager.info(
+                              `Updated ${data.ITI_Name}'s Tech_Tools_Product_Verification1 to Not yet started`,
+                              "",
+                              6000,
+                              {}
+                            );
+                            break;
+                          case 0:
+                            NotificationManager.warning(
+                              `Updated ${data.ITI_Name}'s Tech_Tools_Product_Verification1 to work in Progress`,
+                              "",
+                              6000,
+                              {}
+                            );
+                            break;
+                          case 1:
+                            NotificationManager.success(
+                              `${data.ITI_Name}'s Tech_Tools_Product_Verification1 marked Completed`,
+                              "",
+                              6000,
+                              {}
+                            );
+                            break;
+                          default:
+                            break;
+                        }
+                      }
+                    }}
+                  />
+                  {renderIcon(data.Tech_Tools_Product_Verification1)}
+                </Table.Cell>
+                <Table.Cell className="ttt" textAlign="center" selectable>
+                  <Dropdown
+                    text=" "
+                    options={options}
+                    value={data.Tech_Tools_Product_Verification2}
+                    onChange={(e, { value }) => {
+                      if (window.confirm("Are you sure you want to Update?")) {
+                        handleChange(data.customId, value, "Tech_Tools_Product_Verification2");
+                        switch (value) {
+                          case -1:
+                            NotificationManager.info(
+                              `Updated ${data.ITI_Name}'s Tech_Tools_Product_Verification2 to Not yet started`,
+                              "",
+                              6000,
+                              {}
+                            );
+                            break;
+                          case 0:
+                            NotificationManager.warning(
+                              `Updated ${data.ITI_Name}'s Tech_Tools_Product_Verification2 to work in Progress`,
+                              "",
+                              6000,
+                              {}
+                            );
+                            break;
+                          case 1:
+                            NotificationManager.success(
+                              `${data.ITI_Name}'s Tech_Tools_Product_Verification2 marked Completed`,
+                              "",
+                              6000,
+                              {}
+                            );
+                            break;
+                          default:
+                            break;
+                        }
+                      }
+                    }}
+                  />
+                  {renderIcon(data.Tech_Tools_Product_Verification2)}
+                </Table.Cell>
+                <Table.Cell className="ttt" textAlign="center" selectable>
+                  <Dropdown
+                    text=" "
+                    options={options}
+                    value={data.Tech_Tools_Advance_Manufacturing1}
+                    onChange={(e, { value }) => {
+                      if (window.confirm("Are you sure you want to Update?")) {
+                        handleChange(data.customId, value, "Tech_Tools_Advance_Manufacturing1");
+                        switch (value) {
+                          case -1:
+                            NotificationManager.info(
+                              `Updated ${data.ITI_Name}'s Tech_Tools_Advance_Manufacturing1 to Not yet started`,
+                              "",
+                              6000,
+                              {}
+                            );
+                            break;
+                          case 0:
+                            NotificationManager.warning(
+                              `Updated ${data.ITI_Name}'s Tech_Tools_Advance_Manufacturing1 to work in Progress`,
+                              "",
+                              6000,
+                              {}
+                            );
+                            break;
+                          case 1:
+                            NotificationManager.success(
+                              `${data.ITI_Name}'s Tech_Tools_Advance_Manufacturing1 marked Completed`,
+                              "",
+                              6000,
+                              {}
+                            );
+                            break;
+                          default:
+                            break;
+                        }
+                      }
+                    }}
+                  />
+                  {renderIcon(data.Tech_Tools_Advance_Manufacturing1)}
+                </Table.Cell>
+                <Table.Cell className="ttt" textAlign="center" selectable>
+                  <Dropdown
+                    text=" "
+                    options={options}
+                    value={data.E_Learning_Platform}
+                    onChange={(e, { value }) => {
+                      if (window.confirm("Are you sure you want to Update?")) {
+                        handleChange(data.customId, value, "E_Learning_Platform");
+                        switch (value) {
+                          case -1:
+                            NotificationManager.info(
+                              `Updated ${data.ITI_Name}'s E_Learning_Platform to Not yet started`,
+                              "",
+                              6000,
+                              {}
+                            );
+                            break;
+                          case 0:
+                            NotificationManager.warning(
+                              `Updated ${data.ITI_Name}'s E_Learning_Platform to work in Progress`,
+                              "",
+                              6000,
+                              {}
+                            );
+                            break;
+                          case 1:
+                            NotificationManager.success(
+                              `${data.ITI_Name}'s E_Learning_Platform marked Completed`,
+                              "",
+                              6000,
+                              {}
+                            );
+                            break;
+                          default:
+                            break;
+                        }
+                      }
+                    }}
+                  />
+                  {renderIcon(data.E_Learning_Platform)}
+                </Table.Cell>
+              </Table.Row>
+            );
+          })}
+        </Table.Body>
+      </Table>
+      <NotificationContainer className="notification-container" />
     </div>
   );
 }

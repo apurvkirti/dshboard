@@ -46,7 +46,7 @@ export default function MyComponent(props) {
       </div>
 
  
-    <Table className="ti" celled structured collapsing color="orange" striped>
+    <Table className="ti" celled collapsing striped>
       <Table.Header>
         <Table.Row>
           <Table.HeaderCell rowSpan="3" textAlign="center">
@@ -59,86 +59,104 @@ export default function MyComponent(props) {
             District
           </Table.HeaderCell>
 
-          <Table.HeaderCell textAlign="center" colSpan="15">
+          <Table.HeaderCell textAlign="center" colSpan="16">
             Workshop
           </Table.HeaderCell>
         </Table.Row>
 
         <Table.Row>
-        <Table.HeaderCell className="th">Ind Paint Booth</Table.HeaderCell>
-          <Table.HeaderCell className="th">Car Lift</Table.HeaderCell>
-          <Table.HeaderCell className="th">IPC AVEVA</Table.HeaderCell>
-          <Table.HeaderCell className="th">VR Welding Painting</Table.HeaderCell>
-          <Table.HeaderCell className="th">Auto MRO Cut Sections</Table.HeaderCell>
-          <Table.HeaderCell className="th">TIGOR EV</Table.HeaderCell>
-          <Table.HeaderCell className="th">TATA Ace</Table.HeaderCell>
-          <Table.HeaderCell className="th">EV Kit</Table.HeaderCell>
-          <Table.HeaderCell className="th">Industrial Robotics</Table.HeaderCell>
-          <Table.HeaderCell className="th">VFD</Table.HeaderCell>
-          <Table.HeaderCell className="th">Plumbing Kit</Table.HeaderCell>
-          <Table.HeaderCell className="th">CNC Tsugami</Table.HeaderCell>
-          <Table.HeaderCell className="th">VMC HAAS</Table.HeaderCell>
-          <Table.HeaderCell className="th">HAAS Tools Meters</Table.HeaderCell>
-          <Table.HeaderCell className="th">HAAS Simulators</Table.HeaderCell>
-        </Table.Row>
+            <Table.HeaderCell className="th">Laser Cutter</Table.HeaderCell>
+            <Table.HeaderCell className="th">PaintBooth</Table.HeaderCell>
+            <Table.HeaderCell className="th">Car Lift</Table.HeaderCell>
+            <Table.HeaderCell className="th">
+              Industrial_Process_Control_Unit
+            </Table.HeaderCell>
+            <Table.HeaderCell className="th">
+              VR Welding & Painting
+            </Table.HeaderCell>
+            <Table.HeaderCell className="th">
+              Auto MRO Cut Sections
+            </Table.HeaderCell>
+            <Table.HeaderCell className="th">
+              Battery Electrical_Vehicle
+            </Table.HeaderCell>
+            <Table.HeaderCell className="th">
+              IO Engine Vehicle
+            </Table.HeaderCell>
+            <Table.HeaderCell className="th">EV Kit</Table.HeaderCell>
+            <Table.HeaderCell className="th">
+              Industrial Robotics Setup
+            </Table.HeaderCell>
+            <Table.HeaderCell className="th">VFD Machine</Table.HeaderCell>
+            <Table.HeaderCell className="th">Plumbing Kit</Table.HeaderCell>
+            <Table.HeaderCell className="th">CNC Machine</Table.HeaderCell>
+            <Table.HeaderCell className="th">VMC Machine</Table.HeaderCell>
+            <Table.HeaderCell className="th">Tools & Meters</Table.HeaderCell>
+            <Table.HeaderCell className="th">
+              Advance Machining Simulators
+            </Table.HeaderCell>
+          </Table.Row>
       </Table.Header>
 
       <Table.Body>
         {data.map((data) => {
           return (
             <Table.Row>
-              <Table.Cell collapsing>{data.ITI_Name}</Table.Cell>
-              <Table.Cell collapsing>{data.Cluster}</Table.Cell>
-              <Table.Cell collapsing>{data.District}</Table.Cell>
+            <Table.Cell collapsing>{data.ITI_Name}</Table.Cell>
+            <Table.Cell collapsing>{data.Cluster}</Table.Cell>
+            <Table.Cell collapsing>{data.District}</Table.Cell>
 
-              {/* cells */}
+            {/* cells */}
 
-              <Table.Cell className="ttt" textAlign="center" selectable>
-                {renderIcon(data.Ind_Paint_Booth)}
-              </Table.Cell>
-              <Table.Cell className="ttt" textAlign="center" selectable>
-                {renderIcon(data.Car_Lift)}
-              </Table.Cell>
-              <Table.Cell className="ttt" textAlign="center" selectable>
-                {renderIcon(data.IPC_AVEVA)}
-              </Table.Cell>
-              <Table.Cell className="ttt" textAlign="center" selectable>
-                {renderIcon(data.VR_welding_Painting)}
-              </Table.Cell>
-              <Table.Cell className="ttt" textAlign="center" selectable>
-                {renderIcon(data.Auto_MRO_Cut_Sections)}
-              </Table.Cell>
-              <Table.Cell className="ttt" textAlign="center" selectable>
-                {renderIcon(data.TIGOR_EV)}
-              </Table.Cell>
-              <Table.Cell className="ttt" textAlign="center" selectable>
-                {renderIcon(data.TATA_Ace)}
-              </Table.Cell>
-              <Table.Cell className="ttt" textAlign="center" selectable>
-                {renderIcon(data.EV_Kit)}
-              </Table.Cell>
-              <Table.Cell className="ttt" textAlign="center" selectable>
-                {renderIcon(data.Industrial_Robotics)}
-              </Table.Cell>
-              <Table.Cell className="ttt" textAlign="center" selectable>
-                {renderIcon(data.VFD)}
-              </Table.Cell>
-              <Table.Cell className="ttt" textAlign="center" selectable>
-                {renderIcon(data.Plumbing_Kit)}
-              </Table.Cell>
-              <Table.Cell className="ttt" textAlign="center" selectable>
-                {renderIcon(data.CNC_Tsugami)}
-              </Table.Cell>
-              <Table.Cell className="ttt" textAlign="center" selectable>
-                {renderIcon(data.VMC_HAAS)}
-              </Table.Cell>
-              <Table.Cell className="ttt" textAlign="center" selectable>
-                {renderIcon(data.HAAS_Tools_Meters)}
-              </Table.Cell>
-              <Table.Cell className="ttt" textAlign="center" selectable>
-                {renderIcon(data.HAAS_Simulators)}
-              </Table.Cell>
-            </Table.Row>
+            <Table.Cell className="ttt" textAlign="center" selectable>
+              {renderIcon(data.Laser_Cutter)}
+            </Table.Cell>
+            <Table.Cell className="ttt" textAlign="center" selectable>
+              {renderIcon(data.PaintBooth)}
+            </Table.Cell>
+            <Table.Cell className="ttt" textAlign="center" selectable>
+              {renderIcon(data.Car_Lift)}
+            </Table.Cell>
+            <Table.Cell className="ttt" textAlign="center" selectable>
+              {renderIcon(data.Industrial_Process_Control_Unit)}
+            </Table.Cell>
+            <Table.Cell className="ttt" textAlign="center" selectable>
+              {renderIcon(data.VR_Welding_and_Painting)}
+            </Table.Cell>
+            <Table.Cell className="ttt" textAlign="center" selectable>
+              {renderIcon(data.Auto_MRO_Cut_Sections)}
+            </Table.Cell>
+            <Table.Cell className="ttt" textAlign="center" selectable>
+              {renderIcon(data.Battery_Electrical_Vehicle)}
+            </Table.Cell>
+            <Table.Cell className="ttt" textAlign="center" selectable>
+              {renderIcon(data.IO_Engine_Vehicle)}
+            </Table.Cell>
+            <Table.Cell className="ttt" textAlign="center" selectable>
+              {renderIcon(data.EV_Kit)}
+            </Table.Cell>
+            <Table.Cell className="ttt" textAlign="center" selectable>
+              {renderIcon(data.Industrial_Robotics_Setup)}
+            </Table.Cell>
+            <Table.Cell className="ttt" textAlign="center" selectable>
+              {renderIcon(data.VFD_Machine)}
+            </Table.Cell>
+            <Table.Cell className="ttt" textAlign="center" selectable>
+              {renderIcon(data.Plumbing_Kit)}
+            </Table.Cell>
+            <Table.Cell className="ttt" textAlign="center" selectable>
+              {renderIcon(data.CNC_Machine)}
+            </Table.Cell>
+            <Table.Cell className="ttt" textAlign="center" selectable>
+              {renderIcon(data.VMC_Machine)}
+            </Table.Cell>
+            <Table.Cell className="ttt" textAlign="center" selectable>
+              {renderIcon(data.Tools_and_Meters)}
+            </Table.Cell>
+            <Table.Cell className="ttt" textAlign="center" selectable>
+              {renderIcon(data.Advance_Machining_Simulators)}
+            </Table.Cell>
+          </Table.Row>
           );
         })}
       </Table.Body>

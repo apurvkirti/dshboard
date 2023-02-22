@@ -24,6 +24,8 @@ import InsTech from "./installation/getInsTech";
 import UpdateInsTech from "./installation/updateInsTech";
 import UpdateInsWks from "./installation/updateInsWks";
 import InsWks from "./installation/getInsWks";
+import Courses from "./course";
+import UpdCourses from "./updatecourses"
 import Img from "./imgs";
 
 import Clus from "./clusterChart";
@@ -60,6 +62,7 @@ export default function Final() {
   const civilRef = useRef(null);
   const deliveryRef = useRef(null);
   const installationRef = useRef(null);
+  const coursesRef = useRef(null);
   const [selectedTitle, setSelectedTitle] = useState("");
   const handleButtonClick = (title) => {
     setSelectedTitle(title);
@@ -79,6 +82,12 @@ export default function Final() {
         behavior: "smooth",
       });
     }
+    else if (option === "Courses") {
+      window.scrollTo({
+        top: coursesRef.current.offsetTop,
+        behavior: "smooth",
+      });
+    }
   };
 
   //  for carousel
@@ -89,6 +98,23 @@ export default function Final() {
   };
 
   // for user_selective view
+
+
+  function RenderCourse({ selectedTitle }) {
+    if (username === "master_admin" ) {
+      return (
+        <>
+          <UpdCourses clust={selectedTitle} />
+        </>
+      );
+    } else {
+      return (
+        <>
+          <Courses clust={selectedTitle} />
+        </>
+      );
+    }
+  }
 
   function RenderCivilTech({ selectedTitle }) {
     if (username === "user1" || username === "master_admin" ) {
@@ -105,6 +131,7 @@ export default function Final() {
       );
     }
   }
+
   function RenderCivilWks({ selectedTitle }) {
     if (username === "user1" || username === "master_admin") {
       return (
@@ -290,6 +317,15 @@ export default function Final() {
               >
                 Installation
               </Dropdown.Item>
+
+              <Dropdown.Item
+                onClick={() => {
+                  handleDropdownSelect("Courses");
+                  handleButtonClick("KATIHAR");
+                }}
+              >
+                Courses
+              </Dropdown.Item>
             </DropdownButton>
           </Col>
           <Col className="colclust">
@@ -322,6 +358,15 @@ export default function Final() {
               >
                 Installation
               </Dropdown.Item>
+              <Dropdown.Item
+                onClick={() => {
+                  handleDropdownSelect("Courses");
+                  handleButtonClick("MOTIHARI");
+                }}
+              >
+                Courses
+              </Dropdown.Item>
+              
             </DropdownButton>
           </Col>
           <Col className="colclust">
@@ -355,6 +400,14 @@ export default function Final() {
               >
                 Installation
               </Dropdown.Item>
+              <Dropdown.Item
+                onClick={() => {
+                  handleDropdownSelect("Courses");
+                  handleButtonClick("MUZAFFARPUR");
+                }}
+              >
+                Courses
+              </Dropdown.Item>
             </DropdownButton>
           </Col>
           <Col className="colclust">
@@ -386,6 +439,14 @@ export default function Final() {
                 }}
               >
                 Installation
+              </Dropdown.Item>
+              <Dropdown.Item
+                onClick={() => {
+                  handleDropdownSelect("Courses");
+                  handleButtonClick("Munger");
+                }}
+              >
+                Courses
               </Dropdown.Item>
             </DropdownButton>
           </Col>
@@ -419,6 +480,14 @@ export default function Final() {
               >
                 Installation
               </Dropdown.Item>
+              <Dropdown.Item
+                onClick={() => {
+                  handleDropdownSelect("Courses");
+                  handleButtonClick("NALANDA");
+                }}
+              >
+                Courses
+              </Dropdown.Item>
             </DropdownButton>
           </Col>
           <Col className="colclust">
@@ -450,6 +519,14 @@ export default function Final() {
                 }}
               >
                 Installation
+              </Dropdown.Item>
+              <Dropdown.Item
+                onClick={() => {
+                  handleDropdownSelect("Courses");
+                  handleButtonClick("PATNA");
+                }}
+              >
+                Courses
               </Dropdown.Item>
             </DropdownButton>
           </Col>
@@ -483,6 +560,14 @@ export default function Final() {
               >
                 Installation
               </Dropdown.Item>
+              <Dropdown.Item
+                onClick={() => {
+                  handleDropdownSelect("Courses");
+                  handleButtonClick("ROHTAS");
+                }}
+              >
+                Courses
+              </Dropdown.Item>
             </DropdownButton>
           </Col>
           <Col>
@@ -515,6 +600,14 @@ export default function Final() {
               >
                 Installation
               </Dropdown.Item>
+              <Dropdown.Item
+                onClick={() => {
+                  handleDropdownSelect("Courses");
+                  handleButtonClick("SUPAUL");
+                }}
+              >
+                Courses
+              </Dropdown.Item>
             </DropdownButton>
           </Col>
         </Row>
@@ -542,19 +635,23 @@ export default function Final() {
         </Row>
 
         <Row className="downf" id="firsttable" ref={civilRef}>
+   
         <Carousel slide={false}
             activeIndex={index}
             onSelect={handleSelect}
             interval={1000000000}
             indicators={false}
+          
           >
             <Carousel.Item>
-            <RenderCivilTech selectedTitle={selectedTitle} />
+            <RenderCivilTech className="tabs" selectedTitle={selectedTitle} />
             </Carousel.Item>
             <Carousel.Item>
-            <RenderCivilWks selectedTitle={selectedTitle} />
+            <RenderCivilWks className="tabs" selectedTitle={selectedTitle} />
             </Carousel.Item>
           </Carousel>
+    
+     
          
            
         </Row>
@@ -564,6 +661,7 @@ export default function Final() {
             onSelect={handleSelect}
             interval={1000000000}
             indicators={false}
+           
           >
             <Carousel.Item>
             <RenderDelTech selectedTitle={selectedTitle} />
@@ -586,6 +684,20 @@ export default function Final() {
             <Carousel.Item>
             <RenderInsWks selectedTitle={selectedTitle} />
             </Carousel.Item>
+          </Carousel>
+        </Row>
+        <Row className="downt" ref={coursesRef}>
+          <Carousel slide={false}
+            activeIndex={index}
+            onSelect={handleSelect}
+            interval={1000000000}
+            indicators={false}
+            controls={false}
+          >
+            <Carousel.Item>
+            <RenderCourse selectedTitle={selectedTitle} />
+            </Carousel.Item>
+           
           </Carousel>
         </Row>
       </Container>

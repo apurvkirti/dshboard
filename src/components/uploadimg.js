@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import Gallary from "./gallary"
+
 import { useNavigate } from "react-router-dom";
-import { AiFillWindows } from "react-icons/ai";
+
 function ImageUploader() {
   let navigate = useNavigate();
   const jwt = localStorage.getItem("jwt");

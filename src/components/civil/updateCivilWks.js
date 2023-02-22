@@ -3,7 +3,6 @@ import { Icon, Table, Dropdown } from "semantic-ui-react";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-// import { Link } from "react-router-dom";
 import {
   NotificationManager,
   NotificationContainer,
@@ -40,8 +39,7 @@ export default function UpdateForm(props) {
       )
       .then((response) => {
         setAPIData(response.data);
-        //  console.log(`here is the form data initially ${formData.Basic_Infra}`);
-        // setIsLoading(false);
+  
       });
   }, [ClustName,jwt]);
   const setData = (data) => {
@@ -126,7 +124,7 @@ export default function UpdateForm(props) {
         { headers }
       )
       .then((res) => {
-        console.log(res);
+        console.log("updated successfully");
       })
       .catch((error) => {
         console.log(error);
@@ -144,7 +142,7 @@ export default function UpdateForm(props) {
     <div className="legend">Yet to start: <Icon color= "grey" name="check circle" size="large" />  Work in progress: <Icon color="yellow" name="check circle" size="large" />  Completed: <Icon color="green" name="check circle" size="large" /></div>
 
     </div>
-    <Table className="tc" celled structured collapsing >
+    <Table className="tc" celled collapsing >
       <Table.Header color="orange">
         <Table.Row>
           <Table.HeaderCell rowSpan="3" textAlign="center">
@@ -157,7 +155,7 @@ export default function UpdateForm(props) {
             District
           </Table.HeaderCell>
 
-          <Table.HeaderCell textAlign="center" colSpan="16">
+          <Table.HeaderCell id="workshopcivil" textAlign="center" colSpan="16">
             WORKSHOP
           </Table.HeaderCell>
         </Table.Row>
