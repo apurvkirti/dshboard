@@ -275,6 +275,15 @@
   font-size: 2rem;
   line-height: 4.5vh;
 }
+.bgimage{
+  position:absolute !important;
+  background-image: url(./images/bg.png);
+  background-repeat: no-repeat;
+  width:50vw;
+  height:70vh;
+  bottom:0%;
+  right:-12%;
+}
 .abt1{
   display:block;
   position:absolute;
