@@ -287,7 +287,16 @@
   bottom:10px;
   color:white;
   padding:10px ;
+}
+.bgimage{
+  position:absolute !important;
+  background-image: url(./images/bg.png);
 
+  background-repeat: no-repeat;
+  width:50vw;
+  height:70vh;
+  bottom:0%;
+  right:-12%;
 }
 .abt2{
   display:block;
