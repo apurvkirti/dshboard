@@ -124,6 +124,7 @@ export default function About() {
           </Container>
         </Navbar>
         <div className="abt1">
+          <div className="bgimage"></div>
           <div className="contenth0">EDUCATION AND SKILL DEVELOPMENT</div>
           <div className="contenth1">Realizing the </div>
           <div className="contenth2">next generation of talent </div>
