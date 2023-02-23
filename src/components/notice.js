@@ -4,7 +4,7 @@ import Button from "react-bootstrap/Button";
 import { useNavigate } from "react-router-dom";
 const AddNotice = () => {
   let navigate = useNavigate();
-  const [isModalOpen, setIsModalOpen] = useState(false);
+ 
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const [designation, setDesignation] = useState("");
@@ -31,8 +31,8 @@ const AddNotice = () => {
           },
         }
       );
-      // console.log(response.data);
-      setIsModalOpen(false);
+   
+   
       navigate("/dashboard");
     } catch (error) {
       console.error(error);
@@ -57,12 +57,7 @@ const AddNotice = () => {
 
   return (
     <>
-      {!isModalOpen && (
-        <button onClick={() => setIsModalOpen(true)}>
-          Click here to proceed
-        </button>
-      )}
-      {isModalOpen && (
+     
         <form className="noticeform" onSubmit={handleSubmit}>
           <div>
             <h1 className="headingnotice">Note:</h1>
@@ -104,12 +99,12 @@ const AddNotice = () => {
             </Button>
             <div>
               <Button onClick={() => handlenav()} variant="secondary">
-                Delete(only for masterAdmin)
+                Delete (only for masterAdmin)
               </Button>
             </div>
           </div>
         </form>
-      )}
+    
     </>
   );
 };

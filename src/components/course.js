@@ -96,6 +96,8 @@ export default function Course(props) {
     "Advanced_Plumbing_Technician",
   ];
 
+  
+
   return (
     <>
       <div className="coursecontainer">

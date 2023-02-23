@@ -79,9 +79,7 @@ const Login = () => {
           {error && <p>{error}</p>}
         </form>
       </div>
-      <div className="App-footer">
-        Engineering a better world
-      </div>
+      
     </div>
   );
 };

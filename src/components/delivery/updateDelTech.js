@@ -137,66 +137,41 @@ export default function UpdateForm(props) {
         </div>
       </div>
       <Table className="td" celled collapsing striped>
-        <Table.Header>
+      <Table.Header>
           <Table.Row>
-            <Table.HeaderCell rowSpan="3" textAlign="center">
+            <Table.HeaderCell id="base-techlab" rowSpan="3" textAlign="center">
               ITI Name
             </Table.HeaderCell>
-            <Table.HeaderCell rowSpan="3" textAlign="center">
+            <Table.HeaderCell id="base-techlab" rowSpan="3" textAlign="center">
               Cluster
             </Table.HeaderCell>
-            <Table.HeaderCell rowSpan="3" textAlign="center">
+            <Table.HeaderCell id="base-techlab" rowSpan="3" textAlign="center">
               District
             </Table.HeaderCell>
 
-            <Table.HeaderCell
-              textAlign="center"
-              colSpan="17"
-              style={{ backgroundColor: "blue" }}
-            >
-              TECHNOLOGY LAB
+            <Table.HeaderCell  id="teclabcivil" textAlign="center" colSpan="15">
+              TECHNOLOGY LAB ( DELIVERY )
             </Table.HeaderCell>
           </Table.Row>
 
           <Table.Row>
-            <Table.HeaderCell className="th">Furniture</Table.HeaderCell>
-            <Table.HeaderCell className="th">Server Rack</Table.HeaderCell>
-            <Table.HeaderCell className="th">
-              Workstations and Monitors
-            </Table.HeaderCell>
-            <Table.HeaderCell className="th">Server</Table.HeaderCell>
-            <Table.HeaderCell className="th">
-              Distance Learning Classroom
-            </Table.HeaderCell>
-            <Table.HeaderCell className="th">IOT Kit</Table.HeaderCell>
-            <Table.HeaderCell className="th">IOT Desktops</Table.HeaderCell>
-            <Table.HeaderCell className="th">
-              3D Printer Tech-1
-            </Table.HeaderCell>
-            <Table.HeaderCell className="th">
-              3D Printer Tech-2
-            </Table.HeaderCell>
-            <Table.HeaderCell className="th">
-              TechTools Product Design 1
-            </Table.HeaderCell>
-            <Table.HeaderCell className="th">
-              TechTools Product Design 2
-            </Table.HeaderCell>
-            <Table.HeaderCell className="th">
-              TechTools Product Verification 1
-            </Table.HeaderCell>
-            <Table.HeaderCell className="th">
-              TechTools Product Verification 2
-            </Table.HeaderCell>
-            <Table.HeaderCell className="th">
-              TechTools Advance Manufacturing
-            </Table.HeaderCell>
-            <Table.HeaderCell className="th">
-              E-Learning Platform
-            </Table.HeaderCell>
+            <Table.HeaderCell id="base-techlab" className="th">Furniture</Table.HeaderCell>
+            <Table.HeaderCell id="base-techlab" className="th">Server Rack</Table.HeaderCell>
+            <Table.HeaderCell id="base-techlab" className="th">Workstations and Monitors</Table.HeaderCell>
+            <Table.HeaderCell id="base-techlab" className="th">Server</Table.HeaderCell>
+            <Table.HeaderCell id="base-techlab" className="th">Distance Learning Classroom</Table.HeaderCell>
+            <Table.HeaderCell id="base-techlab" className="th">IOT Kit</Table.HeaderCell>
+            <Table.HeaderCell id="base-techlab" className="th">IOT Desktops</Table.HeaderCell>
+            <Table.HeaderCell id="base-techlab" className="th">3D Printer Tech-1</Table.HeaderCell>
+            <Table.HeaderCell id="base-techlab" className="th">3D Printer Tech-2</Table.HeaderCell>
+            <Table.HeaderCell id="base-techlab" className="th">TechTools Product Design 1</Table.HeaderCell>
+            <Table.HeaderCell id="base-techlab" className="th">TechTools Product Design 2</Table.HeaderCell>
+            <Table.HeaderCell id="base-techlab" className="th">TechTools Product Verification 1</Table.HeaderCell>
+            <Table.HeaderCell id="base-techlab" className="th">TechTools Product Verification 2</Table.HeaderCell>
+            <Table.HeaderCell id="base-techlab" className="th">TechTools Advance Manufacturing</Table.HeaderCell>
+            <Table.HeaderCell id="base-techlab" className="th">E-Learning Platform</Table.HeaderCell>
           </Table.Row>
         </Table.Header>
-
         <Table.Body>
           {APIData.map((data) => {
             return (

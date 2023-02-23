@@ -43,7 +43,7 @@ export default function About() {
 
       const buttonStyle = {
         backgroundColor: isHighlighted ? '#292c35' : 'grey',
-  
+   
         fontWeight: isHighlighted ? 'bold' : 'normal',
         transform: isHighlighted ? 'scale(0.8)' : 'none',
       };
@@ -192,12 +192,10 @@ export default function About() {
         </div>
         <div className="content3h4">Objectives:</div>
         <div className="content3p3">
-          Upskilling youth for higher employability.
-        </div>
-        <div className="content3p4">
-          Bridging the gap between academia and Industry. Skilling at scale to
+          Upskilling youth for higher employability.<br></br>Bridging the gap between academia and Industry.<br></br>Skilling at scale to
           develop competitive products.
         </div>
+     
       </div>
       <div className="abt4">
        

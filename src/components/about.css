@@ -249,31 +249,31 @@
     font-size: 1.25rem;
 
   }
-  .slant{
-    background-image: url(./images/footer.png);
-  }
+
 
 .contenth0{
   font-size: 4rem;
-  margin-bottom: 0px;
+  margin-bottom: 30px;
   padding-bottom: 4vh;
 }
 .contenth1{
   color:#ffff00;
-  font-size: 6.5rem;
-  margin-bottom: 3vh;
+  text-shadow: 2px 2px 5px #0f061a;
+  font-size: 3.5rem; 
+  /* margin-bottom: 3vh; */
 }
 .contenth2{
   color:#ffff00;
-  font-size: 6.5rem;
-  margin-top: 10px;
+  text-shadow: 2px 2px 5px #0f061a;
+  font-size: 3.5rem;
+  margin-top: 30px;
   margin-bottom:4vh
 }
 .content1{
   letter-spacing: 1px;
-  width:30vw;
+  width:50vw;
   font-size: 2rem;
-  
+  line-height: 4.5vh;
 }
 .abt1{
   display:block;
@@ -305,7 +305,7 @@
 
 .content2h1{
   padding:5vh 0;
-  font-size: 2.5rem;
+  font-size: 3rem;
 }
 .content2h2{
   padding:1vh 0;
@@ -313,22 +313,29 @@
   font-style:italic;
   font-weight: 800;
   font-size: 2rem;
+  color:#ffff00;
+  text-shadow: 2px 2px 5px #0f061a;
 }
 .contentp1{
   padding-top:4vh;
-  font-size: 1.25rem;
+  font-size: 1.3rem;
+  width:85vw;
+  line-height: 3.5vh;
 }
 .contentp2, .contentp4{
   padding-top:3vh;
-  font-size: 1.25rem;
+  font-size: 1.3rem;
+  line-height: 3.5vh;
+  width:85vw;
 }
 .contentp3{
   padding-top: 4vh;
-  font-size:1.25rem;
+  font-size:1.3rem;
+  line-height: 3.5vh;
 }
 .abt3{
   display:block;
-  height:80vh;
+  height:100vh;
   width:100%;
   background-color:#001b5b;
   top:200%;
@@ -345,20 +352,29 @@
   font-weight: 900;
   width:20vw;
   margin-top:4vh;
+  box-shadow: 2px 2px 7px rgb(12, 13, 59) !important;
 }
 .content3h2, .content3h3{
   padding-top:4vh;
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   font-weight: 900;
-}
-.content3p1, .content3p2, .content3p3{
-  padding-top:3vh;
-  width:80vw;
-}
-.content3p4{
-  width:20vw;
+  color:#ffff00;
+  text-shadow: 2px 2px 5px #0f061a;
 
 }
+.content3p1, .content3p2{
+  padding-top:3vh;
+  width:50vw;
+  font-size: 1.3rem;
+  line-height: 4vh;
+}
+.content3p3{
+  width:50vw;
+  font-size:1.3rem;
+  line-height: 4vh;
+  margin-top:1.5vh;
+}
+
 
 .abt4{
   display:block;
@@ -366,7 +382,7 @@
   width:110%;
   margin:-10px;
   background-color:#001b5b;
-  top:280%;
+  top:290%;
   position:absolute;
   background-image: url(./images/below6.png);
   background-repeat: no-repeat;

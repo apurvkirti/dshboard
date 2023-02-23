@@ -141,57 +141,34 @@ export default function UpdateForm(props) {
     <div className="legend">Yet to start: <Icon color= "grey" name="check circle" size="large" />  Work in progress: <Icon color="yellow" name="check circle" size="large" />  Completed: <Icon color="green" name="check circle" size="large" /></div>
 
       </div>
-    <Table celled structured collapsing className="ti">
-      <Table.Header >
-        <Table.Row>
-          <Table.HeaderCell rowSpan="3" textAlign="center">
-            ITI Name
-          </Table.HeaderCell>
-          <Table.HeaderCell rowSpan="3" textAlign="center">
-            Cluster
-          </Table.HeaderCell>
-          <Table.HeaderCell rowSpan="3" textAlign="center">
-            District
-          </Table.HeaderCell>
-
-          <Table.HeaderCell textAlign="center" colSpan="16" style={{backgroundColor: "blue"}}>
-            WORKSHOP
-          </Table.HeaderCell>
-        </Table.Row>
-        
-        <Table.Row>
-            <Table.HeaderCell className="th">Laser Cutter</Table.HeaderCell>
-            <Table.HeaderCell className="th">PaintBooth</Table.HeaderCell>
-            <Table.HeaderCell className="th">Car Lift</Table.HeaderCell>
-            <Table.HeaderCell className="th">
-              Industrial Process Control Unit
-            </Table.HeaderCell>
-            <Table.HeaderCell className="th">
-              VR Welding & Painting
-            </Table.HeaderCell>
-            <Table.HeaderCell className="th">
-              Auto MRO Cut Sections
-            </Table.HeaderCell>
-            <Table.HeaderCell className="th">
-              Battery Electrical Vehicle
-            </Table.HeaderCell>
-            <Table.HeaderCell className="th">
-              IO Engine Vehicle
-            </Table.HeaderCell>
-            <Table.HeaderCell className="th">EV Kit</Table.HeaderCell>
-            <Table.HeaderCell className="th">
-              Industrial Robotics Setup
-            </Table.HeaderCell>
-            <Table.HeaderCell className="th">VFD Machine</Table.HeaderCell>
-            <Table.HeaderCell className="th">Plumbing Kit</Table.HeaderCell>
-            <Table.HeaderCell className="th">CNC Machine</Table.HeaderCell>
-            <Table.HeaderCell className="th">VMC Machine</Table.HeaderCell>
-            <Table.HeaderCell className="th">Tools & Meters</Table.HeaderCell>
-            <Table.HeaderCell className="th">
-              Advance Machining Simulators
-            </Table.HeaderCell>
+    <Table celled collapsing className="ti">
+    <Table.Header>
+          <Table.Row>
+            <Table.HeaderCell id="base-workshop"  rowSpan="3" textAlign="center"> ITI Name</Table.HeaderCell>
+            <Table.HeaderCell id="base-workshop" rowSpan="3" textAlign="center"> Cluster</Table.HeaderCell>
+            <Table.HeaderCell id="base-workshop" rowSpan="3" textAlign="center">District</Table.HeaderCell>
+            <Table.HeaderCell id="workshop-heading" textAlign="center" colSpan="16">WORKSHOP ( INSTALLATION )</Table.HeaderCell>
           </Table.Row>
-      </Table.Header>
+
+          <Table.Row>
+            <Table.HeaderCell id="base-workshop"  className="th">Laser Cutter</Table.HeaderCell>
+            <Table.HeaderCell id="base-workshop"  className="th">PaintBooth</Table.HeaderCell>
+            <Table.HeaderCell id="base-workshop"  className="th">Car Lift</Table.HeaderCell>
+            <Table.HeaderCell id="base-workshop"  className="th">Industrial_Process_Control_Unit</Table.HeaderCell>
+            <Table.HeaderCell id="base-workshop"  className="th">VR Welding & Painting</Table.HeaderCell>
+            <Table.HeaderCell id="base-workshop"  className="th">Auto MRO Cut Sections</Table.HeaderCell>
+            <Table.HeaderCell id="base-workshop"  className="th">Battery_Electrical_Vehicle</Table.HeaderCell>
+            <Table.HeaderCell id="base-workshop"  className="th">IO_Engine_Vehicle</Table.HeaderCell>
+            <Table.HeaderCell id="base-workshop"  className="th">EV Kit</Table.HeaderCell>
+            <Table.HeaderCell id="base-workshop"  className="th">Industrial Robotics Setup</Table.HeaderCell>
+            <Table.HeaderCell id="base-workshop"  className="th">VFD_Machine</Table.HeaderCell>
+            <Table.HeaderCell id="base-workshop"  className="th">Plumbing Kit</Table.HeaderCell>
+            <Table.HeaderCell id="base-workshop"  className="th">CNC_Machine</Table.HeaderCell>
+            <Table.HeaderCell id="base-workshop"  className="th">VMC_Machine</Table.HeaderCell>
+            <Table.HeaderCell id="base-workshop"  className="th">Tools & Meters</Table.HeaderCell>
+            <Table.HeaderCell id="base-workshop"  className="th">Advance_Machining_Simulators</Table.HeaderCell>
+          </Table.Row>
+        </Table.Header>
 
       <Table.Body>
         {APIData.map((data) => {

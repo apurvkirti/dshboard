@@ -105,17 +105,165 @@ const PDFFile = () => {
         <View style={styles.section}>
           <View style={styles.table}>
             <View style={styles.tableRow}>
-              <Text style={styles.tableColHeader}>Name</Text>
-              <Text style={styles.tableCol}>John Wick</Text>
+              <Text style={styles.tableColHeader}>ITI Name</Text>
+              <Text style={styles.tableCol}>Govt. ITI Motihari Sadar , East Champaran</Text>
+              <Text style={styles.tableCol}>Govt. ITI Chakiya , East Champaran</Text>
+              <Text style={styles.tableCol}>Govt. Women ITI Hathua , Gopalganj</Text>
+              <Text style={styles.tableCol}>Govt. ITI Sheohar</Text>
+              <Text style={styles.tableCol}>Govt. ITI Siwan Sadar , Siwan</Text>
+              <Text style={styles.tableCol}>Govt. ITI Bettiah , West Champaran</Text>
+              <Text style={styles.tableCol}>Govt. ITI Narkatiyaganj , West Champaran</Text>
+            
             </View>
             <View style={styles.tableRow}>
-              <Text style={styles.tableColHeader}>Age</Text>
-              <Text style={styles.tableCol}>25</Text>
+              <Text style={styles.tableColHeader}>Basic Infra</Text>
+              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
+              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
+              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
+              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
+              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
+              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
+              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
             </View>
             <View style={styles.tableRow}>
-              <Text style={styles.tableColHeader}> {( data &&
-    data.length > 1)?data[0].Flooring:vardata[0]}</Text>
-              <Text style={styles.tableCol}>New York</Text>
+              <Text style={styles.tableColHeader}>Flooring</Text>
+              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
+              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
+              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
+              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
+              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
+              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
+              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
+            </View>
+            <View style={styles.tableRow}>
+              <Text style={styles.tableColHeader}>False Ceiling</Text>
+              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
+              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
+              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
+              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
+              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
+              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
+              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
+            </View>
+            <View style={styles.tableRow}>
+              <Text style={styles.tableColHeader}>Internal Painting</Text>
+              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
+              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
+              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
+              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
+              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
+              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
+              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
+            </View>
+            <View style={styles.tableRow}>
+              <Text style={styles.tableColHeader}>Windows</Text>
+              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
+              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
+              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
+              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
+              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
+              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
+              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
+            </View>
+            <View style={styles.tableRow}>
+              <Text style={styles.tableColHeader}>Doors</Text>
+              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
+              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
+              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
+              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
+              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
+              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
+              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
+            </View>
+            <View style={styles.tableRow}>
+              <Text style={styles.tableColHeader}>Aluminium Partition</Text>
+              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
+              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
+              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
+              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
+              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
+              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
+              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
+            </View>
+            <View style={styles.tableRow}>
+              <Text style={styles.tableColHeader}>AC</Text>
+              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
+              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
+              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
+              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
+              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
+              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
+              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
+            </View>
+            <View style={styles.tableRow}>
+              <Text style={styles.tableColHeader}>MCB</Text>
+              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
+              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
+              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
+              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
+              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
+              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
+              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
+            </View>
+            <View style={styles.tableRow}>
+              <Text style={styles.tableColHeader}>Networking</Text>
+              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
+              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
+              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
+              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
+              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
+              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
+              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
+            </View>
+            <View style={styles.tableRow}>
+              <Text style={styles.tableColHeader}>LT Panel</Text>
+              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
+              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
+              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
+              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
+              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
+              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
+              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
+            </View>
+            <View style={styles.tableRow}>
+              <Text style={styles.tableColHeader}>Electric Supply</Text>
+              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
+              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
+              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
+              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
+              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
+              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
+              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
+            </View>
+            <View style={styles.tableRow}>
+              <Text style={styles.tableColHeader}>UPS</Text>
+              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
+              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
+              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
+              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
+              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
+              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
+              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
+            </View>
+            <View style={styles.tableRow}>
+              <Text style={styles.tableColHeader}>External Painting</Text>
+              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
+              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
+              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
+              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
+              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
+              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
+              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
+            </View>
+            <View style={styles.tableRow}>
+              <Text style={styles.tableColHeader}>Cleaning</Text>
+              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
+              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
+              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
+              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
+              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
+              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
+              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
             </View>
           </View>
         </View>
@@ -136,5 +284,5 @@ const PDFFile = () => {
     </Document>
   );
 };
-
 export default PDFFile;
+

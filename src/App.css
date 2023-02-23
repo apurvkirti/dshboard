@@ -28,28 +28,38 @@
   color:white;
   margin: 10px 10px 20px 10px;
   width:100vw;
+  text-shadow: 2px 2px 4px #361b0e;
   box-shadow: 2px 2px 10px rgb(168, 164, 164) !important;
 
 }
 .formheader1{
-  background-color: #1e4452;
+  background-color:#5b9bd5;
   text-align: center;
   padding: auto;
   margin: 10px 10px 20px 10px;
   color:white;
+  text-shadow: 2px 2px 4px #131369;
+  box-shadow: 2px 2px 10px rgb(168, 164, 164) !important;
+
 }
 .formheader2{
-  background-color: #1e4452;
+  background-color: #5b9bd5;
   text-align: center;
   padding: auto;
   margin: 10px 10px 20px 10px;
   color:white;
+  text-shadow: 2px 2px 4px #131369;
+  box-shadow: 2px 2px 10px rgb(168, 164, 164) !important;
+
 }
 .formheader3{
-  background-color: #1e5227;
+  background-color:#5b9bd5;
   text-align: center;
   padding: auto;
   margin: 10px 10px 20px 10px;
+  text-shadow: 2px 2px 4px #131369;
+  box-shadow: 2px 2px 10px rgb(168, 164, 164) !important;
+
   color:white;
 }
 .formheader4{
@@ -58,6 +68,7 @@
   padding: auto;
   margin: 10px 10px 20px 10px;
   color:white;
+  
   box-shadow: 2px 2px 10px rgb(168, 164, 164) !important;
 }
 .ttt{
@@ -74,12 +85,12 @@
 
 /* for table color */
 .tc.ui.table thead th {
-  background-color: #feeddd !important;
-  background-color: #dde7f9!important;
+  
+ 
   border-bottom: 2px solid rgba(34,36,38,.1) !important;
 }
 .td.ui.table thead th {
-  background-color: #ddf0fe !important;
+ 
   border-bottom: 2px solid rgba(34,36,38,.1) !important;
 }
 .ti.ui.table thead th {
@@ -87,12 +98,18 @@
   border-bottom: 2px solid rgba(34,36,38,.1) !important;
 }
 
-#teclabcivil{
+#teclab-heading{
   background-color: #ffc000 !important;
 }
-#workshopcivil{
-  background-color: #2f5597 !important;
+#workshop-heading{
+  background-color:#2f5597 !important;
   color:white !important;
+}
+#base-techlab{
+  background-color:#f4e5b9 !important;
+}
+#base-workshop{
+  background-color: #ddf0fe !important;
 }
 .td.ui.table thead tr:first-child>th:last-child {
   background: #22aac9 !important;
@@ -741,9 +758,10 @@
 .imagecont{
   position:absolute;
   left:0%;
+  top:14vh;
   background-image: url(./components/images/loginImg3.png);
    width:50%;
-   height: 77vh;
+   height: 85vh;
    background-repeat: no-repeat; 
 }
 .formcont {
