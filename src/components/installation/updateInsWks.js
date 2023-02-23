@@ -9,39 +9,37 @@ import {
 } from "react-notifications";
 import "react-notifications/lib/notifications.css";
 
-
-const form_Id = 3002;// 3 for installation and 2 for workshop
-
+const form_Id = 3002; // 3 for installation and 2 for workshop
 
 export default function UpdateForm(props) {
   const jwt = localStorage.getItem("jwt");
-  let ClustName = (props.clust)?props.clust:"PATNA";
+  let ClustName = props.clust ? props.clust : "PATNA";
   const options = [
     { key: "option1", text: "Yet to Start", value: -1 },
     { key: "option2", text: "Work in Progress", value: 0 },
     { key: "option3", text: "Completed", value: 1 },
   ];
 
-
   const [APIData, setAPIData] = useState([]);
-
-  
+  const apiUrl =
+    process.env.NODE_ENV === "production"
+      ? process.env.REACT_APP_API_URL_PROD
+      : process.env.REACT_APP_API_URL_DEV;
 
   useEffect(() => {
     // Fetch prefilled data from the backend
     const headers = {
-      Authorization:
-        `Bearer ${jwt}`,
+      Authorization: `Bearer ${jwt}`,
     };
     axios
       .get(
-        `http://localhost:3000/api/getCluster/?form_Id=${form_Id}&cluster=${ClustName}`,
+        `${apiUrl}/college/getCluster/?form_Id=${form_Id}&cluster=${ClustName}`,
         { headers }
       )
       .then((response) => {
         setAPIData(response.data);
       });
-  }, [ClustName,jwt]);
+  }, [ClustName, jwt, apiUrl]);
   const setData = (data) => {
     let {
       customId,
@@ -62,8 +60,7 @@ export default function UpdateForm(props) {
       CNC_Machine,
       VMC_Machine,
       Tools_and_Meters,
-      Advance_Machining_Simulators
-  
+      Advance_Machining_Simulators,
     } = data;
     localStorage.setItem("ID", customId);
     localStorage.setItem("ITI_Name", ITI_Name);
@@ -71,27 +68,38 @@ export default function UpdateForm(props) {
     localStorage.setItem("Laser_Cutter", Laser_Cutter);
     localStorage.setItem("PaintBooth", PaintBooth);
     localStorage.setItem("Car_Lift", Car_Lift);
-    localStorage.setItem("Industrial_Process_Control_Unit", Industrial_Process_Control_Unit);
+    localStorage.setItem(
+      "Industrial_Process_Control_Unit",
+      Industrial_Process_Control_Unit
+    );
     localStorage.setItem("VR_Welding_and_Painting", VR_Welding_and_Painting);
     localStorage.setItem("Auto_MRO_Cut_Sections", Auto_MRO_Cut_Sections);
-    localStorage.setItem("Battery_Electrical_Vehicle", Battery_Electrical_Vehicle);
+    localStorage.setItem(
+      "Battery_Electrical_Vehicle",
+      Battery_Electrical_Vehicle
+    );
     localStorage.setItem("IO_Engine_Vehicle", IO_Engine_Vehicle);
     localStorage.setItem("EV_Kit", EV_Kit);
-    localStorage.setItem("Industrial_Robotics_Setup", Industrial_Robotics_Setup);
+    localStorage.setItem(
+      "Industrial_Robotics_Setup",
+      Industrial_Robotics_Setup
+    );
     localStorage.setItem("VFD_Machine", VFD_Machine);
     localStorage.setItem("Plumbing_Kit", Plumbing_Kit);
     localStorage.setItem("CNC_Machine", CNC_Machine);
     localStorage.setItem("VMC_Machine", VMC_Machine);
     localStorage.setItem("Tools_and_Meters", Tools_and_Meters);
-    localStorage.setItem("Advance_Machining_Simulators", Advance_Machining_Simulators);
-
+    localStorage.setItem(
+      "Advance_Machining_Simulators",
+      Advance_Machining_Simulators
+    );
 
     // console.log(data);
   };
 
   // Handle form submission
   const temp = 1;
-  if(temp === 2) setData();
+  if (temp === 2) setData();
   function renderIcon(val) {
     let color;
     if (val === -1) {
@@ -115,12 +123,15 @@ export default function UpdateForm(props) {
     );
     const headers = {
       "Content-Type": "application/json",
-      Authorization:
-        `Bearer ${jwt}`,
+      Authorization: `Bearer ${jwt}`,
     };
+    // const apiUrl =
+    //   process.env.NODE_ENV === "production"
+    //     ? process.env.REACT_APP_API_URL_PROD
+    //     : process.env.REACT_APP_API_URL_DEV;
     axios
       .patch(
-        `http://localhost:3000/api/update_tmp/?id=${customId}&form_Id=${form_Id}`,
+        `${apiUrl}/college/update_tmp/?id=${customId}&form_Id=${form_Id}`,
         {
           [val]: value,
         },
@@ -133,47 +144,97 @@ export default function UpdateForm(props) {
         console.log(error);
       });
   }
-   
+
   return (
     <div className="ttop">
       <div>
-    <h2 className="formheader3">TTL Installation status</h2>
-    <div className="legend">Yet to start: <Icon color= "grey" name="check circle" size="large" />  Work in progress: <Icon color="yellow" name="check circle" size="large" />  Completed: <Icon color="green" name="check circle" size="large" /></div>
-
+        <h2 className="formheader3">TTL Installation status</h2>
+        <div className="legend">
+          Yet to start: <Icon color="grey" name="check circle" size="large" />{" "}
+          Work in progress:{" "}
+          <Icon color="yellow" name="check circle" size="large" /> Completed:{" "}
+          <Icon color="green" name="check circle" size="large" />
+        </div>
       </div>
-    <Table celled collapsing className="ti">
-    <Table.Header>
+      <Table celled collapsing className="ti">
+        <Table.Header>
           <Table.Row>
-            <Table.HeaderCell id="base-workshop"  rowSpan="3" textAlign="center"> ITI Name</Table.HeaderCell>
-            <Table.HeaderCell id="base-workshop" rowSpan="3" textAlign="center"> Cluster</Table.HeaderCell>
-            <Table.HeaderCell id="base-workshop" rowSpan="3" textAlign="center">District</Table.HeaderCell>
-            <Table.HeaderCell id="workshop-heading" textAlign="center" colSpan="16">WORKSHOP ( INSTALLATION )</Table.HeaderCell>
+            <Table.HeaderCell id="base-workshop" rowSpan="3" textAlign="center">
+              {" "}
+              ITI Name
+            </Table.HeaderCell>
+            <Table.HeaderCell id="base-workshop" rowSpan="3" textAlign="center">
+              {" "}
+              Cluster
+            </Table.HeaderCell>
+            <Table.HeaderCell id="base-workshop" rowSpan="3" textAlign="center">
+              District
+            </Table.HeaderCell>
+            <Table.HeaderCell
+              id="workshop-heading"
+              textAlign="center"
+              colSpan="16"
+            >
+              WORKSHOP ( INSTALLATION )
+            </Table.HeaderCell>
           </Table.Row>
 
           <Table.Row>
-            <Table.HeaderCell id="base-workshop"  className="th">Laser Cutter</Table.HeaderCell>
-            <Table.HeaderCell id="base-workshop"  className="th">PaintBooth</Table.HeaderCell>
-            <Table.HeaderCell id="base-workshop"  className="th">Car Lift</Table.HeaderCell>
-            <Table.HeaderCell id="base-workshop"  className="th">Industrial_Process_Control_Unit</Table.HeaderCell>
-            <Table.HeaderCell id="base-workshop"  className="th">VR Welding & Painting</Table.HeaderCell>
-            <Table.HeaderCell id="base-workshop"  className="th">Auto MRO Cut Sections</Table.HeaderCell>
-            <Table.HeaderCell id="base-workshop"  className="th">Battery_Electrical_Vehicle</Table.HeaderCell>
-            <Table.HeaderCell id="base-workshop"  className="th">IO_Engine_Vehicle</Table.HeaderCell>
-            <Table.HeaderCell id="base-workshop"  className="th">EV Kit</Table.HeaderCell>
-            <Table.HeaderCell id="base-workshop"  className="th">Industrial Robotics Setup</Table.HeaderCell>
-            <Table.HeaderCell id="base-workshop"  className="th">VFD_Machine</Table.HeaderCell>
-            <Table.HeaderCell id="base-workshop"  className="th">Plumbing Kit</Table.HeaderCell>
-            <Table.HeaderCell id="base-workshop"  className="th">CNC_Machine</Table.HeaderCell>
-            <Table.HeaderCell id="base-workshop"  className="th">VMC_Machine</Table.HeaderCell>
-            <Table.HeaderCell id="base-workshop"  className="th">Tools & Meters</Table.HeaderCell>
-            <Table.HeaderCell id="base-workshop"  className="th">Advance_Machining_Simulators</Table.HeaderCell>
+            <Table.HeaderCell id="base-workshop" className="th">
+              Laser Cutter
+            </Table.HeaderCell>
+            <Table.HeaderCell id="base-workshop" className="th">
+              PaintBooth
+            </Table.HeaderCell>
+            <Table.HeaderCell id="base-workshop" className="th">
+              Car Lift
+            </Table.HeaderCell>
+            <Table.HeaderCell id="base-workshop" className="th">
+              Industrial_Process_Control_Unit
+            </Table.HeaderCell>
+            <Table.HeaderCell id="base-workshop" className="th">
+              VR Welding & Painting
+            </Table.HeaderCell>
+            <Table.HeaderCell id="base-workshop" className="th">
+              Auto MRO Cut Sections
+            </Table.HeaderCell>
+            <Table.HeaderCell id="base-workshop" className="th">
+              Battery_Electrical_Vehicle
+            </Table.HeaderCell>
+            <Table.HeaderCell id="base-workshop" className="th">
+              IO_Engine_Vehicle
+            </Table.HeaderCell>
+            <Table.HeaderCell id="base-workshop" className="th">
+              EV Kit
+            </Table.HeaderCell>
+            <Table.HeaderCell id="base-workshop" className="th">
+              Industrial Robotics Setup
+            </Table.HeaderCell>
+            <Table.HeaderCell id="base-workshop" className="th">
+              VFD_Machine
+            </Table.HeaderCell>
+            <Table.HeaderCell id="base-workshop" className="th">
+              Plumbing Kit
+            </Table.HeaderCell>
+            <Table.HeaderCell id="base-workshop" className="th">
+              CNC_Machine
+            </Table.HeaderCell>
+            <Table.HeaderCell id="base-workshop" className="th">
+              VMC_Machine
+            </Table.HeaderCell>
+            <Table.HeaderCell id="base-workshop" className="th">
+              Tools & Meters
+            </Table.HeaderCell>
+            <Table.HeaderCell id="base-workshop" className="th">
+              Advance_Machining_Simulators
+            </Table.HeaderCell>
           </Table.Row>
         </Table.Header>
 
-      <Table.Body>
-        {APIData.map((data) => {
-          return (
-            <Table.Row>
+        <Table.Body>
+          {APIData.map((data) => {
+            return (
+              <Table.Row>
                 <Table.Cell collapsing>{data.ITI_Name}</Table.Cell>
                 <Table.Cell collapsing>{data.Cluster}</Table.Cell>
                 <Table.Cell collapsing>{data.District}</Table.Cell>
@@ -860,11 +921,11 @@ export default function UpdateForm(props) {
                   {renderIcon(data.Advance_Machining_Simulators)}
                 </Table.Cell>
               </Table.Row>
-          );
-        })}
-      </Table.Body>
-    </Table>
-    <NotificationContainer className="notification-container" />
+            );
+          })}
+        </Table.Body>
+      </Table>
+      <NotificationContainer className="notification-container" />
     </div>
   );
 }

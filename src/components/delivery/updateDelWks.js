@@ -23,7 +23,10 @@ export default function UpdateForm(props) {
   ];
 
   const [APIData, setAPIData] = useState([]);
-
+  const apiUrl =
+    process.env.NODE_ENV === "production"
+      ? process.env.REACT_APP_API_URL_PROD
+      : process.env.REACT_APP_API_URL_DEV;
   useEffect(() => {
     // Fetch prefilled data from the backend
     const headers = {
@@ -31,13 +34,13 @@ export default function UpdateForm(props) {
     };
     axios
       .get(
-        `http://localhost:3000/api/getCluster/?form_Id=${form_Id}&cluster=${ClustName}`,
+        `${apiUrl}/college/getCluster/?form_Id=${form_Id}&cluster=${ClustName}`,
         { headers }
       )
       .then((response) => {
         setAPIData(response.data);
       });
-  }, [ClustName, jwt]);
+  }, [ClustName, jwt, apiUrl]);
   const setData = (data) => {
     let {
       customId,
@@ -123,9 +126,13 @@ export default function UpdateForm(props) {
       "Content-Type": "application/json",
       Authorization: `Bearer ${jwt}`,
     };
+    // const apiUrl =
+    //   process.env.NODE_ENV === "production"
+    //     ? process.env.REACT_APP_API_URL_PROD
+    //     : process.env.REACT_APP_API_URL_DEV;
     axios
       .patch(
-        `http://localhost:3000/api/update_tmp/?id=${customId}&form_Id=${form_Id}`,
+        `${apiUrl}/college/update_tmp/?id=${customId}&form_Id=${form_Id}`,
         {
           [val]: value,
         },
@@ -151,31 +158,77 @@ export default function UpdateForm(props) {
         </div>
       </div>
       <Table celled collapsing className="td">
-      <Table.Header>
+        <Table.Header>
           <Table.Row>
-            <Table.HeaderCell id="base-workshop"  rowSpan="3" textAlign="center"> ITI Name</Table.HeaderCell>
-            <Table.HeaderCell id="base-workshop" rowSpan="3" textAlign="center"> Cluster</Table.HeaderCell>
-            <Table.HeaderCell id="base-workshop" rowSpan="3" textAlign="center">District</Table.HeaderCell>
-            <Table.HeaderCell id="workshop-heading" textAlign="center" colSpan="16">WORKSHOP ( DELIVERY )</Table.HeaderCell>
+            <Table.HeaderCell id="base-workshop" rowSpan="3" textAlign="center">
+              {" "}
+              ITI Name
+            </Table.HeaderCell>
+            <Table.HeaderCell id="base-workshop" rowSpan="3" textAlign="center">
+              {" "}
+              Cluster
+            </Table.HeaderCell>
+            <Table.HeaderCell id="base-workshop" rowSpan="3" textAlign="center">
+              District
+            </Table.HeaderCell>
+            <Table.HeaderCell
+              id="workshop-heading"
+              textAlign="center"
+              colSpan="16"
+            >
+              WORKSHOP ( DELIVERY )
+            </Table.HeaderCell>
           </Table.Row>
 
           <Table.Row>
-            <Table.HeaderCell id="base-workshop"  className="th">Laser Cutter</Table.HeaderCell>
-            <Table.HeaderCell id="base-workshop"  className="th">PaintBooth</Table.HeaderCell>
-            <Table.HeaderCell id="base-workshop"  className="th">Car Lift</Table.HeaderCell>
-            <Table.HeaderCell id="base-workshop"  className="th">Industrial_Process_Control_Unit</Table.HeaderCell>
-            <Table.HeaderCell id="base-workshop"  className="th">VR Welding & Painting</Table.HeaderCell>
-            <Table.HeaderCell id="base-workshop"  className="th">Auto MRO Cut Sections</Table.HeaderCell>
-            <Table.HeaderCell id="base-workshop"  className="th">Battery_Electrical_Vehicle</Table.HeaderCell>
-            <Table.HeaderCell id="base-workshop"  className="th">IO_Engine_Vehicle</Table.HeaderCell>
-            <Table.HeaderCell id="base-workshop"  className="th">EV Kit</Table.HeaderCell>
-            <Table.HeaderCell id="base-workshop"  className="th">Industrial Robotics Setup</Table.HeaderCell>
-            <Table.HeaderCell id="base-workshop"  className="th">VFD_Machine</Table.HeaderCell>
-            <Table.HeaderCell id="base-workshop"  className="th">Plumbing Kit</Table.HeaderCell>
-            <Table.HeaderCell id="base-workshop"  className="th">CNC_Machine</Table.HeaderCell>
-            <Table.HeaderCell id="base-workshop"  className="th">VMC_Machine</Table.HeaderCell>
-            <Table.HeaderCell id="base-workshop"  className="th">Tools & Meters</Table.HeaderCell>
-            <Table.HeaderCell id="base-workshop"  className="th">Advance_Machining_Simulators</Table.HeaderCell>
+            <Table.HeaderCell id="base-workshop" className="th">
+              Laser Cutter
+            </Table.HeaderCell>
+            <Table.HeaderCell id="base-workshop" className="th">
+              PaintBooth
+            </Table.HeaderCell>
+            <Table.HeaderCell id="base-workshop" className="th">
+              Car Lift
+            </Table.HeaderCell>
+            <Table.HeaderCell id="base-workshop" className="th">
+              Industrial_Process_Control_Unit
+            </Table.HeaderCell>
+            <Table.HeaderCell id="base-workshop" className="th">
+              VR Welding & Painting
+            </Table.HeaderCell>
+            <Table.HeaderCell id="base-workshop" className="th">
+              Auto MRO Cut Sections
+            </Table.HeaderCell>
+            <Table.HeaderCell id="base-workshop" className="th">
+              Battery_Electrical_Vehicle
+            </Table.HeaderCell>
+            <Table.HeaderCell id="base-workshop" className="th">
+              IO_Engine_Vehicle
+            </Table.HeaderCell>
+            <Table.HeaderCell id="base-workshop" className="th">
+              EV Kit
+            </Table.HeaderCell>
+            <Table.HeaderCell id="base-workshop" className="th">
+              Industrial Robotics Setup
+            </Table.HeaderCell>
+            <Table.HeaderCell id="base-workshop" className="th">
+              VFD_Machine
+            </Table.HeaderCell>
+            <Table.HeaderCell id="base-workshop" className="th">
+              Plumbing Kit
+            </Table.HeaderCell>
+            <Table.HeaderCell id="base-workshop" className="th">
+              CNC_Machine
+            </Table.HeaderCell>
+            <Table.HeaderCell id="base-workshop" className="th">
+              VMC_Machine
+            </Table.HeaderCell>
+            <Table.HeaderCell id="base-workshop" className="th">
+              Tools & Meters
+            </Table.HeaderCell>
+            <Table.HeaderCell id="base-workshop" className="th">
+              Advance_Machining_Simulators
+            </Table.HeaderCell>
           </Table.Row>
         </Table.Header>
 

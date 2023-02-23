@@ -4,7 +4,10 @@ import axios from "axios";
 function NotesList() {
   const [notes, setNotes] = useState([]);
   const jwt = localStorage.getItem("jwt");
-
+  const apiUrl =
+    process.env.NODE_ENV === "production"
+      ? process.env.REACT_APP_API_URL_PROD
+      : process.env.REACT_APP_API_URL_DEV;
   function formatDate(dateString) {
     const date = new Date(dateString);
     const formattedDate = date.toLocaleString("en-US", {
@@ -20,42 +23,34 @@ function NotesList() {
     return ` ${finalday[1].trim()} ${finalday[0].trim()}, ${dateParts[1].trim()}`;
   }
 
- 
-
   function convert24to12(time) {
-  
     var fulltime = time.split(":");
     var hr = parseInt(fulltime[0].trim());
     var min = parseInt(fulltime[1].trim());
-    
-    var ampm = (hr >= 12) ? "PM" : "AM";
+
+    var ampm = hr >= 12 ? "PM" : "AM";
     hr = hr % 12;
     hr = hr ? hr : 12; // the hour '0' should be '12'
-    if(min/10 < 1){
-      return `${hr }:0${min } ${ampm}`;
-    }else return `${hr }:${min } ${ampm}`;
+    if (min / 10 < 1) {
+      return `${hr}:0${min} ${ampm}`;
+    } else return `${hr}:${min} ${ampm}`;
   }
 
   useEffect(() => {
     axios
-      .get("http://localhost:3000/note/allNotes",
-      {
+      .get(`${apiUrl}/note/allNotes`, {
         headers: {
           "Content-Type": "application/json",
-          Authorization:
-            `Bearer ${jwt}`,
+          Authorization: `Bearer ${jwt}`,
         },
-      }
-      )
+      })
       .then((response) => {
         setNotes(response.data.notes);
-      },
-      
-      )
+      })
       .catch((error) => {
         console.error(error);
       });
-  }, [jwt]);
+  }, [jwt, apiUrl]);
 
   return (
     <div
@@ -63,13 +58,12 @@ function NotesList() {
       style={{ width: "15vw", height: "148px", overflow: "auto" }}
     >
       {notes.map((note) => (
-        <div key={note._id}>{note.title}
+        <div key={note._id}>
+          {note.title}
           <div className="notec">
             {/* eslint-disable-next-line */}
             <marquee width="100%" direction="left" scrollamount="3">
-             <div className="intext">
-               {note.content}
-              </div>
+              <div className="intext">{note.content}</div>
             </marquee>
             <div className="des">
               -{note.designation}, ({formatDate(note.createdAt)},{" "}

@@ -15,7 +15,10 @@ function ImageUploader() {
   const [image, setImage] = useState(null);
   const [caption, setCaption] = useState("");
   const [siteName, setSiteName] = useState("");
-
+  const apiUrl =
+    process.env.NODE_ENV === "production"
+      ? process.env.REACT_APP_API_URL_PROD
+      : process.env.REACT_APP_API_URL_DEV;
   const handleImageChange = (event) => {
     setImage(event.target.files[0]);
   };
@@ -36,15 +39,16 @@ function ImageUploader() {
     formData.append("caption", caption);
     formData.append("siteName", siteName);
 
-    fetch("http://localhost:3000/cloudImg/upload", {
-      method: "POST",
-      body: formData,
-    },
-    {
-           headers: {
+    fetch(
+      `${apiUrl}/cloudImg/upload`,
+      {
+        method: "POST",
+        body: formData,
+      },
+      {
+        headers: {
           "Content-Type": "application/json",
-          Authorization:
-            `Bearer ${jwt}`,
+          Authorization: `Bearer ${jwt}`,
         },
       }
     ).then((response) => response.json());
@@ -52,38 +56,35 @@ function ImageUploader() {
     window.location.reload();
   };
   const username = localStorage.getItem("username");
-  function handledelete(){
-    if(username === "master_admin"){
-      navigate("/gallary")
-    }else{
-      window.alert("Sorry! You are not authorized to access this feature")
+  function handledelete() {
+    if (username === "master_admin") {
+      navigate("/gallary");
+    } else {
+      window.alert("Sorry! You are not authorized to access this feature");
     }
   }
 
-
-
   return (
     <>
-    <div>
-    <button onClick={() => handledelete()}>Delete Images</button>
-    </div>
-    <form onSubmit={handleSubmit}>
-      <input type="file" onChange={handleImageChange} />
-      <input
-        type="text"
-        placeholder="Caption"
-        value={caption}
-        onChange={handleCaptionChange}
-      />
-      <input
-        type="text"
-        placeholder="Site Name"
-        value={siteName}
-        onChange={handleSiteNameChange}
-      />
-      <button type="submit">Upload</button>
-     
-    </form>
+      <div>
+        <button onClick={() => handledelete()}>Delete Images</button>
+      </div>
+      <form onSubmit={handleSubmit}>
+        <input type="file" onChange={handleImageChange} />
+        <input
+          type="text"
+          placeholder="Caption"
+          value={caption}
+          onChange={handleCaptionChange}
+        />
+        <input
+          type="text"
+          placeholder="Site Name"
+          value={siteName}
+          onChange={handleSiteNameChange}
+        />
+        <button type="submit">Upload</button>
+      </form>
     </>
   );
 }

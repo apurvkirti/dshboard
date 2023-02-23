@@ -3,25 +3,26 @@ import { useState, useEffect, useRef } from "react";
 import "../SimpleSlider/slick-theme.css";
 import "../SimpleSlider/slick-theme.css";
 import MovieCard from "../MovieCard/index";
-import axios from 'axios';
+import axios from "axios";
 
-export default function SimpleSlider  ({ initialSlide = 0 }) {
+export default function SimpleSlider({ initialSlide = 0 }) {
   const jwt = localStorage.getItem("jwt");
   const [images, setImages] = useState([]);
-
+  const apiUrl =
+    process.env.NODE_ENV === "production"
+      ? process.env.REACT_APP_API_URL_PROD
+      : process.env.REACT_APP_API_URL_DEV;
   useEffect(() => {
     axios
-    .get("http://localhost:3000/cloudImg/allImages",
-    {
-      headers: {
-        "Content-Type": "application/json",
-        Authorization:
-          `Bearer ${jwt}`,
-      },
-    })
-    .then(res => setImages(res.data))
-    .catch(err => console.error(err));
-  }, [jwt]);
+      .get(`${apiUrl}/cloudImg/allImages`, {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${jwt}`,
+        },
+      })
+      .then((res) => setImages(res.data))
+      .catch((err) => console.error(err));
+  }, [jwt, apiUrl]);
 
   const [hasSetPosition, setHasSetPosition] = useState(false);
   const slider = useRef();
@@ -70,12 +71,10 @@ export default function SimpleSlider  ({ initialSlide = 0 }) {
   };
 
   return (
-    
     <Slider className="rss" ref={slider} {...settings}>
       {images.map((movie) => (
         <MovieCard movie={movie} />
       ))}
     </Slider>
-
   );
 }

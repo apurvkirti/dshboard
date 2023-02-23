@@ -21,7 +21,10 @@ export default function UpdateForm(props) {
   ];
 
   const [APIData, setAPIData] = useState([]);
-
+  const apiUrl =
+    process.env.NODE_ENV === "production"
+      ? process.env.REACT_APP_API_URL_PROD
+      : process.env.REACT_APP_API_URL_DEV;
   useEffect(() => {
     // Fetch prefilled data from the backend
     const headers = {
@@ -29,13 +32,13 @@ export default function UpdateForm(props) {
     };
     axios
       .get(
-        `http://localhost:3000/api/getCluster/?form_Id=${form_Id}&cluster=${ClustName}`,
+        `${apiUrl}/college/getCluster/?form_Id=${form_Id}&cluster=${ClustName}`,
         { headers }
       )
       .then((response) => {
         setAPIData(response.data);
       });
-  }, [ClustName, jwt]);
+  }, [ClustName, jwt,apiUrl]);
   const setData = (data) => {
     let {
       customId,
@@ -107,9 +110,13 @@ export default function UpdateForm(props) {
       "Content-Type": "application/json",
       Authorization: `Bearer ${jwt}`,
     };
+    // const apiUrl =
+    //   process.env.NODE_ENV === "production"
+    //     ? process.env.REACT_APP_API_URL_PROD
+    //     : process.env.REACT_APP_API_URL_DEV;
     axios
       .patch(
-        `http://localhost:3000/api/update_tmp/?id=${customId}&form_Id=${form_Id}`,
+        `${apiUrl}/college/update_tmp/?id=${customId}&form_Id=${form_Id}`,
         {
           [val]: value,
         },
@@ -157,28 +164,54 @@ export default function UpdateForm(props) {
           </Table.Row>
 
           <Table.Row>
-            <Table.HeaderCell id="base-workshop" className="th">Basic Infra</Table.HeaderCell>
-            <Table.HeaderCell id="base-workshop" className="th">Flooring</Table.HeaderCell>
+            <Table.HeaderCell id="base-workshop" className="th">
+              Basic Infra
+            </Table.HeaderCell>
+            <Table.HeaderCell id="base-workshop" className="th">
+              Flooring
+            </Table.HeaderCell>
             <Table.HeaderCell id="base-workshop" className="th">
               Internal Painting
             </Table.HeaderCell>
-            <Table.HeaderCell id="base-workshop" className="th">Windows</Table.HeaderCell>
-            <Table.HeaderCell id="base-workshop" className="th">Shutter</Table.HeaderCell>
+            <Table.HeaderCell id="base-workshop" className="th">
+              Windows
+            </Table.HeaderCell>
+            <Table.HeaderCell id="base-workshop" className="th">
+              Shutter
+            </Table.HeaderCell>
             <Table.HeaderCell id="base-workshop" className="th">
               Aluminium Partition
             </Table.HeaderCell>
-            <Table.HeaderCell id="base-workshop" className="th">AC</Table.HeaderCell>
-            <Table.HeaderCell id="base-workshop" className="th">MCB</Table.HeaderCell>
-            <Table.HeaderCell id="base-workshop" className="th">Networking</Table.HeaderCell>
-            <Table.HeaderCell id="base-workshop" className="th">LT Panel</Table.HeaderCell>
-            <Table.HeaderCell id="base-workshop" className="th">Electric Supply</Table.HeaderCell>
-            <Table.HeaderCell id="base-workshop" className="th">UPS</Table.HeaderCell>
-            <Table.HeaderCell id="base-workshop" className="th">DG Set</Table.HeaderCell>
+            <Table.HeaderCell id="base-workshop" className="th">
+              AC
+            </Table.HeaderCell>
+            <Table.HeaderCell id="base-workshop" className="th">
+              MCB
+            </Table.HeaderCell>
+            <Table.HeaderCell id="base-workshop" className="th">
+              Networking
+            </Table.HeaderCell>
+            <Table.HeaderCell id="base-workshop" className="th">
+              LT Panel
+            </Table.HeaderCell>
+            <Table.HeaderCell id="base-workshop" className="th">
+              Electric Supply
+            </Table.HeaderCell>
+            <Table.HeaderCell id="base-workshop" className="th">
+              UPS
+            </Table.HeaderCell>
+            <Table.HeaderCell id="base-workshop" className="th">
+              DG Set
+            </Table.HeaderCell>
             <Table.HeaderCell id="base-workshop" className="th">
               External Painting
             </Table.HeaderCell>
-            <Table.HeaderCell id="base-workshop" className="th">Cleaning</Table.HeaderCell>
-            <Table.HeaderCell id="base-workshop" className="th">Floor Painting</Table.HeaderCell>
+            <Table.HeaderCell id="base-workshop" className="th">
+              Cleaning
+            </Table.HeaderCell>
+            <Table.HeaderCell id="base-workshop" className="th">
+              Floor Painting
+            </Table.HeaderCell>
           </Table.Row>
         </Table.Header>
 

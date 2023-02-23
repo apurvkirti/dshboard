@@ -21,7 +21,10 @@ export default function UpdateForm(props) {
   ];
 
   const [APIData, setAPIData] = useState([]);
-
+  const apiUrl =
+  process.env.NODE_ENV === "production"
+    ? process.env.REACT_APP_API_URL_PROD
+    : process.env.REACT_APP_API_URL_DEV;
   useEffect(() => {
    
     const headers = {
@@ -30,13 +33,13 @@ export default function UpdateForm(props) {
     };
     axios
       .get(
-        `http://localhost:3000/api/getCluster/?form_Id=${form_Id}&cluster=${ClustName}`,
+        `${apiUrl}/college/getCluster/?form_Id=${form_Id}&cluster=${ClustName}`,
         { headers }
       )
       .then((response) => {
         setAPIData(response.data);
       });
-  }, [ClustName,jwt]);
+  }, [ClustName,jwt,apiUrl]);
   const setData = (data) => {
     let {
       customId,
@@ -113,9 +116,13 @@ export default function UpdateForm(props) {
       Authorization:
         `Bearer ${jwt}`,
     };
+    // const apiUrl =
+    // process.env.NODE_ENV === "production"
+    //   ? process.env.REACT_APP_API_URL_PROD
+    //   : process.env.REACT_APP_API_URL_DEV;
     axios
       .patch(
-        `http://localhost:3000/api/update_tmp/?id=${customId}&form_Id=${form_Id}`,
+        `${apiUrl}/college/update_tmp/?id=${customId}&form_Id=${form_Id}`,
         {
           [val]: value,
         },

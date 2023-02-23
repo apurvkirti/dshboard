@@ -8,21 +8,24 @@ export default function MyComponent(props) {
   let ClustName = props.clust ? props.clust : "PATNA";
 
   const [data, setData] = useState([]);
-
+  const apiUrl =
+    process.env.NODE_ENV === "production"
+      ? process.env.REACT_APP_API_URL_PROD
+      : process.env.REACT_APP_API_URL_DEV;
   useEffect(() => {
-    const apiUrl = `http://localhost:3000/api/getCluster/?form_Id=${fId}&cluster=${ClustName}`;
+    // const apiUrl = `${apiUrl}/college/getCluster/?form_Id=${fId}&cluster=${ClustName}`;
     const headers = {
       Authorization: `Bearer ${jwt}`,
     };
     axios
-      .get(apiUrl, { headers })
+      .get(`${apiUrl}/college/getCluster/?form_Id=${fId}&cluster=${ClustName}`, { headers })
       .then((response) => {
         setData(response.data);
       })
       .catch((error) => {
         console.log(error);
       });
-  }, [ClustName, jwt]);
+  }, [ClustName, jwt, apiUrl]);
 
   // rendering Icon
   function renderIcon(val) {
@@ -61,28 +64,62 @@ export default function MyComponent(props) {
             <Table.HeaderCell id="base-techlab" rowSpan="3" textAlign="center">
               District
             </Table.HeaderCell>
- 
-            <Table.HeaderCell id="teclab-heading" textAlign="center" colSpan="15">
+
+            <Table.HeaderCell
+              id="teclab-heading"
+              textAlign="center"
+              colSpan="15"
+            >
               TECHNOLOGY LAB ( CIVIL )
             </Table.HeaderCell>
           </Table.Row>
 
           <Table.Row>
-            <Table.HeaderCell id="base-techlab" className="th">Basic Infra</Table.HeaderCell>
-            <Table.HeaderCell id="base-techlab" className="th">Flooring</Table.HeaderCell>
-            <Table.HeaderCell id="base-techlab" className="th">False Ceiling</Table.HeaderCell>
-            <Table.HeaderCell id="base-techlab" className="th">Internal Painting</Table.HeaderCell>
-            <Table.HeaderCell id="base-techlab" className="th">Windows</Table.HeaderCell>
-            <Table.HeaderCell id="base-techlab" className="th">Doors</Table.HeaderCell>
-            <Table.HeaderCell id="base-techlab" className="th">Aluminium Partition</Table.HeaderCell>
-            <Table.HeaderCell id="base-techlab" className="th">AC</Table.HeaderCell>
-            <Table.HeaderCell id="base-techlab" className="th">MCB</Table.HeaderCell>
-            <Table.HeaderCell id="base-techlab" className="th">Networking</Table.HeaderCell>
-            <Table.HeaderCell id="base-techlab" className="th">LT Pannel</Table.HeaderCell>
-            <Table.HeaderCell id="base-techlab" className="th">Electric Supply</Table.HeaderCell>
-            <Table.HeaderCell id="base-techlab" className="th">UPS</Table.HeaderCell>
-            <Table.HeaderCell id="base-techlab" className="th">External Painting</Table.HeaderCell>
-            <Table.HeaderCell id="base-techlab" className="th">Cleaning</Table.HeaderCell>
+            <Table.HeaderCell id="base-techlab" className="th">
+              Basic Infra
+            </Table.HeaderCell>
+            <Table.HeaderCell id="base-techlab" className="th">
+              Flooring
+            </Table.HeaderCell>
+            <Table.HeaderCell id="base-techlab" className="th">
+              False Ceiling
+            </Table.HeaderCell>
+            <Table.HeaderCell id="base-techlab" className="th">
+              Internal Painting
+            </Table.HeaderCell>
+            <Table.HeaderCell id="base-techlab" className="th">
+              Windows
+            </Table.HeaderCell>
+            <Table.HeaderCell id="base-techlab" className="th">
+              Doors
+            </Table.HeaderCell>
+            <Table.HeaderCell id="base-techlab" className="th">
+              Aluminium Partition
+            </Table.HeaderCell>
+            <Table.HeaderCell id="base-techlab" className="th">
+              AC
+            </Table.HeaderCell>
+            <Table.HeaderCell id="base-techlab" className="th">
+              MCB
+            </Table.HeaderCell>
+            <Table.HeaderCell id="base-techlab" className="th">
+              Networking
+            </Table.HeaderCell>
+            <Table.HeaderCell id="base-techlab" className="th">
+              LT Pannel
+            </Table.HeaderCell>
+            <Table.HeaderCell id="base-techlab" className="th">
+              Electric Supply
+            </Table.HeaderCell>
+            <Table.HeaderCell id="base-techlab" className="th">
+              UPS
+            </Table.HeaderCell>
+            <Table.HeaderCell id="base-techlab" className="th">
+              External Painting
+            </Table.HeaderCell>
+            <Table.HeaderCell id="base-techlab" className="th">
+              Cleaning
+            </Table.HeaderCell>
           </Table.Row>
         </Table.Header>
 

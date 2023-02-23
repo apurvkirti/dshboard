@@ -8,20 +8,24 @@ export default function MyComponent(props) {
   const jwt = localStorage.getItem("jwt");
   let ClustName = props.clust ? props.clust : "PATNA";
   const [data, setData] = useState([]);
+  const apiUrl =
+    process.env.NODE_ENV === "production"
+      ? process.env.REACT_APP_API_URL_PROD
+      : process.env.REACT_APP_API_URL_DEV;
   useEffect(() => {
-    const apiUrl = `http://localhost:3000/api/getCluster/?form_Id=${fId}&cluster=${ClustName}`;
+    // const apiUrl = `${apiUrl}/college/getCluster/?form_Id=${fId}&cluster=${ClustName}`;
     const headers = {
       Authorization: `Bearer ${jwt}`,
     };
     axios
-      .get(apiUrl, { headers })
+      .get(`${apiUrl}/college/getCluster/?form_Id=${fId}&cluster=${ClustName}`, { headers })
       .then((response) => {
         setData(response.data);
       })
       .catch((error) => {
         console.log(error);
       });
-  }, [ClustName, jwt]);
+  }, [ClustName, jwt,apiUrl]);
 
   // rendering Icon
   function renderIcon(val) {

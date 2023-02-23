@@ -24,19 +24,22 @@ export default function Chart() {
   const [data1, setData1] = useState([]);
   const [data2, setData2] = useState([]);
   const [data3, setData3] = useState([]);
-
+  const apiUrl =
+    process.env.NODE_ENV === "production"
+      ? process.env.REACT_APP_API_URL_PROD
+      : process.env.REACT_APP_API_URL_DEV;
   useEffect(() => {
-    const apiUrl1 = `http://localhost:3000/api/test/?formCode=1000`;
-    const apiUrl2 = `http://localhost:3000/api/test/?formCode=2000`;
-    const apiUrl3 = `http://localhost:3000/api/test/?formCode=3000`;
+    // const apiUrl1 = `${apiUrl}/college/test/?formCode=1000`;
+    // const apiUrl2 = `${apiUrl}/college/test/?formCode=2000`;
+    // const apiUrl3 = `${apiUrl}/college/test/?formCode=3000`;
     const headers = {
       Authorization: `Bearer ${jwt}`,
     };
 
     Promise.all([
-      axios.get(apiUrl1, { headers }),
-      axios.get(apiUrl2, { headers }),
-      axios.get(apiUrl3, { headers }),
+      axios.get(`${apiUrl}/college/test/?formCode=1000`, { headers }),
+      axios.get(`${apiUrl}/college/test/?formCode=2000`, { headers }),
+      axios.get(`${apiUrl}/college/test/?formCode=3000`, { headers }),
     ])
       .then((responses) => {
         setData1(responses[0].data);
@@ -46,7 +49,7 @@ export default function Chart() {
       .catch((error) => {
         console.log(error);
       });
-  }, [jwt]);
+  }, [jwt, apiUrl]);
 
   if (
     data1 &&
@@ -131,13 +134,25 @@ export default function Chart() {
               </tr>
             </thead>
             <tbody>
-              <tr className="rowf1" onMouseEnter={handleEnter1} onMouseLeave={handleLeave1}>
+              <tr
+                className="rowf1"
+                onMouseEnter={handleEnter1}
+                onMouseLeave={handleLeave1}
+              >
                 <td className="fontsize">Overall Civil Readiness %</td>
               </tr>
-              <tr className="rows1" onMouseEnter={handleEnter2} onMouseLeave={handleLeave2}>
+              <tr
+                className="rows1"
+                onMouseEnter={handleEnter2}
+                onMouseLeave={handleLeave2}
+              >
                 <td className="fontsize">Overall Delivery Readiness %</td>
               </tr>
-              <tr className="rowt1" onMouseEnter={handleEnter3} onMouseLeave={handleLeave3}>
+              <tr
+                className="rowt1"
+                onMouseEnter={handleEnter3}
+                onMouseLeave={handleLeave3}
+              >
                 <td className="fontsize">Overall Installation Readiness %</td>
               </tr>
             </tbody>
@@ -198,7 +213,7 @@ export default function Chart() {
                 stackId="a"
                 fill="#2f5597"
               >
-                <LabelList dataKey= "Workshop" position="top" />
+                <LabelList dataKey="Workshop" position="top" />
               </Bar>
             </BarChart>
             <div className="textbelow">Civil Readiness</div>

@@ -24,7 +24,10 @@ export default function UpdateForm(props) {
   ];
 
   const [APIData, setAPIData] = useState([]);
-
+  const apiUrl =
+    process.env.NODE_ENV === "production"
+      ? process.env.REACT_APP_API_URL_PROD
+      : process.env.REACT_APP_API_URL_DEV;
   useEffect(() => {
     // Fetch prefilled data from the backend
     const headers = {
@@ -32,13 +35,13 @@ export default function UpdateForm(props) {
     };
     axios
       .get(
-        `http://localhost:3000/api/getCluster/?form_Id=${form_Id}&cluster=${ClustName}`,
+        `${apiUrl}/college/getCluster/?form_Id=${form_Id}&cluster=${ClustName}`,
         { headers }
       )
       .then((response) => {
         setAPIData(response.data);
       });
-  }, [ClustName, jwt]);
+  }, [ClustName, jwt, apiUrl]);
   const setData = (data) => {
     let {
       customId,
@@ -64,21 +67,39 @@ export default function UpdateForm(props) {
     localStorage.setItem("Cluster", Cluster);
     localStorage.setItem("Furniture", Furniture);
     localStorage.setItem("Server_Rack", Server_Rack);
-    localStorage.setItem("Workstations_and_Monitors", Workstations_and_Monitors);
+    localStorage.setItem(
+      "Workstations_and_Monitors",
+      Workstations_and_Monitors
+    );
     localStorage.setItem("Server", Server);
-    localStorage.setItem("Distance_Learning_Classroom", Distance_Learning_Classroom);
+    localStorage.setItem(
+      "Distance_Learning_Classroom",
+      Distance_Learning_Classroom
+    );
     localStorage.setItem("IOT_Kit", IOT_Kit);
     localStorage.setItem("IOT_Desktops", IOT_Desktops);
     localStorage.setItem("D3_Printer_Tech1", D3_Printer_Tech1);
     localStorage.setItem("D3_Printer_Tech2", D3_Printer_Tech2);
-    localStorage.setItem("Tech_Tools_Product_Design1", Tech_Tools_Product_Design1);
-    localStorage.setItem("Tech_Tools_Product_Design2", Tech_Tools_Product_Design2);
-    localStorage.setItem("Tech_Tools_Product_Verification1", Tech_Tools_Product_Verification1);
-    localStorage.setItem("Tech_Tools_Product_Verification2", Tech_Tools_Product_Verification2);
-    localStorage.setItem("Tech_Tools_Advance_Manufacturing1", Tech_Tools_Advance_Manufacturing1);
-
-
-
+    localStorage.setItem(
+      "Tech_Tools_Product_Design1",
+      Tech_Tools_Product_Design1
+    );
+    localStorage.setItem(
+      "Tech_Tools_Product_Design2",
+      Tech_Tools_Product_Design2
+    );
+    localStorage.setItem(
+      "Tech_Tools_Product_Verification1",
+      Tech_Tools_Product_Verification1
+    );
+    localStorage.setItem(
+      "Tech_Tools_Product_Verification2",
+      Tech_Tools_Product_Verification2
+    );
+    localStorage.setItem(
+      "Tech_Tools_Advance_Manufacturing1",
+      Tech_Tools_Advance_Manufacturing1
+    );
   };
 
   // Handle form submission
@@ -109,9 +130,13 @@ export default function UpdateForm(props) {
       "Content-Type": "application/json",
       Authorization: `Bearer ${jwt}`,
     };
+    // const apiUrl =
+    //   process.env.NODE_ENV === "production"
+    //     ? process.env.REACT_APP_API_URL_PROD
+    //     : process.env.REACT_APP_API_URL_DEV;
     axios
       .patch(
-        `http://localhost:3000/api/update_tmp/?id=${customId}&form_Id=${form_Id}`,
+        `${apiUrl}/college/update_tmp/?id=${customId}&form_Id=${form_Id}`,
         {
           [val]: value,
         },
@@ -137,7 +162,7 @@ export default function UpdateForm(props) {
         </div>
       </div>
       <Table className="td" celled collapsing striped>
-      <Table.Header>
+        <Table.Header>
           <Table.Row>
             <Table.HeaderCell id="base-techlab" rowSpan="3" textAlign="center">
               ITI Name
@@ -149,27 +174,57 @@ export default function UpdateForm(props) {
               District
             </Table.HeaderCell>
 
-            <Table.HeaderCell  id="teclabcivil" textAlign="center" colSpan="15">
+            <Table.HeaderCell id="teclabcivil" textAlign="center" colSpan="15">
               TECHNOLOGY LAB ( DELIVERY )
             </Table.HeaderCell>
           </Table.Row>
 
           <Table.Row>
-            <Table.HeaderCell id="base-techlab" className="th">Furniture</Table.HeaderCell>
-            <Table.HeaderCell id="base-techlab" className="th">Server Rack</Table.HeaderCell>
-            <Table.HeaderCell id="base-techlab" className="th">Workstations and Monitors</Table.HeaderCell>
-            <Table.HeaderCell id="base-techlab" className="th">Server</Table.HeaderCell>
-            <Table.HeaderCell id="base-techlab" className="th">Distance Learning Classroom</Table.HeaderCell>
-            <Table.HeaderCell id="base-techlab" className="th">IOT Kit</Table.HeaderCell>
-            <Table.HeaderCell id="base-techlab" className="th">IOT Desktops</Table.HeaderCell>
-            <Table.HeaderCell id="base-techlab" className="th">3D Printer Tech-1</Table.HeaderCell>
-            <Table.HeaderCell id="base-techlab" className="th">3D Printer Tech-2</Table.HeaderCell>
-            <Table.HeaderCell id="base-techlab" className="th">TechTools Product Design 1</Table.HeaderCell>
-            <Table.HeaderCell id="base-techlab" className="th">TechTools Product Design 2</Table.HeaderCell>
-            <Table.HeaderCell id="base-techlab" className="th">TechTools Product Verification 1</Table.HeaderCell>
-            <Table.HeaderCell id="base-techlab" className="th">TechTools Product Verification 2</Table.HeaderCell>
-            <Table.HeaderCell id="base-techlab" className="th">TechTools Advance Manufacturing</Table.HeaderCell>
-            <Table.HeaderCell id="base-techlab" className="th">E-Learning Platform</Table.HeaderCell>
+            <Table.HeaderCell id="base-techlab" className="th">
+              Furniture
+            </Table.HeaderCell>
+            <Table.HeaderCell id="base-techlab" className="th">
+              Server Rack
+            </Table.HeaderCell>
+            <Table.HeaderCell id="base-techlab" className="th">
+              Workstations and Monitors
+            </Table.HeaderCell>
+            <Table.HeaderCell id="base-techlab" className="th">
+              Server
+            </Table.HeaderCell>
+            <Table.HeaderCell id="base-techlab" className="th">
+              Distance Learning Classroom
+            </Table.HeaderCell>
+            <Table.HeaderCell id="base-techlab" className="th">
+              IOT Kit
+            </Table.HeaderCell>
+            <Table.HeaderCell id="base-techlab" className="th">
+              IOT Desktops
+            </Table.HeaderCell>
+            <Table.HeaderCell id="base-techlab" className="th">
+              3D Printer Tech-1
+            </Table.HeaderCell>
+            <Table.HeaderCell id="base-techlab" className="th">
+              3D Printer Tech-2
+            </Table.HeaderCell>
+            <Table.HeaderCell id="base-techlab" className="th">
+              TechTools Product Design 1
+            </Table.HeaderCell>
+            <Table.HeaderCell id="base-techlab" className="th">
+              TechTools Product Design 2
+            </Table.HeaderCell>
+            <Table.HeaderCell id="base-techlab" className="th">
+              TechTools Product Verification 1
+            </Table.HeaderCell>
+            <Table.HeaderCell id="base-techlab" className="th">
+              TechTools Product Verification 2
+            </Table.HeaderCell>
+            <Table.HeaderCell id="base-techlab" className="th">
+              TechTools Advance Manufacturing
+            </Table.HeaderCell>
+            <Table.HeaderCell id="base-techlab" className="th">
+              E-Learning Platform
+            </Table.HeaderCell>
           </Table.Row>
         </Table.Header>
         <Table.Body>
@@ -270,7 +325,11 @@ export default function UpdateForm(props) {
                     value={data.Workstations_and_Monitors}
                     onChange={(e, { value }) => {
                       if (window.confirm("Are you sure you want to Update?")) {
-                        handleChange(data.customId, value, "Workstations_and_Monitors");
+                        handleChange(
+                          data.customId,
+                          value,
+                          "Workstations_and_Monitors"
+                        );
                         switch (value) {
                           case -1:
                             NotificationManager.info(
@@ -352,7 +411,11 @@ export default function UpdateForm(props) {
                     value={data.Distance_Learning_Classroom}
                     onChange={(e, { value }) => {
                       if (window.confirm("Are you sure you want to Update?")) {
-                        handleChange(data.customId, value, "Distance_Learning_Classroom");
+                        handleChange(
+                          data.customId,
+                          value,
+                          "Distance_Learning_Classroom"
+                        );
                         switch (value) {
                           case -1:
                             NotificationManager.info(
@@ -386,7 +449,7 @@ export default function UpdateForm(props) {
                   />
                   {renderIcon(data.Distance_Learning_Classroom)}
                 </Table.Cell>
-               
+
                 <Table.Cell className="ttt" textAlign="center" selectable>
                   <Dropdown
                     text=" "
@@ -394,11 +457,7 @@ export default function UpdateForm(props) {
                     value={data.IOT_Kit}
                     onChange={(e, { value }) => {
                       if (window.confirm("Are you sure you want to Update?")) {
-                        handleChange(
-                          data.customId,
-                          value,
-                          "IOT_Kit"
-                        );
+                        handleChange(data.customId, value, "IOT_Kit");
                         switch (value) {
                           case -1:
                             NotificationManager.info(
@@ -555,7 +614,7 @@ export default function UpdateForm(props) {
                   />
                   {renderIcon(data.D3_Printer_Tech2)}
                 </Table.Cell>
-               
+
                 <Table.Cell className="ttt" textAlign="center" selectable>
                   <Dropdown
                     text=" "
@@ -563,7 +622,11 @@ export default function UpdateForm(props) {
                     value={data.Tech_Tools_Product_Design1}
                     onChange={(e, { value }) => {
                       if (window.confirm("Are you sure you want to Update?")) {
-                        handleChange(data.customId, value, "Tech_Tools_Product_Design1");
+                        handleChange(
+                          data.customId,
+                          value,
+                          "Tech_Tools_Product_Design1"
+                        );
                         switch (value) {
                           case -1:
                             NotificationManager.info(
@@ -604,7 +667,11 @@ export default function UpdateForm(props) {
                     value={data.Tech_Tools_Product_Design2}
                     onChange={(e, { value }) => {
                       if (window.confirm("Are you sure you want to Update?")) {
-                        handleChange(data.customId, value, "Tech_Tools_Product_Design2");
+                        handleChange(
+                          data.customId,
+                          value,
+                          "Tech_Tools_Product_Design2"
+                        );
                         switch (value) {
                           case -1:
                             NotificationManager.info(
@@ -645,7 +712,11 @@ export default function UpdateForm(props) {
                     value={data.Tech_Tools_Product_Verification1}
                     onChange={(e, { value }) => {
                       if (window.confirm("Are you sure you want to Update?")) {
-                        handleChange(data.customId, value, "Tech_Tools_Product_Verification1");
+                        handleChange(
+                          data.customId,
+                          value,
+                          "Tech_Tools_Product_Verification1"
+                        );
                         switch (value) {
                           case -1:
                             NotificationManager.info(
@@ -686,7 +757,11 @@ export default function UpdateForm(props) {
                     value={data.Tech_Tools_Product_Verification2}
                     onChange={(e, { value }) => {
                       if (window.confirm("Are you sure you want to Update?")) {
-                        handleChange(data.customId, value, "Tech_Tools_Product_Verification2");
+                        handleChange(
+                          data.customId,
+                          value,
+                          "Tech_Tools_Product_Verification2"
+                        );
                         switch (value) {
                           case -1:
                             NotificationManager.info(
@@ -727,7 +802,11 @@ export default function UpdateForm(props) {
                     value={data.Tech_Tools_Advance_Manufacturing1}
                     onChange={(e, { value }) => {
                       if (window.confirm("Are you sure you want to Update?")) {
-                        handleChange(data.customId, value, "Tech_Tools_Advance_Manufacturing1");
+                        handleChange(
+                          data.customId,
+                          value,
+                          "Tech_Tools_Advance_Manufacturing1"
+                        );
                         switch (value) {
                           case -1:
                             NotificationManager.info(
@@ -768,7 +847,11 @@ export default function UpdateForm(props) {
                     value={data.E_Learning_Platform}
                     onChange={(e, { value }) => {
                       if (window.confirm("Are you sure you want to Update?")) {
-                        handleChange(data.customId, value, "E_Learning_Platform");
+                        handleChange(
+                          data.customId,
+                          value,
+                          "E_Learning_Platform"
+                        );
                         switch (value) {
                           case -1:
                             NotificationManager.info(

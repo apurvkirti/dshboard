@@ -10,21 +10,24 @@ export default function Course(props) {
   let ClustName = props.clust ? props.clust : "PATNA";
 
   const [data, setData] = useState([]);
-
+  const apiUrl =
+    process.env.NODE_ENV === "production"
+      ? process.env.REACT_APP_API_URL_PROD
+      : process.env.REACT_APP_API_URL_DEV;
   useEffect(() => {
-    const apiUrl = `http://localhost:3000/course/byCluster?Cluster=${ClustName}`;
+    // const apiUrl = `${apiUrl}/course/byCluster?Cluster=${ClustName}`;
     const headers = {
       Authorization: `Bearer ${jwt}`,
     };
     axios
-      .get(apiUrl, { headers })
+      .get(`${apiUrl}/course/byCluster?Cluster=${ClustName}`, { headers })
       .then((response) => {
         setData(response.data);
       })
       .catch((error) => {
         console.log(error);
       });
-  }, [ClustName, jwt]);
+  }, [ClustName, jwt, apiUrl]);
 
   function renderIcon(val) {
     let color;
@@ -43,7 +46,7 @@ export default function Course(props) {
     e.preventDefault();
     try {
       const response = await axios.post(
-        `http://localhost:3000/course/updateDate?collegeId=${collegeId}`,
+        `${apiUrl}/course/updateDate?collegeId=${collegeId}`,
         {
           key,
           startDate,
@@ -95,8 +98,6 @@ export default function Course(props) {
     "Robot_Operator_Programmer_Arc",
     "Advanced_Plumbing_Technician",
   ];
-
-  
 
   return (
     <>

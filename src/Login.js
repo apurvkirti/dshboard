@@ -10,12 +10,15 @@ const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
-
+  const apiUrl =
+    process.env.NODE_ENV === "production"
+      ? process.env.REACT_APP_AUTH_URL_PROD
+      : process.env.REACT_APP_AUTH_URL_DEV;
   const handleSubmit = async (event) => {
     event.preventDefault();
 
     try {
-      const response = await axios.post("http://localhost:4000/auth/login", {
+      const response = await axios.post(`${apiUrl}/login`, {
         username,
         password,
       });
@@ -35,11 +38,9 @@ const Login = () => {
           <Navbar.Brand className="logoleft"></Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
-         
             <Nav className="justify-content-end flex-grow-1 pe-3">
               <Nav.Link className="logo"></Nav.Link>
             </Nav>
-            
           </Navbar.Collapse>
         </Container>
       </Navbar>
@@ -79,7 +80,6 @@ const Login = () => {
           {error && <p>{error}</p>}
         </form>
       </div>
-      
     </div>
   );
 };

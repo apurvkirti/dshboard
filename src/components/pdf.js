@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 // import { Page, Text,Document, StyleSheet } from "@react-pdf/renderer";
@@ -79,25 +78,28 @@ const styles = StyleSheet.create({
 });
 
 const PDFFile = () => {
-    const jwt = localStorage.getItem("jwt");
-    const [data, setData] = useState([]);
-    const vardata = [0,0,0];
-    useEffect(() => {
-      const apiUrl = `http://localhost:3000/api/getCluster/?form_Id=1001&cluster=PATNA`;
-      const headers = {
-        Authorization: `Bearer ${jwt}`,
-      };
-      axios
-        .get(apiUrl, { headers })
-        .then((response) => {
-          setData(response.data);
+  const jwt = localStorage.getItem("jwt");
+  const [data, setData] = useState([]);
+  const vardata = [0, 0, 0];
+  const apiUrl =
+    process.env.NODE_ENV === "production"
+      ? process.env.REACT_APP_API_URL_PROD
+      : process.env.REACT_APP_API_URL_DEV;
+  useEffect(() => {
+    // const apiUrl = `${apiUrl}/college/getCluster/?form_Id=1001&cluster=PATNA`;
+    const headers = {
+      Authorization: `Bearer ${jwt}`,
+    };
+    axios
+      .get(`${apiUrl}/college/getCluster/?form_Id=1001&cluster=PATNA`, { headers })
+      .then((response) => {
+        setData(response.data);
         //   console.log(data[0].Cluster);
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-    }, [jwt]);
-
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, [jwt, apiUrl]);
 
   return (
     <Document>
@@ -106,164 +108,488 @@ const PDFFile = () => {
           <View style={styles.table}>
             <View style={styles.tableRow}>
               <Text style={styles.tableColHeader}>ITI Name</Text>
-              <Text style={styles.tableCol}>Govt. ITI Motihari Sadar , East Champaran</Text>
-              <Text style={styles.tableCol}>Govt. ITI Chakiya , East Champaran</Text>
-              <Text style={styles.tableCol}>Govt. Women ITI Hathua , Gopalganj</Text>
+              <Text style={styles.tableCol}>
+                Govt. ITI Motihari Sadar , East Champaran
+              </Text>
+              <Text style={styles.tableCol}>
+                Govt. ITI Chakiya , East Champaran
+              </Text>
+              <Text style={styles.tableCol}>
+                Govt. Women ITI Hathua , Gopalganj
+              </Text>
               <Text style={styles.tableCol}>Govt. ITI Sheohar</Text>
               <Text style={styles.tableCol}>Govt. ITI Siwan Sadar , Siwan</Text>
-              <Text style={styles.tableCol}>Govt. ITI Bettiah , West Champaran</Text>
-              <Text style={styles.tableCol}>Govt. ITI Narkatiyaganj , West Champaran</Text>
-            
+              <Text style={styles.tableCol}>
+                Govt. ITI Bettiah , West Champaran
+              </Text>
+              <Text style={styles.tableCol}>
+                Govt. ITI Narkatiyaganj , West Champaran
+              </Text>
             </View>
             <View style={styles.tableRow}>
               <Text style={styles.tableColHeader}>Basic Infra</Text>
-              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
-              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
-              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
-              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
-              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
-              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
-              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
+              <Text style={styles.tableCol}>
+                {" "}
+                {data && data.length > 1 ? data[0].Flooring : vardata[0]}
+              </Text>
+              <Text style={styles.tableCol}>
+                {" "}
+                {data && data.length > 1 ? data[0].Flooring : vardata[0]}
+              </Text>
+              <Text style={styles.tableCol}>
+                {" "}
+                {data && data.length > 1 ? data[0].Flooring : vardata[0]}
+              </Text>
+              <Text style={styles.tableCol}>
+                {" "}
+                {data && data.length > 1 ? data[0].Flooring : vardata[0]}
+              </Text>
+              <Text style={styles.tableCol}>
+                {" "}
+                {data && data.length > 1 ? data[0].Flooring : vardata[0]}
+              </Text>
+              <Text style={styles.tableCol}>
+                {" "}
+                {data && data.length > 1 ? data[0].Flooring : vardata[0]}
+              </Text>
+              <Text style={styles.tableCol}>
+                {" "}
+                {data && data.length > 1 ? data[0].Flooring : vardata[0]}
+              </Text>
             </View>
             <View style={styles.tableRow}>
               <Text style={styles.tableColHeader}>Flooring</Text>
-              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
-              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
-              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
-              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
-              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
-              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
-              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
+              <Text style={styles.tableCol}>
+                {" "}
+                {data && data.length > 1 ? data[0].Flooring : vardata[0]}
+              </Text>
+              <Text style={styles.tableCol}>
+                {" "}
+                {data && data.length > 1 ? data[0].Flooring : vardata[0]}
+              </Text>
+              <Text style={styles.tableCol}>
+                {" "}
+                {data && data.length > 1 ? data[0].Flooring : vardata[0]}
+              </Text>
+              <Text style={styles.tableCol}>
+                {" "}
+                {data && data.length > 1 ? data[0].Flooring : vardata[0]}
+              </Text>
+              <Text style={styles.tableCol}>
+                {" "}
+                {data && data.length > 1 ? data[0].Flooring : vardata[0]}
+              </Text>
+              <Text style={styles.tableCol}>
+                {" "}
+                {data && data.length > 1 ? data[0].Flooring : vardata[0]}
+              </Text>
+              <Text style={styles.tableCol}>
+                {" "}
+                {data && data.length > 1 ? data[0].Flooring : vardata[0]}
+              </Text>
             </View>
             <View style={styles.tableRow}>
               <Text style={styles.tableColHeader}>False Ceiling</Text>
-              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
-              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
-              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
-              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
-              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
-              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
-              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
+              <Text style={styles.tableCol}>
+                {" "}
+                {data && data.length > 1 ? data[0].Flooring : vardata[0]}
+              </Text>
+              <Text style={styles.tableCol}>
+                {" "}
+                {data && data.length > 1 ? data[0].Flooring : vardata[0]}
+              </Text>
+              <Text style={styles.tableCol}>
+                {" "}
+                {data && data.length > 1 ? data[0].Flooring : vardata[0]}
+              </Text>
+              <Text style={styles.tableCol}>
+                {" "}
+                {data && data.length > 1 ? data[0].Flooring : vardata[0]}
+              </Text>
+              <Text style={styles.tableCol}>
+                {" "}
+                {data && data.length > 1 ? data[0].Flooring : vardata[0]}
+              </Text>
+              <Text style={styles.tableCol}>
+                {" "}
+                {data && data.length > 1 ? data[0].Flooring : vardata[0]}
+              </Text>
+              <Text style={styles.tableCol}>
+                {" "}
+                {data && data.length > 1 ? data[0].Flooring : vardata[0]}
+              </Text>
             </View>
             <View style={styles.tableRow}>
               <Text style={styles.tableColHeader}>Internal Painting</Text>
-              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
-              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
-              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
-              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
-              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
-              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
-              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
+              <Text style={styles.tableCol}>
+                {" "}
+                {data && data.length > 1 ? data[0].Flooring : vardata[0]}
+              </Text>
+              <Text style={styles.tableCol}>
+                {" "}
+                {data && data.length > 1 ? data[0].Flooring : vardata[0]}
+              </Text>
+              <Text style={styles.tableCol}>
+                {" "}
+                {data && data.length > 1 ? data[0].Flooring : vardata[0]}
+              </Text>
+              <Text style={styles.tableCol}>
+                {" "}
+                {data && data.length > 1 ? data[0].Flooring : vardata[0]}
+              </Text>
+              <Text style={styles.tableCol}>
+                {" "}
+                {data && data.length > 1 ? data[0].Flooring : vardata[0]}
+              </Text>
+              <Text style={styles.tableCol}>
+                {" "}
+                {data && data.length > 1 ? data[0].Flooring : vardata[0]}
+              </Text>
+              <Text style={styles.tableCol}>
+                {" "}
+                {data && data.length > 1 ? data[0].Flooring : vardata[0]}
+              </Text>
             </View>
             <View style={styles.tableRow}>
               <Text style={styles.tableColHeader}>Windows</Text>
-              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
-              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
-              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
-              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
-              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
-              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
-              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
+              <Text style={styles.tableCol}>
+                {" "}
+                {data && data.length > 1 ? data[0].Flooring : vardata[0]}
+              </Text>
+              <Text style={styles.tableCol}>
+                {" "}
+                {data && data.length > 1 ? data[0].Flooring : vardata[0]}
+              </Text>
+              <Text style={styles.tableCol}>
+                {" "}
+                {data && data.length > 1 ? data[0].Flooring : vardata[0]}
+              </Text>
+              <Text style={styles.tableCol}>
+                {" "}
+                {data && data.length > 1 ? data[0].Flooring : vardata[0]}
+              </Text>
+              <Text style={styles.tableCol}>
+                {" "}
+                {data && data.length > 1 ? data[0].Flooring : vardata[0]}
+              </Text>
+              <Text style={styles.tableCol}>
+                {" "}
+                {data && data.length > 1 ? data[0].Flooring : vardata[0]}
+              </Text>
+              <Text style={styles.tableCol}>
+                {" "}
+                {data && data.length > 1 ? data[0].Flooring : vardata[0]}
+              </Text>
             </View>
             <View style={styles.tableRow}>
               <Text style={styles.tableColHeader}>Doors</Text>
-              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
-              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
-              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
-              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
-              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
-              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
-              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
+              <Text style={styles.tableCol}>
+                {" "}
+                {data && data.length > 1 ? data[0].Flooring : vardata[0]}
+              </Text>
+              <Text style={styles.tableCol}>
+                {" "}
+                {data && data.length > 1 ? data[0].Flooring : vardata[0]}
+              </Text>
+              <Text style={styles.tableCol}>
+                {" "}
+                {data && data.length > 1 ? data[0].Flooring : vardata[0]}
+              </Text>
+              <Text style={styles.tableCol}>
+                {" "}
+                {data && data.length > 1 ? data[0].Flooring : vardata[0]}
+              </Text>
+              <Text style={styles.tableCol}>
+                {" "}
+                {data && data.length > 1 ? data[0].Flooring : vardata[0]}
+              </Text>
+              <Text style={styles.tableCol}>
+                {" "}
+                {data && data.length > 1 ? data[0].Flooring : vardata[0]}
+              </Text>
+              <Text style={styles.tableCol}>
+                {" "}
+                {data && data.length > 1 ? data[0].Flooring : vardata[0]}
+              </Text>
             </View>
             <View style={styles.tableRow}>
               <Text style={styles.tableColHeader}>Aluminium Partition</Text>
-              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
-              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
-              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
-              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
-              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
-              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
-              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
+              <Text style={styles.tableCol}>
+                {" "}
+                {data && data.length > 1 ? data[0].Flooring : vardata[0]}
+              </Text>
+              <Text style={styles.tableCol}>
+                {" "}
+                {data && data.length > 1 ? data[0].Flooring : vardata[0]}
+              </Text>
+              <Text style={styles.tableCol}>
+                {" "}
+                {data && data.length > 1 ? data[0].Flooring : vardata[0]}
+              </Text>
+              <Text style={styles.tableCol}>
+                {" "}
+                {data && data.length > 1 ? data[0].Flooring : vardata[0]}
+              </Text>
+              <Text style={styles.tableCol}>
+                {" "}
+                {data && data.length > 1 ? data[0].Flooring : vardata[0]}
+              </Text>
+              <Text style={styles.tableCol}>
+                {" "}
+                {data && data.length > 1 ? data[0].Flooring : vardata[0]}
+              </Text>
+              <Text style={styles.tableCol}>
+                {" "}
+                {data && data.length > 1 ? data[0].Flooring : vardata[0]}
+              </Text>
             </View>
             <View style={styles.tableRow}>
               <Text style={styles.tableColHeader}>AC</Text>
-              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
-              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
-              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
-              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
-              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
-              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
-              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
+              <Text style={styles.tableCol}>
+                {" "}
+                {data && data.length > 1 ? data[0].Flooring : vardata[0]}
+              </Text>
+              <Text style={styles.tableCol}>
+                {" "}
+                {data && data.length > 1 ? data[0].Flooring : vardata[0]}
+              </Text>
+              <Text style={styles.tableCol}>
+                {" "}
+                {data && data.length > 1 ? data[0].Flooring : vardata[0]}
+              </Text>
+              <Text style={styles.tableCol}>
+                {" "}
+                {data && data.length > 1 ? data[0].Flooring : vardata[0]}
+              </Text>
+              <Text style={styles.tableCol}>
+                {" "}
+                {data && data.length > 1 ? data[0].Flooring : vardata[0]}
+              </Text>
+              <Text style={styles.tableCol}>
+                {" "}
+                {data && data.length > 1 ? data[0].Flooring : vardata[0]}
+              </Text>
+              <Text style={styles.tableCol}>
+                {" "}
+                {data && data.length > 1 ? data[0].Flooring : vardata[0]}
+              </Text>
             </View>
             <View style={styles.tableRow}>
               <Text style={styles.tableColHeader}>MCB</Text>
-              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
-              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
-              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
-              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
-              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
-              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
-              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
+              <Text style={styles.tableCol}>
+                {" "}
+                {data && data.length > 1 ? data[0].Flooring : vardata[0]}
+              </Text>
+              <Text style={styles.tableCol}>
+                {" "}
+                {data && data.length > 1 ? data[0].Flooring : vardata[0]}
+              </Text>
+              <Text style={styles.tableCol}>
+                {" "}
+                {data && data.length > 1 ? data[0].Flooring : vardata[0]}
+              </Text>
+              <Text style={styles.tableCol}>
+                {" "}
+                {data && data.length > 1 ? data[0].Flooring : vardata[0]}
+              </Text>
+              <Text style={styles.tableCol}>
+                {" "}
+                {data && data.length > 1 ? data[0].Flooring : vardata[0]}
+              </Text>
+              <Text style={styles.tableCol}>
+                {" "}
+                {data && data.length > 1 ? data[0].Flooring : vardata[0]}
+              </Text>
+              <Text style={styles.tableCol}>
+                {" "}
+                {data && data.length > 1 ? data[0].Flooring : vardata[0]}
+              </Text>
             </View>
             <View style={styles.tableRow}>
               <Text style={styles.tableColHeader}>Networking</Text>
-              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
-              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
-              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
-              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
-              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
-              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
-              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
+              <Text style={styles.tableCol}>
+                {" "}
+                {data && data.length > 1 ? data[0].Flooring : vardata[0]}
+              </Text>
+              <Text style={styles.tableCol}>
+                {" "}
+                {data && data.length > 1 ? data[0].Flooring : vardata[0]}
+              </Text>
+              <Text style={styles.tableCol}>
+                {" "}
+                {data && data.length > 1 ? data[0].Flooring : vardata[0]}
+              </Text>
+              <Text style={styles.tableCol}>
+                {" "}
+                {data && data.length > 1 ? data[0].Flooring : vardata[0]}
+              </Text>
+              <Text style={styles.tableCol}>
+                {" "}
+                {data && data.length > 1 ? data[0].Flooring : vardata[0]}
+              </Text>
+              <Text style={styles.tableCol}>
+                {" "}
+                {data && data.length > 1 ? data[0].Flooring : vardata[0]}
+              </Text>
+              <Text style={styles.tableCol}>
+                {" "}
+                {data && data.length > 1 ? data[0].Flooring : vardata[0]}
+              </Text>
             </View>
             <View style={styles.tableRow}>
               <Text style={styles.tableColHeader}>LT Panel</Text>
-              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
-              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
-              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
-              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
-              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
-              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
-              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
+              <Text style={styles.tableCol}>
+                {" "}
+                {data && data.length > 1 ? data[0].Flooring : vardata[0]}
+              </Text>
+              <Text style={styles.tableCol}>
+                {" "}
+                {data && data.length > 1 ? data[0].Flooring : vardata[0]}
+              </Text>
+              <Text style={styles.tableCol}>
+                {" "}
+                {data && data.length > 1 ? data[0].Flooring : vardata[0]}
+              </Text>
+              <Text style={styles.tableCol}>
+                {" "}
+                {data && data.length > 1 ? data[0].Flooring : vardata[0]}
+              </Text>
+              <Text style={styles.tableCol}>
+                {" "}
+                {data && data.length > 1 ? data[0].Flooring : vardata[0]}
+              </Text>
+              <Text style={styles.tableCol}>
+                {" "}
+                {data && data.length > 1 ? data[0].Flooring : vardata[0]}
+              </Text>
+              <Text style={styles.tableCol}>
+                {" "}
+                {data && data.length > 1 ? data[0].Flooring : vardata[0]}
+              </Text>
             </View>
             <View style={styles.tableRow}>
               <Text style={styles.tableColHeader}>Electric Supply</Text>
-              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
-              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
-              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
-              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
-              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
-              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
-              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
+              <Text style={styles.tableCol}>
+                {" "}
+                {data && data.length > 1 ? data[0].Flooring : vardata[0]}
+              </Text>
+              <Text style={styles.tableCol}>
+                {" "}
+                {data && data.length > 1 ? data[0].Flooring : vardata[0]}
+              </Text>
+              <Text style={styles.tableCol}>
+                {" "}
+                {data && data.length > 1 ? data[0].Flooring : vardata[0]}
+              </Text>
+              <Text style={styles.tableCol}>
+                {" "}
+                {data && data.length > 1 ? data[0].Flooring : vardata[0]}
+              </Text>
+              <Text style={styles.tableCol}>
+                {" "}
+                {data && data.length > 1 ? data[0].Flooring : vardata[0]}
+              </Text>
+              <Text style={styles.tableCol}>
+                {" "}
+                {data && data.length > 1 ? data[0].Flooring : vardata[0]}
+              </Text>
+              <Text style={styles.tableCol}>
+                {" "}
+                {data && data.length > 1 ? data[0].Flooring : vardata[0]}
+              </Text>
             </View>
             <View style={styles.tableRow}>
               <Text style={styles.tableColHeader}>UPS</Text>
-              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
-              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
-              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
-              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
-              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
-              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
-              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
+              <Text style={styles.tableCol}>
+                {" "}
+                {data && data.length > 1 ? data[0].Flooring : vardata[0]}
+              </Text>
+              <Text style={styles.tableCol}>
+                {" "}
+                {data && data.length > 1 ? data[0].Flooring : vardata[0]}
+              </Text>
+              <Text style={styles.tableCol}>
+                {" "}
+                {data && data.length > 1 ? data[0].Flooring : vardata[0]}
+              </Text>
+              <Text style={styles.tableCol}>
+                {" "}
+                {data && data.length > 1 ? data[0].Flooring : vardata[0]}
+              </Text>
+              <Text style={styles.tableCol}>
+                {" "}
+                {data && data.length > 1 ? data[0].Flooring : vardata[0]}
+              </Text>
+              <Text style={styles.tableCol}>
+                {" "}
+                {data && data.length > 1 ? data[0].Flooring : vardata[0]}
+              </Text>
+              <Text style={styles.tableCol}>
+                {" "}
+                {data && data.length > 1 ? data[0].Flooring : vardata[0]}
+              </Text>
             </View>
             <View style={styles.tableRow}>
               <Text style={styles.tableColHeader}>External Painting</Text>
-              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
-              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
-              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
-              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
-              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
-              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
-              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
+              <Text style={styles.tableCol}>
+                {" "}
+                {data && data.length > 1 ? data[0].Flooring : vardata[0]}
+              </Text>
+              <Text style={styles.tableCol}>
+                {" "}
+                {data && data.length > 1 ? data[0].Flooring : vardata[0]}
+              </Text>
+              <Text style={styles.tableCol}>
+                {" "}
+                {data && data.length > 1 ? data[0].Flooring : vardata[0]}
+              </Text>
+              <Text style={styles.tableCol}>
+                {" "}
+                {data && data.length > 1 ? data[0].Flooring : vardata[0]}
+              </Text>
+              <Text style={styles.tableCol}>
+                {" "}
+                {data && data.length > 1 ? data[0].Flooring : vardata[0]}
+              </Text>
+              <Text style={styles.tableCol}>
+                {" "}
+                {data && data.length > 1 ? data[0].Flooring : vardata[0]}
+              </Text>
+              <Text style={styles.tableCol}>
+                {" "}
+                {data && data.length > 1 ? data[0].Flooring : vardata[0]}
+              </Text>
             </View>
             <View style={styles.tableRow}>
               <Text style={styles.tableColHeader}>Cleaning</Text>
-              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
-              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
-              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
-              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
-              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
-              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
-              <Text style={styles.tableCol}> {( data && data.length > 1)?data[0].Flooring:vardata[0]}</Text>
+              <Text style={styles.tableCol}>
+                {" "}
+                {data && data.length > 1 ? data[0].Flooring : vardata[0]}
+              </Text>
+              <Text style={styles.tableCol}>
+                {" "}
+                {data && data.length > 1 ? data[0].Flooring : vardata[0]}
+              </Text>
+              <Text style={styles.tableCol}>
+                {" "}
+                {data && data.length > 1 ? data[0].Flooring : vardata[0]}
+              </Text>
+              <Text style={styles.tableCol}>
+                {" "}
+                {data && data.length > 1 ? data[0].Flooring : vardata[0]}
+              </Text>
+              <Text style={styles.tableCol}>
+                {" "}
+                {data && data.length > 1 ? data[0].Flooring : vardata[0]}
+              </Text>
+              <Text style={styles.tableCol}>
+                {" "}
+                {data && data.length > 1 ? data[0].Flooring : vardata[0]}
+              </Text>
+              <Text style={styles.tableCol}>
+                {" "}
+                {data && data.length > 1 ? data[0].Flooring : vardata[0]}
+              </Text>
             </View>
           </View>
         </View>
@@ -285,4 +611,3 @@ const PDFFile = () => {
   );
 };
 export default PDFFile;
-

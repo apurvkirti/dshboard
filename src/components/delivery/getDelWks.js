@@ -7,20 +7,24 @@ export default function MyComponent(props) {
   const jwt = localStorage.getItem("jwt");
   let ClustName = props.clust ? props.clust : "PATNA";
   const [data, setData] = useState([]);
+  const apiUrl =
+    process.env.NODE_ENV === "production"
+      ? process.env.REACT_APP_API_URL_PROD
+      : process.env.REACT_APP_API_URL_DEV;
   useEffect(() => {
-    const apiUrl = `http://localhost:3000/api/getCluster/?form_Id=${fId}&cluster=${ClustName}`;
+    // const apiUrl = `${apiUrl}/college/getCluster/?form_Id=${fId}&cluster=${ClustName}`;
     const headers = {
       Authorization: `Bearer ${jwt}`,
     };
     axios
-      .get(apiUrl, { headers })
+      .get(`${apiUrl}/college/getCluster/?form_Id=${fId}&cluster=${ClustName}`, { headers })
       .then((response) => {
         setData(response.data);
       })
       .catch((error) => {
         console.log(error);
       });
-  }, [ClustName, jwt]);
+  }, [ClustName, jwt, apiUrl]);
 
   // rendering Icon
   function renderIcon(val) {
@@ -50,33 +54,79 @@ export default function MyComponent(props) {
       <Table className="td" celled collapsing striped>
         <Table.Header>
           <Table.Row>
-            <Table.HeaderCell id="base-workshop"  rowSpan="3" textAlign="center"> ITI Name</Table.HeaderCell>
-            <Table.HeaderCell id="base-workshop" rowSpan="3" textAlign="center"> Cluster</Table.HeaderCell>
-            <Table.HeaderCell id="base-workshop" rowSpan="3" textAlign="center">District</Table.HeaderCell>
-            <Table.HeaderCell id="workshop-heading" textAlign="center" colSpan="16">WORKSHOP ( DELIVERY )</Table.HeaderCell>
+            <Table.HeaderCell id="base-workshop" rowSpan="3" textAlign="center">
+              {" "}
+              ITI Name
+            </Table.HeaderCell>
+            <Table.HeaderCell id="base-workshop" rowSpan="3" textAlign="center">
+              {" "}
+              Cluster
+            </Table.HeaderCell>
+            <Table.HeaderCell id="base-workshop" rowSpan="3" textAlign="center">
+              District
+            </Table.HeaderCell>
+            <Table.HeaderCell
+              id="workshop-heading"
+              textAlign="center"
+              colSpan="16"
+            >
+              WORKSHOP ( DELIVERY )
+            </Table.HeaderCell>
           </Table.Row>
 
           <Table.Row>
-            <Table.HeaderCell id="base-workshop"  className="th">Laser Cutter</Table.HeaderCell>
-            <Table.HeaderCell id="base-workshop"  className="th">PaintBooth</Table.HeaderCell>
-            <Table.HeaderCell id="base-workshop"  className="th">Car Lift</Table.HeaderCell>
-            <Table.HeaderCell id="base-workshop"  className="th">Industrial_Process_Control_Unit</Table.HeaderCell>
-            <Table.HeaderCell id="base-workshop"  className="th">VR Welding & Painting</Table.HeaderCell>
-            <Table.HeaderCell id="base-workshop"  className="th">Auto MRO Cut Sections</Table.HeaderCell>
-            <Table.HeaderCell id="base-workshop"  className="th">Battery_Electrical_Vehicle</Table.HeaderCell>
-            <Table.HeaderCell id="base-workshop"  className="th">IO_Engine_Vehicle</Table.HeaderCell>
-            <Table.HeaderCell id="base-workshop"  className="th">EV Kit</Table.HeaderCell>
-            <Table.HeaderCell id="base-workshop"  className="th">Industrial Robotics Setup</Table.HeaderCell>
-            <Table.HeaderCell id="base-workshop"  className="th">VFD_Machine</Table.HeaderCell>
-            <Table.HeaderCell id="base-workshop"  className="th">Plumbing Kit</Table.HeaderCell>
-            <Table.HeaderCell id="base-workshop"  className="th">CNC_Machine</Table.HeaderCell>
-            <Table.HeaderCell id="base-workshop"  className="th">VMC_Machine</Table.HeaderCell>
-            <Table.HeaderCell id="base-workshop"  className="th">Tools & Meters</Table.HeaderCell>
-            <Table.HeaderCell id="base-workshop"  className="th">Advance_Machining_Simulators</Table.HeaderCell>
+            <Table.HeaderCell id="base-workshop" className="th">
+              Laser Cutter
+            </Table.HeaderCell>
+            <Table.HeaderCell id="base-workshop" className="th">
+              PaintBooth
+            </Table.HeaderCell>
+            <Table.HeaderCell id="base-workshop" className="th">
+              Car Lift
+            </Table.HeaderCell>
+            <Table.HeaderCell id="base-workshop" className="th">
+              Industrial_Process_Control_Unit
+            </Table.HeaderCell>
+            <Table.HeaderCell id="base-workshop" className="th">
+              VR Welding & Painting
+            </Table.HeaderCell>
+            <Table.HeaderCell id="base-workshop" className="th">
+              Auto MRO Cut Sections
+            </Table.HeaderCell>
+            <Table.HeaderCell id="base-workshop" className="th">
+              Battery_Electrical_Vehicle
+            </Table.HeaderCell>
+            <Table.HeaderCell id="base-workshop" className="th">
+              IO_Engine_Vehicle
+            </Table.HeaderCell>
+            <Table.HeaderCell id="base-workshop" className="th">
+              EV Kit
+            </Table.HeaderCell>
+            <Table.HeaderCell id="base-workshop" className="th">
+              Industrial Robotics Setup
+            </Table.HeaderCell>
+            <Table.HeaderCell id="base-workshop" className="th">
+              VFD_Machine
+            </Table.HeaderCell>
+            <Table.HeaderCell id="base-workshop" className="th">
+              Plumbing Kit
+            </Table.HeaderCell>
+            <Table.HeaderCell id="base-workshop" className="th">
+              CNC_Machine
+            </Table.HeaderCell>
+            <Table.HeaderCell id="base-workshop" className="th">
+              VMC_Machine
+            </Table.HeaderCell>
+            <Table.HeaderCell id="base-workshop" className="th">
+              Tools & Meters
+            </Table.HeaderCell>
+            <Table.HeaderCell id="base-workshop" className="th">
+              Advance_Machining_Simulators
+            </Table.HeaderCell>
           </Table.Row>
         </Table.Header>
 
-        <Table.Body> 
+        <Table.Body>
           {data.map((data) => {
             return (
               <Table.Row>
@@ -100,7 +150,7 @@ export default function MyComponent(props) {
                 </Table.Cell>
                 <Table.Cell className="ttt" textAlign="center" selectable>
                   {renderIcon(data.VR_Welding_and_Painting)}
-                </Table.Cell> 
+                </Table.Cell>
                 <Table.Cell className="ttt" textAlign="center" selectable>
                   {renderIcon(data.Auto_MRO_Cut_Sections)}
                 </Table.Cell>
