@@ -64,13 +64,14 @@ function ImageUploader() {
     formData.append("siteName", siteName);
   
     try {
+      // eslint-disable-next-line
       const response = await axios.post(`${apiUrl}/cloudImg/upload`, formData, {
         headers: {
           "Content-Type": "multipart/form-data",
           Authorization: `Bearer ${jwt}`,
         },
       });
-      // console.log(response.data);
+   
       navigate("/dashboard");
       window.location.reload();
     } catch (error) {
