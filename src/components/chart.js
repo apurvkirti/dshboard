@@ -115,7 +115,7 @@ export default function Chart() {
   return (
     <>
       <div className="chartcontainer">
-        <div className="first">
+          <div className="firstcontainer">
           <div className="namer">
             <p className="names">Phase 1</p>
             <p className="names">(60 ITI's)</p>
@@ -124,8 +124,9 @@ export default function Chart() {
           <div className="uploadimage" onClick={handleUpload}>
             Upload Site-Status Photo
           </div>
-        </div>
-
+          </div>
+          
+  
         <div>
           <Table bordered hover className="childtable1">
             <thead>

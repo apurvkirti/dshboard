@@ -174,7 +174,7 @@ export default function UpdateForm(props) {
               District
             </Table.HeaderCell>
 
-            <Table.HeaderCell id="teclabcivil" textAlign="center" colSpan="15">
+            <Table.HeaderCell id="teclab-heading" textAlign="center" colSpan="15">
               TECHNOLOGY LAB ( DELIVERY )
             </Table.HeaderCell>
           </Table.Row>
