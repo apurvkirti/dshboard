@@ -17,7 +17,7 @@ const CardInfo = styled(CardContent)(({theme}) => ({
 
 const MovieCard = ({ movie }) => {
     return (
-        <Card sx={{ maxWidth: 250, position: "relative"}} style={{ display: 'flex', flexDirection: 'column' }}>
+        <Card sx={{ maxWidth: 240, position: "relative"}} style={{ display: 'flex', flexDirection: 'column' }}>
             <CardInfo >
                 <Typography variant="subtitle2" style={{ marginTop: '0' }} component="div">
                     {movie.siteName}
@@ -31,8 +31,8 @@ const MovieCard = ({ movie }) => {
             <Box sx={{ position: 'relative'}}>
                 <CardMedia
                     component="img"
-                    width="250px"
-                    height="150px"
+                    width="240px"
+                    height="140px"
                     image={movie.fileUrl}
                     alt="uploaded image"/>
             </Box>

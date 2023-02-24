@@ -38,7 +38,7 @@ export default function SimpleSlider({ initialSlide = 0 }) {
     dots: true,
     autoplay: true,
     infinite: true,
-    speed: 500,
+    speed: 700,
     slidesToShow: 5,
     slidesToScroll: 1,
     initialSlide,
