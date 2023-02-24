@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-
+import axios from 'axios';
 import { useNavigate } from "react-router-dom";
 
 function ImageUploader() {
@@ -31,29 +31,51 @@ function ImageUploader() {
     setSiteName(event.target.value);
   };
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
+  // const handleSubmit = (event) => {
+  //   event.preventDefault();
 
+  //   const formData = new FormData();
+  //   formData.append("image", image);
+  //   formData.append("caption", caption);
+  //   formData.append("siteName", siteName);
+
+  //   fetch(
+  //     `${apiUrl}/cloudImg/upload`,
+  //     {
+  //       method: "POST",
+  //       body: formData,
+  //     },
+  //     {
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //         Authorization: `Bearer ${jwt}`,
+  //       },
+  //     }
+  //   ).then((response) => response.json());
+  //   navigate("/dashboard");
+  //   window.location.reload();
+  // };
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+  
     const formData = new FormData();
     formData.append("image", image);
     formData.append("caption", caption);
     formData.append("siteName", siteName);
-
-    fetch(
-      `${apiUrl}/cloudImg/upload`,
-      {
-        method: "POST",
-        body: formData,
-      },
-      {
+  
+    try {
+      const response = await axios.post(`${apiUrl}/cloudImg/upload`, formData, {
         headers: {
-          "Content-Type": "application/json",
+          "Content-Type": "multipart/form-data",
           Authorization: `Bearer ${jwt}`,
         },
-      }
-    ).then((response) => response.json());
-    navigate("/dashboard");
-    window.location.reload();
+      });
+      // console.log(response.data);
+      navigate("/dashboard");
+      window.location.reload();
+    } catch (error) {
+      console.log(error);
+    }
   };
   const username = localStorage.getItem("username");
   function handledelete() {
