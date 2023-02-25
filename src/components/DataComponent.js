@@ -22,6 +22,9 @@ class DataComponent extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+
+      currentDate: new Date().toLocaleDateString(),
+
       overall1: [],
       overall2: [],
       overall3: [],
@@ -85,6 +88,16 @@ class DataComponent extends React.Component {
     const headers = {
       Authorization: `Bearer ${jwt}`,
     };
+
+    this.interval = setInterval(() => {
+      this.setState({
+        currentDate: new Date().toLocaleDateString('en-US', {
+          day: 'numeric',
+          month: 'short',
+          year: 'numeric',
+        }),
+      });
+    }, 1000);
 
     const endpoints0 = [
       `${apiUrl}/college/test/?formCode=1000`,
@@ -581,7 +594,7 @@ class DataComponent extends React.Component {
       <div className="full-container">
         <div className="onepage">
           <div className="firstpagebox">
-            <h1 className="heading-one">Overall Report:</h1>
+            <h1 className="heading-one">Overall Report: ( Date: {this.state.currentDate} )</h1>
             <div className="overall-box">
               <Table bordered>
                 <thead>
@@ -800,7 +813,7 @@ class DataComponent extends React.Component {
 
         {/* patna workshop */}
         <div className="onepage">
-          <h3>WORKSHOP</h3>
+          <h3>WORKSHOP (CLUSTER: PATNA)</h3>
           {/* civil */}
           <div className="table-name">CIVIL</div>
           <Table style={thStyle} bordered className="pdf-table">
