@@ -223,14 +223,7 @@ export default function Final() {
   const [screenshot, setScreenshot] = useState(null);
 
   const handlescreenClick = () => {
-    html2canvas(targetRef.current).then(canvas => {
-      const dataURL = canvas.toDataURL();
-      setScreenshot(dataURL);
-      const link = document.createElement("a");
-      link.download = "screenshot.png";
-      link.href = dataURL;
-      link.click();
-    });
+    navigate("/pdf");
   };
     
 
@@ -612,7 +605,7 @@ export default function Final() {
         </Row>
      
         
-        <Row className="wolf">
+        <Row className="clusterwise-chart-container">
           <Col className="bcc">
             <Clus fid={1001} />
           </Col>
