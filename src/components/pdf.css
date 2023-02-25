@@ -1,0 +1,30 @@
+.full-container{
+ font-size:10px ;
+ margin-left:10px;
+ margin-right:10px;
+ 
+}
+.table-header{
+    writing-mode:vertical-lr !important;
+    transform: rotate(180deg);
+padding:0px;
+}
+.btt{
+  background-color: white;
+  position:absolute !important;
+  top:50%;
+  left:50%;
+}
+.inv{
+    width:100px;
+    overflow: hidden;
+    height:100px !important;
+    max-height: 100px !important;
+    z-index:-1;
+    position: absolute;
+    right:10%;
+    top:10%;
+}
+.onepage{
+    height: 297mm !important;
+}

@@ -13,7 +13,6 @@ export default function MyComponent(props) {
       ? process.env.REACT_APP_API_URL_PROD
       : process.env.REACT_APP_API_URL_DEV;
   useEffect(() => {
-    // const apiUrl = `${apiUrl}/college/getCluster/?form_Id=${fId}&cluster=${ClustName}`;
     const headers = {
       Authorization: `Bearer ${jwt}`,
     };

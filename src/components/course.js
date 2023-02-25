@@ -118,6 +118,9 @@ export default function Course(props) {
                 Innovation_Design_Thinking
               </Table.HeaderCell>
               <Table.HeaderCell className="th2">
+                Jr_Product_Designer
+              </Table.HeaderCell>
+              <Table.HeaderCell className="th2">
                 Jr_Prod_Designer_Developer
               </Table.HeaderCell>
               <Table.HeaderCell className="th2">
@@ -180,9 +183,7 @@ export default function Course(props) {
               <Table.HeaderCell className="th2">
                 Advanced_Plumbing_Technician
               </Table.HeaderCell>
-              <Table.HeaderCell className="th2">
-                Jr_Product_Designer
-              </Table.HeaderCell>
+             
             </Table.Row>
           </Table.Header>
 

@@ -6,10 +6,7 @@ import Mail from "./components/sendmail";
 import Gallary from "./components/gallary";
 import Del from "./components/deletenotice";
 import Abt from "./components/about";
-// import PDF from "./components/pdf";
-// import Pbutton from "./components/pbutton";
-
-// hello world
+import PDF from "./components/pdfButton";
 
 
 
@@ -36,8 +33,8 @@ function App() {
           <Route path="/gallary" element={<Gallary/>}/>
           <Route path="/del" element={<Del/>}/>
           <Route path="/about" element={<Abt/>}/>
-          {/* <Route path="/pdf" element={<PDF/>}/>
-          <Route path="/pb" element={<Pbutton/>}/> */}
+          <Route path="/pdf" element={<PDF/>}/>
+        
     
      
         </Routes>

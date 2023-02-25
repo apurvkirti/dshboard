@@ -85,7 +85,7 @@ export default function MyComponent(props) {
               Car Lift
             </Table.HeaderCell>
             <Table.HeaderCell id="base-workshop" className="th">
-              Industrial_Process_Control_Unit
+              Industrial Process Control Unit
             </Table.HeaderCell>
             <Table.HeaderCell id="base-workshop" className="th">
               VR Welding & Painting
@@ -94,10 +94,10 @@ export default function MyComponent(props) {
               Auto MRO Cut Sections
             </Table.HeaderCell>
             <Table.HeaderCell id="base-workshop" className="th">
-              Battery_Electrical_Vehicle
+              Battery Electrical Vehicle
             </Table.HeaderCell>
             <Table.HeaderCell id="base-workshop" className="th">
-              IO_Engine_Vehicle
+              IO Engine Vehicle
             </Table.HeaderCell>
             <Table.HeaderCell id="base-workshop" className="th">
               EV Kit
@@ -106,22 +106,22 @@ export default function MyComponent(props) {
               Industrial Robotics Setup
             </Table.HeaderCell>
             <Table.HeaderCell id="base-workshop" className="th">
-              VFD_Machine
+              VFD Machine
             </Table.HeaderCell>
             <Table.HeaderCell id="base-workshop" className="th">
               Plumbing Kit
             </Table.HeaderCell>
             <Table.HeaderCell id="base-workshop" className="th">
-              CNC_Machine
+              CNC Machine
             </Table.HeaderCell>
             <Table.HeaderCell id="base-workshop" className="th">
-              VMC_Machine
+              VMC Machine
             </Table.HeaderCell>
             <Table.HeaderCell id="base-workshop" className="th">
               Tools & Meters
             </Table.HeaderCell>
             <Table.HeaderCell id="base-workshop" className="th">
-              Advance_Machining_Simulators
+              Advance Machining Simulators
             </Table.HeaderCell>
           </Table.Row>
         </Table.Header>

@@ -3,6 +3,28 @@ import axios from "axios";
 import { Icon, Table } from "semantic-ui-react";
 const fId = 1001; // 1 for civil 1 for tech
 
+
+
+
+// data.map((data) => {
+//   const cellData = [
+//     { value: data.Basic_Infra },
+//     { value: data.Flooring },
+//     { value: data.False_Ceiling },
+//     { value:data.Internal_Painting },
+//     { value:data.Windows },
+//     { value:data.Doors },
+//     { value:data.Aluminium_Partition},
+//     { value:data.AC },
+//     { value:data.MCB },
+//     { value:data.Networking },
+//     { value:data.LT_Pannel },
+//     { value:data.Electric_Supply },
+//     { value:data.UPS },
+//     { value:data.External_Painting },
+//     { value:data.Cleaning }
+//   ];
+// })
 export default function MyComponent(props) {
   const jwt = localStorage.getItem("jwt");
   let ClustName = props.clust ? props.clust : "PATNA";
@@ -13,7 +35,7 @@ export default function MyComponent(props) {
       ? process.env.REACT_APP_API_URL_PROD
       : process.env.REACT_APP_API_URL_DEV;
   useEffect(() => {
-    // const apiUrl = `${apiUrl}/college/getCluster/?form_Id=${fId}&cluster=${ClustName}`;
+  
     const headers = {
       Authorization: `Bearer ${jwt}`,
     };
