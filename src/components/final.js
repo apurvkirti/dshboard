@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 import React, { useState, useRef, useEffect } from "react";
 import NotesList from "./getnotice";
 import { AiFillEdit, AiFillFilePdf } from "react-icons/ai";
-import html2canvas from "html2canvas";
+
 import { Button, Col, Dropdown, DropdownButton, Row } from "react-bootstrap";
 
 import CivilTech from "./civil/getCivilTech";
