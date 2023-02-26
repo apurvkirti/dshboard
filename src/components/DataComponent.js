@@ -599,7 +599,7 @@ class DataComponent extends React.Component {
               <Table bordered>
                 <thead>
                   <tr>
-                    <td>Execution Activity</td>
+                    <td className="grey-color">Execution Activity</td>
                   </tr>
                 </thead>
                 <tbody>
@@ -617,8 +617,8 @@ class DataComponent extends React.Component {
               <Table bordered>
                 <thead>
                   <tr>
-                    <td>TECHLAB</td>
-                    <td>WORKSHOP</td>
+                    <td className="yellow-color" >TECHLAB</td>
+                    <td className="blue-color" >WORKSHOP</td>
                   </tr>
                 </thead>
                 <tbody>

@@ -16,10 +16,8 @@ padding:0px;
 .btt{
   background-color: white;
   position:absolute !important;
-  top:auto;
-  bottom:auto;
-  left:auto;
-  right:auto;
+  top:55%;
+  left:46%;
   color:white;
 }
 .inv{
@@ -33,7 +31,11 @@ padding:0px;
     top:10%;
 }
 .onepage{
-    height: 297mm !important;
+    height: 100vh !important;
+    position:relative;
+    top:0;
+    bottom:0;
+
 }
 .firstpagebox{
    /* margin-top: 100px; */
@@ -45,6 +47,23 @@ padding:0px;
 .overall-box{
     display:flex;
     margin:10px;
+}
+
+.blue-color{
+    background-color: #2f5597 !important;
+    color:white;
+}
+.yellow-color{
+    background-color: #ffc000 !important;
+}
+.grey-color{
+    background-color: #595959 !important;
+    color:white;
+}
+.messg{
+    position: absolute !important;
+    z-index:10 !important;
+    
 }
 /* .footter{
  
