@@ -35,18 +35,18 @@ export default function Clus(props) {
   ];
 
   function getname(fid) {
-    if (fid === 1001) return "Techlab Civil";
+    if (fid === 1001) return "Technology-lab Civil";
     else if (fid === 1002) return "Workshop Civil";
-    else if (fid === 2001) return "Techlab Delivery";
+    else if (fid === 2001) return "Technology-lab Delivery";
     else if (fid === 2002) return "Workshop Delivery";
-    else if (fid === 3001) return "Techlab Installation";
+    else if (fid === 3001) return "Technology-lab Installation";
     else return "Workshop Installation";
   }
 
   return (
     <>
       <div className="boxes-container">
-        <BarChart className="bcc" width={220} height={150} data={dataa}>
+        <BarChart className="bcc" width={200} height={160} data={dataa}>
           <XAxis dataKey="name" />
           <YAxis type="number" domain={[0, 80]} />
           <Tooltip />
@@ -84,7 +84,7 @@ export default function Clus(props) {
             <LabelList dataKey="YTS" position="top" />
           </Bar>
         </BarChart>
-        <h1 className="stats">{getname(props.fid)} Status</h1>
+        <h1 className="stats">No. {getname(props.fid)} Status</h1>
       </div>
     </>
   );

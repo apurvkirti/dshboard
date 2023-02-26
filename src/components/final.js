@@ -606,24 +606,33 @@ export default function Final() {
      
         
         <Row className="clusterwise-chart-container">
+          <div className="twocharts">
           <Col className="bcc">
             <Clus fid={1001} />
           </Col>
           <Col className="bcc">
             <Clus fid={1002} />
           </Col>
-          <Col className="bcc">
+          </div>
+          
+
+          <div className="twocharts">  <Col className="bcc">
             <Clus fid={2001} />
           </Col>
           <Col className="bcc">
             <Clus fid={2002} />
           </Col>
+          </div>
+        
+          <div className="twocharts">
           <Col className="bcc">
             <Clus fid={3001} />
           </Col>
           <Col className="bcc">
             <Clus fid={3002} />
           </Col>
+          </div>
+          
         </Row>
 
         <Row className="downf" id="firsttable" ref={civilRef}>

@@ -217,7 +217,7 @@ export default function Chart() {
                 <LabelList dataKey="Workshop" position="top" />
               </Bar>
             </BarChart>
-            <div className="textbelow">Civil Readiness</div>
+            <div className="textbelow">Civil Readiness %</div>
           </div>
           <div
             className={
@@ -250,7 +250,7 @@ export default function Chart() {
                 <LabelList dataKey="Workshop" position="top" />
               </Bar>
             </BarChart>
-            <div className="textbelow">Delivery Readiness</div>
+            <div className="textbelow">Delivery Readiness %</div>
           </div>
           <div
             className={
@@ -283,7 +283,7 @@ export default function Chart() {
                 <LabelList dataKey="Workshop" position="top" />
               </Bar>
             </BarChart>
-            <div className="textbelow">Installation Readiness</div>
+            <div className="textbelow">Installation Readiness %</div>
           </div>
           {/* <h1 className="stats">Overall Civil Status</h1> */}
         </div>

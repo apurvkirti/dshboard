@@ -1,7 +1,7 @@
 import ReactToPrint from 'react-to-print';
 import DataComponent from './DataComponent';
 import { useNavigate } from 'react-router-dom';
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 
 function withAuth(Component) {
   return function AuthenticatedComponent(props) {
