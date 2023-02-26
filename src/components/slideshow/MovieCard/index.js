@@ -16,6 +16,10 @@ const CardInfo = styled(CardContent)(({theme}) => ({
 
 
 const MovieCard = ({ movie }) => {
+    const handleImageClick = (event) => {
+        event.preventDefault();
+        window.location.href = movie.fileUrl;
+      };
     return (
         <Card sx={{ maxWidth: 240, position: "relative"}} style={{ display: 'flex', flexDirection: 'column' }}>
             <CardInfo >
@@ -29,12 +33,14 @@ const MovieCard = ({ movie }) => {
             </CardInfo>
 
             <Box sx={{ position: 'relative'}}>
+               <a href={movie.fileUrl} download onClick={handleImageClick}>
                 <CardMedia
                     component="img"
                     width="240px"
                     height="140px"
                     image={movie.fileUrl}
                     alt="uploaded image"/>
+                    </a>
             </Box>
 
         </Card>

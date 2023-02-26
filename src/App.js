@@ -7,6 +7,7 @@ import Gallary from "./components/gallary";
 import Del from "./components/deletenotice";
 import Abt from "./components/about";
 import PDF from "./components/pdfButton";
+import Update from "./components/updatebox";
 
 
 
@@ -34,6 +35,7 @@ function App() {
           <Route path="/del" element={<Del/>}/>
           <Route path="/about" element={<Abt/>}/>
           <Route path="/pdf" element={<PDF/>}/>
+          <Route path="/update" element={<Update/>}/>
         
     
      

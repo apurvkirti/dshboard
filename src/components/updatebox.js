@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 const LastChanges = () => {
+  const jwt = localStorage.getItem("jwt");
   const [data, setData] = useState([]);
   const apiUrl =
     process.env.NODE_ENV === "production"
@@ -9,11 +10,16 @@ const LastChanges = () => {
       : process.env.REACT_APP_API_URL_DEV;
   useEffect(() => {
     const fetchData = async () => {
-      const result = await axios.get(`${apiUrl}/college/lastChanges`);
+      const result = await axios.get(`${apiUrl}/college/lastChanges`, {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${jwt}`,
+        },
+      });
       setData(result.data.tmp_changes);
     };
     fetchData();
-  }, [apiUrl]);
+  }, [apiUrl, jwt]);
   const sortedChanges = data.sort((a, b) => b.changeId - a.changeId);
 
   // function formatDate(date) {
@@ -40,16 +46,16 @@ const LastChanges = () => {
     const dateParts = formattedDate.split(",");
     const finalday = dateParts[0].trim().split(" ");
 
-    return `${dateParts[2].trim()} ${finalday[1].trim()} ${finalday[0].trim()}, ${dateParts[1].trim()}`;
+    return `${finalday[1].trim()} ${finalday[0].trim()}, ${dateParts[1].trim()}`;
   }
 
   function helper(str) {
     if (str === "yts") {
-      return "Yet to Start";
+      return "YET TO START";
     } else if (str === "wip") {
-      return "Work in progress";
+      return "WORK IN PROGRESS";
     } else if (str === "cpl") {
-      return "Completed";
+      return "COMPLETED";
     } else return "NaN";
   }
   function helper2(str) {
@@ -64,28 +70,28 @@ const LastChanges = () => {
   }
 
   return (
-    <div style={{ width: "150px", height: "177px", overflow: "auto" }}>
-      <h3 style={{ textAlign: "center" }}>Last Changes:</h3>
+    <div
+      className="update-box-style"
+      style={{ width: "15vw", height: "150px", overflow: "auto" }}
+    >
       {sortedChanges.map((change) => (
         <div key={change._id}>
-          {/* <h3>Change ID: {change.changeId}</h3> */}
-          {/* <p>User ID: {change.userId}</p> */}
-          {/* <p>User Name: {change.userName}</p> */}
-          {/* <p>College Name: {change.collegeName}</p> */}
-          {/* <p>Spec: {change.spec}</p> */}
-          {/* <p>Status: {change.status}</p> */}
-          {/* <p>Form ID: {change.formId}</p> */}
-          {/* <h4>Changes:</h4> */}
           {Object.keys(change.changes).map((key) => (
             <div key={key}>
               {/* eslint-disable-next-line   */}
               <marquee width="100%" direction="left" scrollamount="3">
-                Updated {helper2(key)} to "{helper(change.changes[key][2])}" of
-                college: {change.collegeName} at {formatDate(change.dateUpdate)}
+                <div className="intext">
+                  Updated {helper2(key)} to{" "}
+                  <span className="color-changer" style={{color: change.changes[key][2] === "cpl" ? "green" : change.changes[key][2] === "wip" ? "orange" : "grey"}}>"{helper(change.changes[key][2])}"</span> of college:{" "}
+                  {change.collegeName}
+                </div>
               </marquee>
+              <div className="des">
+                -{change.userName}, Dated: {formatDate(change.dateUpdate)}
+              </div>
+              <hr className="hrr"></hr>
             </div>
           ))}
-          {/* <p>Date Update: {change.dateUpdate}</p> */}
         </div>
       ))}
     </div>

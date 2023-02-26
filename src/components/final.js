@@ -5,8 +5,8 @@ import Container from "react-bootstrap/Container";
 import Carousel from "react-bootstrap/Carousel";
 import { useNavigate } from "react-router-dom";
 import React, { useState, useRef, useEffect } from "react";
-import NotesList from "./getnotice";
-import { AiFillEdit, AiFillFilePdf } from "react-icons/ai";
+import UpdateList from "./updatebox";
+import { AiFillFilePdf } from "react-icons/ai";
 
 import { Button, Col, Dropdown, DropdownButton, Row } from "react-bootstrap";
 
@@ -49,8 +49,9 @@ export default function Final() {
     return ` ${finalday[1].trim()} ${finalday[0].trim()}, ${dateParts[1].trim()}`;
   }
   let navigate = useNavigate();
-  const handleClick = () => {
-    navigate("/notice");
+
+  const handleUpdatesClick = () => {
+     window.location.reload();
   };
 
   const handleLogout = () => {
@@ -227,6 +228,12 @@ export default function Final() {
   };
     
 
+  const myDivRef1 = useRef(null);
+
+  useEffect(() => {
+    const myDiv = myDivRef1.current;
+    myDiv.scrollLeft = myDiv.scrollWidth;
+  }, []);
   
 
   return (
@@ -258,7 +265,7 @@ export default function Final() {
           </Col>
         </Row>
         <Row>
-          <Col xs={3}>
+          {/* <Col xs={3}>
             <div className="addnote">
               <Button className="btnclass " onClick={handleClick}>
                 Add a Note <AiFillEdit />
@@ -267,6 +274,16 @@ export default function Final() {
             <div>
               {" "}
               <NotesList />
+            </div>
+          </Col> */}
+          <Col xs={3}>
+            <div className="addnote">
+              <Button className="btnclass " onClick={handleUpdatesClick} >
+                RECENT UPDATES 
+              </Button>
+            </div>
+            <div>
+              <UpdateList />
             </div>
           </Col>
           
@@ -606,7 +623,7 @@ export default function Final() {
      
         
         <Row className="clusterwise-chart-container">
-          <div className="twocharts">
+          <div className="twocharts" ref={myDivRef1}>
           <Col className="bcc">
             <Clus fid={1001} />
           </Col>
@@ -616,7 +633,8 @@ export default function Final() {
           </div>
           
 
-          <div className="twocharts">  <Col className="bcc">
+          <div className="twocharts" ref={myDivRef1}>  
+          <Col className="bcc">
             <Clus fid={2001} />
           </Col>
           <Col className="bcc">
@@ -624,7 +642,7 @@ export default function Final() {
           </Col>
           </div>
         
-          <div className="twocharts">
+          <div className="twocharts" ref={myDivRef1}>
           <Col className="bcc">
             <Clus fid={3001} />
           </Col>

@@ -53,7 +53,7 @@ function NotesList() {
   }, [jwt, apiUrl]);
 
   return (
-    <div
+    <div 
       className="box1"
       style={{ width: "15vw", height: "148px", overflow: "auto" }}
     >

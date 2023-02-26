@@ -14,11 +14,17 @@
 padding:0px;
 }
 .btt{
-  background-color: white;
+
   position:absolute !important;
   top:55%;
   left:46%;
-  color:white;
+}
+.home-button{
+    position:absolute !important;
+    top:66%;
+    left: 46.9%;
+    border:#595959 !important;
+    background-color:rgb(45, 49, 48) !important;
 }
 .inv{
     width:100px;
