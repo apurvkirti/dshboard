@@ -711,7 +711,7 @@
   padding:5px;
   z-index: 1000;
   background-color: #1e1e57 !important;
-  bottom:1px;
+  bottom:0px;
   width:100% !important;
 }
 .colclust{
