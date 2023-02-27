@@ -38,7 +38,7 @@ const MovieCard = ({ movie }) => {
                     component="img"
                     width="240px"
                     height="140px"
-                    image={movie.fileUrl}
+                    image={movie.fileUrl.replace('/upload/', '/upload/w_240,h_140/')}
                     alt="uploaded image"/>
                     </a>
             </Box>
