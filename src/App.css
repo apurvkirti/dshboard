@@ -715,8 +715,11 @@
   width:100% !important;
 }
 .colclust{
- align-items: center !important;
-  padding-right:5px !important;
+  display:flex;
+  align-items: center !important;
+  justify-content: space-around;
+  /* padding-right:5px !important; */
+  
  
 }
 .downf,.downs, .downt{
