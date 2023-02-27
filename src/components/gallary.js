@@ -67,7 +67,7 @@ function PhotoGallery() {
       <div className="photo-gallery">
         {images.map((image) => (
           <div className="photo-card">
-            <img src={image.fileUrl} alt="images" />
+            <img src={image.fileUrl.replace('/upload/', '/upload/w_150,h_84/')} alt="images" />
             <button onClick={() => deleteFile(image.fileId)}>
               <AiFillDelete />
             </button>
