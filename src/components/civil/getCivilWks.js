@@ -1,32 +1,33 @@
+import TextTruncate from "../truncate";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Icon, Table } from "semantic-ui-react";
-const fId = 1002; //1 for civil 2 for workshop 
-
+const fId = 1002; //1 for civil 2 for workshop
 
 export default function MyComponent(props) {
   const jwt = localStorage.getItem("jwt");
-  let ClustName = (props.clust)?props.clust:"PATNA";
+  let ClustName = props.clust ? props.clust : "PATNA";
   const [data, setData] = useState([]);
   const apiUrl =
     process.env.NODE_ENV === "production"
       ? process.env.REACT_APP_API_URL_PROD
       : process.env.REACT_APP_API_URL_DEV;
   useEffect(() => {
-    // const apiUrl = `${apiUrl}/college/getCluster/?form_Id=${fId}&cluster=${ClustName}`;
     const headers = {
-      Authorization:
-        `Bearer ${jwt}`,
+      Authorization: `Bearer ${jwt}`,
     };
     axios
-      .get(`${apiUrl}/college/getCluster/?form_Id=${fId}&cluster=${ClustName}`, { headers })
+      .get(
+        `${apiUrl}/college/getCluster/?form_Id=${fId}&cluster=${ClustName}`,
+        { headers }
+      )
       .then((response) => {
         setData(response.data);
       })
       .catch((error) => {
         console.log(error);
       });
-  }, [ClustName,jwt,apiUrl]);
+  }, [ClustName, jwt, apiUrl]);
 
   // rendering Icon
   function renderIcon(val) {
@@ -40,13 +41,35 @@ export default function MyComponent(props) {
     }
     return <Icon color={color} name="check circle" size="large" />;
   }
+  const texts = [
+    "Basic Infra",
+    "Flooring",
+    "Internal Painting",
+    "Windows",
+    "Shutter",
+    "Aluminium Partition",
+    "Air Conditioner (AC)",
+    'Miniature Circuit Breaker (MCB)',
+    "Networking",
+    "Low Tension Panels (LT Panels)",
+    "Electric Supply",
+    'Uninterruptible Power Supply (UPS)',
+    "Diesel Generator Set (DG Set)",
+    "External Painting",
+    "Cleaning",
+    "Floor Painting",
+  ];
 
   return (
     <div className="ttop">
       <div>
-      <h2 className="formheader">BSBCCL Civil Status</h2>
-      <div className="legend">Yet to start: <Icon color= "grey" name="check circle" size="large" />  Work in progress: <Icon color="yellow" name="check circle" size="large" />  Completed: <Icon color="green" name="check circle" size="large" /></div>
-
+        <h2 className="formheader">BSBCCL Civil Status</h2>
+        <div className="legend">
+          Yet to start: <Icon color="grey" name="check circle" size="large" />{" "}
+          Work in progress:{" "}
+          <Icon color="yellow" name="check circle" size="large" /> Completed:{" "}
+          <Icon color="green" name="check circle" size="large" />
+        </div>
       </div>
       <Table className="tc" celled structured collapsing color="orange" striped>
         <Table.Header>
@@ -61,28 +84,21 @@ export default function MyComponent(props) {
               District
             </Table.HeaderCell>
 
-            <Table.HeaderCell id="workshop-heading" textAlign="center" colSpan="16">
-             WORKSHOP ( CIVIL )
+            <Table.HeaderCell
+              id="workshop-heading"
+              textAlign="center"
+              colSpan="16"
+            >
+              WORKSHOP ( CIVIL )
             </Table.HeaderCell>
           </Table.Row>
- 
+
           <Table.Row>
-            <Table.HeaderCell id="base-workshop" className="th">Basic Infra</Table.HeaderCell>
-            <Table.HeaderCell id="base-workshop" className="th">Flooring</Table.HeaderCell>
-            <Table.HeaderCell id="base-workshop" className="th">Internal Painting</Table.HeaderCell>
-            <Table.HeaderCell id="base-workshop" className="th">Windows</Table.HeaderCell>
-            <Table.HeaderCell id="base-workshop" className="th">Shutter</Table.HeaderCell>
-            <Table.HeaderCell id="base-workshop" className="th">Aluminium Partition</Table.HeaderCell>
-            <Table.HeaderCell id="base-workshop" className="th">AC</Table.HeaderCell>
-            <Table.HeaderCell id="base-workshop" className="th">MCB</Table.HeaderCell>
-            <Table.HeaderCell id="base-workshop" className="th">Networking</Table.HeaderCell>
-            <Table.HeaderCell id="base-workshop" className="th">LT Pannel</Table.HeaderCell>
-            <Table.HeaderCell id="base-workshop" className="th">Electric Supply</Table.HeaderCell>
-            <Table.HeaderCell id="base-workshop" className="th">UPS</Table.HeaderCell>
-            <Table.HeaderCell id="base-workshop" className="th">DG Set</Table.HeaderCell>
-            <Table.HeaderCell id="base-workshop" className="th">External Painting</Table.HeaderCell>
-            <Table.HeaderCell id="base-workshop" className="th">Cleaning</Table.HeaderCell>
-            <Table.HeaderCell id="base-workshop" className="th">Floor Painting</Table.HeaderCell>
+            {texts.map((text) => (
+              <Table.HeaderCell id="base-workshop" className="th" key={text}>
+                <TextTruncate text={text} limit={15} />
+              </Table.HeaderCell>
+            ))}
           </Table.Row>
         </Table.Header>
 
@@ -96,7 +112,7 @@ export default function MyComponent(props) {
 
                 {/* cells */}
 
-                <Table.Cell  className="ttt" textAlign="center" selectable>
+                <Table.Cell className="ttt" textAlign="center" selectable>
                   {renderIcon(data.Basic_Infra)}
                 </Table.Cell>
                 <Table.Cell className="ttt" textAlign="center" selectable>

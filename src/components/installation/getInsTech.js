@@ -1,8 +1,9 @@
+import TextTruncate from "../truncate";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Icon, Table } from "semantic-ui-react";
 const fId = 3001; // 3 for installation and 1 for tech
-// const ClustName = "PATNA";
+
 
 export default function MyComponent(props) {
   const jwt = localStorage.getItem("jwt");
@@ -40,6 +41,23 @@ export default function MyComponent(props) {
     }
     return <Icon color={color} name="check circle" size="large" />;
   }
+  const texts = [
+    "Furniture",
+    "Server Rack",
+    "Workstations and Monitors",
+    "Server",
+    "Distance Learning Classroom",
+    "IOT Kit",
+    "IOT Desktops",
+    "3D Printer Technology-1",
+    "3D Printer Technology-2",
+    "Tech Tools Product Design 1",
+    "Tech Tools Product Design 2",
+    "Tech Tools Product Verification 1",
+    "Tech Tools Product Verification 2",
+    "Tech Tools Advance Manufacturing",
+    "E-Learning Platform",
+  ];
 
   return (
     <div className="ttop ">
@@ -69,21 +87,11 @@ export default function MyComponent(props) {
           </Table.Row>
 
           <Table.Row>
-            <Table.HeaderCell id="base-techlab" className="th">Furniture</Table.HeaderCell>
-            <Table.HeaderCell id="base-techlab" className="th">Server Rack</Table.HeaderCell>
-            <Table.HeaderCell id="base-techlab" className="th">Workstations and Monitors</Table.HeaderCell>
-            <Table.HeaderCell id="base-techlab" className="th">Server</Table.HeaderCell>
-            <Table.HeaderCell id="base-techlab" className="th">Distance Learning Classroom</Table.HeaderCell>
-            <Table.HeaderCell id="base-techlab" className="th">IOT Kit</Table.HeaderCell>
-            <Table.HeaderCell id="base-techlab" className="th">IOT Desktops</Table.HeaderCell>
-            <Table.HeaderCell id="base-techlab" className="th">3D Printer Tech-1</Table.HeaderCell>
-            <Table.HeaderCell id="base-techlab" className="th">3D Printer Tech-2</Table.HeaderCell>
-            <Table.HeaderCell id="base-techlab" className="th">TechTools Product Design 1</Table.HeaderCell>
-            <Table.HeaderCell id="base-techlab" className="th">TechTools Product Design 2</Table.HeaderCell>
-            <Table.HeaderCell id="base-techlab" className="th">TechTools Product Verification 1</Table.HeaderCell>
-            <Table.HeaderCell id="base-techlab" className="th">TechTools Product Verification 2</Table.HeaderCell>
-            <Table.HeaderCell id="base-techlab" className="th">TechTools Advance Manufacturing</Table.HeaderCell>
-            <Table.HeaderCell id="base-techlab" className="th">E-Learning Platform</Table.HeaderCell>
+            {texts.map((text, index) => ( 
+              <Table.HeaderCell key={index} id="base-techlab" className="th">
+                <TextTruncate text={text} limit={15} />
+              </Table.HeaderCell>
+            ))}
           </Table.Row>
         </Table.Header>
 

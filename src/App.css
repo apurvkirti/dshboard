@@ -79,11 +79,22 @@
   writing-mode:vertical-lr !important;
   transform: rotate(180deg);
 }
-
+.inner-text-table-header{
+  z-index: 10001;
+  position:absolute; 
+  writing-mode:horizontal-tb;
+  transform: rotate(180deg);
+  top: 30px; 
+  left:0; 
+  width:max-content;
+  height:fit-content;
+  border:0.5px solid grey; 
+  border-radius: 3px;
+  background-color:white;
+  padding:5px 2px;
+}
 /* for table color */
 .tc.ui.table thead th {
-  
- 
   border-bottom: 2px solid rgba(34,36,38,.1) !important;
 }
 .td.ui.table thead th {
@@ -962,6 +973,7 @@
   writing-mode: vertical-rl !important;
   transform:rotate(180deg);
   font-size: 0.9rem;
+
   /* padding-left:3vh !important; */
 }
 .itiname{

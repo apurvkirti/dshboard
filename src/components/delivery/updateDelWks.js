@@ -1,3 +1,4 @@
+import TextTruncate from "../truncate";
 import React from "react";
 import { Icon, Table, Dropdown } from "semantic-ui-react";
 import { useEffect, useState } from "react";
@@ -145,6 +146,25 @@ export default function UpdateForm(props) {
         console.log(error);
       });
   }
+  const texts = [
+    "Laser Cutter",
+    "PaintBooth",
+    "Car Lift",
+    "Industrial Process Control Unit",
+    "VR Welding & Painting",
+    "Auto MRO Cut Sections",
+    "Battery Electrical Vehicle",
+    "IO Engine Vehicle",
+    "EV Kit (Electronic Vehicle Kit)",
+    "Industrial Robotics Setup",
+    "VFD Machine",
+    "Plumbing Kit",
+    "CNC Machine (Computer Numerical Control)",
+    "VMC Machine (Vertical Machining Center)",
+    "Tools & Meters",
+    "Advance Machining Simulators"
+  ];
+
 
   return (
     <div className="ttop">
@@ -181,54 +201,11 @@ export default function UpdateForm(props) {
           </Table.Row>
 
           <Table.Row>
-            <Table.HeaderCell id="base-workshop" className="th">
-              Laser Cutter
-            </Table.HeaderCell>
-            <Table.HeaderCell id="base-workshop" className="th">
-              PaintBooth
-            </Table.HeaderCell>
-            <Table.HeaderCell id="base-workshop" className="th">
-              Car Lift
-            </Table.HeaderCell>
-            <Table.HeaderCell id="base-workshop" className="th">
-              Industrial_Process_Control_Unit
-            </Table.HeaderCell>
-            <Table.HeaderCell id="base-workshop" className="th">
-              VR Welding & Painting
-            </Table.HeaderCell>
-            <Table.HeaderCell id="base-workshop" className="th">
-              Auto MRO Cut Sections
-            </Table.HeaderCell>
-            <Table.HeaderCell id="base-workshop" className="th">
-              Battery_Electrical_Vehicle
-            </Table.HeaderCell>
-            <Table.HeaderCell id="base-workshop" className="th">
-              IO_Engine_Vehicle
-            </Table.HeaderCell>
-            <Table.HeaderCell id="base-workshop" className="th">
-              EV Kit
-            </Table.HeaderCell>
-            <Table.HeaderCell id="base-workshop" className="th">
-              Industrial Robotics Setup
-            </Table.HeaderCell>
-            <Table.HeaderCell id="base-workshop" className="th">
-              VFD_Machine
-            </Table.HeaderCell>
-            <Table.HeaderCell id="base-workshop" className="th">
-              Plumbing Kit
-            </Table.HeaderCell>
-            <Table.HeaderCell id="base-workshop" className="th">
-              CNC_Machine
-            </Table.HeaderCell>
-            <Table.HeaderCell id="base-workshop" className="th">
-              VMC_Machine
-            </Table.HeaderCell>
-            <Table.HeaderCell id="base-workshop" className="th">
-              Tools & Meters
-            </Table.HeaderCell>
-            <Table.HeaderCell id="base-workshop" className="th">
-              Advance_Machining_Simulators
-            </Table.HeaderCell>
+            {texts.map((text) => (
+              <Table.HeaderCell key={text} id="base-workshop" className="th">
+                <TextTruncate text={text} limit={15} />
+              </Table.HeaderCell>
+            ))}
           </Table.Row>
         </Table.Header>
 

@@ -1,3 +1,4 @@
+import TextTruncate from "./truncate";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Icon, Table, Popup } from "semantic-ui-react";
@@ -74,10 +75,39 @@ export default function Course(props) {
     );
     return formattedDate;
   }
+
+  const headerTitles = [
+    
+    "Jr. Product Designer- Generic",
+    "Jr. Product Designer and Developer -Generic",
+    "Fundamentals of Innovation and Design Thinking ",
+    "Auto Electrical Design Technician",
+    "Product Verifier and Analyst - Generic",
+    "Automobile Teardown and Benchmarking Jr. Technician",
+    "Advanced Automobile Jr. Technician ",
+    "Automobile Repair & Maintenance Jr Technician",
+    "Auto Electrical Maintenance Jr. Technician",
+    "Battery Electric Vehicle Jr. Technician",
+    "Internet of Things Application Jr. Technician ",
+    "Jr. CAM Programmer CNC Lathe",
+    "Jr. CAM Programmer CNC Milling & Turn Mill",
+    "CNC Milling Machine Jr. Technician and Programmer",
+    "CNC Lathe Machine Jr. Technician and Programmer",
+    "Advance CNC Machining (Rotary 4th Axis and 5th Axis Mill)",
+    "Additive Manufacturing Process Jr. Technician Using Extended Learning Technique",
+    "Jr. Welding Technician Using Simulated Learning Technique",
+    "Advanced Painting Technician Using Simulated Learning Technique",
+    "Process Control & Automation Technician",
+    "Jr. Robot Operator and Programmer - Material Handling",
+    "Jr. Robot Operator and Programmer - Arc Welding",
+    "Advanced Plumbing Technician",
+  ];
+
   const job = [
-    "Innovation_Design_Thinking",
+
     "Jr_Product_Designer",
     "Jr_Prod_Designer_Developer",
+    "Innovation_Design_Thinking",
     "Auto_Electrical_Design_Technician",
     "Product_Verifier_Analyst",
     "Auto_Teardown_Benchmarking",
@@ -113,77 +143,13 @@ export default function Course(props) {
         </div>
         <Table className="coursestable" celled collapsing>
           <Table.Header>
-            <Table.Row>
+          <Table.Row>
               <Table.HeaderCell textAlign="center">ITI NAME</Table.HeaderCell>
-              <Table.HeaderCell className="th2">
-                Innovation_Design_Thinking
-              </Table.HeaderCell>
-              <Table.HeaderCell className="th2">
-                Jr_Prod_Designer_Developer
-              </Table.HeaderCell>
-              <Table.HeaderCell className="th2">
-                Auto_Electrical_Design_Technician
-              </Table.HeaderCell>
-              <Table.HeaderCell className="th2">
-                Product_Verifier_Analyst
-              </Table.HeaderCell>
-              <Table.HeaderCell className="th2">
-                Auto_Teardown_Benchmarking
-              </Table.HeaderCell>
-              <Table.HeaderCell className="th2">
-                Advanced_Automobile
-              </Table.HeaderCell>
-              <Table.HeaderCell className="th2">
-                Auto_Repair_Maintainance
-              </Table.HeaderCell>
-              <Table.HeaderCell className="th2">
-                Auto_Electrical_Maintainance
-              </Table.HeaderCell>
-              <Table.HeaderCell className="th2">
-                Battery_EV_Technician
-              </Table.HeaderCell>
-              <Table.HeaderCell className="th2">
-                IOT_Application_Technician
-              </Table.HeaderCell>
-              <Table.HeaderCell className="th2">
-                CAM_Prog_CNC_Lathe
-              </Table.HeaderCell>
-              <Table.HeaderCell className="th2">
-                CAM_Programmer_CNC_Milling
-              </Table.HeaderCell>
-              <Table.HeaderCell className="th2">
-                CNC_Milling_Machine_Technician
-              </Table.HeaderCell>
-              <Table.HeaderCell className="th2">
-                CNC_Lathe_Machine
-              </Table.HeaderCell>
-              <Table.HeaderCell className="th2">
-                Advance_CNC_Machining
-              </Table.HeaderCell>
-              <Table.HeaderCell className="th2">
-                Additive_Manufacturing_Process
-              </Table.HeaderCell>
-              <Table.HeaderCell className="th2">
-                Welding_Technician
-              </Table.HeaderCell>
-              <Table.HeaderCell className="th2">
-                Advanced_Painting_Technician
-              </Table.HeaderCell>
-              <Table.HeaderCell className="th2">
-                Process_Control_Automation
-              </Table.HeaderCell>
-              <Table.HeaderCell className="th2">
-                Robot_Operator_Programmer_Material
-              </Table.HeaderCell>
-              <Table.HeaderCell className="th2">
-                Robot_Operator_Programmer_Arc
-              </Table.HeaderCell>
-              <Table.HeaderCell className="th2">
-                Advanced_Plumbing_Technician
-              </Table.HeaderCell>
-              <Table.HeaderCell className="th2">
-                Jr_Product_Designer
-              </Table.HeaderCell>
+              {headerTitles.map((title, index) => (
+                <Table.HeaderCell key={index} className="th2">
+                   <TextTruncate text={title} limit={15} />
+                </Table.HeaderCell>
+              ))}
             </Table.Row>
           </Table.Header>
 

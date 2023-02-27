@@ -50,8 +50,6 @@ class PdfComponent extends React.Component {
   }
   
 
- 
-
   render() {
    
     return (

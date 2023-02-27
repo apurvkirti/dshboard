@@ -1,3 +1,4 @@
+import TextTruncate from "../truncate";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Icon, Table } from "semantic-ui-react";
@@ -5,27 +6,8 @@ const fId = 1001; // 1 for civil 1 for tech
 
 
 
-
-// data.map((data) => {
-//   const cellData = [
-//     { value: data.Basic_Infra },
-//     { value: data.Flooring },
-//     { value: data.False_Ceiling },
-//     { value:data.Internal_Painting },
-//     { value:data.Windows },
-//     { value:data.Doors },
-//     { value:data.Aluminium_Partition},
-//     { value:data.AC },
-//     { value:data.MCB },
-//     { value:data.Networking },
-//     { value:data.LT_Pannel },
-//     { value:data.Electric_Supply },
-//     { value:data.UPS },
-//     { value:data.External_Painting },
-//     { value:data.Cleaning }
-//   ];
-// })
 export default function MyComponent(props) {
+
   const jwt = localStorage.getItem("jwt");
   let ClustName = props.clust ? props.clust : "PATNA";
 
@@ -61,6 +43,23 @@ export default function MyComponent(props) {
     }
     return <Icon color={color} name="check circle" size="large" />;
   }
+  const texts = [
+    'Basic Infra',
+    'Flooring',
+    'False Ceiling',
+    'Internal Painting',
+    'Windows',
+    'Doors',
+    'Aluminium Partition',
+    'Air Conditioner',
+    'Miniature Circuit Breaker (MCB)',
+    'Networking',
+    'LT Pannel',
+    'Electric Supply',
+    'Uninterruptible Power Supply (UPS)',
+    'External Painting',
+    'Cleaning'
+  ];
 
   return (
     <div className="ttop">
@@ -97,52 +96,12 @@ export default function MyComponent(props) {
           </Table.Row>
 
           <Table.Row>
-            <Table.HeaderCell id="base-techlab" className="th">
-              Basic Infra
+          {texts.map((text, index) => (
+            <Table.HeaderCell key={index} id = "base-techlab"className="th">
+              <TextTruncate text={text} limit={15} />
             </Table.HeaderCell>
-            <Table.HeaderCell id="base-techlab" className="th">
-              Flooring
-            </Table.HeaderCell>
-            <Table.HeaderCell id="base-techlab" className="th">
-              False Ceiling
-            </Table.HeaderCell>
-            <Table.HeaderCell id="base-techlab" className="th">
-              Internal Painting
-            </Table.HeaderCell>
-            <Table.HeaderCell id="base-techlab" className="th">
-              Windows
-            </Table.HeaderCell>
-            <Table.HeaderCell id="base-techlab" className="th">
-              Doors
-            </Table.HeaderCell>
-            <Table.HeaderCell id="base-techlab" className="th">
-              Aluminium Partition
-            </Table.HeaderCell>
-            <Table.HeaderCell id="base-techlab" className="th">
-              AC
-            </Table.HeaderCell>
-            <Table.HeaderCell id="base-techlab" className="th">
-              MCB
-            </Table.HeaderCell>
-            <Table.HeaderCell id="base-techlab" className="th">
-              Networking
-            </Table.HeaderCell>
-            <Table.HeaderCell id="base-techlab" className="th">
-              LT Pannel
-            </Table.HeaderCell>
-            <Table.HeaderCell id="base-techlab" className="th">
-              Electric Supply
-            </Table.HeaderCell>
-            <Table.HeaderCell id="base-techlab" className="th">
-              UPS
-            </Table.HeaderCell>
-            <Table.HeaderCell id="base-techlab" className="th">
-              External Painting
-            </Table.HeaderCell>
-            <Table.HeaderCell id="base-techlab" className="th">
-              Cleaning
-            </Table.HeaderCell>
-          </Table.Row>
+          ))}
+        </Table.Row>
         </Table.Header>
 
         <Table.Body>

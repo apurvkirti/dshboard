@@ -1,3 +1,4 @@
+import TextTruncate from "../truncate";
 import React from "react";
 import { Icon, Table, Dropdown } from "semantic-ui-react";
 import { useEffect, useState } from "react";
@@ -130,6 +131,24 @@ export default function UpdateForm(props) {
       });
   }
 
+  const texts = [
+    "Basic Infra",
+    "Flooring",
+    "Internal Painting",
+    "Windows",
+    "Shutter",
+    "Aluminium Partition",
+    "Air Conditioner (AC)",
+    'Miniature Circuit Breaker (MCB)',
+    "Networking",
+    "Low Tension Panels (LT Panels)",
+    "Electric Supply",
+    'Uninterruptible Power Supply (UPS)',
+    "Diesel Generator Set (DG Set)",
+    "External Painting",
+    "Cleaning",
+    "Floor Painting",
+  ];
   return (
     <div className="ttop">
       <div>
@@ -164,54 +183,11 @@ export default function UpdateForm(props) {
           </Table.Row>
 
           <Table.Row>
-            <Table.HeaderCell id="base-workshop" className="th">
-              Basic Infra
-            </Table.HeaderCell>
-            <Table.HeaderCell id="base-workshop" className="th">
-              Flooring
-            </Table.HeaderCell>
-            <Table.HeaderCell id="base-workshop" className="th">
-              Internal Painting
-            </Table.HeaderCell>
-            <Table.HeaderCell id="base-workshop" className="th">
-              Windows
-            </Table.HeaderCell>
-            <Table.HeaderCell id="base-workshop" className="th">
-              Shutter
-            </Table.HeaderCell>
-            <Table.HeaderCell id="base-workshop" className="th">
-              Aluminium Partition
-            </Table.HeaderCell>
-            <Table.HeaderCell id="base-workshop" className="th">
-              AC
-            </Table.HeaderCell>
-            <Table.HeaderCell id="base-workshop" className="th">
-              MCB
-            </Table.HeaderCell>
-            <Table.HeaderCell id="base-workshop" className="th">
-              Networking
-            </Table.HeaderCell>
-            <Table.HeaderCell id="base-workshop" className="th">
-              LT Panel
-            </Table.HeaderCell>
-            <Table.HeaderCell id="base-workshop" className="th">
-              Electric Supply
-            </Table.HeaderCell>
-            <Table.HeaderCell id="base-workshop" className="th">
-              UPS
-            </Table.HeaderCell>
-            <Table.HeaderCell id="base-workshop" className="th">
-              DG Set
-            </Table.HeaderCell>
-            <Table.HeaderCell id="base-workshop" className="th">
-              External Painting
-            </Table.HeaderCell>
-            <Table.HeaderCell id="base-workshop" className="th">
-              Cleaning
-            </Table.HeaderCell>
-            <Table.HeaderCell id="base-workshop" className="th">
-              Floor Painting
-            </Table.HeaderCell>
+            {texts.map((text) => (
+              <Table.HeaderCell id="base-workshop" className="th" key={text}>
+                <TextTruncate text={text} limit={15} />
+              </Table.HeaderCell>
+            ))}
           </Table.Row>
         </Table.Header>
 

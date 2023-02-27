@@ -1,3 +1,4 @@
+import TextTruncate from "../truncate";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Icon, Table } from "semantic-ui-react";
@@ -17,14 +18,17 @@ export default function MyComponent(props) {
       Authorization: `Bearer ${jwt}`,
     };
     axios
-      .get(`${apiUrl}/college/getCluster/?form_Id=${fId}&cluster=${ClustName}`, { headers })
+      .get(
+        `${apiUrl}/college/getCluster/?form_Id=${fId}&cluster=${ClustName}`,
+        { headers }
+      )
       .then((response) => {
         setData(response.data);
       })
       .catch((error) => {
         console.log(error);
       });
-  }, [ClustName, jwt,apiUrl]);
+  }, [ClustName, jwt, apiUrl]);
 
   // rendering Icon
   function renderIcon(val) {
@@ -39,7 +43,25 @@ export default function MyComponent(props) {
     return <Icon color={color} name="check circle" size="large" />;
   }
 
-  return ( 
+  const texts = [
+    "Furniture",
+    "Server Rack",
+    "Workstations and Monitors",
+    "Server",
+    "Distance Learning Classroom",
+    "IOT Kit",
+    "IOT Desktops",
+    "3D Printer Technology-1",
+    "3D Printer Technology-2",
+    "Tech Tools Product Design 1",
+    "Tech Tools Product Design 2",
+    "Tech Tools Product Verification 1",
+    "Tech Tools Product Verification 2",
+    "Tech Tools Advance Manufacturing",
+    "E-Learning Platform",
+  ];
+
+  return (
     <div className="ttop">
       <div>
         <h2 className="formheader1">TTL Delivery Status</h2>
@@ -65,27 +87,21 @@ export default function MyComponent(props) {
               District
             </Table.HeaderCell>
 
-            <Table.HeaderCell  id="teclab-heading" textAlign="center" colSpan="15">
+            <Table.HeaderCell
+              id="teclab-heading"
+              textAlign="center"
+              colSpan="15"
+            >
               TECHNOLOGY LAB ( DELIVERY )
             </Table.HeaderCell>
           </Table.Row>
 
           <Table.Row>
-            <Table.HeaderCell id="base-techlab" className="th">Furniture</Table.HeaderCell>
-            <Table.HeaderCell id="base-techlab" className="th">Server Rack</Table.HeaderCell>
-            <Table.HeaderCell id="base-techlab" className="th">Workstations and Monitors</Table.HeaderCell>
-            <Table.HeaderCell id="base-techlab" className="th">Server</Table.HeaderCell>
-            <Table.HeaderCell id="base-techlab" className="th">Distance Learning Classroom</Table.HeaderCell>
-            <Table.HeaderCell id="base-techlab" className="th">IOT Kit</Table.HeaderCell>
-            <Table.HeaderCell id="base-techlab" className="th">IOT Desktops</Table.HeaderCell>
-            <Table.HeaderCell id="base-techlab" className="th">3D Printer Tech-1</Table.HeaderCell>
-            <Table.HeaderCell id="base-techlab" className="th">3D Printer Tech-2</Table.HeaderCell>
-            <Table.HeaderCell id="base-techlab" className="th">TechTools Product Design 1</Table.HeaderCell>
-            <Table.HeaderCell id="base-techlab" className="th">TechTools Product Design 2</Table.HeaderCell>
-            <Table.HeaderCell id="base-techlab" className="th">TechTools Product Verification 1</Table.HeaderCell>
-            <Table.HeaderCell id="base-techlab" className="th">TechTools Product Verification 2</Table.HeaderCell>
-            <Table.HeaderCell id="base-techlab" className="th">TechTools Advance Manufacturing</Table.HeaderCell>
-            <Table.HeaderCell id="base-techlab" className="th">E-Learning Platform</Table.HeaderCell>
+            {texts.map((text, index) => ( 
+              <Table.HeaderCell key={index} id="base-techlab" className="th">
+                <TextTruncate text={text} limit={15} />
+              </Table.HeaderCell>
+            ))}
           </Table.Row>
         </Table.Header>
 
@@ -114,7 +130,7 @@ export default function MyComponent(props) {
                 <Table.Cell className="ttt" textAlign="center" selectable>
                   {renderIcon(data.Distance_Learning_Classroom)}
                 </Table.Cell>
-          
+
                 <Table.Cell className="ttt" textAlign="center" selectable>
                   {renderIcon(data.IOT_Kit)}
                 </Table.Cell>
@@ -145,7 +161,6 @@ export default function MyComponent(props) {
                 <Table.Cell className="ttt" textAlign="center" selectable>
                   {renderIcon(data.E_Learning_Platform)}
                 </Table.Cell>
-            
               </Table.Row>
             );
           })}

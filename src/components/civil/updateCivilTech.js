@@ -1,3 +1,4 @@
+import TextTruncate from "../truncate";
 import React from "react";
 import { Icon, Table, Dropdown } from "semantic-ui-react";
 import { useEffect, useState } from "react";
@@ -136,7 +137,23 @@ export default function UpdateForm(props) {
       });
   }
 
-
+  const texts = [
+    'Basic Infra',
+    'Flooring',
+    'False Ceiling',
+    'Internal Painting',
+    'Windows',
+    'Doors',
+    'Aluminium Partition',
+    'Air Conditioner',
+    'Miniature Circuit Breaker (MCB)',
+    'Networking',
+    'Low Tension Panels (LT Panels)',
+    'Electric Supply',
+    'Uninterruptible Power Supply (UPS)',
+    'External Painting',
+    'Cleaning'
+  ];
   return (
     <div className="ttop">
       <div>
@@ -163,23 +180,12 @@ export default function UpdateForm(props) {
           </Table.Row>
 
           <Table.Row>
-            <Table.HeaderCell id="base-techlab" className="th">Basic Infra</Table.HeaderCell>
-            <Table.HeaderCell id="base-techlab" className="th">Flooring</Table.HeaderCell>
-            <Table.HeaderCell id="base-techlab" className="th">False Ceiling</Table.HeaderCell>
-            <Table.HeaderCell id="base-techlab" className="th">Internal Painting</Table.HeaderCell>
-            <Table.HeaderCell id="base-techlab" className="th">Windows</Table.HeaderCell>
-            <Table.HeaderCell id="base-techlab" className="th">Doors</Table.HeaderCell>
-            <Table.HeaderCell id="base-techlab" className="th"> Aluminium Partition</Table.HeaderCell>
-            <Table.HeaderCell id="base-techlab" className="th">AC</Table.HeaderCell>
-            <Table.HeaderCell id="base-techlab" className="th">MCB</Table.HeaderCell>
-            <Table.HeaderCell id="base-techlab" className="th">Networking</Table.HeaderCell>
-            <Table.HeaderCell id="base-techlab" className="th">LT Panel</Table.HeaderCell>
-            <Table.HeaderCell id="base-techlab" className="th">Electric Supply</Table.HeaderCell>
-            <Table.HeaderCell id="base-techlab" className="th">UPS</Table.HeaderCell>
-            <Table.HeaderCell id="base-techlab" className="th">External Painting</Table.HeaderCell>
-            <Table.HeaderCell id="base-techlab" className="th">Cleaning</Table.HeaderCell>
-            
-          </Table.Row>
+          {texts.map((text, index) => (
+            <Table.HeaderCell key={index} id = "base-techlab"className="th">
+              <TextTruncate text={text} limit={15} />
+            </Table.HeaderCell>
+          ))}
+        </Table.Row>
         </Table.Header>
 
         <Table.Body>
