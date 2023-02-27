@@ -30,6 +30,12 @@ import Img from "./imgs";
 
 import Clus from "./clusterChart";
 import { FiLogOut } from 'react-icons/fi';
+
+
+
+
+
+
 export default function Final() {
   const username = localStorage.getItem("username");
 
@@ -65,9 +71,9 @@ export default function Final() {
   const installationRef = useRef(null);
   const coursesRef = useRef(null);
   const [selectedTitle, setSelectedTitle] = useState("");
-  const handleButtonClick = (title) => {
-    setSelectedTitle(title);
-  };
+
+  
+ 
   const handleDropdownSelect = (option) => {
     setSelectedOption(option);
     if (option === "Civil") {
@@ -235,7 +241,97 @@ export default function Final() {
     myDiv.scrollLeft = myDiv.scrollWidth;
   }, []);
   
-
+  const [isButtonClicked1, setIsButtonClicked1] = useState(false);
+  const [isButtonClicked2, setIsButtonClicked2] = useState(false);
+  const [isButtonClicked3, setIsButtonClicked3] = useState(false);
+  const [isButtonClicked4, setIsButtonClicked4] = useState(false);
+  const [isButtonClicked5, setIsButtonClicked5] = useState(false);
+  const [isButtonClicked6, setIsButtonClicked6] = useState(true);
+  const [isButtonClicked7, setIsButtonClicked7] = useState(false);
+  const [isButtonClicked8, setIsButtonClicked8] = useState(false);
+  const handleButtonClick = (title) => {
+    if(title === "KATIHAR"){
+      setIsButtonClicked1(true);
+      setIsButtonClicked2(false);
+      setIsButtonClicked3(false);
+      setIsButtonClicked4(false);
+      setIsButtonClicked5(false);
+      setIsButtonClicked6(false);
+      setIsButtonClicked7(false);
+      setIsButtonClicked8(false);  
+    } else if(title === "MOTIHARI"){
+      setIsButtonClicked1(false);
+      setIsButtonClicked2(true);
+      setIsButtonClicked3(false);
+      setIsButtonClicked4(false);
+      setIsButtonClicked5(false);
+      setIsButtonClicked6(false);
+      setIsButtonClicked7(false);
+      setIsButtonClicked8(false);  
+    }
+    else if(title === "MUZAFFARPUR"){
+      setIsButtonClicked1(false);
+      setIsButtonClicked2(false);
+      setIsButtonClicked3(true);
+      setIsButtonClicked4(false);
+      setIsButtonClicked5(false);
+      setIsButtonClicked6(false);
+      setIsButtonClicked7(false);
+      setIsButtonClicked8(false);  
+    }
+    if(title === "Munger"){
+      setIsButtonClicked1(false);
+      setIsButtonClicked2(false);
+      setIsButtonClicked3(false);
+      setIsButtonClicked4(true);
+      setIsButtonClicked5(false);
+      setIsButtonClicked6(false);
+      setIsButtonClicked7(false);
+      setIsButtonClicked8(false);  
+    }
+    if(title === "NALANDA"){
+      setIsButtonClicked1(false);
+      setIsButtonClicked2(false);
+      setIsButtonClicked3(false);
+      setIsButtonClicked4(false);
+      setIsButtonClicked5(true);
+      setIsButtonClicked6(false);
+      setIsButtonClicked7(false);
+      setIsButtonClicked8(false);  
+    }
+    if(title === "PATNA"){
+      setIsButtonClicked1(false);
+      setIsButtonClicked2(false);
+      setIsButtonClicked3(false);
+      setIsButtonClicked4(false);
+      setIsButtonClicked5(false);
+      setIsButtonClicked6(true);
+      setIsButtonClicked7(false);
+      setIsButtonClicked8(false);  
+    }
+    if(title === "ROHTAS"){
+      setIsButtonClicked1(false);
+      setIsButtonClicked2(false);
+      setIsButtonClicked3(false);
+      setIsButtonClicked4(false);
+      setIsButtonClicked5(false);
+      setIsButtonClicked6(false);
+      setIsButtonClicked7(true);
+      setIsButtonClicked8(false);  
+    }
+    if(title === "SUPAUL"){
+      setIsButtonClicked1(false);
+      setIsButtonClicked2(false);
+      setIsButtonClicked3(false);
+      setIsButtonClicked4(false);
+      setIsButtonClicked5(false);
+      setIsButtonClicked6(false);
+      setIsButtonClicked7(false);
+      setIsButtonClicked8(true);  
+    }
+  
+    setSelectedTitle(title);
+  };
   return (
     <>
       <Container fluid className="cont" ref={targetRef}>
@@ -298,7 +394,7 @@ export default function Final() {
          <Row className="buttonsallrow">
           <Col className="colclust">
             <DropdownButton
-              className="fixer"
+             className={`${isButtonClicked1 ? "clicked" : ""}`}
               id="dropdown-basic-button"
               title="KATIHAR"
             >
@@ -339,7 +435,7 @@ export default function Final() {
           </Col>
           <Col className="colclust">
             <DropdownButton
-              className="fixer"
+             className={`${isButtonClicked2 ? "clicked" : ""}`}
               id="dropdown-basic-button"
               title="MOTIHARI"
             >
@@ -380,8 +476,7 @@ export default function Final() {
           </Col>
           <Col className="colclust">
             <DropdownButton
-              className="muzz"
-             
+              className={`${isButtonClicked3 ? "clicked" : ""}`}
               id="dropdown-basic-button"
               title="MUZAFFARPUR"
             >
@@ -421,7 +516,7 @@ export default function Final() {
           </Col>
           <Col className="colclust">
             <DropdownButton
-              className="fixer"
+           className={`${isButtonClicked4 ? "clicked" : ""}`}
               id="dropdown-basic-button"
               title="MUNGER"
             >
@@ -461,7 +556,7 @@ export default function Final() {
           </Col>
           <Col className="colclust">
             <DropdownButton
-              className="fixer"
+              className={`${isButtonClicked5 ? "clicked" : ""}`}
               id="dropdown-basic-button"
               title="NALANDA"
             >
@@ -501,7 +596,7 @@ export default function Final() {
           </Col>
           <Col className="colclust">
             <DropdownButton
-              className="fixer"
+             className={`${isButtonClicked6 ? "clicked" : ""}`}
               id="dropdown-basic-button"
               title="PATNA"
             >
@@ -541,7 +636,7 @@ export default function Final() {
           </Col>
           <Col className="colclust">
             <DropdownButton
-              className="fixer"
+             className={`${isButtonClicked7 ? "clicked" : ""}`}
               id="dropdown-basic-button"
               title="ROHTAS"
             >
@@ -581,7 +676,7 @@ export default function Final() {
           </Col>
           <Col>
             <DropdownButton
-              className="fixer"
+             className={`${isButtonClicked8 ? "clicked" : ""}`}
               id="dropdown-basic-button"
               title="SUPAUL"
             >
