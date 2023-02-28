@@ -100,7 +100,7 @@ export default function Chart() {
   const handleEnter2 = () => {
     setHighlighted2(true);
   };
-
+ 
   const handleLeave2 = () => {
     setHighlighted2(false);
   };

@@ -22,16 +22,7 @@ const LastChanges = () => {
   }, [apiUrl, jwt]);
   const sortedChanges = data.sort((a, b) => b.changeId - a.changeId);
 
-  // function formatDate(date) {
-  //   let d = new Date(date);
-  //   let hours = d.getHours();
-  //   let minutes = d.getMinutes();
-  //   let day = d.getDate();
-  //   let month = d.getMonth() + 1;
-  //   let year = d.getFullYear();
 
-  //   return `${hours}:${minutes} ${day}st ${month}, ${year}`;
-  // }
   function formatDate(dateString) {
     const date = new Date(dateString);
     const formattedDate = date.toLocaleString("en-US", {
@@ -42,7 +33,6 @@ const LastChanges = () => {
       year: "numeric",
     });
 
-    // console.log(formattedDate);
     const dateParts = formattedDate.split(",");
     const finalday = dateParts[0].trim().split(" ");
 

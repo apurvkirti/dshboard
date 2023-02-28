@@ -20,15 +20,27 @@ const MovieCard = ({ movie }) => {
         event.preventDefault();
         window.location.href = movie.fileUrl;
       };
+      function formatDate(dateString) {
+        const date = new Date(dateString);
+        const year = date.getFullYear();
+        const month = date.toLocaleString('default', { month: 'short' });
+        const day = date.getDate();
+        const formattedDate = `${day} ${month}, ${year}`;
+        return formattedDate;
+      }
+  
     return (
         <Card sx={{ maxWidth: 240, position: "relative"}} style={{ display: 'flex', flexDirection: 'column' }}>
             <CardInfo >
                 <Typography variant="subtitle2" style={{ marginTop: '0' }} component="div">
-                    {movie.siteName}
+                    Site Name: {movie.siteName}
                 </Typography>
 
                 <Typography variant="subtitle2" component="div">
-                    {movie.timeUpdate}
+                    Date: {formatDate(movie.createdAt)}
+                </Typography>
+                <Typography variant="subtitle2" component="div">
+                    {movie.caption}                
                 </Typography>
             </CardInfo>
 
