@@ -230,14 +230,20 @@ export default function Final() {
     myDiv.scrollLeft = myDiv.scrollWidth;
   }, []);
 
-  const [isButtonClicked1, setIsButtonClicked1] = useState(false);
+  const [isButtonClicked1, setIsButtonClicked1] = useState(true);
   const [isButtonClicked2, setIsButtonClicked2] = useState(false);
   const [isButtonClicked3, setIsButtonClicked3] = useState(false);
   const [isButtonClicked4, setIsButtonClicked4] = useState(false);
   const [isButtonClicked5, setIsButtonClicked5] = useState(false);
-  const [isButtonClicked6, setIsButtonClicked6] = useState(true);
+  const [isButtonClicked6, setIsButtonClicked6] = useState(false);
   const [isButtonClicked7, setIsButtonClicked7] = useState(false);
   const [isButtonClicked8, setIsButtonClicked8] = useState(false);
+  const [isButtonClicked9, setIsButtonClicked9] = useState(false);
+  const [isButtonClicked10, setIsButtonClicked10] = useState(false);
+  const [isButtonClicked11, setIsButtonClicked11] = useState(false);
+  const [isButtonClicked12, setIsButtonClicked12] = useState(false);
+  const [isButtonClicked13, setIsButtonClicked13] = useState(false);
+  const [isButtonClicked14, setIsButtonClicked14] = useState(false);
   const handleButtonClick = (title) => {
     if (title === "CHENNAI") {
       setIsButtonClicked1(true);
@@ -248,6 +254,12 @@ export default function Final() {
       setIsButtonClicked6(false);
       setIsButtonClicked7(false);
       setIsButtonClicked8(false);
+      setIsButtonClicked9(false);
+      setIsButtonClicked10(false);
+      setIsButtonClicked11(false);
+      setIsButtonClicked12(false);
+      setIsButtonClicked13(false);
+      setIsButtonClicked14(false);
     } else if (title === "CUDDALORE") {
       setIsButtonClicked1(false);
       setIsButtonClicked2(true);
@@ -257,6 +269,12 @@ export default function Final() {
       setIsButtonClicked6(false);
       setIsButtonClicked7(false);
       setIsButtonClicked8(false);
+      setIsButtonClicked9(false);
+      setIsButtonClicked10(false);
+      setIsButtonClicked11(false);
+      setIsButtonClicked12(false);
+      setIsButtonClicked13(false);
+      setIsButtonClicked14(false);
     } else if (title === "TIRUVANNAMALAI") {
       setIsButtonClicked1(false);
       setIsButtonClicked2(false);
@@ -266,6 +284,12 @@ export default function Final() {
       setIsButtonClicked6(false);
       setIsButtonClicked7(false);
       setIsButtonClicked8(false);
+      setIsButtonClicked9(false);
+      setIsButtonClicked10(false);
+      setIsButtonClicked11(false);
+      setIsButtonClicked12(false);
+      setIsButtonClicked13(false);
+      setIsButtonClicked14(false);
     }
     if (title === "VELLORE") {
       setIsButtonClicked1(false);
@@ -276,6 +300,12 @@ export default function Final() {
       setIsButtonClicked6(false);
       setIsButtonClicked7(false);
       setIsButtonClicked8(false);
+      setIsButtonClicked9(false);
+      setIsButtonClicked10(false);
+      setIsButtonClicked11(false);
+      setIsButtonClicked12(false);
+      setIsButtonClicked13(false);
+      setIsButtonClicked14(false);
     }
     if (title === "ERODE") {
       setIsButtonClicked1(false);
@@ -286,6 +316,12 @@ export default function Final() {
       setIsButtonClicked6(false);
       setIsButtonClicked7(false);
       setIsButtonClicked8(false);
+      setIsButtonClicked9(false);
+      setIsButtonClicked10(false);
+      setIsButtonClicked11(false);
+      setIsButtonClicked12(false);
+      setIsButtonClicked13(false);
+      setIsButtonClicked14(false);
     }
     if (title === "MADURAI") {
       setIsButtonClicked1(false);
@@ -296,6 +332,12 @@ export default function Final() {
       setIsButtonClicked6(true);
       setIsButtonClicked7(false);
       setIsButtonClicked8(false);
+      setIsButtonClicked9(false);
+      setIsButtonClicked10(false);
+      setIsButtonClicked11(false);
+      setIsButtonClicked12(false);
+      setIsButtonClicked13(false);
+      setIsButtonClicked14(false);
     }
     if (title === "SALEM") {
       setIsButtonClicked1(false);
@@ -306,6 +348,12 @@ export default function Final() {
       setIsButtonClicked6(false);
       setIsButtonClicked7(true);
       setIsButtonClicked8(false);
+      setIsButtonClicked9(false);
+      setIsButtonClicked10(false);
+      setIsButtonClicked11(false);
+      setIsButtonClicked12(false);
+      setIsButtonClicked13(false);
+      setIsButtonClicked14(false);
     }
     if (title === "THE NILGIRIS") {
       setIsButtonClicked1(false);
@@ -316,6 +364,108 @@ export default function Final() {
       setIsButtonClicked6(false);
       setIsButtonClicked7(false);
       setIsButtonClicked8(true);
+      setIsButtonClicked9(false);
+      setIsButtonClicked10(false);
+      setIsButtonClicked11(false);
+      setIsButtonClicked12(false);
+      setIsButtonClicked13(false);
+      setIsButtonClicked14(false);
+    }
+    if (title === "THENI") {
+      setIsButtonClicked1(false);
+      setIsButtonClicked2(false);
+      setIsButtonClicked3(false);
+      setIsButtonClicked4(false);
+      setIsButtonClicked5(false);
+      setIsButtonClicked6(false);
+      setIsButtonClicked7(false);
+      setIsButtonClicked8(false);
+      setIsButtonClicked9(true);
+      setIsButtonClicked10(false);
+      setIsButtonClicked11(false);
+      setIsButtonClicked12(false);
+      setIsButtonClicked13(false);
+      setIsButtonClicked14(false);
+    }
+    if (title === "NAGAPATTINAM") {
+      setIsButtonClicked1(false);
+      setIsButtonClicked2(false);
+      setIsButtonClicked3(false);
+      setIsButtonClicked4(false);
+      setIsButtonClicked5(false);
+      setIsButtonClicked6(false);
+      setIsButtonClicked7(false);
+      setIsButtonClicked8(false);
+      setIsButtonClicked9(false);
+      setIsButtonClicked10(true);
+      setIsButtonClicked11(false);
+      setIsButtonClicked12(false);
+      setIsButtonClicked13(false);
+      setIsButtonClicked14(false);
+    }
+    if (title === "THANJAVUR") {
+      setIsButtonClicked1(false);
+      setIsButtonClicked2(false);
+      setIsButtonClicked3(false);
+      setIsButtonClicked4(false);
+      setIsButtonClicked5(false);
+      setIsButtonClicked6(false);
+      setIsButtonClicked7(false);
+      setIsButtonClicked8(false);
+      setIsButtonClicked9(false);
+      setIsButtonClicked10(false);
+      setIsButtonClicked11(true);
+      setIsButtonClicked12(false);
+      setIsButtonClicked13(false);
+      setIsButtonClicked14(false);
+    }
+    if (title === "KANNIYAKUMARI") {
+      setIsButtonClicked1(false);
+      setIsButtonClicked2(false);
+      setIsButtonClicked3(false);
+      setIsButtonClicked4(false);
+      setIsButtonClicked5(false);
+      setIsButtonClicked6(false);
+      setIsButtonClicked7(false);
+      setIsButtonClicked8(false);
+      setIsButtonClicked9(false);
+      setIsButtonClicked10(false);
+      setIsButtonClicked11(false);
+      setIsButtonClicked12(true);
+      setIsButtonClicked13(false);
+      setIsButtonClicked14(false);
+    }
+    if (title === "RAMANATHAPURAM") {
+      setIsButtonClicked1(false);
+      setIsButtonClicked2(false);
+      setIsButtonClicked3(false);
+      setIsButtonClicked4(false);
+      setIsButtonClicked5(false);
+      setIsButtonClicked6(false);
+      setIsButtonClicked7(false);
+      setIsButtonClicked8(false);
+      setIsButtonClicked9(false);
+      setIsButtonClicked10(false);
+      setIsButtonClicked11(false);
+      setIsButtonClicked12(false);
+      setIsButtonClicked13(true);
+      setIsButtonClicked14(false);
+    }
+    if (title === "TIRUNELVELI") {
+      setIsButtonClicked1(false);
+      setIsButtonClicked2(false);
+      setIsButtonClicked3(false);
+      setIsButtonClicked4(false);
+      setIsButtonClicked5(false);
+      setIsButtonClicked6(false);
+      setIsButtonClicked7(false);
+      setIsButtonClicked8(false);
+      setIsButtonClicked9(false);
+      setIsButtonClicked10(false);
+      setIsButtonClicked11(false);
+      setIsButtonClicked12(false);
+      setIsButtonClicked13(false);
+      setIsButtonClicked14(true);
     }
 
     setSelectedTitle(title);
@@ -704,7 +854,7 @@ export default function Final() {
           {/* added extra cluster buttons */}
           <Col>
             <DropdownButton
-              className={`${isButtonClicked8 ? "clicked" : ""}`}
+              className={`${isButtonClicked9 ? "clicked" : ""}`}
               id="dropdown-basic-button"
               title="THENI"
             >
@@ -744,7 +894,7 @@ export default function Final() {
           </Col>
           <Col>
             <DropdownButton
-              className={`${isButtonClicked8 ? "clicked" : ""}`}
+              className={`${isButtonClicked10 ? "clicked" : ""}`}
               id="dropdown-basic-button"
               title="NAGAPATTINAM"
             >
@@ -784,7 +934,7 @@ export default function Final() {
           </Col>
           <Col>
             <DropdownButton
-              className={`${isButtonClicked8 ? "clicked" : ""}`}
+              className={`${isButtonClicked11 ? "clicked" : ""}`}
               id="dropdown-basic-button"
               title="THANJAVUR"
             >
@@ -824,7 +974,7 @@ export default function Final() {
           </Col>
           <Col>
             <DropdownButton
-              className={`${isButtonClicked8 ? "clicked" : ""}`}
+              className={`${isButtonClicked12 ? "clicked" : ""}`}
               id="dropdown-basic-button"
               title="KANNIYAKUMARI"
             >
@@ -864,7 +1014,7 @@ export default function Final() {
           </Col>
           <Col>
             <DropdownButton
-              className={`${isButtonClicked8 ? "clicked" : ""}`}
+              className={`${isButtonClicked13 ? "clicked" : ""}`}
               id="dropdown-basic-button"
               title="RAMANATHAPURAM"
             >
@@ -904,7 +1054,7 @@ export default function Final() {
           </Col>
           <Col>
             <DropdownButton
-              className={`${isButtonClicked8 ? "clicked" : ""}`}
+              className={`${isButtonClicked14 ? "clicked" : ""}`}
               id="dropdown-basic-button"
               title="TIRUNELVELI"
             >
