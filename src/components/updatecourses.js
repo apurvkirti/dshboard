@@ -9,7 +9,7 @@ import { FiEdit3 } from "react-icons/fi";
 
 export default function Course(props) {
   const jwt = localStorage.getItem("jwt");
-  let ClustName = props.clust ? props.clust : "PATNA";
+  let ClustName = props.clust ? props.clust : "CHENNAI";
 
   const [data, setData] = useState([]);
   const apiUrl =
@@ -22,7 +22,7 @@ export default function Course(props) {
       Authorization: `Bearer ${jwt}`,
     };
     axios
-      .get(`${apiUrl}/course/byCluster?Cluster=${ClustName}`, { headers })
+      .get(`${apiUrl}/course/byCluster?Cluster=${ClustName}&form_Id=20`, { headers })
       .then((response) => {
         setData(response.data);
       })
@@ -48,7 +48,7 @@ export default function Course(props) {
     e.preventDefault();
     try {
       const response = await axios.post(
-        `${apiUrl}/course/updateDate?collegeId=${collegeId}`,
+        `${apiUrl}/course/updateDate?collegeId=${collegeId}&form_Id=20`,
         {
           key,
           startDate,

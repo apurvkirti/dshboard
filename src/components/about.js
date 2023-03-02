@@ -83,7 +83,7 @@ export default function About() {
                   </NavDropdown.Item>
                   <NavDropdown.Item>ANDHRA PRADESH</NavDropdown.Item>
                   <NavDropdown.Item>ARUNACHAL PRADESH</NavDropdown.Item>
-                  <NavDropdown.Item onClick={navtobutton}>BIHAR</NavDropdown.Item>
+                  <NavDropdown.Item >BIHAR</NavDropdown.Item>
                   <NavDropdown.Item>CHANDIGARH</NavDropdown.Item>
                   <NavDropdown.Item>CHHATTISGARH</NavDropdown.Item>
                   <NavDropdown.Item>DADRA AND NAGAR HAVELI</NavDropdown.Item>
@@ -109,7 +109,7 @@ export default function About() {
                   <NavDropdown.Item>PUNJAB</NavDropdown.Item>
                   <NavDropdown.Item>RAJASTHAN</NavDropdown.Item>
                   <NavDropdown.Item>SIKKIM</NavDropdown.Item>
-                  <NavDropdown.Item>TAMIL NADU</NavDropdown.Item>
+                  <NavDropdown.Item onClick={navtobutton}>TAMIL NADU</NavDropdown.Item>
                   <NavDropdown.Item>TELANGANA</NavDropdown.Item>
                   <NavDropdown.Item>TRIPURA</NavDropdown.Item>
                   <NavDropdown.Item>UTTAR PRADESH</NavDropdown.Item>

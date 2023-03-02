@@ -8,7 +8,7 @@ import Button from "react-bootstrap/Button";
 
 export default function Course(props) {
   const jwt = localStorage.getItem("jwt");
-  let ClustName = props.clust ? props.clust : "PATNA";
+  let ClustName = props.clust ? props.clust : "CHENNAI";
 
   const [data, setData] = useState([]);
   const apiUrl =
@@ -21,7 +21,7 @@ export default function Course(props) {
       Authorization: `Bearer ${jwt}`,
     };
     axios
-      .get(`${apiUrl}/course/byCluster?Cluster=${ClustName}`, { headers })
+      .get(`${apiUrl}/course/byCluster?Cluster=${ClustName}&form_Id=20`, { headers })
       .then((response) => {
         setData(response.data);
       })
