@@ -12,11 +12,11 @@ import {
 } from "react-notifications";
 import "react-notifications/lib/notifications.css";
 
-const form_Id = 2001; //2 for delivery 1 for tech
+const form_Id = 2001+ 3000; //2 for delivery 1 for tech
 
 export default function UpdateForm(props) {
   const jwt = localStorage.getItem("jwt");
-  let ClustName = props.clust ? props.clust : "PATNA";
+  let ClustName = props.clust ? props.clust : "CHENNAI";
 
   const options = [
     { key: "option1", text: "Yet to Start", value: -1 },

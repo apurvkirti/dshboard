@@ -2,12 +2,12 @@ import TextTruncate from "../truncate";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Icon, Table } from "semantic-ui-react";
-const fId = 3002; // 3 for installation and 2 for wks 
+const fId = 3002+ 3000; // 3 for installation and 2 for wks 
 
 
 export default function MyComponent(props) {
   const jwt = localStorage.getItem("jwt");
-  let ClustName = (props.clust)?props.clust:"PATNA";
+  let ClustName = (props.clust)?props.clust:"CHENNAI";
   const [data, setData] = useState([]);
   const apiUrl =
     process.env.NODE_ENV === "production"

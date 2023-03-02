@@ -10,11 +10,11 @@ import {
 } from "react-notifications";
 import "react-notifications/lib/notifications.css";
 
-const form_Id = 3002; // 3 for installation and 2 for workshop
+const form_Id = 3002+ 3000; // 3 for installation and 2 for workshop
 
 export default function UpdateForm(props) {
   const jwt = localStorage.getItem("jwt");
-  let ClustName = props.clust ? props.clust : "PATNA";
+  let ClustName = props.clust ? props.clust : "CHENNAI";
   const options = [
     { key: "option1", text: "Yet to Start", value: -1 },
     { key: "option2", text: "Work in Progress", value: 0 },
