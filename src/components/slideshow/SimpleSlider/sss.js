@@ -39,7 +39,9 @@ export default function SimpleSlider({ initialSlide = 0 }) {
     autoplay: true,
     infinite: true,
     speed: 700,
-    slidesToShow: 5,
+    // slidesToShow: 5,
+    slidesToShow: 4,
+
     slidesToScroll: 1,
     initialSlide,
     responsive: [

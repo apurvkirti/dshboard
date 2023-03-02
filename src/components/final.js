@@ -1,5 +1,5 @@
 import "../App.css";
-import IndChart from "./indchart";
+// import IndChart from "./indchart"; added images in place
 import Chart from "./chart";
 import Container from "react-bootstrap/Container";
 import Carousel from "react-bootstrap/Carousel";
@@ -25,16 +25,11 @@ import UpdateInsTech from "./installation/updateInsTech";
 import UpdateInsWks from "./installation/updateInsWks";
 import InsWks from "./installation/getInsWks";
 import Courses from "./course";
-import UpdCourses from "./updatecourses"
+import UpdCourses from "./updatecourses";
 import Img from "./imgs";
 
 import Clus from "./clusterChart";
-import { FiLogOut } from 'react-icons/fi';
-
-
-
-
-
+import { FiLogOut } from "react-icons/fi";
 
 export default function Final() {
   const username = localStorage.getItem("username");
@@ -57,12 +52,12 @@ export default function Final() {
   let navigate = useNavigate();
 
   const handleUpdatesClick = () => {
-     window.location.reload();
+    window.location.reload();
   };
 
   const handleLogout = () => {
-    localStorage.removeItem('jwt');
-    navigate('/');
+    localStorage.removeItem("jwt");
+    navigate("/");
   };
   //eslint-disable-next-line
   const [selectedOption, setSelectedOption] = useState(null);
@@ -72,8 +67,6 @@ export default function Final() {
   const coursesRef = useRef(null);
   const [selectedTitle, setSelectedTitle] = useState("");
 
-  
- 
   const handleDropdownSelect = (option) => {
     setSelectedOption(option);
     if (option === "Civil") {
@@ -88,8 +81,7 @@ export default function Final() {
         top: installationRef.current.offsetTop,
         behavior: "smooth",
       });
-    }
-    else if (option === "Courses") {
+    } else if (option === "Courses") {
       window.scrollTo({
         top: coursesRef.current.offsetTop,
         behavior: "smooth",
@@ -106,9 +98,8 @@ export default function Final() {
 
   // for user_selective view
 
-
   function RenderCourse({ selectedTitle }) {
-    if (username === "master_admin" ) {
+    if (username === "master_admin") {
       return (
         <>
           <UpdCourses clust={selectedTitle} />
@@ -124,7 +115,7 @@ export default function Final() {
   }
 
   function RenderCivilTech({ selectedTitle }) {
-    if (username === "user1" || username === "master_admin" ) {
+    if (username === "user1" || username === "master_admin") {
       return (
         <>
           <UpdateCivilTech clust={selectedTitle} />
@@ -170,7 +161,7 @@ export default function Final() {
     }
   }
   function RenderDelWks({ selectedTitle }) {
-    if (username === "user2" || username === "master_admin" ) {
+    if (username === "user2" || username === "master_admin") {
       return (
         <>
           <UpdateDeliveryWks clust={selectedTitle} />
@@ -185,7 +176,7 @@ export default function Final() {
     }
   }
   function RenderInsTech({ selectedTitle }) {
-    if ( username === "user3" || username === "master_admin") {
+    if (username === "user3" || username === "master_admin") {
       return (
         <>
           <UpdateInsTech clust={selectedTitle} />
@@ -215,16 +206,15 @@ export default function Final() {
     }
   }
 
-
   useEffect(() => {
-    const token = localStorage.getItem('jwt');
+    const token = localStorage.getItem("jwt");
     if (!token) {
-      navigate('/');
+      navigate("/");
     }
   }, [navigate]);
 
   //screenshot:
-  
+
   const targetRef = useRef(null);
   // eslint-disable-next-line
   const [screenshot, setScreenshot] = useState(null);
@@ -232,7 +222,6 @@ export default function Final() {
   const handlescreenClick = () => {
     navigate("/pdf");
   };
-    
 
   const myDivRef1 = useRef(null);
 
@@ -240,7 +229,7 @@ export default function Final() {
     const myDiv = myDivRef1.current;
     myDiv.scrollLeft = myDiv.scrollWidth;
   }, []);
-  
+
   const [isButtonClicked1, setIsButtonClicked1] = useState(false);
   const [isButtonClicked2, setIsButtonClicked2] = useState(false);
   const [isButtonClicked3, setIsButtonClicked3] = useState(false);
@@ -250,7 +239,7 @@ export default function Final() {
   const [isButtonClicked7, setIsButtonClicked7] = useState(false);
   const [isButtonClicked8, setIsButtonClicked8] = useState(false);
   const handleButtonClick = (title) => {
-    if(title === "KATIHAR"){
+    if (title === "CHENNAI") {
       setIsButtonClicked1(true);
       setIsButtonClicked2(false);
       setIsButtonClicked3(false);
@@ -258,8 +247,8 @@ export default function Final() {
       setIsButtonClicked5(false);
       setIsButtonClicked6(false);
       setIsButtonClicked7(false);
-      setIsButtonClicked8(false);  
-    } else if(title === "MOTIHARI"){
+      setIsButtonClicked8(false);
+    } else if (title === "CUDDALORE") {
       setIsButtonClicked1(false);
       setIsButtonClicked2(true);
       setIsButtonClicked3(false);
@@ -267,9 +256,8 @@ export default function Final() {
       setIsButtonClicked5(false);
       setIsButtonClicked6(false);
       setIsButtonClicked7(false);
-      setIsButtonClicked8(false);  
-    }
-    else if(title === "MUZAFFARPUR"){
+      setIsButtonClicked8(false);
+    } else if (title === "TIRUVANNAMALAI") {
       setIsButtonClicked1(false);
       setIsButtonClicked2(false);
       setIsButtonClicked3(true);
@@ -277,9 +265,9 @@ export default function Final() {
       setIsButtonClicked5(false);
       setIsButtonClicked6(false);
       setIsButtonClicked7(false);
-      setIsButtonClicked8(false);  
+      setIsButtonClicked8(false);
     }
-    if(title === "Munger"){
+    if (title === "VELLORE") {
       setIsButtonClicked1(false);
       setIsButtonClicked2(false);
       setIsButtonClicked3(false);
@@ -287,9 +275,9 @@ export default function Final() {
       setIsButtonClicked5(false);
       setIsButtonClicked6(false);
       setIsButtonClicked7(false);
-      setIsButtonClicked8(false);  
+      setIsButtonClicked8(false);
     }
-    if(title === "NALANDA"){
+    if (title === "ERODE") {
       setIsButtonClicked1(false);
       setIsButtonClicked2(false);
       setIsButtonClicked3(false);
@@ -297,9 +285,9 @@ export default function Final() {
       setIsButtonClicked5(true);
       setIsButtonClicked6(false);
       setIsButtonClicked7(false);
-      setIsButtonClicked8(false);  
+      setIsButtonClicked8(false);
     }
-    if(title === "PATNA"){
+    if (title === "MADURAI") {
       setIsButtonClicked1(false);
       setIsButtonClicked2(false);
       setIsButtonClicked3(false);
@@ -307,9 +295,9 @@ export default function Final() {
       setIsButtonClicked5(false);
       setIsButtonClicked6(true);
       setIsButtonClicked7(false);
-      setIsButtonClicked8(false);  
+      setIsButtonClicked8(false);
     }
-    if(title === "ROHTAS"){
+    if (title === "SALEM") {
       setIsButtonClicked1(false);
       setIsButtonClicked2(false);
       setIsButtonClicked3(false);
@@ -317,9 +305,9 @@ export default function Final() {
       setIsButtonClicked5(false);
       setIsButtonClicked6(false);
       setIsButtonClicked7(true);
-      setIsButtonClicked8(false);  
+      setIsButtonClicked8(false);
     }
-    if(title === "SUPAUL"){
+    if (title === "THE NILGIRIS") {
       setIsButtonClicked1(false);
       setIsButtonClicked2(false);
       setIsButtonClicked3(false);
@@ -327,30 +315,40 @@ export default function Final() {
       setIsButtonClicked5(false);
       setIsButtonClicked6(false);
       setIsButtonClicked7(false);
-      setIsButtonClicked8(true);  
+      setIsButtonClicked8(true);
     }
-  
+
     setSelectedTitle(title);
   };
+  
   return (
     <>
       <Container fluid className="cont" ref={targetRef}>
         <Row className="abcd">
           <Col className="topbox">
             <div className="leftlogo"></div>
-            <div className="hindi">श्रम संसाधन विभाग, बिहार</div>
+            <div className="hindi">
+              <div className="native-lang">
+                வேலைவாய்ப்பு மற்றும் பயிற்சித் துறை
+              </div>
+              <div className="department">
+                DEPARTMENT OF EMPLOYMENT AND TRAINING
+              </div>
+            </div>
             <div className="col1"> EDUCATION AND SKILL DEVELOPMENT</div>
             <div className="rightlogo"></div>
             <div className="col2">
               <div className="date">{formatDate(date)}</div>
               <div>
                 <Button className="fbutton" onClick={handlescreenClick}>
-                  Download PDF <AiFillFilePdf  />
+                  Download PDF <AiFillFilePdf />
                 </Button>
               </div>
             </div>
             <div className="col3">
-            <Button className="buttonlogout" onClick={handleLogout}>Logout <FiLogOut/></Button>
+              <Button className="buttonlogout" onClick={handleLogout}>
+                Logout <FiLogOut />
+              </Button>
             </div>
           </Col>
         </Row>
@@ -360,48 +358,38 @@ export default function Final() {
             <Chart />
           </Col>
         </Row>
-        <Row>
-          {/* <Col xs={3}>
+        <div className="mid-row">
+          <div>
             <div className="addnote">
-              <Button className="btnclass " onClick={handleClick}>
-                Add a Note <AiFillEdit />
-              </Button>
-            </div>
-            <div>
-              {" "}
-              <NotesList />
-            </div>
-          </Col> */}
-          <Col xs={3}>
-            <div className="addnote">
-              <Button className="btnclass " onClick={handleUpdatesClick} >
-                RECENT UPDATES 
+              <Button className="btnclass " onClick={handleUpdatesClick}>
+                RECENT UPDATES
               </Button>
             </div>
             <div>
               <UpdateList />
             </div>
-          </Col>
-          
+          </div>
+
           {/* <Col xs={2}></Col> */}
-          <Col>
-            <IndChart />
-          </Col>
-        </Row>
-        <Row>
+          <div className="slider-cont">
+            {/* <IndChart /> */}
+            <Img />
+          </div>
+        </div>
+        {/* <Row>
           <Col className="ims"><Img/></Col>
-        </Row>
-         <Row className="buttonsallrow">
+        </Row> */}
+        <Row className="buttonsallrow">
           <Col className="colclust">
             <DropdownButton
-             className={`${isButtonClicked1 ? "clicked" : ""}`}
+              className={`${isButtonClicked1 ? "clicked" : ""}`}
               id="dropdown-basic-button"
-              title="KATIHAR"
+              title="CHENNAI"
             >
               <Dropdown.Item
                 onClick={() => {
                   handleDropdownSelect("Civil");
-                  handleButtonClick("KATIHAR");
+                  handleButtonClick("CHENNAI");
                 }}
               >
                 Civil
@@ -409,7 +397,7 @@ export default function Final() {
               <Dropdown.Item
                 onClick={() => {
                   handleDropdownSelect("Delivery");
-                  handleButtonClick("KATIHAR");
+                  handleButtonClick("CHENNAI");
                 }}
               >
                 Delivery
@@ -417,7 +405,7 @@ export default function Final() {
               <Dropdown.Item
                 onClick={() => {
                   handleDropdownSelect("Installation");
-                  handleButtonClick("KATIHAR");
+                  handleButtonClick("CHENNAI");
                 }}
               >
                 Installation
@@ -426,7 +414,7 @@ export default function Final() {
               <Dropdown.Item
                 onClick={() => {
                   handleDropdownSelect("Courses");
-                  handleButtonClick("KATIHAR");
+                  handleButtonClick("CHENNAI");
                 }}
               >
                 Courses
@@ -435,14 +423,14 @@ export default function Final() {
           </Col>
           <Col className="colclust">
             <DropdownButton
-             className={`${isButtonClicked2 ? "clicked" : ""}`}
+              className={`${isButtonClicked2 ? "clicked" : ""}`}
               id="dropdown-basic-button"
-              title="MOTIHARI"
+              title="CUDDALORE"
             >
               <Dropdown.Item
                 onClick={() => {
                   handleDropdownSelect("Civil");
-                  handleButtonClick("MOTIHARI");
+                  handleButtonClick("CUDDALORE");
                 }}
               >
                 Civil
@@ -450,7 +438,7 @@ export default function Final() {
               <Dropdown.Item
                 onClick={() => {
                   handleDropdownSelect("Delivery");
-                  handleButtonClick("MOTIHARI");
+                  handleButtonClick("CUDDALORE");
                 }}
               >
                 Delivery
@@ -458,7 +446,7 @@ export default function Final() {
               <Dropdown.Item
                 onClick={() => {
                   handleDropdownSelect("Installation");
-                  handleButtonClick("MOTIHARI");
+                  handleButtonClick("CUDDALORE");
                 }}
               >
                 Installation
@@ -466,24 +454,23 @@ export default function Final() {
               <Dropdown.Item
                 onClick={() => {
                   handleDropdownSelect("Courses");
-                  handleButtonClick("MOTIHARI");
+                  handleButtonClick("CUDDALORE");
                 }}
               >
                 Courses
               </Dropdown.Item>
-              
             </DropdownButton>
           </Col>
           <Col className="colclust">
             <DropdownButton
               className={`${isButtonClicked3 ? "clicked" : ""}`}
               id="dropdown-basic-button"
-              title="MUZAFFARPUR"
+              title="TIRUVANNAMALAI"
             >
               <Dropdown.Item
                 onClick={() => {
                   handleDropdownSelect("Civil");
-                  handleButtonClick("MUZAFFARPUR");
+                  handleButtonClick("TIRUVANNAMALAI");
                 }}
               >
                 Civil
@@ -491,7 +478,7 @@ export default function Final() {
               <Dropdown.Item
                 onClick={() => {
                   handleDropdownSelect("Delivery");
-                  handleButtonClick("MUZAFFARPUR");
+                  handleButtonClick("TIRUVANNAMALAI");
                 }}
               >
                 Delivery
@@ -499,7 +486,7 @@ export default function Final() {
               <Dropdown.Item
                 onClick={() => {
                   handleDropdownSelect("Installation");
-                  handleButtonClick("MUZAFFARPUR");
+                  handleButtonClick("TIRUVANNAMALAI");
                 }}
               >
                 Installation
@@ -507,7 +494,7 @@ export default function Final() {
               <Dropdown.Item
                 onClick={() => {
                   handleDropdownSelect("Courses");
-                  handleButtonClick("MUZAFFARPUR");
+                  handleButtonClick("TIRUVANNAMALAI");
                 }}
               >
                 Courses
@@ -516,14 +503,14 @@ export default function Final() {
           </Col>
           <Col className="colclust">
             <DropdownButton
-           className={`${isButtonClicked4 ? "clicked" : ""}`}
+              className={`${isButtonClicked4 ? "clicked" : ""}`}
               id="dropdown-basic-button"
-              title="MUNGER"
+              title="VELLORE"
             >
               <Dropdown.Item
                 onClick={() => {
                   handleDropdownSelect("Civil");
-                  handleButtonClick("Munger");
+                  handleButtonClick("VELLORE");
                 }}
               >
                 Civil
@@ -531,7 +518,7 @@ export default function Final() {
               <Dropdown.Item
                 onClick={() => {
                   handleDropdownSelect("Delivery");
-                  handleButtonClick("Munger");
+                  handleButtonClick("VELLORE");
                 }}
               >
                 Delivery
@@ -539,7 +526,7 @@ export default function Final() {
               <Dropdown.Item
                 onClick={() => {
                   handleDropdownSelect("Installation");
-                  handleButtonClick("Munger");
+                  handleButtonClick("VELLORE");
                 }}
               >
                 Installation
@@ -547,7 +534,7 @@ export default function Final() {
               <Dropdown.Item
                 onClick={() => {
                   handleDropdownSelect("Courses");
-                  handleButtonClick("Munger");
+                  handleButtonClick("VELLORE");
                 }}
               >
                 Courses
@@ -558,12 +545,12 @@ export default function Final() {
             <DropdownButton
               className={`${isButtonClicked5 ? "clicked" : ""}`}
               id="dropdown-basic-button"
-              title="NALANDA"
+              title="ERODE"
             >
               <Dropdown.Item
                 onClick={() => {
                   handleDropdownSelect("Civil");
-                  handleButtonClick("NALANDA");
+                  handleButtonClick("ERODE");
                 }}
               >
                 Civil
@@ -571,7 +558,7 @@ export default function Final() {
               <Dropdown.Item
                 onClick={() => {
                   handleDropdownSelect("Delivery");
-                  handleButtonClick("NALANDA");
+                  handleButtonClick("ERODE");
                 }}
               >
                 Delivery
@@ -579,7 +566,7 @@ export default function Final() {
               <Dropdown.Item
                 onClick={() => {
                   handleDropdownSelect("Installation");
-                  handleButtonClick("NALANDA");
+                  handleButtonClick("ERODE");
                 }}
               >
                 Installation
@@ -587,7 +574,7 @@ export default function Final() {
               <Dropdown.Item
                 onClick={() => {
                   handleDropdownSelect("Courses");
-                  handleButtonClick("NALANDA");
+                  handleButtonClick("ERODE");
                 }}
               >
                 Courses
@@ -596,14 +583,14 @@ export default function Final() {
           </Col>
           <Col className="colclust">
             <DropdownButton
-             className={`${isButtonClicked6 ? "clicked" : ""}`}
+              className={`${isButtonClicked6 ? "clicked" : ""}`}
               id="dropdown-basic-button"
-              title="PATNA"
+              title="MADURAI"
             >
               <Dropdown.Item
                 onClick={() => {
                   handleDropdownSelect("Civil");
-                  handleButtonClick("PATNA");
+                  handleButtonClick("MADURAI");
                 }}
               >
                 Civil
@@ -611,7 +598,7 @@ export default function Final() {
               <Dropdown.Item
                 onClick={() => {
                   handleDropdownSelect("Delivery");
-                  handleButtonClick("PATNA");
+                  handleButtonClick("MADURAI");
                 }}
               >
                 Delivery
@@ -619,7 +606,7 @@ export default function Final() {
               <Dropdown.Item
                 onClick={() => {
                   handleDropdownSelect("Installation");
-                  handleButtonClick("PATNA");
+                  handleButtonClick("MADURAI");
                 }}
               >
                 Installation
@@ -627,7 +614,7 @@ export default function Final() {
               <Dropdown.Item
                 onClick={() => {
                   handleDropdownSelect("Courses");
-                  handleButtonClick("PATNA");
+                  handleButtonClick("MADURAI");
                 }}
               >
                 Courses
@@ -636,14 +623,14 @@ export default function Final() {
           </Col>
           <Col className="colclust">
             <DropdownButton
-             className={`${isButtonClicked7 ? "clicked" : ""}`}
+              className={`${isButtonClicked7 ? "clicked" : ""}`}
               id="dropdown-basic-button"
-              title="ROHTAS"
+              title="SALEM"
             >
               <Dropdown.Item
                 onClick={() => {
                   handleDropdownSelect("Civil");
-                  handleButtonClick("ROHTAS");
+                  handleButtonClick("SALEM");
                 }}
               >
                 Civil
@@ -651,7 +638,7 @@ export default function Final() {
               <Dropdown.Item
                 onClick={() => {
                   handleDropdownSelect("Delivery");
-                  handleButtonClick("ROHTAS");
+                  handleButtonClick("SALEM");
                 }}
               >
                 Delivery
@@ -659,7 +646,7 @@ export default function Final() {
               <Dropdown.Item
                 onClick={() => {
                   handleDropdownSelect("Installation");
-                  handleButtonClick("ROHTAS");
+                  handleButtonClick("SALEM");
                 }}
               >
                 Installation
@@ -667,7 +654,7 @@ export default function Final() {
               <Dropdown.Item
                 onClick={() => {
                   handleDropdownSelect("Courses");
-                  handleButtonClick("ROHTAS");
+                  handleButtonClick("SALEM");
                 }}
               >
                 Courses
@@ -676,14 +663,14 @@ export default function Final() {
           </Col>
           <Col>
             <DropdownButton
-             className={`${isButtonClicked8 ? "clicked" : ""}`}
+              className={`${isButtonClicked8 ? "clicked" : ""}`}
               id="dropdown-basic-button"
-              title="SUPAUL"
+              title="THE NILGIRIS"
             >
               <Dropdown.Item
                 onClick={() => {
                   handleDropdownSelect("Civil");
-                  handleButtonClick("SUPAUL");
+                  handleButtonClick("THE NILGIRIS");
                 }}
               >
                 Civil
@@ -691,7 +678,7 @@ export default function Final() {
               <Dropdown.Item
                 onClick={() => {
                   handleDropdownSelect("Delivery");
-                  handleButtonClick("SUPAUL");
+                  handleButtonClick("THE NILGIRIS");
                 }}
               >
                 Delivery
@@ -699,7 +686,7 @@ export default function Final() {
               <Dropdown.Item
                 onClick={() => {
                   handleDropdownSelect("Installation");
-                  handleButtonClick("SUPAUL");
+                  handleButtonClick("THE NILGIRIS");
                 }}
               >
                 Installation
@@ -707,7 +694,248 @@ export default function Final() {
               <Dropdown.Item
                 onClick={() => {
                   handleDropdownSelect("Courses");
-                  handleButtonClick("SUPAUL");
+                  handleButtonClick("THE NILGIRIS");
+                }}
+              >
+                Courses
+              </Dropdown.Item>
+            </DropdownButton>
+          </Col>
+          {/* added extra cluster buttons */}
+          <Col>
+            <DropdownButton
+              className={`${isButtonClicked8 ? "clicked" : ""}`}
+              id="dropdown-basic-button"
+              title="THENI"
+            >
+              <Dropdown.Item
+                onClick={() => {
+                  handleDropdownSelect("Civil");
+                  handleButtonClick("THENI");
+                }}
+              >
+                Civil
+              </Dropdown.Item>
+              <Dropdown.Item
+                onClick={() => {
+                  handleDropdownSelect("Delivery");
+                  handleButtonClick("THENI");
+                }}
+              >
+                Delivery
+              </Dropdown.Item>
+              <Dropdown.Item
+                onClick={() => {
+                  handleDropdownSelect("Installation");
+                  handleButtonClick("THENI");
+                }}
+              >
+                Installation
+              </Dropdown.Item>
+              <Dropdown.Item
+                onClick={() => {
+                  handleDropdownSelect("Courses");
+                  handleButtonClick("THENI");
+                }}
+              >
+                Courses
+              </Dropdown.Item>
+            </DropdownButton>
+          </Col>
+          <Col>
+            <DropdownButton
+              className={`${isButtonClicked8 ? "clicked" : ""}`}
+              id="dropdown-basic-button"
+              title="NAGAPATTINAM"
+            >
+              <Dropdown.Item
+                onClick={() => {
+                  handleDropdownSelect("Civil");
+                  handleButtonClick("NAGAPATTINAM");
+                }}
+              >
+                Civil
+              </Dropdown.Item>
+              <Dropdown.Item
+                onClick={() => {
+                  handleDropdownSelect("Delivery");
+                  handleButtonClick("NAGAPATTINAM");
+                }}
+              >
+                Delivery
+              </Dropdown.Item>
+              <Dropdown.Item
+                onClick={() => {
+                  handleDropdownSelect("Installation");
+                  handleButtonClick("NAGAPATTINAM");
+                }}
+              >
+                Installation
+              </Dropdown.Item>
+              <Dropdown.Item
+                onClick={() => {
+                  handleDropdownSelect("Courses");
+                  handleButtonClick("NAGAPATTINAM");
+                }}
+              >
+                Courses
+              </Dropdown.Item>
+            </DropdownButton>
+          </Col>
+          <Col>
+            <DropdownButton
+              className={`${isButtonClicked8 ? "clicked" : ""}`}
+              id="dropdown-basic-button"
+              title="THANJAVUR"
+            >
+              <Dropdown.Item
+                onClick={() => {
+                  handleDropdownSelect("Civil");
+                  handleButtonClick("THANJAVUR");
+                }}
+              >
+                Civil
+              </Dropdown.Item>
+              <Dropdown.Item
+                onClick={() => {
+                  handleDropdownSelect("Delivery");
+                  handleButtonClick("THANJAVUR");
+                }}
+              >
+                Delivery
+              </Dropdown.Item>
+              <Dropdown.Item
+                onClick={() => {
+                  handleDropdownSelect("Installation");
+                  handleButtonClick("THANJAVUR");
+                }}
+              >
+                Installation
+              </Dropdown.Item>
+              <Dropdown.Item
+                onClick={() => {
+                  handleDropdownSelect("Courses");
+                  handleButtonClick("THANJAVUR");
+                }}
+              >
+                Courses
+              </Dropdown.Item>
+            </DropdownButton>
+          </Col>
+          <Col>
+            <DropdownButton
+              className={`${isButtonClicked8 ? "clicked" : ""}`}
+              id="dropdown-basic-button"
+              title="KANNIYAKUMARI"
+            >
+              <Dropdown.Item
+                onClick={() => {
+                  handleDropdownSelect("Civil");
+                  handleButtonClick("KANNIYAKUMARI");
+                }}
+              >
+                Civil
+              </Dropdown.Item>
+              <Dropdown.Item
+                onClick={() => {
+                  handleDropdownSelect("Delivery");
+                  handleButtonClick("KANNIYAKUMARI");
+                }}
+              >
+                Delivery
+              </Dropdown.Item>
+              <Dropdown.Item
+                onClick={() => {
+                  handleDropdownSelect("Installation");
+                  handleButtonClick("KANNIYAKUMARI");
+                }}
+              >
+                Installation
+              </Dropdown.Item>
+              <Dropdown.Item
+                onClick={() => {
+                  handleDropdownSelect("Courses");
+                  handleButtonClick("KANNIYAKUMARI");
+                }}
+              >
+                Courses
+              </Dropdown.Item>
+            </DropdownButton>
+          </Col>
+          <Col>
+            <DropdownButton
+              className={`${isButtonClicked8 ? "clicked" : ""}`}
+              id="dropdown-basic-button"
+              title="RAMANATHAPURAM"
+            >
+              <Dropdown.Item
+                onClick={() => {
+                  handleDropdownSelect("Civil");
+                  handleButtonClick("RAMANATHAPURAM");
+                }}
+              >
+                Civil
+              </Dropdown.Item>
+              <Dropdown.Item
+                onClick={() => {
+                  handleDropdownSelect("Delivery");
+                  handleButtonClick("RAMANATHAPURAM");
+                }}
+              >
+                Delivery
+              </Dropdown.Item>
+              <Dropdown.Item
+                onClick={() => {
+                  handleDropdownSelect("Installation");
+                  handleButtonClick("RAMANATHAPURAM");
+                }}
+              >
+                Installation
+              </Dropdown.Item>
+              <Dropdown.Item
+                onClick={() => {
+                  handleDropdownSelect("Courses");
+                  handleButtonClick("RAMANATHAPURAM");
+                }}
+              >
+                Courses
+              </Dropdown.Item>
+            </DropdownButton>
+          </Col>
+          <Col>
+            <DropdownButton
+              className={`${isButtonClicked8 ? "clicked" : ""}`}
+              id="dropdown-basic-button"
+              title="TIRUNELVELI"
+            >
+              <Dropdown.Item
+                onClick={() => {
+                  handleDropdownSelect("Civil");
+                  handleButtonClick("TIRUNELVELI");
+                }}
+              >
+                Civil
+              </Dropdown.Item>
+              <Dropdown.Item
+                onClick={() => {
+                  handleDropdownSelect("Delivery");
+                  handleButtonClick("TIRUNELVELI");
+                }}
+              >
+                Delivery
+              </Dropdown.Item>
+              <Dropdown.Item
+                onClick={() => {
+                  handleDropdownSelect("Installation");
+                  handleButtonClick("TIRUNELVELI");
+                }}
+              >
+                Installation
+              </Dropdown.Item>
+              <Dropdown.Item
+                onClick={() => {
+                  handleDropdownSelect("Courses");
+                  handleButtonClick("TIRUNELVELI");
                 }}
               >
                 Courses
@@ -715,93 +943,87 @@ export default function Final() {
             </DropdownButton>
           </Col>
         </Row>
-     
-        
+
         <Row className="clusterwise-chart-container">
           <div className="twocharts" ref={myDivRef1}>
-          <Col className="bcc">
-            <Clus fid={1001} />
-          </Col>
-          <Col className="bcc">
-            <Clus fid={1002} />
-          </Col>
+            <Col className="bcc">
+              <Clus fid={1001} />
+            </Col>
+            <Col className="bcc">
+              <Clus fid={1002} />
+            </Col>
           </div>
-          
 
-          <div className="twocharts" ref={myDivRef1}>  
-          <Col className="bcc">
-            <Clus fid={2001} />
-          </Col>
-          <Col className="bcc">
-            <Clus fid={2002} />
-          </Col>
-          </div>
-        
           <div className="twocharts" ref={myDivRef1}>
-          <Col className="bcc">
-            <Clus fid={3001} />
-          </Col>
-          <Col className="bcc">
-            <Clus fid={3002} />
-          </Col>
+            <Col className="bcc">
+              <Clus fid={2001} />
+            </Col>
+            <Col className="bcc">
+              <Clus fid={2002} />
+            </Col>
           </div>
-          
+
+          <div className="twocharts" ref={myDivRef1}>
+            <Col className="bcc">
+              <Clus fid={3001} />
+            </Col>
+            <Col className="bcc">
+              <Clus fid={3002} />
+            </Col>
+          </div>
         </Row>
 
         <Row className="downf" id="firsttable" ref={civilRef}>
-   
-        <Carousel slide={false}
+          <Carousel
+            slide={false}
             activeIndex={index}
             onSelect={handleSelect}
             interval={1000000000}
             indicators={false}
-          
           >
             <Carousel.Item>
-            <RenderCivilTech className="tabs" selectedTitle={selectedTitle} />
+              <RenderCivilTech className="tabs" selectedTitle={selectedTitle} />
             </Carousel.Item>
             <Carousel.Item>
-            <RenderCivilWks className="tabs" selectedTitle={selectedTitle} />
+              <RenderCivilWks className="tabs" selectedTitle={selectedTitle} />
             </Carousel.Item>
           </Carousel>
-    
-     
-         
-           
         </Row>
         <Row className="downs" ref={deliveryRef}>
-          <Carousel slide={false}
+          <Carousel
+            slide={false}
             activeIndex={index}
             onSelect={handleSelect}
             interval={1000000000}
             indicators={false}
-           
           >
             <Carousel.Item>
-            <RenderDelTech selectedTitle={selectedTitle} />
+              <RenderDelTech selectedTitle={selectedTitle} />
             </Carousel.Item>
             <Carousel.Item>
-            <RenderDelWks selectedTitle={selectedTitle} />
+              <RenderDelWks selectedTitle={selectedTitle} />
             </Carousel.Item>
           </Carousel>
         </Row>
         <Row className="downt" ref={installationRef}>
-          <Carousel slide={false}
+          <Carousel
+            slide={false}
             activeIndex={index}
             onSelect={handleSelect}
             interval={1000000000}
             indicators={false}
           >
             <Carousel.Item>
-            <RenderInsTech selectedTitle={selectedTitle} />
+              <RenderInsTech selectedTitle={selectedTitle} />
             </Carousel.Item>
             <Carousel.Item>
-            <RenderInsWks selectedTitle={selectedTitle} />
+              <RenderInsWks selectedTitle={selectedTitle} />
             </Carousel.Item>
           </Carousel>
         </Row>
         <Row className="downt" ref={coursesRef}>
-          <Carousel slide={false}
+          <Carousel
+            slide={false}
             activeIndex={index}
             onSelect={handleSelect}
             interval={1000000000}
@@ -809,9 +1031,8 @@ export default function Final() {
             controls={false}
           >
             <Carousel.Item>
-            <RenderCourse selectedTitle={selectedTitle} />
+              <RenderCourse selectedTitle={selectedTitle} />
             </Carousel.Item>
-           
           </Carousel>
         </Row>
       </Container>

@@ -62,7 +62,7 @@ const LastChanges = () => {
   return (
     <div
       className="update-box-style"
-      style={{ width: "15vw", height: "150px", overflow: "auto" }}
+      style={{ width: "15vw", height: "160px", overflow: "auto" }}
     >
       {sortedChanges.map((change) => (
         <div key={change._id}>
@@ -84,7 +84,7 @@ const LastChanges = () => {
           ))}
         </div>
       ))}
-    </div>
+    </div> 
   );
 };
 
