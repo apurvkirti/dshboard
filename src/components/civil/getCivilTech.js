@@ -17,7 +17,7 @@ export default function MyComponent(props) {
       ? process.env.REACT_APP_API_URL_PROD
       : process.env.REACT_APP_API_URL_DEV;
   useEffect(() => {
-  
+   
     const headers = {
       Authorization: `Bearer ${jwt}`,
     };

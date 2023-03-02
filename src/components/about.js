@@ -6,6 +6,7 @@ import NavDropdown from "react-bootstrap/NavDropdown";
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from "react-router-dom";
 
+
 export default function About() {
     let navigate = useNavigate();
     useEffect(() => {
@@ -58,6 +59,10 @@ export default function About() {
         Navigate("/dashboard");
       };
 
+      const handlebihar = () => {
+        window.location.href = 'http://20.204.135.44/dashboard';
+      };
+
   return (
     <>
       <div className="aboutbody">
@@ -83,7 +88,7 @@ export default function About() {
                   </NavDropdown.Item>
                   <NavDropdown.Item>ANDHRA PRADESH</NavDropdown.Item>
                   <NavDropdown.Item>ARUNACHAL PRADESH</NavDropdown.Item>
-                  <NavDropdown.Item >BIHAR</NavDropdown.Item>
+                  <NavDropdown.Item onClick={handlebihar}>BIHAR</NavDropdown.Item>
                   <NavDropdown.Item>CHANDIGARH</NavDropdown.Item>
                   <NavDropdown.Item>CHHATTISGARH</NavDropdown.Item>
                   <NavDropdown.Item>DADRA AND NAGAR HAVELI</NavDropdown.Item>
