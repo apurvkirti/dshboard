@@ -118,7 +118,7 @@ export default function Chart() {
           <div className="firstcontainer">
           <div className="namer">
             <p className="names">Phase 1</p>
-            <p className="names">(60 ITI's)</p>
+            <p className="names">(71 ITI's)</p>
             <p className="names">Project overview</p>
           </div>
           <div className="uploadimage" onClick={handleUpload}>
