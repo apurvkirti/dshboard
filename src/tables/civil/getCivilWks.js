@@ -2,10 +2,10 @@ import TextTruncate from "../truncate";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Icon, Table } from "semantic-ui-react";
-const fId = 2001; // 2 for delivery and 1 for tech
-// const ClustName = "PATNA";
+
 
 export default function MyComponent(props) {
+  const fId = props.formId ;
   const jwt = localStorage.getItem("jwt");
   let ClustName = props.clust ? props.clust : "PATNA";
   const [data, setData] = useState([]);
@@ -28,7 +28,7 @@ export default function MyComponent(props) {
       .catch((error) => {
         console.log(error);
       });
-  }, [ClustName, jwt, apiUrl]);
+  }, [ClustName, jwt, apiUrl,fId]);
 
   // rendering Icon
   function renderIcon(val) {
@@ -42,30 +42,29 @@ export default function MyComponent(props) {
     }
     return <Icon color={color} name="check circle" size="large" />;
   }
-
   const texts = [
-    "Furniture",
-    "Server Rack",
-    "Workstations and Monitors",
-    "Server",
-    "Distance Learning Classroom",
-    "IOT Kit",
-    "IOT Desktops",
-    "3D Printer Technology-1",
-    "3D Printer Technology-2",
-    "Tech Tools Product Design 1",
-    "Tech Tools Product Design 2",
-    "Tech Tools Product Verification 1",
-    "Tech Tools Product Verification 2",
-    "Tech Tools Advance Manufacturing",
-    "E-Learning Platform",
+    "Basic Infra",
+    "Flooring",
+    "Internal Painting",
+    "Windows",
+    "Shutter",
+    "Aluminium Partition",
+    "Air Conditioner (AC)",
+    'Miniature Circuit Breaker (MCB)',
+    "Networking",
+    "Low Tension Panels (LT Panels)",
+    "Electric Supply",
+    'Uninterruptible Power Supply (UPS)',
+    "Diesel Generator Set (DG Set)",
+    "External Painting",
+    "Cleaning",
+    "Floor Painting",
   ];
 
   return (
     <div className="ttop">
       <div>
-        <h2 className="formheader1">TTL Delivery Status</h2>
-
+        <h2 className="formheader">BSBCCL Civil Status</h2>
         <div className="legend">
           Yet to start: <Icon color="grey" name="check circle" size="large" />{" "}
           Work in progress:{" "}
@@ -73,32 +72,31 @@ export default function MyComponent(props) {
           <Icon color="green" name="check circle" size="large" />
         </div>
       </div>
-
-      <Table className="td" celled collapsing striped>
+      <Table className="tc" celled structured collapsing color="orange" striped>
         <Table.Header>
           <Table.Row>
-            <Table.HeaderCell id="base-techlab" rowSpan="3" textAlign="center">
+            <Table.HeaderCell id="base-workshop" rowSpan="3" textAlign="center">
               ITI Name
             </Table.HeaderCell>
-            <Table.HeaderCell id="base-techlab" rowSpan="3" textAlign="center">
+            <Table.HeaderCell id="base-workshop" rowSpan="3" textAlign="center">
               Cluster
             </Table.HeaderCell>
-            <Table.HeaderCell id="base-techlab" rowSpan="3" textAlign="center">
+            <Table.HeaderCell id="base-workshop" rowSpan="3" textAlign="center">
               District
             </Table.HeaderCell>
 
             <Table.HeaderCell
-              id="teclab-heading"
+              id="workshop-heading"
               textAlign="center"
-              colSpan="15"
+              colSpan="16"
             >
-              TECHNOLOGY LAB ( DELIVERY )
+              WORKSHOP ( CIVIL )
             </Table.HeaderCell>
           </Table.Row>
 
           <Table.Row>
-            {texts.map((text, index) => ( 
-              <Table.HeaderCell key={index} id="base-techlab" className="th">
+            {texts.map((text) => (
+              <Table.HeaderCell id="base-workshop" className="th" key={text}>
                 <TextTruncate text={text} limit={15} />
               </Table.HeaderCell>
             ))}
@@ -116,50 +114,52 @@ export default function MyComponent(props) {
                 {/* cells */}
 
                 <Table.Cell className="ttt" textAlign="center" selectable>
-                  {renderIcon(data.Furniture)}
+                  {renderIcon(data.Basic_Infra)}
                 </Table.Cell>
                 <Table.Cell className="ttt" textAlign="center" selectable>
-                  {renderIcon(data.Server_Rack)}
+                  {renderIcon(data.Flooring)}
                 </Table.Cell>
                 <Table.Cell className="ttt" textAlign="center" selectable>
-                  {renderIcon(data.Workstations_and_Monitors)}
+                  {renderIcon(data.Internal_Painting)}
                 </Table.Cell>
                 <Table.Cell className="ttt" textAlign="center" selectable>
-                  {renderIcon(data.Server)}
+                  {renderIcon(data.Windows)}
                 </Table.Cell>
                 <Table.Cell className="ttt" textAlign="center" selectable>
-                  {renderIcon(data.Distance_Learning_Classroom)}
-                </Table.Cell>
-
-                <Table.Cell className="ttt" textAlign="center" selectable>
-                  {renderIcon(data.IOT_Kit)}
+                  {renderIcon(data.Shutter)}
                 </Table.Cell>
                 <Table.Cell className="ttt" textAlign="center" selectable>
-                  {renderIcon(data.IOT_Desktops)}
+                  {renderIcon(data.Aluminium_Partition)}
                 </Table.Cell>
                 <Table.Cell className="ttt" textAlign="center" selectable>
-                  {renderIcon(data.D3_Printer_Tech1)}
+                  {renderIcon(data.AC)}
                 </Table.Cell>
                 <Table.Cell className="ttt" textAlign="center" selectable>
-                  {renderIcon(data.D3_Printer_Tech2)}
+                  {renderIcon(data.MCB)}
                 </Table.Cell>
                 <Table.Cell className="ttt" textAlign="center" selectable>
-                  {renderIcon(data.Tech_Tools_Product_Design1)}
+                  {renderIcon(data.Networking)}
                 </Table.Cell>
                 <Table.Cell className="ttt" textAlign="center" selectable>
-                  {renderIcon(data.Tech_Tools_Product_Design2)}
+                  {renderIcon(data.LT_Pannel)}
                 </Table.Cell>
                 <Table.Cell className="ttt" textAlign="center" selectable>
-                  {renderIcon(data.Tech_Tools_Product_Verification1)}
+                  {renderIcon(data.Electric_Supply)}
                 </Table.Cell>
                 <Table.Cell className="ttt" textAlign="center" selectable>
-                  {renderIcon(data.Tech_Tools_Product_Verification2)}
+                  {renderIcon(data.UPS)}
                 </Table.Cell>
                 <Table.Cell className="ttt" textAlign="center" selectable>
-                  {renderIcon(data.Tech_Tools_Advance_Manufacturing1)}
+                  {renderIcon(data.DG_Set)}
                 </Table.Cell>
                 <Table.Cell className="ttt" textAlign="center" selectable>
-                  {renderIcon(data.E_Learning_Platform)}
+                  {renderIcon(data.External_Painting)}
+                </Table.Cell>
+                <Table.Cell className="ttt" textAlign="center" selectable>
+                  {renderIcon(data.Cleaning)}
+                </Table.Cell>
+                <Table.Cell className="ttt" textAlign="center" selectable>
+                  {renderIcon(data.Floor_Painting)}
                 </Table.Cell>
               </Table.Row>
             );

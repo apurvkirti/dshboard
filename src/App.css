@@ -129,11 +129,11 @@
 
 .carousel-control-next-icon{
   /* margin-left:auto !important; */
-  background-image: url(./components/images/rt.png) !important;
+  background-image: url(./states/bihar/images/rt.png) !important;
 }
 .carousel-control-prev-icon{
   /* margin-right:auto !important; */
-  background-image: url(./components/images/lft.png) !important;
+  background-image: url(./states/bihar/images/lft.png) !important;
 }
 .carousel-control-next-icon, .carousel-control-prev-icon{
   width:4rem !important;
@@ -641,7 +641,7 @@
   width:80px;
   height:50px;
   margin-top:10px;
-  background-image: url(./components/images/titlel.png);
+  background-image: url(./states/bihar/images/titlel.png);
   background-color: #1e1e57;
 }
 .hindi{
@@ -661,7 +661,7 @@
   width:245px;
   height:50px;
   margin-top:10px;
-  background-image: url(./components/images/titlerr2.png);
+  background-image: url(./states/bihar/images/titlerr2.png);
   background-color: #1e1e57;
 }
 
@@ -822,7 +822,8 @@
   position:absolute;
   left:0%;
   top:15vh;
-  background-image: url(./components/images/loginImg5.png);
+
+  background-image: url(./states/bihar/images/loginImg5.png);
    width:70%;
    height: 86vh;
    background-repeat: no-repeat; 

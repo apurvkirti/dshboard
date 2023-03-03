@@ -2,10 +2,11 @@ import TextTruncate from "../truncate";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Icon, Table } from "semantic-ui-react";
-const fId = 3002; // 3 for installation and 2 for wks 
+
 
 
 export default function MyComponent(props) {
+  const fId = props.formId ;
   const jwt = localStorage.getItem("jwt");
   let ClustName = (props.clust)?props.clust:"PATNA";
   const [data, setData] = useState([]);
@@ -27,7 +28,7 @@ export default function MyComponent(props) {
       .catch((error) => {
         console.log(error);
       });
-  }, [ClustName,jwt,apiUrl]);
+  }, [ClustName,jwt,apiUrl,fId]);
 
   // rendering Icon
   function renderIcon(val) {
@@ -41,27 +42,26 @@ export default function MyComponent(props) {
     }
     return <Icon color={color} name="check circle" size="large" />;
   }
-
   const texts = [
-    "Laser Cutter",
-    "PaintBooth",
-    "Car Lift",
-    "Industrial Process Control Unit",
-    "VR Welding & Painting",
-    "Auto MRO Cut Sections",
-    "Battery Electrical Vehicle",
-    "IO Engine Vehicle",
-    "EV Kit (Electronic Vehicle Kit)",
-    "Industrial Robotics Setup",
-    "VFD Machine",
-    "Plumbing Kit",
-    "CNC Machine (Computer Numerical Control)",
-    "VMC Machine (Vertical Machining Center)",
-    "Tools & Meters",
-    "Advance Machining Simulators",
+    "Furniture",
+    "Server Rack",
+    "Workstations and Monitors",
+    "Server",
+    "Distance Learning Classroom",
+    "IOT Kit",
+    "IOT Desktops",
+    "3D Printer Technology-1",
+    "3D Printer Technology-2",
+    "Tech Tools Product Design 1",
+    "Tech Tools Product Design 2",
+    "Tech Tools Product Verification 1",
+    "Tech Tools Product Verification 2",
+    "Tech Tools Advance Manufacturing",
+    "E-Learning Platform",
   ];
+
   return (
-    <div className="ttop">
+    <div className="ttop ">
       <div>
           <h2 className="formheader3">TTL Installation status</h2>
           <div className="legend">Yet to start: <Icon color= "grey" name="check circle" size="large" />  Work in progress: <Icon color="yellow" name="check circle" size="large" />  Completed: <Icon color="green" name="check circle" size="large" /></div>
@@ -72,16 +72,24 @@ export default function MyComponent(props) {
     <Table className="ti" celled collapsing striped>
     <Table.Header>
           <Table.Row>
-            <Table.HeaderCell id="base-workshop"  rowSpan="3" textAlign="center"> ITI Name</Table.HeaderCell>
-            <Table.HeaderCell id="base-workshop" rowSpan="3" textAlign="center"> Cluster</Table.HeaderCell>
-            <Table.HeaderCell id="base-workshop" rowSpan="3" textAlign="center">District</Table.HeaderCell>
-            <Table.HeaderCell id="workshop-heading" textAlign="center" colSpan="16">WORKSHOP ( INSTALLATION )</Table.HeaderCell>
+            <Table.HeaderCell id="base-techlab" rowSpan="3" textAlign="center">
+              ITI Name
+            </Table.HeaderCell>
+            <Table.HeaderCell id="base-techlab" rowSpan="3" textAlign="center">
+              Cluster
+            </Table.HeaderCell>
+            <Table.HeaderCell id="base-techlab" rowSpan="3" textAlign="center">
+              District
+            </Table.HeaderCell>
+
+            <Table.HeaderCell  id="teclab-heading" textAlign="center" colSpan="15">
+              TECHNOLOGY LAB ( INSTALLATION )
+            </Table.HeaderCell>
           </Table.Row>
 
-          
           <Table.Row>
-            {texts.map((text) => (
-              <Table.HeaderCell key={text} id="base-workshop" className="th">
+            {texts.map((text, index) => ( 
+              <Table.HeaderCell key={index} id="base-techlab" className="th">
                 <TextTruncate text={text} limit={15} />
               </Table.HeaderCell>
             ))}
@@ -99,53 +107,52 @@ export default function MyComponent(props) {
             {/* cells */}
 
             <Table.Cell className="ttt" textAlign="center" selectable>
-              {renderIcon(data.Laser_Cutter)}
+              {renderIcon(data.Furniture)}
             </Table.Cell>
             <Table.Cell className="ttt" textAlign="center" selectable>
-              {renderIcon(data.PaintBooth)}
+              {renderIcon(data.Server_Rack)}
             </Table.Cell>
             <Table.Cell className="ttt" textAlign="center" selectable>
-              {renderIcon(data.Car_Lift)}
+              {renderIcon(data.Workstations_and_Monitors)}
             </Table.Cell>
             <Table.Cell className="ttt" textAlign="center" selectable>
-              {renderIcon(data.Industrial_Process_Control_Unit)}
+              {renderIcon(data.Server)}
             </Table.Cell>
             <Table.Cell className="ttt" textAlign="center" selectable>
-              {renderIcon(data.VR_Welding_and_Painting)}
+              {renderIcon(data.Distance_Learning_Classroom)}
+            </Table.Cell>
+      
+            <Table.Cell className="ttt" textAlign="center" selectable>
+              {renderIcon(data.IOT_Kit)}
             </Table.Cell>
             <Table.Cell className="ttt" textAlign="center" selectable>
-              {renderIcon(data.Auto_MRO_Cut_Sections)}
+              {renderIcon(data.IOT_Desktops)}
             </Table.Cell>
             <Table.Cell className="ttt" textAlign="center" selectable>
-              {renderIcon(data.Battery_Electrical_Vehicle)}
+              {renderIcon(data.D3_Printer_Tech1)}
             </Table.Cell>
             <Table.Cell className="ttt" textAlign="center" selectable>
-              {renderIcon(data.IO_Engine_Vehicle)}
+              {renderIcon(data.D3_Printer_Tech2)}
             </Table.Cell>
             <Table.Cell className="ttt" textAlign="center" selectable>
-              {renderIcon(data.EV_Kit)}
+              {renderIcon(data.Tech_Tools_Product_Design1)}
             </Table.Cell>
             <Table.Cell className="ttt" textAlign="center" selectable>
-              {renderIcon(data.Industrial_Robotics_Setup)}
+              {renderIcon(data.Tech_Tools_Product_Design2)}
             </Table.Cell>
             <Table.Cell className="ttt" textAlign="center" selectable>
-              {renderIcon(data.VFD_Machine)}
+              {renderIcon(data.Tech_Tools_Product_Verification1)}
             </Table.Cell>
             <Table.Cell className="ttt" textAlign="center" selectable>
-              {renderIcon(data.Plumbing_Kit)}
+              {renderIcon(data.Tech_Tools_Product_Verification2)}
             </Table.Cell>
             <Table.Cell className="ttt" textAlign="center" selectable>
-              {renderIcon(data.CNC_Machine)}
+              {renderIcon(data.Tech_Tools_Advance_Manufacturing1)}
             </Table.Cell>
             <Table.Cell className="ttt" textAlign="center" selectable>
-              {renderIcon(data.VMC_Machine)}
+              {renderIcon(data.E_Learning_Platform)}
             </Table.Cell>
-            <Table.Cell className="ttt" textAlign="center" selectable>
-              {renderIcon(data.Tools_and_Meters)}
-            </Table.Cell>
-            <Table.Cell className="ttt" textAlign="center" selectable>
-              {renderIcon(data.Advance_Machining_Simulators)}
-            </Table.Cell>
+        
           </Table.Row>
           );
         })}

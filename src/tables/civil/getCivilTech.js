@@ -1,33 +1,36 @@
 import TextTruncate from "../truncate";
+// import TextTruncate from "../../";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Icon, Table } from "semantic-ui-react";
-const fId = 1002; //1 for civil 2 for workshop
+
+
+
 
 export default function MyComponent(props) {
+
   const jwt = localStorage.getItem("jwt");
   let ClustName = props.clust ? props.clust : "PATNA";
+  const fId = props.formId ;
   const [data, setData] = useState([]);
   const apiUrl =
     process.env.NODE_ENV === "production"
       ? process.env.REACT_APP_API_URL_PROD
       : process.env.REACT_APP_API_URL_DEV;
   useEffect(() => {
+  
     const headers = {
       Authorization: `Bearer ${jwt}`,
     };
     axios
-      .get(
-        `${apiUrl}/college/getCluster/?form_Id=${fId}&cluster=${ClustName}`,
-        { headers }
-      )
+      .get(`${apiUrl}/college/getCluster/?form_Id=${fId}&cluster=${ClustName}`, { headers })
       .then((response) => {
         setData(response.data);
       })
       .catch((error) => {
         console.log(error);
       });
-  }, [ClustName, jwt, apiUrl]);
+  }, [ClustName, jwt, apiUrl, fId]);
 
   // rendering Icon
   function renderIcon(val) {
@@ -42,22 +45,21 @@ export default function MyComponent(props) {
     return <Icon color={color} name="check circle" size="large" />;
   }
   const texts = [
-    "Basic Infra",
-    "Flooring",
-    "Internal Painting",
-    "Windows",
-    "Shutter",
-    "Aluminium Partition",
-    "Air Conditioner (AC)",
+    'Basic Infra',
+    'Flooring',
+    'False Ceiling',
+    'Internal Painting',
+    'Windows',
+    'Doors',
+    'Aluminium Partition',
+    'Air Conditioner',
     'Miniature Circuit Breaker (MCB)',
-    "Networking",
-    "Low Tension Panels (LT Panels)",
-    "Electric Supply",
+    'Networking',
+    'LT Pannel',
+    'Electric Supply',
     'Uninterruptible Power Supply (UPS)',
-    "Diesel Generator Set (DG Set)",
-    "External Painting",
-    "Cleaning",
-    "Floor Painting",
+    'External Painting',
+    'Cleaning'
   ];
 
   return (
@@ -71,35 +73,36 @@ export default function MyComponent(props) {
           <Icon color="green" name="check circle" size="large" />
         </div>
       </div>
-      <Table className="tc" celled structured collapsing color="orange" striped>
+
+      <Table className="tc" celled collapsing striped>
         <Table.Header>
           <Table.Row>
-            <Table.HeaderCell id="base-workshop" rowSpan="3" textAlign="center">
+            <Table.HeaderCell id="base-techlab" rowSpan="3" textAlign="center">
               ITI Name
             </Table.HeaderCell>
-            <Table.HeaderCell id="base-workshop" rowSpan="3" textAlign="center">
+            <Table.HeaderCell id="base-techlab" rowSpan="3" textAlign="center">
               Cluster
             </Table.HeaderCell>
-            <Table.HeaderCell id="base-workshop" rowSpan="3" textAlign="center">
+            <Table.HeaderCell id="base-techlab" rowSpan="3" textAlign="center">
               District
             </Table.HeaderCell>
 
             <Table.HeaderCell
-              id="workshop-heading"
+              id="teclab-heading"
               textAlign="center"
-              colSpan="16"
+              colSpan="15"
             >
-              WORKSHOP ( CIVIL )
+              TECHNOLOGY LAB ( CIVIL )
             </Table.HeaderCell>
           </Table.Row>
 
           <Table.Row>
-            {texts.map((text) => (
-              <Table.HeaderCell id="base-workshop" className="th" key={text}>
-                <TextTruncate text={text} limit={15} />
-              </Table.HeaderCell>
-            ))}
-          </Table.Row>
+          {texts.map((text, index) => (
+            <Table.HeaderCell key={index} id = "base-techlab"className="th">
+              <TextTruncate text={text} limit={15} />
+            </Table.HeaderCell>
+          ))}
+        </Table.Row>
         </Table.Header>
 
         <Table.Body>
@@ -119,13 +122,16 @@ export default function MyComponent(props) {
                   {renderIcon(data.Flooring)}
                 </Table.Cell>
                 <Table.Cell className="ttt" textAlign="center" selectable>
+                  {renderIcon(data.False_Ceiling)}
+                </Table.Cell>
+                <Table.Cell className="ttt" textAlign="center" selectable>
                   {renderIcon(data.Internal_Painting)}
                 </Table.Cell>
                 <Table.Cell className="ttt" textAlign="center" selectable>
                   {renderIcon(data.Windows)}
                 </Table.Cell>
                 <Table.Cell className="ttt" textAlign="center" selectable>
-                  {renderIcon(data.Shutter)}
+                  {renderIcon(data.Doors)}
                 </Table.Cell>
                 <Table.Cell className="ttt" textAlign="center" selectable>
                   {renderIcon(data.Aluminium_Partition)}
@@ -149,16 +155,10 @@ export default function MyComponent(props) {
                   {renderIcon(data.UPS)}
                 </Table.Cell>
                 <Table.Cell className="ttt" textAlign="center" selectable>
-                  {renderIcon(data.DG_Set)}
-                </Table.Cell>
-                <Table.Cell className="ttt" textAlign="center" selectable>
                   {renderIcon(data.External_Painting)}
                 </Table.Cell>
                 <Table.Cell className="ttt" textAlign="center" selectable>
                   {renderIcon(data.Cleaning)}
-                </Table.Cell>
-                <Table.Cell className="ttt" textAlign="center" selectable>
-                  {renderIcon(data.Floor_Painting)}
                 </Table.Cell>
               </Table.Row>
             );

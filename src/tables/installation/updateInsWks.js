@@ -3,18 +3,17 @@ import React from "react";
 import { Icon, Table, Dropdown } from "semantic-ui-react";
 import { useEffect, useState } from "react";
 import axios from "axios";
-// import "../stylesheets/del.css";
 
-// import { Link } from "react-router-dom";
 import {
   NotificationManager,
   NotificationContainer,
 } from "react-notifications";
 import "react-notifications/lib/notifications.css";
 
-const form_Id = 2002; //2 for delivery and 2 for workshop
+
 
 export default function UpdateForm(props) {
+  const fId = props.formId ;
   const jwt = localStorage.getItem("jwt");
   let ClustName = props.clust ? props.clust : "PATNA";
   const options = [
@@ -28,6 +27,7 @@ export default function UpdateForm(props) {
     process.env.NODE_ENV === "production"
       ? process.env.REACT_APP_API_URL_PROD
       : process.env.REACT_APP_API_URL_DEV;
+
   useEffect(() => {
     // Fetch prefilled data from the backend
     const headers = {
@@ -35,13 +35,13 @@ export default function UpdateForm(props) {
     };
     axios
       .get(
-        `${apiUrl}/college/getCluster/?form_Id=${form_Id}&cluster=${ClustName}`,
+        `${apiUrl}/college/getCluster/?form_Id=${fId}&cluster=${ClustName}`,
         { headers }
       )
       .then((response) => {
         setAPIData(response.data);
       });
-  }, [ClustName, jwt, apiUrl]);
+  }, [ClustName, jwt, apiUrl,fId]);
   const setData = (data) => {
     let {
       customId,
@@ -133,19 +133,20 @@ export default function UpdateForm(props) {
     //     : process.env.REACT_APP_API_URL_DEV;
     axios
       .patch(
-        `${apiUrl}/college/update_tmp/?id=${customId}&form_Id=${form_Id}`,
+        `${apiUrl}/college/update_tmp/?id=${customId}&form_Id=${fId}`,
         {
           [val]: value,
         },
         { headers }
       )
       .then((res) => {
-        console.log(res);
+        console.log("updated successfully");
       })
       .catch((error) => {
         console.log(error);
       });
   }
+
   const texts = [
     "Laser Cutter",
     "PaintBooth",
@@ -162,14 +163,12 @@ export default function UpdateForm(props) {
     "CNC Machine (Computer Numerical Control)",
     "VMC Machine (Vertical Machining Center)",
     "Tools & Meters",
-    "Advance Machining Simulators"
+    "Advance Machining Simulators",
   ];
-
-
   return (
     <div className="ttop">
       <div>
-        <h2 className="formheader1">TTL Delivery Status</h2>
+        <h2 className="formheader3">TTL Installation status</h2>
         <div className="legend">
           Yet to start: <Icon color="grey" name="check circle" size="large" />{" "}
           Work in progress:{" "}
@@ -177,7 +176,7 @@ export default function UpdateForm(props) {
           <Icon color="green" name="check circle" size="large" />
         </div>
       </div>
-      <Table celled collapsing className="td">
+      <Table celled collapsing className="ti">
         <Table.Header>
           <Table.Row>
             <Table.HeaderCell id="base-workshop" rowSpan="3" textAlign="center">
@@ -196,7 +195,7 @@ export default function UpdateForm(props) {
               textAlign="center"
               colSpan="16"
             >
-              WORKSHOP ( DELIVERY )
+              WORKSHOP ( INSTALLATION )
             </Table.HeaderCell>
           </Table.Row>
 

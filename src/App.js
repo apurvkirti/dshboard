@@ -1,13 +1,12 @@
 import Login from "./Login";
-import Dashboard from "./components/final";
-import Notice from "./components/notice";
-import Upload from "./components/uploadimg";
-import Mail from "./components/sendmail";
-import Gallary from "./components/gallary";
-import Del from "./components/deletenotice";
-import Abt from "./components/about";
-import PDF from "./components/pdfButton";
-import Update from "./components/updatebox";
+import DashboardBihar from "./states/bihar/dashboardBihar";
+// import Notice from "./states/"; not required
+import UploadImgBihar from "./states/bihar/uploadimg";
+import GallaryBihar from "./states/bihar/gallary";
+// import Del from "./components/deletenotice"; not required
+import About from "./about";
+import PDFBihar from "./states/bihar/pdfButton";
+
 
 
 
@@ -26,19 +25,12 @@ function App() {
     <Router>
       <div className="main">
         <Routes>
-          <Route path="/notice" element={<Notice/>}/>
-          <Route path="/dashboard" element={<Dashboard/>} />
+          <Route path="/dashboardBihar" element={<DashboardBihar/>} />
           <Route path="/" element={<Login/>} />
-          <Route path="/upd" element={<Upload/>}/>
-          <Route path="/mail" element={<Mail/>}/>
-          <Route path="/gallary" element={<Gallary/>}/>
-          <Route path="/del" element={<Del/>}/>
-          <Route path="/about" element={<Abt/>}/>
-          <Route path="/pdf" element={<PDF/>}/>
-          <Route path="/update" element={<Update/>}/>
-        
-    
-     
+          <Route path="/uploadImageBihar" element={<UploadImgBihar/>}/>
+          <Route path="/gallaryBihar" element={<GallaryBihar/>}/>
+          <Route path="/about" element={<About/>}/>
+          <Route path="/pdfbihar" element={<PDFBihar/>}/>
         </Routes>
       </div>
     </Router>

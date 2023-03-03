@@ -2,34 +2,33 @@ import TextTruncate from "../truncate";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Icon, Table } from "semantic-ui-react";
-const fId = 1001; // 1 for civil 1 for tech
-
 
 
 export default function MyComponent(props) {
-
+  const fId = props.formId ;
   const jwt = localStorage.getItem("jwt");
   let ClustName = props.clust ? props.clust : "PATNA";
-
   const [data, setData] = useState([]);
   const apiUrl =
     process.env.NODE_ENV === "production"
       ? process.env.REACT_APP_API_URL_PROD
       : process.env.REACT_APP_API_URL_DEV;
   useEffect(() => {
-  
     const headers = {
       Authorization: `Bearer ${jwt}`,
     };
     axios
-      .get(`${apiUrl}/college/getCluster/?form_Id=${fId}&cluster=${ClustName}`, { headers })
+      .get(
+        `${apiUrl}/college/getCluster/?form_Id=${fId}&cluster=${ClustName}`,
+        { headers }
+      )
       .then((response) => {
         setData(response.data);
       })
       .catch((error) => {
         console.log(error);
       });
-  }, [ClustName, jwt, apiUrl]);
+  }, [ClustName, jwt, apiUrl,fId]);
 
   // rendering Icon
   function renderIcon(val) {
@@ -43,28 +42,30 @@ export default function MyComponent(props) {
     }
     return <Icon color={color} name="check circle" size="large" />;
   }
+
   const texts = [
-    'Basic Infra',
-    'Flooring',
-    'False Ceiling',
-    'Internal Painting',
-    'Windows',
-    'Doors',
-    'Aluminium Partition',
-    'Air Conditioner',
-    'Miniature Circuit Breaker (MCB)',
-    'Networking',
-    'LT Pannel',
-    'Electric Supply',
-    'Uninterruptible Power Supply (UPS)',
-    'External Painting',
-    'Cleaning'
+    "Furniture",
+    "Server Rack",
+    "Workstations and Monitors",
+    "Server",
+    "Distance Learning Classroom",
+    "IOT Kit",
+    "IOT Desktops",
+    "3D Printer Technology-1",
+    "3D Printer Technology-2",
+    "Tech Tools Product Design 1",
+    "Tech Tools Product Design 2",
+    "Tech Tools Product Verification 1",
+    "Tech Tools Product Verification 2",
+    "Tech Tools Advance Manufacturing",
+    "E-Learning Platform",
   ];
 
   return (
     <div className="ttop">
       <div>
-        <h2 className="formheader">BSBCCL Civil Status</h2>
+        <h2 className="formheader1">TTL Delivery Status</h2>
+
         <div className="legend">
           Yet to start: <Icon color="grey" name="check circle" size="large" />{" "}
           Work in progress:{" "}
@@ -73,7 +74,7 @@ export default function MyComponent(props) {
         </div>
       </div>
 
-      <Table className="tc" celled collapsing striped>
+      <Table className="td" celled collapsing striped>
         <Table.Header>
           <Table.Row>
             <Table.HeaderCell id="base-techlab" rowSpan="3" textAlign="center">
@@ -91,17 +92,17 @@ export default function MyComponent(props) {
               textAlign="center"
               colSpan="15"
             >
-              TECHNOLOGY LAB ( CIVIL )
+              TECHNOLOGY LAB ( DELIVERY )
             </Table.HeaderCell>
           </Table.Row>
 
           <Table.Row>
-          {texts.map((text, index) => (
-            <Table.HeaderCell key={index} id = "base-techlab"className="th">
-              <TextTruncate text={text} limit={15} />
-            </Table.HeaderCell>
-          ))}
-        </Table.Row>
+            {texts.map((text, index) => ( 
+              <Table.HeaderCell key={index} id="base-techlab" className="th">
+                <TextTruncate text={text} limit={15} />
+              </Table.HeaderCell>
+            ))}
+          </Table.Row>
         </Table.Header>
 
         <Table.Body>
@@ -115,49 +116,50 @@ export default function MyComponent(props) {
                 {/* cells */}
 
                 <Table.Cell className="ttt" textAlign="center" selectable>
-                  {renderIcon(data.Basic_Infra)}
+                  {renderIcon(data.Furniture)}
                 </Table.Cell>
                 <Table.Cell className="ttt" textAlign="center" selectable>
-                  {renderIcon(data.Flooring)}
+                  {renderIcon(data.Server_Rack)}
                 </Table.Cell>
                 <Table.Cell className="ttt" textAlign="center" selectable>
-                  {renderIcon(data.False_Ceiling)}
+                  {renderIcon(data.Workstations_and_Monitors)}
                 </Table.Cell>
                 <Table.Cell className="ttt" textAlign="center" selectable>
-                  {renderIcon(data.Internal_Painting)}
+                  {renderIcon(data.Server)}
                 </Table.Cell>
                 <Table.Cell className="ttt" textAlign="center" selectable>
-                  {renderIcon(data.Windows)}
+                  {renderIcon(data.Distance_Learning_Classroom)}
+                </Table.Cell>
+
+                <Table.Cell className="ttt" textAlign="center" selectable>
+                  {renderIcon(data.IOT_Kit)}
                 </Table.Cell>
                 <Table.Cell className="ttt" textAlign="center" selectable>
-                  {renderIcon(data.Doors)}
+                  {renderIcon(data.IOT_Desktops)}
                 </Table.Cell>
                 <Table.Cell className="ttt" textAlign="center" selectable>
-                  {renderIcon(data.Aluminium_Partition)}
+                  {renderIcon(data.D3_Printer_Tech1)}
                 </Table.Cell>
                 <Table.Cell className="ttt" textAlign="center" selectable>
-                  {renderIcon(data.AC)}
+                  {renderIcon(data.D3_Printer_Tech2)}
                 </Table.Cell>
                 <Table.Cell className="ttt" textAlign="center" selectable>
-                  {renderIcon(data.MCB)}
+                  {renderIcon(data.Tech_Tools_Product_Design1)}
                 </Table.Cell>
                 <Table.Cell className="ttt" textAlign="center" selectable>
-                  {renderIcon(data.Networking)}
+                  {renderIcon(data.Tech_Tools_Product_Design2)}
                 </Table.Cell>
                 <Table.Cell className="ttt" textAlign="center" selectable>
-                  {renderIcon(data.LT_Pannel)}
+                  {renderIcon(data.Tech_Tools_Product_Verification1)}
                 </Table.Cell>
                 <Table.Cell className="ttt" textAlign="center" selectable>
-                  {renderIcon(data.Electric_Supply)}
+                  {renderIcon(data.Tech_Tools_Product_Verification2)}
                 </Table.Cell>
                 <Table.Cell className="ttt" textAlign="center" selectable>
-                  {renderIcon(data.UPS)}
+                  {renderIcon(data.Tech_Tools_Advance_Manufacturing1)}
                 </Table.Cell>
                 <Table.Cell className="ttt" textAlign="center" selectable>
-                  {renderIcon(data.External_Painting)}
-                </Table.Cell>
-                <Table.Cell className="ttt" textAlign="center" selectable>
-                  {renderIcon(data.Cleaning)}
+                  {renderIcon(data.E_Learning_Platform)}
                 </Table.Cell>
               </Table.Row>
             );

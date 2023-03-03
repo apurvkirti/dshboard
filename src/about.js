@@ -55,7 +55,7 @@ export default function About() {
       };
    
       const navtobutton = () => {
-        Navigate("/dashboard");
+        Navigate("/dashboardBihar");
       };
 
   return (
@@ -75,7 +75,7 @@ export default function About() {
                 </Nav.Link>
                 <NavDropdown
                   className="navstates"
-                  title="Select States"
+                  title="Select States / Union Territories"
                   id="basic-nav-dropdown"
                 >
                   <NavDropdown.Item>
@@ -202,9 +202,9 @@ export default function About() {
        
       </div>
 
-      <div className="App-footer">
+      {/* <div className="App-footer">
         Engineering a better world
-      </div>
+      </div> */}
     </>
   );
 }

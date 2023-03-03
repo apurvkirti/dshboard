@@ -2,9 +2,10 @@ import TextTruncate from "../truncate";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Icon, Table } from "semantic-ui-react";
-const fId = 2002; // 2 for delivery and 2 for wks
+
 
 export default function MyComponent(props) {
+  const fId = props.formId ;
   const jwt = localStorage.getItem("jwt");
   let ClustName = props.clust ? props.clust : "PATNA";
   const [data, setData] = useState([]);
@@ -27,7 +28,7 @@ export default function MyComponent(props) {
       .catch((error) => {
         console.log(error);
       });
-  }, [ClustName, jwt, apiUrl]);
+  }, [ClustName, jwt, apiUrl,fId]);
 
   // rendering Icon
   function renderIcon(val) {

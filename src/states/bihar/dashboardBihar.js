@@ -1,4 +1,4 @@
-import "../App.css";
+import "../../App.css";
 import IndChart from "./indchart";
 import Chart from "./chart";
 import Container from "react-bootstrap/Container";
@@ -10,22 +10,22 @@ import { AiFillFilePdf } from "react-icons/ai";
 
 import { Button, Col, Dropdown, DropdownButton, Row } from "react-bootstrap";
 
-import CivilTech from "./civil/getCivilTech";
-import UpdateCivilTech from "./civil/updateCivilTech";
-import UpdateCivilWks from "./civil/updateCivilWks";
-import CivilWks from "./civil/getCivilWks";
+import CivilTech from "../../tables/civil/getCivilTech";
+import UpdateCivilTech from "../../tables/civil/updateCivilTech";
+import UpdateCivilWks from "../../tables/civil/updateCivilWks";
+import CivilWks from "../../tables/civil/getCivilWks";
 
-import DeliveryTech from "./delivery/getDelTech";
-import UpdateDeliveryTech from "./delivery/updateDelTech";
-import UpdateDeliveryWks from "./delivery/updateDelWks";
-import DeliveryWks from "./delivery/getDelWks";
+import DeliveryTech from "../../tables/delivery/getDelTech";
+import UpdateDeliveryTech from "../../tables/delivery/updateDelTech";
+import UpdateDeliveryWks from "../../tables/delivery/updateDelWks";
+import DeliveryWks from "../../tables/delivery/getDelWks";
 
-import InsTech from "./installation/getInsTech";
-import UpdateInsTech from "./installation/updateInsTech";
-import UpdateInsWks from "./installation/updateInsWks";
-import InsWks from "./installation/getInsWks";
-import Courses from "./course";
-import UpdCourses from "./updatecourses"
+import InsTech from "../../tables/installation/getInsTech";
+import UpdateInsTech from "../../tables/installation/updateInsTech";
+import UpdateInsWks from "../../tables/installation/updateInsWks";
+import InsWks from "../../tables/installation/getInsWks";
+import Courses from "../../tables/courses/courseBihar";
+import UpdCourses from "../../tables/courses/updatecoursesBihar"
 import Img from "./imgs";
 
 import Clus from "./clusterChart";
@@ -127,13 +127,13 @@ export default function Final() {
     if (username === "user1" || username === "master_admin" ) {
       return (
         <>
-          <UpdateCivilTech clust={selectedTitle} />
+          <UpdateCivilTech clust={selectedTitle} formId = {1001} />
         </>
       );
     } else {
       return (
         <>
-          <CivilTech clust={selectedTitle} />
+          <CivilTech clust={selectedTitle} formId = {1001} />
         </>
       );
     }
@@ -143,13 +143,13 @@ export default function Final() {
     if (username === "user1" || username === "master_admin") {
       return (
         <>
-          <UpdateCivilWks clust={selectedTitle} />
+          <UpdateCivilWks clust={selectedTitle} formId = {1002} />
         </>
       );
     } else {
       return (
         <>
-          <CivilWks clust={selectedTitle} />
+          <CivilWks clust={selectedTitle} formId = {1002} />
         </>
       );
     }
@@ -158,13 +158,13 @@ export default function Final() {
     if (username === "user2" || username === "master_admin") {
       return (
         <>
-          <UpdateDeliveryTech clust={selectedTitle} />
+          <UpdateDeliveryTech clust={selectedTitle} formId = {2001} />
         </>
       );
     } else {
       return (
         <>
-          <DeliveryTech clust={selectedTitle} />
+          <DeliveryTech clust={selectedTitle} formId = {2001}  />
         </>
       );
     }
@@ -173,13 +173,13 @@ export default function Final() {
     if (username === "user2" || username === "master_admin" ) {
       return (
         <>
-          <UpdateDeliveryWks clust={selectedTitle} />
+          <UpdateDeliveryWks clust={selectedTitle} formId = {2002} />
         </>
       );
     } else {
       return (
         <>
-          <DeliveryWks clust={selectedTitle} />
+          <DeliveryWks clust={selectedTitle} formId = {2002}  />
         </>
       );
     }
@@ -188,13 +188,13 @@ export default function Final() {
     if ( username === "user3" || username === "master_admin") {
       return (
         <>
-          <UpdateInsTech clust={selectedTitle} />
+          <UpdateInsTech clust={selectedTitle} formId = {3001} />
         </>
       );
     } else {
       return (
         <>
-          <InsTech clust={selectedTitle} />
+          <InsTech clust={selectedTitle} formId = {3001} />
         </>
       );
     }
@@ -203,13 +203,13 @@ export default function Final() {
     if (username === "user3" || username === "master_admin") {
       return (
         <>
-          <UpdateInsWks clust={selectedTitle} />
+          <UpdateInsWks clust={selectedTitle} formId = {3002} />
         </>
       );
     } else {
       return (
         <>
-          <InsWks clust={selectedTitle} />
+          <InsWks clust={selectedTitle} formId = {3002} />
         </>
       );
     }

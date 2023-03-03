@@ -12,9 +12,9 @@ import {
 } from "react-notifications";
 import "react-notifications/lib/notifications.css";
 
-const form_Id = 3001; //3 for workshop 1 for tech
 
 export default function UpdateForminsttech(props) {
+  const fId = props.formId ;
   const jwt = localStorage.getItem("jwt");
   let ClustName = props.clust ? props.clust : "PATNA";
 
@@ -36,13 +36,13 @@ export default function UpdateForminsttech(props) {
     };
     axios
       .get(
-        `${apiUrl}/college/getCluster/?form_Id=${form_Id}&cluster=${ClustName}`,
+        `${apiUrl}/college/getCluster/?form_Id=${fId}&cluster=${ClustName}`,
         { headers }
       )
       .then((response) => {
         setAPIData(response.data);
       });
-  }, [ClustName, jwt,apiUrl]);
+  }, [ClustName, jwt,apiUrl,fId]);
   const setData = (data) => {
     let {
       customId,
@@ -137,7 +137,7 @@ export default function UpdateForminsttech(props) {
     //   : process.env.REACT_APP_API_URL_DEV;
     axios
       .patch(
-        `${apiUrl}/college/update_tmp/?id=${customId}&form_Id=${form_Id}`,
+        `${apiUrl}/college/update_tmp/?id=${customId}&form_Id=${fId}`,
         {
           [val]: value,
         },

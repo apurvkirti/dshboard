@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 import Table from "react-bootstrap/Table";
 
 import { useNavigate } from "react-router-dom";
-import "../App.css";
+import "../../App.css";
 
 let civilTechCompleted = 0;
 let civilWorkshopCompleted = 0;
