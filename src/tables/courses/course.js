@@ -3,14 +3,14 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Icon, Table, Popup } from "semantic-ui-react";
 import Button from "react-bootstrap/Button";
-import { FiEdit3 } from "react-icons/fi";
 
 // import { useNavigate } from "react-router-dom";
 
 export default function Course(props) {
   const jwt = localStorage.getItem("jwt");
-  let ClustName = props.clust ? props.clust : "PATNA";
-
+  const state = localStorage.getItem("state");
+  let ClustName = props.clust ? props.clust : (state==="Bihar")? "PATNA": "CHENNAI";
+  const fId = props.form_id;
   const [data, setData] = useState([]);
   const apiUrl =
     process.env.NODE_ENV === "production"
@@ -22,14 +22,14 @@ export default function Course(props) {
       Authorization: `Bearer ${jwt}`,
     };
     axios
-      .get(`${apiUrl}/course/byCluster?Cluster=${ClustName}`, { headers })
+      .get(`${apiUrl}/course/byCluster?Cluster=${ClustName}&form_Id=${fId}`, { headers })
       .then((response) => {
         setData(response.data);
       })
       .catch((error) => {
         console.log(error);
       });
-  }, [ClustName, jwt, apiUrl]);
+  }, [ClustName, jwt, apiUrl, fId]);
 
   function renderIcon(val) {
     let color;
@@ -104,7 +104,6 @@ export default function Course(props) {
   ];
 
   const job = [
-
     "Jr_Product_Designer",
     "Jr_Prod_Designer_Developer",
     "Innovation_Design_Thinking",
@@ -143,7 +142,7 @@ export default function Course(props) {
         </div>
         <Table className="coursestable" celled collapsing>
           <Table.Header>
-          <Table.Row>
+            <Table.Row>
               <Table.HeaderCell textAlign="center">ITI NAME</Table.HeaderCell>
               {headerTitles.map((title, index) => (
                 <Table.HeaderCell key={index} className="th2">
@@ -164,81 +163,23 @@ export default function Course(props) {
                   {job.map((jobTitle) => (
                     <Table.Cell key={jobTitle} textAlign="center" selectable>
                       {data[jobTitle].changeStatus === 1 ? (
-                        <>
-                          <Popup
-                            hoverable
-                            trigger={
-                              <div className="inside">
-                                {renderIcon(data[jobTitle].changeStatus)}
-                              </div>
-                            }
-                            content={
-                              <div style={{ width: "15vw", height: "10vh" }}>
-                                <p>
-                                  Start Date:{" "}
-                                  {formatDate(data[jobTitle].startDate)}
-                                </p>
-                                <p>
-                                  End Date: {formatDate(data[jobTitle].endDate)}
-                                </p>
-                              </div>
-                            }
-                          />
-                          <Popup
-                            trigger={
-                              <div className="inside">
-                                <FiEdit3 />
-                              </div>
-                            }
-                            content={
-                              <div style={{ width: "22vw", height: "25vh" }}>
-                                <form
-                                  className="noticeform"
-                                  onSubmit={(e) =>
-                                    handleSubmit(e, jobTitle, data.customId)
-                                  }
-                                >
-                                  <div className="titlearea">
-                                    Start date:
-                                    <input
-                                      className="inputtitle"
-                                      type="date"
-                                      value={startDate}
-                                      onChange={(e) =>
-                                        setStartDate(e.target.value)
-                                      }
-                                      required
-                                    />
-                                  </div>
-
-                                  <div className="titlearea">
-                                    End Date:
-                                    <input
-                                      className="inputtitle"
-                                      type="date"
-                                      value={endDate}
-                                      onChange={(e) =>
-                                        setEndDate(e.target.value)
-                                      }
-                                      required
-                                    />
-                                  </div>
-
-                                  <div className="buttonnotice">
-                                    <Button
-                                      className="addnotice"
-                                      type="submit"
-                                      variant="primary"
-                                    >
-                                      Click to Add
-                                    </Button>
-                                  </div>
-                                </form>
-                              </div>
-                            }
-                            on="click"
-                          />
-                        </>
+                        <Popup
+                          hoverable
+                          trigger={
+                            <div>{renderIcon(data[jobTitle].changeStatus)}</div>
+                          }
+                          content={
+                            <div style={{ width: "15vw", height: "10vh" }}>
+                              <p>
+                                Start Date:{" "}
+                                {formatDate(data[jobTitle].startDate)}
+                              </p>
+                              <p>
+                                End Date: {formatDate(data[jobTitle].endDate)}
+                              </p>
+                            </div>
+                          }
+                        />
                       ) : (
                         <Popup
                           trigger={
@@ -302,35 +243,3 @@ export default function Course(props) {
     </>
   );
 }
-
-// <Table.Row>
-//           <Table.Cell>Cell1</Table.Cell>
-//           <Table.Cell
-//             onMouseEnter={() => setHovered(true)}
-//             onMouseLeave={() => setHovered(false)}
-//             style={{ position: "absolute"  }}
-//           >
-//             Cellone
-//             {hovered && (
-//               <div className="dropdown-box-1">
-//                 <p>hello world</p>
-//                 <p>
-//                   Lorem ipsum dolor
-//                 </p>
-//               </div>
-//             )}
-//           </Table.Cell>
-//           <Table.Cell>
-//            cell
-//           </Table.Cell>
-//         </Table.Row>
-//         <Table.Row>
-//           <Table.Cell>Cell</Table.Cell>
-//           <Table.Cell>Cell</Table.Cell>
-//           <Table.Cell>Cell</Table.Cell>
-//         </Table.Row>
-//         <Table.Row>
-//           <Table.Cell>Cell</Table.Cell>
-//           <Table.Cell>Cell</Table.Cell>
-//           <Table.Cell>Cell</Table.Cell>
-//         </Table.Row>

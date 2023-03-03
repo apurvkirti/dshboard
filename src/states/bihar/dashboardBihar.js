@@ -24,8 +24,8 @@ import InsTech from "../../tables/installation/getInsTech";
 import UpdateInsTech from "../../tables/installation/updateInsTech";
 import UpdateInsWks from "../../tables/installation/updateInsWks";
 import InsWks from "../../tables/installation/getInsWks";
-import Courses from "../../tables/courses/courseBihar";
-import UpdCourses from "../../tables/courses/updatecoursesBihar"
+import Courses from "../../tables/courses/course";
+import UpdCourses from "../../tables/courses/updatecourse"
 import Img from "./imgs";
 
 import Barchart2 from "./barChart2";
@@ -108,23 +108,23 @@ export default function Final() {
 
 
   function RenderCourse({ selectedTitle }) {
-    if (username === "master_admin" ) {
+    if (username === "master_admin"  ) {
       return (
         <>
-          <UpdCourses clust={selectedTitle} />
+          <UpdCourses clust={selectedTitle}  form_id = {10} />
         </>
       );
     } else {
       return (
         <>
-          <Courses clust={selectedTitle} />
+          <Courses clust={selectedTitle}  form_id = {10}/>
         </>
       );
     }
   }
 
   function RenderCivilTech({ selectedTitle }) {
-    if (username === "user1" || username === "master_admin" ) {
+    if (username === "user1" || username === "master_admin"|| username === "civ_admin_1" ) {
       return (
         <>
           <UpdateCivilTech clust={selectedTitle} formId = {1001} />
@@ -140,7 +140,7 @@ export default function Final() {
   }
 
   function RenderCivilWks({ selectedTitle }) {
-    if (username === "user1" || username === "master_admin") {
+    if (username === "user1" || username === "master_admin" || username === "civ_admin_1" || username === "civ_admin_2") {
       return (
         <>
           <UpdateCivilWks clust={selectedTitle} formId = {1002} />

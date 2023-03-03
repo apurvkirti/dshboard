@@ -24,8 +24,8 @@ import InsTech from "../../tables/installation/getInsTech";
 import UpdateInsTech from "../../tables/installation/updateInsTech";
 import UpdateInsWks from "../../tables/installation/updateInsWks";
 import InsWks from "../../tables/installation/getInsWks";
-import Courses from "../../tables/courses/courseBihar";
-import UpdCourses from "../../tables/courses/updatecoursesBihar";
+import Courses from "../../tables/courses/course";
+import UpdCourses from "../../tables/courses/updatecourse";
 import Img from "./imgs";
 
 import BarChart2 from "./barChart2";
@@ -102,20 +102,20 @@ export default function Final() {
     if (username === "master_admin") {
       return (
         <>
-          <UpdCourses clust={selectedTitle} />
+          <UpdCourses clust={selectedTitle} form_id = {20} />
         </>
       );
     } else {
       return (
         <>
-          <Courses clust={selectedTitle} />
+          <Courses clust={selectedTitle} form_id = {20} />
         </>
       );
     }
   }
 
   function RenderCivilTech({ selectedTitle }) {
-    if (username === "user1" || username === "master_admin") {
+    if (username === "user1" || username === "master_admin" || username === "civ_admin_2") {
       return (
         <>
           <UpdateCivilTech clust={selectedTitle} formId = {4001} />

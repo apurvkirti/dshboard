@@ -25,6 +25,7 @@ const Login = () => {
 
       localStorage.setItem("jwt", response.data.token);
       localStorage.setItem("username", username);
+      localStorage.setItem("state", response.data.state);
       window.location.href = "/about";
     } catch (err) {
       setError(err.response.data.message);

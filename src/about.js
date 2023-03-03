@@ -7,6 +7,8 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from "react-router-dom";
 
 export default function About() {
+  const Stats = localStorage.getItem("state");
+  console.log(Stats);
     let navigate = useNavigate();
     useEffect(() => {
         const token = localStorage.getItem("jwt");
@@ -53,11 +55,13 @@ export default function About() {
         fontWeight: isHighlighted ? 'normal' : 'bold',
         transform: isHighlighted ? 'none': 'scale(0.8)',
       };
-   
-      const navtobutton = () => {
+     
+      const navtobuttonBihar = () => {
+        if(Stats === "Bihar")
         Navigate("/dashboardBihar");
       };
       const navtobuttonTamilNadu = () => {
+        if(Stats === "Tamil_Nadu")
         Navigate("/dashboardTamilNadu");
       };
 
@@ -86,7 +90,7 @@ export default function About() {
                   </NavDropdown.Item>
                   <NavDropdown.Item>ANDHRA PRADESH</NavDropdown.Item>
                   <NavDropdown.Item>ARUNACHAL PRADESH</NavDropdown.Item>
-                  <NavDropdown.Item onClick={navtobutton}>BIHAR</NavDropdown.Item>
+                  <NavDropdown.Item onClick={navtobuttonBihar}>BIHAR</NavDropdown.Item>
                   <NavDropdown.Item>CHANDIGARH</NavDropdown.Item>
                   <NavDropdown.Item>CHHATTISGARH</NavDropdown.Item>
                   <NavDropdown.Item>DADRA AND NAGAR HAVELI</NavDropdown.Item>

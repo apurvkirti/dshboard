@@ -7,7 +7,8 @@ import { Icon, Table } from "semantic-ui-react";
 export default function MyComponent(props) {
   const fId = props.formId ;
   const jwt = localStorage.getItem("jwt");
-  let ClustName = props.clust ? props.clust : "PATNA";
+  const state = localStorage.getItem("state");
+  let ClustName = props.clust ? props.clust : (state==="Bihar")? "PATNA": "CHENNAI";
   const [data, setData] = useState([]);
   const apiUrl =
     process.env.NODE_ENV === "production"

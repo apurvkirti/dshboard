@@ -16,7 +16,8 @@ import "react-notifications/lib/notifications.css";
 export default function UpdateForminsttech(props) {
   const fId = props.formId ;
   const jwt = localStorage.getItem("jwt");
-  let ClustName = props.clust ? props.clust : "PATNA";
+  const state = localStorage.getItem("state");
+  let ClustName = props.clust ? props.clust :(state==="Bihar")? "PATNA": "CHENNAI";
 
   const options = [
     { key: "option1", text: "Yet to Start", value: -1 },

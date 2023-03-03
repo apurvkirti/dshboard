@@ -7,6 +7,7 @@ import axios from "axios";
 
 export default function SimpleSlider({ initialSlide = 0 }) {
   const jwt = localStorage.getItem("jwt");
+  const state = localStorage.getItem("state");
   const [images, setImages] = useState([]);
   const apiUrl =
     process.env.NODE_ENV === "production"
@@ -14,7 +15,7 @@ export default function SimpleSlider({ initialSlide = 0 }) {
       : process.env.REACT_APP_API_URL_DEV;
   useEffect(() => {
     axios
-      .get(`${apiUrl}/cloudImg/allImages`, {
+      .get(`${apiUrl}/cloudImg/allImages?stateName=${state}`, {
         headers: {
           "Content-Type": "application/json",
           Authorization: `Bearer ${jwt}`,
@@ -22,7 +23,7 @@ export default function SimpleSlider({ initialSlide = 0 }) {
       })
       .then((res) => setImages(res.data))
       .catch((err) => console.error(err));
-  }, [jwt, apiUrl]);
+  }, [jwt, apiUrl, state]);
 
   const [hasSetPosition, setHasSetPosition] = useState(false);
   const slider = useRef();
