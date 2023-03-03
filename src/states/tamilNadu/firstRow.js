@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 import Table from "react-bootstrap/Table";
 
 import { useNavigate } from "react-router-dom";
-import "../../App.css";
+
 
 let civilTechCompleted = 0;
 let civilWorkshopCompleted = 0;
@@ -29,17 +29,14 @@ export default function Chart() {
       ? process.env.REACT_APP_API_URL_PROD
       : process.env.REACT_APP_API_URL_DEV;
   useEffect(() => {
-    // const apiUrl1 = `${apiUrl}/college/test/?formCode=1000`;
-    // const apiUrl2 = `${apiUrl}/college/test/?formCode=2000`;
-    // const apiUrl3 = `${apiUrl}/college/test/?formCode=3000`;
     const headers = {
       Authorization: `Bearer ${jwt}`,
     };
 
     Promise.all([
-      axios.get(`${apiUrl}/college/test/?formCode=1000`, { headers }),
-      axios.get(`${apiUrl}/college/test/?formCode=2000`, { headers }),
-      axios.get(`${apiUrl}/college/test/?formCode=3000`, { headers }),
+      axios.get(`${apiUrl}/college/test/?formCode=4000`, { headers }),
+      axios.get(`${apiUrl}/college/test/?formCode=5000`, { headers }),
+      axios.get(`${apiUrl}/college/test/?formCode=6000`, { headers }),
     ])
       .then((responses) => {
         setData1(responses[0].data);
@@ -118,7 +115,7 @@ export default function Chart() {
           <div className="firstcontainer">
           <div className="namer">
             <p className="names">Phase 1</p>
-            <p className="names">(60 ITI's)</p>
+            <p className="names">(71 ITIs)</p>
             <p className="names">Project overview</p>
           </div>
           <div className="uploadimage" onClick={handleUpload}>

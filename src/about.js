@@ -57,6 +57,9 @@ export default function About() {
       const navtobutton = () => {
         Navigate("/dashboardBihar");
       };
+      const navtobuttonTamilNadu = () => {
+        Navigate("/dashboardTamilNadu");
+      };
 
   return (
     <>
@@ -109,7 +112,7 @@ export default function About() {
                   <NavDropdown.Item>PUNJAB</NavDropdown.Item>
                   <NavDropdown.Item>RAJASTHAN</NavDropdown.Item>
                   <NavDropdown.Item>SIKKIM</NavDropdown.Item>
-                  <NavDropdown.Item>TAMIL NADU</NavDropdown.Item>
+                  <NavDropdown.Item onClick={navtobuttonTamilNadu}>TAMIL NADU</NavDropdown.Item>
                   <NavDropdown.Item>TELANGANA</NavDropdown.Item>
                   <NavDropdown.Item>TRIPURA</NavDropdown.Item>
                   <NavDropdown.Item>UTTAR PRADESH</NavDropdown.Item>

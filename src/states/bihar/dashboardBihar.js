@@ -1,6 +1,6 @@
 import "../../App.css";
 import IndChart from "./indchart";
-import Chart from "./chart";
+import FirstRow from "./firstRow";
 import Container from "react-bootstrap/Container";
 import Carousel from "react-bootstrap/Carousel";
 import { useNavigate } from "react-router-dom";
@@ -28,7 +28,7 @@ import Courses from "../../tables/courses/courseBihar";
 import UpdCourses from "../../tables/courses/updatecoursesBihar"
 import Img from "./imgs";
 
-import Clus from "./clusterChart";
+import Barchart2 from "./barChart2";
 import { FiLogOut } from 'react-icons/fi';
 
 
@@ -230,7 +230,7 @@ export default function Final() {
   const [screenshot, setScreenshot] = useState(null);
 
   const handlescreenClick = () => {
-    navigate("/pdf");
+    navigate("/pdfBihar");
   };
     
 
@@ -357,7 +357,7 @@ export default function Final() {
 
         <Row>
           <Col>
-            <Chart />
+            <FirstRow />
           </Col>
         </Row>
         <Row>
@@ -720,29 +720,29 @@ export default function Final() {
         <Row className="clusterwise-chart-container">
           <div className="twocharts" ref={myDivRef1}>
           <Col className="bcc">
-            <Clus fid={1001} />
+            <Barchart2 fid={1001} />
           </Col>
           <Col className="bcc">
-            <Clus fid={1002} />
+            <Barchart2 fid={1002} />
           </Col>
           </div>
           
 
           <div className="twocharts" ref={myDivRef1}>  
           <Col className="bcc">
-            <Clus fid={2001} />
+            <Barchart2 fid={2001} />
           </Col>
           <Col className="bcc">
-            <Clus fid={2002} />
+            <Barchart2 fid={2002} />
           </Col>
           </div>
         
           <div className="twocharts" ref={myDivRef1}>
           <Col className="bcc">
-            <Clus fid={3001} />
+            <Barchart2 fid={3001} />
           </Col>
           <Col className="bcc">
-            <Clus fid={3002} />
+            <Barchart2 fid={3002} />
           </Col>
           </div>
           

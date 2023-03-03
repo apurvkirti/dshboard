@@ -2,7 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { LabelList, BarChart, Bar, XAxis, YAxis, Tooltip } from "recharts";
 
-// const form_Id = 3002;
+
 
 export default function Clus(props) {
   const jwt = localStorage.getItem("jwt");

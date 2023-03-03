@@ -6,7 +6,7 @@ import ChildComponent from "./child";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import Clus from "./clusterChart";
+import Barchart2 from "./barChart2";
 
 const apiUrl =
   process.env.NODE_ENV === "production"
@@ -693,22 +693,22 @@ class DataComponent extends React.Component {
             </div>
             <Row className="clusterwise-chart-container">
               <Col className="bcc">
-                <Clus fid={1001} />
+                <Barchart2 fid={1001} />
               </Col>
               <Col className="bcc">
-                <Clus fid={1002} />
+                <Barchart2 fid={1002} />
               </Col>
               <Col className="bcc">
-                <Clus fid={2001} />
+                <Barchart2 fid={2001} />
               </Col>
               <Col className="bcc">
-                <Clus fid={2002} />
+                <Barchart2 fid={2002} />
               </Col>
               <Col className="bcc">
-                <Clus fid={3001} />
+                <Barchart2 fid={3001} />
               </Col>
               <Col className="bcc">
-                <Clus fid={3002} />
+                <Barchart2 fid={3002} />
               </Col>
             </Row>
           </div>

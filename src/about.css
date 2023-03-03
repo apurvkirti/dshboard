@@ -228,7 +228,7 @@
        color:white !important;
   }
   .logoleft{
-    background-image: url(./states/bihar/images/titlerr.png);
+    background-image: url(./images/titlerr.png);
     width:245px;
     height:50px;
     background-repeat: no-repeat;
@@ -236,7 +236,7 @@
   .logo{
     width:140px;
     height:40px;
-    background-image: url(./states/bihar/images/logo2.png);
+    background-image: url(./images/logo2.png);
 
   }
   .App-footer {
@@ -284,7 +284,7 @@
 }
 .bgimage{
   position:absolute !important;
-  background-image: url(./states/bihar/images/bg2.png);
+  background-image: url(./images/bg2.png);
   background-repeat: no-repeat;
   width:27vw;
   height:55vh;
@@ -402,7 +402,7 @@
   background-color:#001b5b;
   top:290%;
   position:absolute;
-  background-image: url(./states/bihar/images/below7.png);
+  background-image: url(./images/below7.png);
   background-repeat: no-repeat;
   left:-8%;
 }

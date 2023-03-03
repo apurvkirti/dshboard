@@ -1,12 +1,12 @@
 import Login from "./Login";
 import DashboardBihar from "./states/bihar/dashboardBihar";
+import DashboardTamilNadu from "./states/tamilNadu/dashboardTamilNadu";
 // import Notice from "./states/"; not required
-import UploadImgBihar from "./states/bihar/uploadimg";
+import UploadImgBihar from "./states/bihar/uploadimgBihar";
 import GallaryBihar from "./states/bihar/gallary";
 // import Del from "./components/deletenotice"; not required
 import About from "./about";
 import PDFBihar from "./states/bihar/pdfButton";
-
 
 
 
@@ -26,6 +26,7 @@ function App() {
       <div className="main">
         <Routes>
           <Route path="/dashboardBihar" element={<DashboardBihar/>} />
+          <Route path="/dashboardTamilNadu" element={<DashboardTamilNadu/>} />
           <Route path="/" element={<Login/>} />
           <Route path="/uploadImageBihar" element={<UploadImgBihar/>}/>
           <Route path="/gallaryBihar" element={<GallaryBihar/>}/>
