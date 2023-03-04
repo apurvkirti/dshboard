@@ -89,7 +89,7 @@ function ImageUploader() {
   function handleMaster(){
     if(username.startsWith("master")){
       window.alert("Sorry, try with a different user handle")
-      navigate("/dashboardBihar");
+      navigate("/dashboardTamilNadu");
     }
   }
 
