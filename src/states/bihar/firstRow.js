@@ -20,6 +20,7 @@ let insWorkshopCompleted = 0;
 
 export default function Chart() {
   let navigate = useNavigate();
+  const username = localStorage.getItem("username");
   const jwt = localStorage.getItem("jwt");
   const [data1, setData1] = useState([]);
   const [data2, setData2] = useState([]);
@@ -80,7 +81,12 @@ export default function Chart() {
   ];
 
   const handleUpload = () => {
-    navigate("/uploadImageBihar");
+    if (username.startsWith("reg")) {
+      window.alert("Sorry! You are not authorized to access this feature");
+    }else{
+      navigate("/uploadImageBihar");
+    }
+  
   };
 
   const [highlighted1, setHighlighted1] = useState(false);
