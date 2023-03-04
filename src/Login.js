@@ -28,8 +28,8 @@ const Login = () => {
       localStorage.setItem("state", response.data.state);
       window.location.href = "/about";
     } catch (err) {
-      setError(err.response.data.message);
-      console.log(error);
+      setError(err.response.data.error);
+   
     }
   };
 
@@ -79,7 +79,7 @@ const Login = () => {
               Login
             </Button>
           </div>
-          {error && <p>{error}</p>}
+          {error && <div className="error-message">{error}!</div>}
         </form>
       </div>
     </div>

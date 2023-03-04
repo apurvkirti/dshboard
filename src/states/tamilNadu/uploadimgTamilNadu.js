@@ -86,6 +86,12 @@ function ImageUploader() {
       window.alert("Sorry! You are not authorized to access this feature");
     }
   }
+  function handleMaster(){
+    if(username.startsWith("master")){
+      window.alert("Sorry, try with a different user handle")
+      navigate("/dashboardBihar");
+    }
+  }
 
   return (
     <>
@@ -106,7 +112,7 @@ function ImageUploader() {
           value={siteName}
           onChange={handleSiteNameChange}
         />
-        <button type="submit">Upload</button>
+        <button type="submit"  onClick={handleMaster}>Upload</button>
       </form>
     </>
   );

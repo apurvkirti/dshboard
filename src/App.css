@@ -1057,3 +1057,16 @@
 .clickedmotihari{
  border:2px solid grey;
 }
+.error-message{
+  position:absolute;
+  font-weight: 900;
+  z-index: 1001;
+  top:-5%;
+  font-size:1.2rem;
+  left:10%;
+  width:20vw;
+  text-align: center;
+  padding-top:2vh;
+  height:10vh;
+  
+}
