@@ -115,7 +115,7 @@ export default function Final() {
   }
 
   function RenderCivilTech({ selectedTitle }) {
-    if (username.startsWith("civ_admin_2") || username.startsWith("master_admin")) {
+    if (username.startsWith("civ_admin") || username.startsWith("master_admin")) {
       return (
         <>
           <UpdateCivilTech clust={selectedTitle} formId = {4001} />
@@ -131,7 +131,7 @@ export default function Final() {
   }
 
   function RenderCivilWks({ selectedTitle }) {
-    if (username.startsWith("civ_admin_2") || username.startsWith("master_admin")) {
+    if (username.startsWith("civ_admin") || username.startsWith("master_admin")) {
       return (
         <>
           <UpdateCivilWks clust={selectedTitle} formId = {4002}/>
@@ -146,7 +146,7 @@ export default function Final() {
     }
   }
   function RenderDelTech({ selectedTitle }) {
-    if (username.startsWith("del_admin_2") || username.startsWith("master_admin")) {
+    if (username.startsWith("del_admin") || username.startsWith("master_admin")) {
       return (
         <>
           <UpdateDeliveryTech clust={selectedTitle}formId = {5001} />
@@ -161,7 +161,7 @@ export default function Final() {
     }
   }
   function RenderDelWks({ selectedTitle }) {
-    if (username.startsWith("del_admin_2") || username.startsWith("master_admin")) {
+    if (username.startsWith("del_admin") || username.startsWith("master_admin")) {
       return (
         <>
           <UpdateDeliveryWks clust={selectedTitle} formId = {5002} />
@@ -176,7 +176,7 @@ export default function Final() {
     }
   }
   function RenderInsTech({ selectedTitle }) {
-    if (username.startsWith("ins_admin_2") || username.startsWith("master_admin")) {
+    if (username.startsWith("ins_admin") || username.startsWith("master_admin")) {
       return (
         <>
           <UpdateInsTech clust={selectedTitle} formId = {6001}/>
@@ -191,7 +191,7 @@ export default function Final() {
     }
   }
   function RenderInsWks({ selectedTitle }) {
-    if (username.startsWith("ins_admin_2") || username.startsWith("master_admin")) {
+    if (username.startsWith("ins_admin") || username.startsWith("master_admin")) {
       return (
         <>
           <UpdateInsWks clust={selectedTitle} formId = {6002}/>
