@@ -34,7 +34,7 @@ export default function MyComponent(props) {
       });
   }, [ClustName, jwt, apiUrl, fId]);
 
-  // rendering Icon
+  // rendering Icon 
   function renderIcon(val) {
     let color;
     if (val === -1) {

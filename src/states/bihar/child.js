@@ -4,6 +4,10 @@ export default function ChildComponent(props){
 
     const arr = ["...","KATIHAR", "MOTIHARI", "MUZAFFARPUR", "MUNGER", "NALANDA", "PATNA", "ROHTAS", "SUPAUL"];
     function  handleHeading(num){
+      if(num===0){
+        return  <p className='childheading'>{arr[(props.cnum ===0)?0:props.cnum-8+1]} 
+        </p>
+      }
       if(num === 1){
         return  <p className='childheading'>{arr[(props.cnum ===0)?0:props.cnum-8+1]} 
         <span className='heading-number'>(7/60)</span>

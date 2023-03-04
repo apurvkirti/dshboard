@@ -7,7 +7,7 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Barchart2 from "./barChart2";
-
+import { Icon } from "semantic-ui-react";
 const apiUrl =
   process.env.NODE_ENV === "production"
     ? process.env.REACT_APP_API_URL_PROD
@@ -590,6 +590,20 @@ class DataComponent extends React.Component {
       "Advance_Machining_Simulators",
     ];
 
+    function renderIcon(val) {
+      let color;
+      if (val === -1) {
+        color = "grey";
+        return <Icon color={color} name="square" />;
+      } else if (val === 0) {
+        color = "yellow";
+        return <Icon color={color} name="clock"  />;
+      } else if (val === 1) {
+        color = "green";
+        return <Icon color={color} name="check circle" />;
+      }
+    }
+
     return (
       <div className="full-container">
         <div className="onepage">
@@ -739,7 +753,9 @@ class DataComponent extends React.Component {
                     </td>
                     {cellContentsCivilTech.map((content) => (
                       <td style={thStyle} className="table-data">
-                        {data[content]}
+                      
+                       {renderIcon(data[content])}
+             
                       </td>
                     ))}
                   </tr>
@@ -770,7 +786,7 @@ class DataComponent extends React.Component {
                     </td>
                     {cellContentsDelTech.map((content) => (
                       <td style={thStyle} className="table-data">
-                        {data[content]}
+                        {renderIcon(data[content])}
                       </td>
                     ))}
                   </tr>
@@ -801,7 +817,7 @@ class DataComponent extends React.Component {
                     </td>
                     {cellContentsDelTech.map((content) => (
                       <td style={thStyle} className="table-data">
-                        {data[content]}
+                        {renderIcon(data[content])}
                       </td>
                     ))}
                   </tr>
@@ -837,7 +853,7 @@ class DataComponent extends React.Component {
                     </td>
                     {cellContentsCivilWks.map((content) => (
                       <td style={thStyle} className="table-data">
-                        {data[content]}
+                        {renderIcon(data[content])}
                       </td>
                     ))}
                   </tr>
@@ -868,7 +884,7 @@ class DataComponent extends React.Component {
                     </td>
                     {cellContentsDelWks.map((content) => (
                       <td style={thStyle} className="table-data">
-                        {data[content]}
+                        {renderIcon(data[content])}
                       </td>
                     ))}
                   </tr>
@@ -899,7 +915,7 @@ class DataComponent extends React.Component {
                     </td>
                     {cellContentsDelWks.map((content) => (
                       <td style={thStyle} className="table-data">
-                        {data[content]}
+                        {renderIcon(data[content])}
                       </td>
                     ))}
                   </tr>
@@ -937,7 +953,7 @@ class DataComponent extends React.Component {
                     </td>
                     {cellContentsCivilTech.map((content) => (
                       <td style={thStyle} className="table-data">
-                        {data[content]}
+                        {renderIcon(data[content])}
                       </td>
                     ))}
                   </tr>
@@ -968,7 +984,7 @@ class DataComponent extends React.Component {
                     </td>
                     {cellContentsDelTech.map((content) => (
                       <td style={thStyle} className="table-data">
-                        {data[content]}
+                        {renderIcon(data[content])}
                       </td>
                     ))}
                   </tr>
@@ -999,7 +1015,7 @@ class DataComponent extends React.Component {
                     </td>
                     {cellContentsDelTech.map((content) => (
                       <td style={thStyle} className="table-data">
-                        {data[content]}
+                        {renderIcon(data[content])}
                       </td>
                     ))}
                   </tr>
@@ -1035,7 +1051,7 @@ class DataComponent extends React.Component {
                     </td>
                     {cellContentsCivilWks.map((content) => (
                       <td style={thStyle} className="table-data">
-                        {data[content]}
+                        {renderIcon(data[content])}
                       </td>
                     ))}
                   </tr>
@@ -1066,7 +1082,7 @@ class DataComponent extends React.Component {
                     </td>
                     {cellContentsDelWks.map((content) => (
                       <td style={thStyle} className="table-data">
-                        {data[content]}
+                        {renderIcon(data[content])}
                       </td>
                     ))}
                   </tr>
@@ -1097,7 +1113,7 @@ class DataComponent extends React.Component {
                     </td>
                     {cellContentsDelWks.map((content) => (
                       <td style={thStyle} className="table-data">
-                        {data[content]}
+                        {renderIcon(data[content])}
                       </td>
                     ))}
                   </tr>
@@ -1135,7 +1151,7 @@ class DataComponent extends React.Component {
                     </td>
                     {cellContentsCivilTech.map((content) => (
                       <td style={thStyle} className="table-data">
-                        {data[content]}
+                        {renderIcon(data[content])}
                       </td>
                     ))}
                   </tr>
@@ -1166,7 +1182,7 @@ class DataComponent extends React.Component {
                     </td>
                     {cellContentsDelTech.map((content) => (
                       <td style={thStyle} className="table-data">
-                        {data[content]}
+                        {renderIcon(data[content])}
                       </td>
                     ))}
                   </tr>
@@ -1197,7 +1213,7 @@ class DataComponent extends React.Component {
                     </td>
                     {cellContentsDelTech.map((content) => (
                       <td style={thStyle} className="table-data">
-                        {data[content]}
+                        {renderIcon(data[content])}
                       </td>
                     ))}
                   </tr>
@@ -1233,7 +1249,7 @@ class DataComponent extends React.Component {
                     </td>
                     {cellContentsCivilWks.map((content) => (
                       <td style={thStyle} className="table-data">
-                        {data[content]}
+                        {renderIcon(data[content])}
                       </td>
                     ))}
                   </tr>
@@ -1264,7 +1280,7 @@ class DataComponent extends React.Component {
                     </td>
                     {cellContentsDelWks.map((content) => (
                       <td style={thStyle} className="table-data">
-                        {data[content]}
+                        {renderIcon(data[content])}
                       </td>
                     ))}
                   </tr>
@@ -1295,7 +1311,7 @@ class DataComponent extends React.Component {
                     </td>
                     {cellContentsDelWks.map((content) => (
                       <td style={thStyle} className="table-data">
-                        {data[content]}
+                        {renderIcon(data[content])}
                       </td>
                     ))}
                   </tr>
@@ -1333,7 +1349,7 @@ class DataComponent extends React.Component {
                     </td>
                     {cellContentsCivilTech.map((content) => (
                       <td style={thStyle} className="table-data">
-                        {data[content]}
+                        {renderIcon(data[content])}
                       </td>
                     ))}
                   </tr>
@@ -1364,7 +1380,7 @@ class DataComponent extends React.Component {
                     </td>
                     {cellContentsDelTech.map((content) => (
                       <td style={thStyle} className="table-data">
-                        {data[content]}
+                        {renderIcon(data[content])}
                       </td>
                     ))}
                   </tr>
@@ -1395,7 +1411,7 @@ class DataComponent extends React.Component {
                     </td>
                     {cellContentsDelTech.map((content) => (
                       <td style={thStyle} className="table-data">
-                        {data[content]}
+                        {renderIcon(data[content])}
                       </td>
                     ))}
                   </tr>
@@ -1431,7 +1447,7 @@ class DataComponent extends React.Component {
                     </td>
                     {cellContentsCivilWks.map((content) => (
                       <td style={thStyle} className="table-data">
-                        {data[content]}
+                        {renderIcon(data[content])}
                       </td>
                     ))}
                   </tr>
@@ -1462,7 +1478,7 @@ class DataComponent extends React.Component {
                     </td>
                     {cellContentsDelWks.map((content) => (
                       <td style={thStyle} className="table-data">
-                        {data[content]}
+                        {renderIcon(data[content])}
                       </td>
                     ))}
                   </tr>
@@ -1493,7 +1509,7 @@ class DataComponent extends React.Component {
                     </td>
                     {cellContentsDelWks.map((content) => (
                       <td style={thStyle} className="table-data">
-                        {data[content]}
+                        {renderIcon(data[content])}
                       </td>
                     ))}
                   </tr>
@@ -1530,7 +1546,7 @@ class DataComponent extends React.Component {
                     </td>
                     {cellContentsCivilTech.map((content) => (
                       <td style={thStyle} className="table-data">
-                        {data[content]}
+                        {renderIcon(data[content])}
                       </td>
                     ))}
                   </tr>
@@ -1561,7 +1577,7 @@ class DataComponent extends React.Component {
                     </td>
                     {cellContentsDelTech.map((content) => (
                       <td style={thStyle} className="table-data">
-                        {data[content]}
+                        {renderIcon(data[content])}
                       </td>
                     ))}
                   </tr>
@@ -1592,7 +1608,7 @@ class DataComponent extends React.Component {
                     </td>
                     {cellContentsDelTech.map((content) => (
                       <td style={thStyle} className="table-data">
-                        {data[content]}
+                        {renderIcon(data[content])}
                       </td>
                     ))}
                   </tr>
@@ -1628,7 +1644,7 @@ class DataComponent extends React.Component {
                     </td>
                     {cellContentsCivilWks.map((content) => (
                       <td style={thStyle} className="table-data">
-                        {data[content]}
+                        {renderIcon(data[content])}
                       </td>
                     ))}
                   </tr>
@@ -1659,7 +1675,7 @@ class DataComponent extends React.Component {
                     </td>
                     {cellContentsDelWks.map((content) => (
                       <td style={thStyle} className="table-data">
-                        {data[content]}
+                        {renderIcon(data[content])}
                       </td>
                     ))}
                   </tr>
@@ -1690,7 +1706,7 @@ class DataComponent extends React.Component {
                     </td>
                     {cellContentsDelWks.map((content) => (
                       <td style={thStyle} className="table-data">
-                        {data[content]}
+                        {renderIcon(data[content])}
                       </td>
                     ))}
                   </tr>
@@ -1728,7 +1744,7 @@ class DataComponent extends React.Component {
                     </td>
                     {cellContentsCivilTech.map((content) => (
                       <td style={thStyle} className="table-data">
-                        {data[content]}
+                        {renderIcon(data[content])}
                       </td>
                     ))}
                   </tr>
@@ -1759,7 +1775,7 @@ class DataComponent extends React.Component {
                     </td>
                     {cellContentsDelTech.map((content) => (
                       <td style={thStyle} className="table-data">
-                        {data[content]}
+                        {renderIcon(data[content])}
                       </td>
                     ))}
                   </tr>
@@ -1790,7 +1806,7 @@ class DataComponent extends React.Component {
                     </td>
                     {cellContentsDelTech.map((content) => (
                       <td style={thStyle} className="table-data">
-                        {data[content]}
+                        {renderIcon(data[content])}
                       </td>
                     ))}
                   </tr>
@@ -1826,7 +1842,7 @@ class DataComponent extends React.Component {
                     </td>
                     {cellContentsCivilWks.map((content) => (
                       <td style={thStyle} className="table-data">
-                        {data[content]}
+                        {renderIcon(data[content])}
                       </td>
                     ))}
                   </tr>
@@ -1857,7 +1873,7 @@ class DataComponent extends React.Component {
                     </td>
                     {cellContentsDelWks.map((content) => (
                       <td style={thStyle} className="table-data">
-                        {data[content]}
+                        {renderIcon(data[content])}
                       </td>
                     ))}
                   </tr>
@@ -1888,7 +1904,7 @@ class DataComponent extends React.Component {
                     </td>
                     {cellContentsDelWks.map((content) => (
                       <td style={thStyle} className="table-data">
-                        {data[content]}
+                        {renderIcon(data[content])}
                       </td>
                     ))}
                   </tr>
@@ -1926,7 +1942,7 @@ class DataComponent extends React.Component {
                     </td>
                     {cellContentsCivilTech.map((content) => (
                       <td style={thStyle} className="table-data">
-                        {data[content]}
+                        {renderIcon(data[content])}
                       </td>
                     ))}
                   </tr>
@@ -1957,7 +1973,7 @@ class DataComponent extends React.Component {
                     </td>
                     {cellContentsDelTech.map((content) => (
                       <td style={thStyle} className="table-data">
-                        {data[content]}
+                        {renderIcon(data[content])}
                       </td>
                     ))}
                   </tr>
@@ -1988,7 +2004,7 @@ class DataComponent extends React.Component {
                     </td>
                     {cellContentsDelTech.map((content) => (
                       <td style={thStyle} className="table-data">
-                        {data[content]}
+                        {renderIcon(data[content])}
                       </td>
                     ))}
                   </tr>
@@ -2024,7 +2040,7 @@ class DataComponent extends React.Component {
                     </td>
                     {cellContentsCivilWks.map((content) => (
                       <td style={thStyle} className="table-data">
-                        {data[content]}
+                        {renderIcon(data[content])}
                       </td>
                     ))}
                   </tr>
@@ -2055,7 +2071,7 @@ class DataComponent extends React.Component {
                     </td>
                     {cellContentsDelWks.map((content) => (
                       <td style={thStyle} className="table-data">
-                        {data[content]}
+                        {renderIcon(data[content])}
                       </td>
                     ))}
                   </tr>
@@ -2086,7 +2102,7 @@ class DataComponent extends React.Component {
                     </td>
                     {cellContentsDelWks.map((content) => (
                       <td style={thStyle} className="table-data">
-                        {data[content]}
+                        {renderIcon(data[content])}
                       </td>
                     ))}
                   </tr>
@@ -2124,7 +2140,7 @@ class DataComponent extends React.Component {
                     </td>
                     {cellContentsCivilTech.map((content) => (
                       <td style={thStyle} className="table-data">
-                        {data[content]}
+                        {renderIcon(data[content])}
                       </td>
                     ))}
                   </tr>
@@ -2155,7 +2171,7 @@ class DataComponent extends React.Component {
                     </td>
                     {cellContentsDelTech.map((content) => (
                       <td style={thStyle} className="table-data">
-                        {data[content]}
+                        {renderIcon(data[content])}
                       </td>
                     ))}
                   </tr>
@@ -2186,7 +2202,7 @@ class DataComponent extends React.Component {
                     </td>
                     {cellContentsDelTech.map((content) => (
                       <td style={thStyle} className="table-data">
-                        {data[content]}
+                        {renderIcon(data[content])}
                       </td>
                     ))}
                   </tr>
@@ -2222,7 +2238,7 @@ class DataComponent extends React.Component {
                     </td>
                     {cellContentsCivilWks.map((content) => (
                       <td style={thStyle} className="table-data">
-                        {data[content]}
+                        {renderIcon(data[content])}
                       </td>
                     ))}
                   </tr>
@@ -2253,7 +2269,7 @@ class DataComponent extends React.Component {
                     </td>
                     {cellContentsDelWks.map((content) => (
                       <td style={thStyle} className="table-data">
-                        {data[content]}
+                        {renderIcon(data[content])}
                       </td>
                     ))}
                   </tr>
@@ -2284,7 +2300,7 @@ class DataComponent extends React.Component {
                     </td>
                     {cellContentsDelWks.map((content) => (
                       <td style={thStyle} className="table-data">
-                        {data[content]}
+                        {renderIcon(data[content])}
                       </td>
                     ))}
                   </tr>
