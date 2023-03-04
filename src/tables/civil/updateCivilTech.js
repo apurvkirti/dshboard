@@ -158,11 +158,14 @@ export default function UpdateForm(props) {
     'External Painting',
     'Cleaning'
   ];
+
+
+
   return (
     <div className="ttop">
       <div>
 
-      <h2 className="formheader">BSBCCL CIVIL STATUS</h2>
+      <h2 className="formheader">CIVIL STATUS</h2>
       <div className="legend">Yet to start: <Icon color= "grey" name="square outline" size="large" />  Work in progress: <Icon color="yellow" name="check circle" size="large" />  Completed: <Icon color="green" name="check circle" size="large" /></div>
 
       </div>

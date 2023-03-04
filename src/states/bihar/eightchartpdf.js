@@ -6,42 +6,42 @@ export default function ChildComponent(props){
     function  handleHeading(num){
       if(num === 1){
         return  <p className='childheading'>{arr[(props.cnum ===0)?0:props.cnum-8+1]} 
-        <span className='heading-number'>(7/60)</span>
+        <span className='heading-number'></span>
         </p>
       }
       else if(num === 2){
         return  <p className='childheading'>{arr[(props.cnum ===0)?0:props.cnum-8+1]} 
-        <span className='heading-number'>(7/60)</span>
+        <span className='heading-number'></span>
         </p>
       }
       else if(num === 3){
         return <p className='childheading-muzz'>{arr[(props.cnum ===0)?0:props.cnum-8+1]} 
-        <span className='heading-number-muzz'>(9/60)</span>
+        <span className='heading-number-muzz'></span>
         </p>
       }
       else if(num === 4){
         return  <p className='childheading'>{arr[(props.cnum ===0)?0:props.cnum-8+1]} 
-        <span className='heading-number'>(8/60)</span>
+        <span className='heading-number'></span>
         </p>
       }
       else if(num === 5){
         return  <p className='childheading'>{arr[(props.cnum ===0)?0:props.cnum-8+1]} 
-        <span className='heading-number'>(8/60)</span>
+        <span className='heading-number'></span>
         </p>
       }
       else if(num === 6){
         return  <p className='childheading'>{arr[(props.cnum ===0)?0:props.cnum-8+1]} 
-        <span className='heading-number'>(9/60)</span>
+        <span className='heading-number'></span>
         </p>
       }
       else if(num === 7){
         return  <p className='childheading'>{arr[(props.cnum ===0)?0:props.cnum-8+1]} 
-        <span className='heading-number'>(6/60)</span>
+        <span className='heading-number'></span>
         </p>
       }
       else {
         return  <p className='childheading'>{arr[(props.cnum ===0)?0:props.cnum-8+1]} 
-        <span className='heading-number'>(6/60)</span>
+        <span className='heading-number'></span>
         </p>
       }
    
@@ -69,7 +69,7 @@ export default function ChildComponent(props){
             
             <td>{props.data[props.cnum][1][0]} %</td>
             <td>{props.data[props.cnum][1][1]} %</td>
-       
+        
           </tr>
           <tr>
             <td>{props.data[props.cnum][2][0]} %</td>

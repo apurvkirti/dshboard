@@ -156,7 +156,7 @@ export default function UpdateForm(props) {
   return (
     <div className="ttop">
       <div>
-        <h2 className="formheader">BSBCCL CIVIL STATUS</h2>
+        <h2 className="formheader">CIVIL STATUS</h2>
         <div className="legend">
           Yet to start: <Icon color="grey" name="square outline" size="large" />{" "}
           Work in progress:{" "}

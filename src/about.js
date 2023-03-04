@@ -117,7 +117,7 @@ export default function About() {
                   <NavDropdown.Item>MEGHALAYA</NavDropdown.Item>
                   <NavDropdown.Item>MIZORAM</NavDropdown.Item>
                   <NavDropdown.Item>NAGALAND</NavDropdown.Item>
-                  <NavDropdown.Item>ASSODISHAAM</NavDropdown.Item>
+                  <NavDropdown.Item>ODISHA</NavDropdown.Item>
                   <NavDropdown.Item>PUDUCHERRY</NavDropdown.Item>
                   <NavDropdown.Item>PUNJAB</NavDropdown.Item>
                   <NavDropdown.Item>RAJASTHAN</NavDropdown.Item>
@@ -140,15 +140,15 @@ export default function About() {
           <div className="bgimage"></div>
           <div className="contenth0">EDUCATION AND SKILL DEVELOPMENT</div>
           <div className="contenth1">Realizing the </div>
-          <div className="contenth2">next generation of talent </div>
-          <div className="content1">
+          <div className="contenth2">Next Generation of Talent </div>
+          {/* <div className="content1">
             The manufacturing industry is in need of skilled talent. We engage
             in academia and industry collaboration to help the engineers of the
             future gain new skills.
-          </div>
+          </div> */}
         </div>
       </div>
-      <div className="abt2">
+      {/* <div className="abt2">
         <div className="content2h1">
           Overview : TTL Education & Skill Development Initiative's
         </div>
@@ -183,9 +183,9 @@ export default function About() {
           with the latest engineering and manufacturing technologies under
           Industry 4.0
         </div>
-      </div>
+      </div> */}
 
-      <div className="abt3">
+      {/* <div className="abt3">
         <div className="content3h1">Offerings:</div>
         <div className="content3h2">
           Upskilling -Competency Centers of Excellence
@@ -210,10 +210,10 @@ export default function About() {
           develop competitive products.
         </div>
      
-      </div>
-      <div className="abt4">
+      </div> */}
+      {/* <div className="abt4">
        
-      </div>
+      </div> */}
 
       {/* <div className="App-footer">
         Engineering a better world

@@ -756,22 +756,22 @@ class DataComponent extends React.Component {
            
             <Row className="clusterwise-chart-container">
               <Col className="bcc">
-                <Barchart2 fid={1001} />
+                <Barchart2 fid={4001} />
               </Col>
               <Col className="bcc">
-                <Barchart2 fid={1002} />
+                <Barchart2 fid={4002} />
               </Col>
               <Col className="bcc">
-                <Barchart2 fid={2001} />
+                <Barchart2 fid={5001} />
               </Col>
               <Col className="bcc">
-                <Barchart2 fid={2002} />
+                <Barchart2 fid={5002} />
               </Col>
               <Col className="bcc">
-                <Barchart2 fid={3001} />
+                <Barchart2 fid={6001} />
               </Col>
               <Col className="bcc">
-                <Barchart2 fid={3002} />
+                <Barchart2 fid={6002} />
               </Col>
             </Row>
           </div>

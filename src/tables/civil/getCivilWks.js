@@ -63,11 +63,12 @@ export default function MyComponent(props) {
     "Cleaning",
     "Floor Painting",
   ];
+ 
 
   return (
     <div className="ttop">
       <div>
-        <h2 className="formheader">BSBCCL Civil Status</h2>
+      <h2 className="formheader">CIVIL STATUS</h2>
         <div className="legend">
           Yet to start: <Icon color="grey" name="square outline" size="large" />{" "}
           Work in progress:{" "}

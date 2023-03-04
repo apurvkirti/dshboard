@@ -2,7 +2,7 @@ import "./pdf.css";
 import Table from "react-bootstrap/Table";
 import React from "react";
 import axios from "axios";
-import ChildComponent from "./child";
+import ChildComponent from "./eightchartpdf";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";

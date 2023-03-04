@@ -84,7 +84,7 @@ export default function Clus(props) {
             <LabelList dataKey="YTS" position="top" />
           </Bar>
         </BarChart>
-        <h1 className="stats">No. {getname(props.fid)} Status</h1>
+        <h1 className="stats">{getname(props.fid)} Status</h1>
       </div>
     </>
   );
