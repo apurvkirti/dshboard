@@ -12,9 +12,13 @@
     writing-mode:vertical-lr !important;
     transform: rotate(180deg);
 padding:0px;
+padding:0px;
+padding-right:8px !important;
 }
+.table-data{
+    padding-left:12px !important;
+ }
 .btt{
-
   position:absolute !important;
   top:55%;
   left:46%;
