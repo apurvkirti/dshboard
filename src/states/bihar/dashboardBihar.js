@@ -108,7 +108,7 @@ export default function Final() {
 
 
   function RenderCourse({ selectedTitle }) {
-    if (username === "master_admin"  ) {
+    if ( username.startsWith("master_admin") ) {
       return (
         <>
           <UpdCourses clust={selectedTitle}  form_id = {10} />
@@ -124,7 +124,7 @@ export default function Final() {
   }
 
   function RenderCivilTech({ selectedTitle }) {
-    if (username === "user1" || username === "master_admin"|| username === "civ_admin_1" ) {
+    if (username.startsWith("civ_admin_1") || username.startsWith("master_admin")) {
       return (
         <>
           <UpdateCivilTech clust={selectedTitle} formId = {1001} />
@@ -140,7 +140,7 @@ export default function Final() {
   }
 
   function RenderCivilWks({ selectedTitle }) {
-    if (username === "user1" || username === "master_admin" || username === "civ_admin_1" || username === "civ_admin_2") {
+    if (username.startsWith("civ_admin_1") || username.startsWith("master_admin")) {
       return (
         <>
           <UpdateCivilWks clust={selectedTitle} formId = {1002} />
@@ -155,7 +155,7 @@ export default function Final() {
     }
   }
   function RenderDelTech({ selectedTitle }) {
-    if (username === "user2" || username === "master_admin") {
+    if (username.startsWith("del_admin_1") || username.startsWith("master_admin")) {
       return (
         <>
           <UpdateDeliveryTech clust={selectedTitle} formId = {2001} />
@@ -170,7 +170,7 @@ export default function Final() {
     }
   }
   function RenderDelWks({ selectedTitle }) {
-    if (username === "user2" || username === "master_admin" ) {
+    if (username.startsWith("del_admin_1") || username.startsWith("master_admin")) {
       return (
         <>
           <UpdateDeliveryWks clust={selectedTitle} formId = {2002} />
@@ -185,7 +185,7 @@ export default function Final() {
     }
   }
   function RenderInsTech({ selectedTitle }) {
-    if ( username === "user3" || username === "master_admin") {
+    if (username.startsWith("ins_admin_1") || username.startsWith("master_admin")) {
       return (
         <>
           <UpdateInsTech clust={selectedTitle} formId = {3001} />
@@ -200,7 +200,7 @@ export default function Final() {
     }
   }
   function RenderInsWks({ selectedTitle }) {
-    if (username === "user3" || username === "master_admin") {
+    if (username.startsWith("ins_admin_1") || username.startsWith("master_admin")) {
       return (
         <>
           <UpdateInsWks clust={selectedTitle} formId = {3002} />
@@ -226,8 +226,7 @@ export default function Final() {
   //screenshot:
   
   const targetRef = useRef(null);
-  // eslint-disable-next-line
-  const [screenshot, setScreenshot] = useState(null);
+
 
   const handlescreenClick = () => {
     navigate("/pdfBihar");

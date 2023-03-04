@@ -7,8 +7,8 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from "react-router-dom";
 
 export default function About() {
-  const Stats = localStorage.getItem("state");
-  console.log(Stats);
+  const State = localStorage.getItem("state");
+
     let navigate = useNavigate();
     useEffect(() => {
         const token = localStorage.getItem("jwt");
@@ -57,12 +57,18 @@ export default function About() {
       };
      
       const navtobuttonBihar = () => {
-        if(Stats === "Bihar")
-        Navigate("/dashboardBihar");
+        if(State === "Bihar" || State === "ALL"){
+          localStorage.setItem("state", "Bihar");
+          Navigate("/dashboardBihar");
+        }
+       
       };
       const navtobuttonTamilNadu = () => {
-        if(Stats === "Tamil_Nadu")
-        Navigate("/dashboardTamilNadu");
+        if(State === "Tamil_Nadu" || State === "ALL"){
+          localStorage.setItem("state", "Tamil_Nadu");
+          Navigate("/dashboardTamilNadu");
+        }
+      
       };
 
   return (

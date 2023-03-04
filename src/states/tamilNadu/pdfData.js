@@ -2,11 +2,10 @@ import "./pdf.css";
 import Table from "react-bootstrap/Table";
 import React from "react";
 import axios from "axios";
-import ChildComponent from "./child";
-import Container from "react-bootstrap/Container";
+
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import Barchart2 from "./barChart2Bihar";
+import Barchart2 from "./barChart2";
 
 const apiUrl =
   process.env.NODE_ENV === "production"
@@ -33,54 +32,95 @@ class DataComponent extends React.Component {
       data2: [],
       data3: [],
 
-      patnadata1: [],
-      patnadata2: [],
-      patnadata3: [],
-      patnadata4: [],
-      patnadata5: [],
-      patnadata6: [],
-      motiharidata1: [],
-      motiharidata2: [],
-      motiharidata3: [],
-      motiharidata4: [],
-      motiharidata5: [],
-      motiharidata6: [],
-      katihardata1: [],
-      katihardata2: [],
-      katihardata3: [],
-      katihardata4: [],
-      katihardata5: [],
-      katihardata6: [],
-      muzzdata1: [],
-      muzzdata2: [],
-      muzzdata3: [],
-      muzzdata4: [],
-      muzzdata5: [],
-      muzzdata6: [],
-      mungerdata1: [],
-      mungerdata2: [],
-      mungerdata3: [],
-      mungerdata4: [],
-      mungerdata5: [],
-      mungerdata6: [],
-      nalandadata1: [],
-      nalandadata2: [],
-      nalandadata3: [],
-      nalandadata4: [],
-      nalandadata5: [],
-      nalandadata6: [],
-      rohtasdata1: [],
-      rohtasdata2: [],
-      rohtasdata3: [],
-      rohtasdata4: [],
-      rohtasdata5: [],
-      rohtasdata6: [],
-      supauldata1: [],
-      supauldata2: [],
-      supauldata3: [],
-      supauldata4: [],
-      supauldata5: [],
-      supauldata6: [],
+      chennaidata1: [],
+      chennaidata2: [],
+      chennaidata3: [],
+      chennaidata4: [],
+      chennaidata5: [],
+      chennaidata6: [],
+      cuddaloredata1: [],
+      cuddaloredata2: [],
+      cuddaloredata3: [],
+      cuddaloredata4: [],
+      cuddaloredata5: [],
+      cuddaloredata6: [],
+      tirudata1: [],
+      tirudata2: [],
+      tirudata3: [],
+      tirudata4: [],
+      tirudata5: [],
+      tirudata6: [],
+      velloredata1: [],
+      velloredata2: [],
+      velloredata3: [],
+      velloredata4: [],
+      velloredata5: [],
+      velloredata6: [],
+      erodedata1: [],
+      erodedata2: [],
+      erodedata3: [],
+      erodedata4: [],
+      erodedata5: [],
+      erodedata6: [],
+      maduraidata1: [],
+      maduraidata2: [],
+      maduraidata3: [],
+      maduraidata4: [],
+      maduraidata5: [],
+      maduraidata6: [],
+      salemdata1: [],
+      salemdata2: [],
+      salemdata3: [],
+      salemdata4: [],
+      salemdata5: [],
+      salemdata6: [],
+      nilgiridata1: [],
+      nilgiridata2: [],
+      nilgiridata3: [],
+      nilgiridata4: [],
+      nilgiridata5: [],
+      nilgiridata6: [],
+      thenidata1: [],
+      thenidata2: [],
+      thenidata3: [],
+      thenidata4: [],
+      thenidata5: [],
+      thenidata6: [],
+
+      nagadata1: [],
+      nagadata2: [],
+      nagadata3: [],
+      nagadata4: [],
+      nagadata5: [],
+      nagadata6: [],
+      
+      thanjadata1: [],
+      thanjadata2: [],
+      thanjadata3: [],
+      thanjadata4: [],
+      thanjadata5: [],
+      thanjadata6: [],
+
+      kandata1: [],
+      kandata2: [],
+      kandata3: [],
+      kandata4: [],
+      kandata5: [],
+      kandata6: [],
+
+      ramanathdata1: [],
+      ramanathdata2: [],
+      ramanathdata3: [],
+      ramanathdata4: [],
+      ramanathdata5: [],
+      ramanathdata6: [],
+
+      tirunelvidata1: [],
+      tirunelvidata2: [],
+      tirunelvidata3: [],
+      tirunelvidata4: [],
+      tirunelvidata5: [],
+      tirunelvidata6: [],
     };
   }
 
@@ -100,81 +140,130 @@ class DataComponent extends React.Component {
     }, 1000);
 
     const endpoints0 = [
-      `${apiUrl}/college/test/?formCode=1000`,
-      `${apiUrl}/college/test/?formCode=2000`,
-      `${apiUrl}/college/test/?formCode=3000`,
+      `${apiUrl}/college/test/?formCode=4000`,
+      `${apiUrl}/college/test/?formCode=5000`,
+      `${apiUrl}/college/test/?formCode=6000`,
     ];
-    const endpoints01 = [
-      `${apiUrl}/college/test/?formCode=1000`,
-      `${apiUrl}/college/test/?formCode=2000`,
-      `${apiUrl}/college/test/?formCode=3000`,
-    ];
+ 
 
     const endpoints1 = [
-      `${apiUrl}/college/getCluster/?form_Id=1001&cluster=PATNA`,
-      `${apiUrl}/college/getCluster/?form_Id=2001&cluster=PATNA`,
-      `${apiUrl}/college/getCluster/?form_Id=3001&cluster=PATNA`,
-      `${apiUrl}/college/getCluster/?form_Id=1002&cluster=PATNA`,
-      `${apiUrl}/college/getCluster/?form_Id=2002&cluster=PATNA`,
-      `${apiUrl}/college/getCluster/?form_Id=3002&cluster=PATNA`,
+      `${apiUrl}/college/getCluster/?form_Id=4001&cluster=CHENNAI`,
+      `${apiUrl}/college/getCluster/?form_Id=5001&cluster=CHENNAI`,
+      `${apiUrl}/college/getCluster/?form_Id=6001&cluster=CHENNAI`,
+      `${apiUrl}/college/getCluster/?form_Id=4002&cluster=CHENNAI`,
+      `${apiUrl}/college/getCluster/?form_Id=5002&cluster=CHENNAI`,
+      `${apiUrl}/college/getCluster/?form_Id=6002&cluster=CHENNAI`,
     ];
     const endpoints2 = [
-      `${apiUrl}/college/getCluster/?form_Id=1001&cluster=MOTIHARI`,
-      `${apiUrl}/college/getCluster/?form_Id=2001&cluster=MOTIHARI`,
-      `${apiUrl}/college/getCluster/?form_Id=3001&cluster=MOTIHARI`,
-      `${apiUrl}/college/getCluster/?form_Id=1002&cluster=MOTIHARI`,
-      `${apiUrl}/college/getCluster/?form_Id=2002&cluster=MOTIHARI`,
-      `${apiUrl}/college/getCluster/?form_Id=3002&cluster=MOTIHARI`,
+      `${apiUrl}/college/getCluster/?form_Id=4001&cluster=CUDDALORE`,
+      `${apiUrl}/college/getCluster/?form_Id=5001&cluster=CUDDALORE`,
+      `${apiUrl}/college/getCluster/?form_Id=6001&cluster=CUDDALORE`,
+      `${apiUrl}/college/getCluster/?form_Id=4002&cluster=CUDDALORE`,
+      `${apiUrl}/college/getCluster/?form_Id=5002&cluster=CUDDALORE`,
+      `${apiUrl}/college/getCluster/?form_Id=6002&cluster=CUDDALORE`,
     ];
 
     const endpoints3 = [
-      `${apiUrl}/college/getCluster/?form_Id=1001&cluster=KATIHAR`,
-      `${apiUrl}/college/getCluster/?form_Id=2001&cluster=KATIHAR`,
-      `${apiUrl}/college/getCluster/?form_Id=3001&cluster=KATIHAR`,
-      `${apiUrl}/college/getCluster/?form_Id=1002&cluster=KATIHAR`,
-      `${apiUrl}/college/getCluster/?form_Id=2002&cluster=KATIHAR`,
-      `${apiUrl}/college/getCluster/?form_Id=3002&cluster=KATIHAR`,
+      `${apiUrl}/college/getCluster/?form_Id=4001&cluster=TIRUVANNAMALAI`,
+      `${apiUrl}/college/getCluster/?form_Id=5001&cluster=TIRUVANNAMALAI`,
+      `${apiUrl}/college/getCluster/?form_Id=6001&cluster=TIRUVANNAMALAI`,
+      `${apiUrl}/college/getCluster/?form_Id=4002&cluster=TIRUVANNAMALAI`,
+      `${apiUrl}/college/getCluster/?form_Id=5002&cluster=TIRUVANNAMALAI`,
+      `${apiUrl}/college/getCluster/?form_Id=6002&cluster=TIRUVANNAMALAI`,
     ];
 
     const endpoints4 = [
-      `${apiUrl}/college/getCluster/?form_Id=1001&cluster=MUZAFFARPUR`,
-      `${apiUrl}/college/getCluster/?form_Id=2001&cluster=MUZAFFARPUR`,
-      `${apiUrl}/college/getCluster/?form_Id=3001&cluster=MUZAFFARPUR`,
-      `${apiUrl}/college/getCluster/?form_Id=1002&cluster=MUZAFFARPUR`,
-      `${apiUrl}/college/getCluster/?form_Id=2002&cluster=MUZAFFARPUR`,
-      `${apiUrl}/college/getCluster/?form_Id=3002&cluster=MUZAFFARPUR`,
+      `${apiUrl}/college/getCluster/?form_Id=4001&cluster=VELLORE`,
+      `${apiUrl}/college/getCluster/?form_Id=5001&cluster=VELLORE`,
+      `${apiUrl}/college/getCluster/?form_Id=6001&cluster=VELLORE`,
+      `${apiUrl}/college/getCluster/?form_Id=4002&cluster=VELLORE`,
+      `${apiUrl}/college/getCluster/?form_Id=5002&cluster=VELLORE`,
+      `${apiUrl}/college/getCluster/?form_Id=6002&cluster=VELLORE`,
     ];
     const endpoints5 = [
-      `${apiUrl}/college/getCluster/?form_Id=1001&cluster=Munger`,
-      `${apiUrl}/college/getCluster/?form_Id=2001&cluster=Munger`,
-      `${apiUrl}/college/getCluster/?form_Id=3001&cluster=Munger`,
-      `${apiUrl}/college/getCluster/?form_Id=1002&cluster=Munger`,
-      `${apiUrl}/college/getCluster/?form_Id=2002&cluster=Munger`,
-      `${apiUrl}/college/getCluster/?form_Id=3002&cluster=Munger`,
+      `${apiUrl}/college/getCluster/?form_Id=4001&cluster=ERODE`,
+      `${apiUrl}/college/getCluster/?form_Id=5001&cluster=ERODE`,
+      `${apiUrl}/college/getCluster/?form_Id=6001&cluster=ERODE`,
+      `${apiUrl}/college/getCluster/?form_Id=4002&cluster=ERODE`,
+      `${apiUrl}/college/getCluster/?form_Id=5002&cluster=ERODE`,
+      `${apiUrl}/college/getCluster/?form_Id=6002&cluster=ERODE`,
     ];
     const endpoints6 = [
-      `${apiUrl}/college/getCluster/?form_Id=1001&cluster=NALANDA`,
-      `${apiUrl}/college/getCluster/?form_Id=2001&cluster=NALANDA`,
-      `${apiUrl}/college/getCluster/?form_Id=3001&cluster=NALANDA`,
-      `${apiUrl}/college/getCluster/?form_Id=1002&cluster=NALANDA`,
-      `${apiUrl}/college/getCluster/?form_Id=2002&cluster=NALANDA`,
-      `${apiUrl}/college/getCluster/?form_Id=3002&cluster=NALANDA`,
+      `${apiUrl}/college/getCluster/?form_Id=4001&cluster=MADURAI`,
+      `${apiUrl}/college/getCluster/?form_Id=5001&cluster=MADURAI`,
+      `${apiUrl}/college/getCluster/?form_Id=6001&cluster=MADURAI`,
+      `${apiUrl}/college/getCluster/?form_Id=4002&cluster=MADURAI`,
+      `${apiUrl}/college/getCluster/?form_Id=5002&cluster=MADURAI`,
+      `${apiUrl}/college/getCluster/?form_Id=6002&cluster=MADURAI`,
     ];
     const endpoints7 = [
-      `${apiUrl}/college/getCluster/?form_Id=1001&cluster=ROHTAS`,
-      `${apiUrl}/college/getCluster/?form_Id=2001&cluster=ROHTAS`,
-      `${apiUrl}/college/getCluster/?form_Id=3001&cluster=ROHTAS`,
-      `${apiUrl}/college/getCluster/?form_Id=1002&cluster=ROHTAS`,
-      `${apiUrl}/college/getCluster/?form_Id=2002&cluster=ROHTAS`,
-      `${apiUrl}/college/getCluster/?form_Id=3002&cluster=ROHTAS`,
+      `${apiUrl}/college/getCluster/?form_Id=4001&cluster=SALEM`,
+      `${apiUrl}/college/getCluster/?form_Id=5001&cluster=SALEM`,
+      `${apiUrl}/college/getCluster/?form_Id=6001&cluster=SALEM`,
+      `${apiUrl}/college/getCluster/?form_Id=4002&cluster=SALEM`,
+      `${apiUrl}/college/getCluster/?form_Id=5002&cluster=SALEM`,
+      `${apiUrl}/college/getCluster/?form_Id=6002&cluster=SALEM`,
     ];
     const endpoints8 = [
-      `${apiUrl}/college/getCluster/?form_Id=1001&cluster=SUPAUL`,
-      `${apiUrl}/college/getCluster/?form_Id=2001&cluster=SUPAUL`,
-      `${apiUrl}/college/getCluster/?form_Id=3001&cluster=SUPAUL`,
-      `${apiUrl}/college/getCluster/?form_Id=1002&cluster=SUPAUL`,
-      `${apiUrl}/college/getCluster/?form_Id=2002&cluster=SUPAUL`,
-      `${apiUrl}/college/getCluster/?form_Id=3002&cluster=SUPAUL`,
+      `${apiUrl}/college/getCluster/?form_Id=4001&cluster=THE NILGIRIS`,
+      `${apiUrl}/college/getCluster/?form_Id=5001&cluster=THE NILGIRIS`,
+      `${apiUrl}/college/getCluster/?form_Id=6001&cluster=THE NILGIRIS`,
+      `${apiUrl}/college/getCluster/?form_Id=4002&cluster=THE NILGIRIS`,
+      `${apiUrl}/college/getCluster/?form_Id=5002&cluster=THE NILGIRIS`,
+      `${apiUrl}/college/getCluster/?form_Id=6002&cluster=THE NILGIRIS`,
+    ];
+
+    const endpoints9 = [
+      `${apiUrl}/college/getCluster/?form_Id=4001&cluster=THENI`,
+      `${apiUrl}/college/getCluster/?form_Id=5001&cluster=THENI`,
+      `${apiUrl}/college/getCluster/?form_Id=6001&cluster=THENI`,
+      `${apiUrl}/college/getCluster/?form_Id=4002&cluster=THENI`,
+      `${apiUrl}/college/getCluster/?form_Id=5002&cluster=THENI`,
+      `${apiUrl}/college/getCluster/?form_Id=6002&cluster=THENI`,
+    ];
+
+    const endpoints10 = [
+      `${apiUrl}/college/getCluster/?form_Id=4001&cluster=NAGAPATTINAM`,
+      `${apiUrl}/college/getCluster/?form_Id=5001&cluster=NAGAPATTINAM`,
+      `${apiUrl}/college/getCluster/?form_Id=6001&cluster=NAGAPATTINAM`,
+      `${apiUrl}/college/getCluster/?form_Id=4002&cluster=NAGAPATTINAM`,
+      `${apiUrl}/college/getCluster/?form_Id=5002&cluster=NAGAPATTINAM`,
+      `${apiUrl}/college/getCluster/?form_Id=6002&cluster=NAGAPATTINAM`,
+    ];
+
+    const endpoints11 = [
+      `${apiUrl}/college/getCluster/?form_Id=4001&cluster=THANJAVUR`,
+      `${apiUrl}/college/getCluster/?form_Id=5001&cluster=THANJAVUR`,
+      `${apiUrl}/college/getCluster/?form_Id=6001&cluster=THANJAVUR`,
+      `${apiUrl}/college/getCluster/?form_Id=4002&cluster=THANJAVUR`,
+      `${apiUrl}/college/getCluster/?form_Id=5002&cluster=THANJAVUR`,
+      `${apiUrl}/college/getCluster/?form_Id=6002&cluster=THANJAVUR`,
+    ];
+
+    const endpoints12 = [
+      `${apiUrl}/college/getCluster/?form_Id=4001&cluster=KANNIYAKUMARI`,
+      `${apiUrl}/college/getCluster/?form_Id=5001&cluster=KANNIYAKUMARI`,
+      `${apiUrl}/college/getCluster/?form_Id=6001&cluster=KANNIYAKUMARI`,
+      `${apiUrl}/college/getCluster/?form_Id=4002&cluster=KANNIYAKUMARI`,
+      `${apiUrl}/college/getCluster/?form_Id=5002&cluster=KANNIYAKUMARI`,
+      `${apiUrl}/college/getCluster/?form_Id=6002&cluster=KANNIYAKUMARI`,
+    ];
+
+    const endpoints13 = [
+      `${apiUrl}/college/getCluster/?form_Id=4001&cluster=RAMANATHAPURAM`,
+      `${apiUrl}/college/getCluster/?form_Id=5001&cluster=RAMANATHAPURAM`,
+      `${apiUrl}/college/getCluster/?form_Id=6001&cluster=RAMANATHAPURAM`,
+      `${apiUrl}/college/getCluster/?form_Id=4002&cluster=RAMANATHAPURAM`,
+      `${apiUrl}/college/getCluster/?form_Id=5002&cluster=RAMANATHAPURAM`,
+      `${apiUrl}/college/getCluster/?form_Id=6002&cluster=RAMANATHAPURAM`,
+    ];
+    const endpoints14 = [
+      `${apiUrl}/college/getCluster/?form_Id=4001&cluster=TIRUNELVELI`,
+      `${apiUrl}/college/getCluster/?form_Id=5001&cluster=TIRUNELVELI`,
+      `${apiUrl}/college/getCluster/?form_Id=6001&cluster=TIRUNELVELI`,
+      `${apiUrl}/college/getCluster/?form_Id=4002&cluster=TIRUNELVELI`,
+      `${apiUrl}/college/getCluster/?form_Id=5002&cluster=TIRUNELVELI`,
+      `${apiUrl}/college/getCluster/?form_Id=6002&cluster=TIRUNELVELI`,
     ];
 
     endpoints0.forEach((endpoint, index) => {
@@ -187,22 +276,13 @@ class DataComponent extends React.Component {
           console.log(error);
         });
     });
-    endpoints01.forEach((endpoint, index) => {
-      axios
-        .get(endpoint, { headers })
-        .then((response) => {
-          this.setState({ [`data${index + 1}`]: response.data });
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-    });
+    
 
     endpoints1.forEach((endpoint, index) => {
       axios
         .get(endpoint, { headers })
         .then((response) => {
-          this.setState({ [`patnadata${index + 1}`]: response.data });
+          this.setState({ [`chennaidata${index + 1}`]: response.data });
         })
         .catch((error) => {
           console.log(error);
@@ -213,7 +293,7 @@ class DataComponent extends React.Component {
       axios
         .get(endpoint, { headers })
         .then((response) => {
-          this.setState({ [`motiharidata${index + 1}`]: response.data });
+          this.setState({ [`cuddaloredata${index + 1}`]: response.data });
         })
         .catch((error) => {
           console.log(error);
@@ -224,7 +304,7 @@ class DataComponent extends React.Component {
       axios
         .get(endpoint, { headers })
         .then((response) => {
-          this.setState({ [`katihardata${index + 1}`]: response.data });
+          this.setState({ [`tirudata${index + 1}`]: response.data });
         })
         .catch((error) => {
           console.log(error);
@@ -235,7 +315,7 @@ class DataComponent extends React.Component {
       axios
         .get(endpoint, { headers })
         .then((response) => {
-          this.setState({ [`muzzdata${index + 1}`]: response.data });
+          this.setState({ [`velloredata${index + 1}`]: response.data });
         })
         .catch((error) => {
           console.log(error);
@@ -246,7 +326,7 @@ class DataComponent extends React.Component {
       axios
         .get(endpoint, { headers })
         .then((response) => {
-          this.setState({ [`mungerdata${index + 1}`]: response.data });
+          this.setState({ [`erodedata${index + 1}`]: response.data });
         })
         .catch((error) => {
           console.log(error);
@@ -257,7 +337,7 @@ class DataComponent extends React.Component {
       axios
         .get(endpoint, { headers })
         .then((response) => {
-          this.setState({ [`nalandadata${index + 1}`]: response.data });
+          this.setState({ [`maduraidata${index + 1}`]: response.data });
         })
         .catch((error) => {
           console.log(error);
@@ -268,7 +348,7 @@ class DataComponent extends React.Component {
       axios
         .get(endpoint, { headers })
         .then((response) => {
-          this.setState({ [`rohtasdata${index + 1}`]: response.data });
+          this.setState({ [`salemdata${index + 1}`]: response.data });
         })
         .catch((error) => {
           console.log(error);
@@ -279,89 +359,83 @@ class DataComponent extends React.Component {
       axios
         .get(endpoint, { headers })
         .then((response) => {
-          this.setState({ [`supauldata${index + 1}`]: response.data });
+          this.setState({ [`nilgiridata${index + 1}`]: response.data });
         })
         .catch((error) => {
           console.log(error);
         });
     });
+
+    endpoints9.forEach((endpoint, index) => {
+      axios
+        .get(endpoint, { headers })
+        .then((response) => {
+          this.setState({ [`thenidata${index + 1}`]: response.data });
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    });
+
+    endpoints10.forEach((endpoint, index) => {
+      axios
+        .get(endpoint, { headers })
+        .then((response) => {
+          this.setState({ [`nagadata${index + 1}`]: response.data });
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    });
+
+    endpoints11.forEach((endpoint, index) => {
+      axios
+        .get(endpoint, { headers })
+        .then((response) => {
+          this.setState({ [`thanjadata${index + 1}`]: response.data });
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    });
+
+    endpoints12.forEach((endpoint, index) => {
+      axios
+        .get(endpoint, { headers })
+        .then((response) => {
+          this.setState({ [`kandata${index + 1}`]: response.data });
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    });
+
+    endpoints13.forEach((endpoint, index) => {
+      axios
+        .get(endpoint, { headers })
+        .then((response) => {
+          this.setState({ [`ramanathdata${index + 1}`]: response.data });
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    });
+
+    endpoints14.forEach((endpoint, index) => {
+      axios
+        .get(endpoint, { headers })
+        .then((response) => {
+          this.setState({ [`tirunelvidata${index + 1}`]: response.data });
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    });
+
   }
 
   render() {
-    const { data1 } = this.state;
-    const { data2 } = this.state;
-    const { data3 } = this.state;
-
-    let threeDMap = [];
-    for (let i = 0; i < 8; i++) {
-      let layer = [];
-      for (let j = 0; j < 3; j++) {
-        let row = [];
-        for (let k = 0; k < 2; k++) {
-          row.push(0);
-        }
-        layer.push(row);
-      }
-      threeDMap.push(layer);
-    }
-
-    if (
-      data1 &&
-      data1.length > 1 &&
-      data2 &&
-      data2.length > 1 &&
-      data3 &&
-      data3.length > 1
-    ) {
-      for (let i = 0; i < 8; i++) {
-        let layer = [];
-        for (let j = 0; j < 3; j++) {
-          let row = [];
-          if (j === 0) {
-            row.push(
-              Math.ceil(
-                (data1[0][i].completed.tech / data1[0][i].completed.tech_tot) *
-                  100
-              )
-            );
-            row.push(
-              Math.ceil(
-                (data1[0][i].completed.wks / data1[0][i].completed.wks_tot) *
-                  100
-              )
-            );
-          } else if (j === 1) {
-            row.push(
-              Math.ceil(
-                (data2[0][i].completed.tech / data2[0][i].completed.tech_tot) *
-                  100
-              )
-            );
-            row.push(
-              Math.ceil(
-                (data2[0][i].completed.wks / data2[0][i].completed.wks_tot) *
-                  100
-              )
-            );
-          } else {
-            row.push(
-              Math.ceil(
-                (data3[0][i].completed.tech / data3[0][i].completed.tech_tot) *
-                  100
-              )
-            );
-            row.push(
-              Math.ceil(
-                (data3[0][i].completed.wks / data3[0][i].completed.wks_tot) *
-                  100
-              )
-            );
-          }
-          layer.push(row);
-        }
-        threeDMap.push(layer);
-      }
-    }
+    
 
     const { overall1 } = this.state;
     const { overall2 } = this.state;
@@ -392,61 +466,103 @@ class DataComponent extends React.Component {
       insWorkshopCompleted = ((overall3[1].wks_actual / 51) * 5).toFixed(2);
     }
 
-    const { patnadata1 } = this.state;
-    const { patnadata2 } = this.state;
-    const { patnadata3 } = this.state;
-    const { patnadata4 } = this.state;
-    const { patnadata5 } = this.state;
-    const { patnadata6 } = this.state;
+    const { chennaidata1 } = this.state;
+    const { chennaidata2 } = this.state;
+    const { chennaidata3 } = this.state;
+    const { chennaidata4 } = this.state;
+    const { chennaidata5 } = this.state;
+    const { chennaidata6 } = this.state;
 
-    const { motiharidata1 } = this.state;
-    const { motiharidata2 } = this.state;
-    const { motiharidata3 } = this.state;
-    const { motiharidata4 } = this.state;
-    const { motiharidata5 } = this.state;
-    const { motiharidata6 } = this.state;
+    const { cuddaloredata1 } = this.state;
+    const { cuddaloredata2 } = this.state;
+    const { cuddaloredata3 } = this.state;
+    const { cuddaloredata4 } = this.state;
+    const { cuddaloredata5 } = this.state;
+    const { cuddaloredata6 } = this.state;
 
-    const { katihardata1 } = this.state;
-    const { katihardata2 } = this.state;
-    const { katihardata3 } = this.state;
-    const { katihardata4 } = this.state;
-    const { katihardata5 } = this.state;
-    const { katihardata6 } = this.state;
+    const { tirudata1 } = this.state;
+    const { tirudata2 } = this.state;
+    const { tirudata3 } = this.state;
+    const { tirudata4 } = this.state;
+    const { tirudata5 } = this.state;
+    const { tirudata6 } = this.state;
 
-    const { muzzdata1 } = this.state;
-    const { muzzdata2 } = this.state;
-    const { muzzdata3 } = this.state;
-    const { muzzdata4 } = this.state;
-    const { muzzdata5 } = this.state;
-    const { muzzdata6 } = this.state;
+    const { velloredata1 } = this.state;
+    const { velloredata2 } = this.state;
+    const { velloredata3 } = this.state;
+    const { velloredata4 } = this.state;
+    const { velloredata5 } = this.state;
+    const { velloredata6 } = this.state;
 
-    const { mungerdata1 } = this.state;
-    const { mungerdata2 } = this.state;
-    const { mungerdata3 } = this.state;
-    const { mungerdata4 } = this.state;
-    const { mungerdata5 } = this.state;
-    const { mungerdata6 } = this.state;
+    const { erodedata1 } = this.state;
+    const { erodedata2 } = this.state;
+    const { erodedata3 } = this.state;
+    const { erodedata4 } = this.state;
+    const { erodedata5 } = this.state;
+    const { erodedata6 } = this.state;
 
-    const { nalandadata1 } = this.state;
-    const { nalandadata2 } = this.state;
-    const { nalandadata3 } = this.state;
-    const { nalandadata4 } = this.state;
-    const { nalandadata5 } = this.state;
-    const { nalandadata6 } = this.state;
+    const { maduraidata1 } = this.state;
+    const { maduraidata2 } = this.state;
+    const { maduraidata3 } = this.state;
+    const { maduraidata4 } = this.state;
+    const { maduraidata5 } = this.state;
+    const { maduraidata6 } = this.state;
 
-    const { rohtasdata1 } = this.state;
-    const { rohtasdata2 } = this.state;
-    const { rohtasdata3 } = this.state;
-    const { rohtasdata4 } = this.state;
-    const { rohtasdata5 } = this.state;
-    const { rohtasdata6 } = this.state;
+    const { salemdata1 } = this.state;
+    const { salemdata2 } = this.state;
+    const { salemdata3 } = this.state;
+    const { salemdata4 } = this.state;
+    const { salemdata5 } = this.state;
+    const { salemdata6 } = this.state;
 
-    const { supauldata1 } = this.state;
-    const { supauldata2 } = this.state;
-    const { supauldata3 } = this.state;
-    const { supauldata4 } = this.state;
-    const { supauldata5 } = this.state;
-    const { supauldata6 } = this.state;
+    const { nilgiridata1 } = this.state;
+    const { nilgiridata2 } = this.state;
+    const { nilgiridata3 } = this.state;
+    const { nilgiridata4 } = this.state;
+    const { nilgiridata5 } = this.state;
+    const { nilgiridata6 } = this.state;
+
+    const { thenidata1 } = this.state;
+    const { thenidata2 } = this.state;
+    const { thenidata3 } = this.state;
+    const { thenidata4 } = this.state;
+    const { thenidata5 } = this.state;
+    const { thenidata6 } = this.state;
+
+    const { nagadata1 } = this.state;
+    const { nagadata2 } = this.state;
+    const { nagadata3 } = this.state;
+    const { nagadata4 } = this.state;
+    const { nagadata5 } = this.state;
+    const { nagadata6 } = this.state;
+
+    const { thanjadata1 } = this.state;
+    const { thanjadata2 } = this.state;
+    const { thanjadata3 } = this.state;
+    const { thanjadata4 } = this.state;
+    const { thanjadata5 } = this.state;
+    const { thanjadata6 } = this.state;
+
+    const { kandata1 } = this.state;
+    const { kandata2 } = this.state;
+    const { kandata3 } = this.state;
+    const { kandata4 } = this.state;
+    const { kandata5 } = this.state;
+    const { kandata6 } = this.state;
+
+    const { ramanathdata1 } = this.state;
+    const { ramanathdata2 } = this.state;
+    const { ramanathdata3 } = this.state;
+    const { ramanathdata4 } = this.state;
+    const { ramanathdata5 } = this.state;
+    const { ramanathdata6 } = this.state;
+
+    const { tirunelvidata1 } = this.state;
+    const { tirunelvidata2 } = this.state;
+    const { tirunelvidata3 } = this.state;
+    const { tirunelvidata4 } = this.state;
+    const { tirunelvidata5 } = this.state;
+    const { tirunelvidata6 } = this.state;
 
     const cellContentsCivilTechHead = [
       "Basic Infra",
@@ -637,60 +753,7 @@ class DataComponent extends React.Component {
                 </tbody>
               </Table>
             </div>
-            <div className="cluster-charts">
-              <Container>
-                <Row>
-                  <Col className="colls">
-                    <ChildComponent
-                      data={threeDMap}
-                      cnum={threeDMap.length === 16 ? 8 : 0}
-                    />
-                  </Col>
-                  <Col className="colls">
-                    <ChildComponent
-                      data={threeDMap}
-                      cnum={threeDMap.length === 16 ? 9 : 0}
-                    />
-                  </Col>
-                  <Col className="colls">
-                    <ChildComponent
-                      data={threeDMap}
-                      cnum={threeDMap.length === 16 ? 10 : 0}
-                    />
-                  </Col>
-                  <Col className="colls">
-                    <ChildComponent
-                      data={threeDMap}
-                      cnum={threeDMap.length === 16 ? 11 : 0}
-                    />
-                  </Col>
-                  <Col className="colls">
-                    <ChildComponent
-                      data={threeDMap}
-                      cnum={threeDMap.length === 16 ? 12 : 0}
-                    />
-                  </Col>
-                  <Col className="colls">
-                    <ChildComponent
-                      data={threeDMap}
-                      cnum={threeDMap.length === 16 ? 13 : 0}
-                    />
-                  </Col>
-                  <Col className="colls">
-                    <ChildComponent
-                      data={threeDMap}
-                      cnum={threeDMap.length === 16 ? 14 : 0}
-                    />
-                  </Col>
-                  <Col className="colls">
-                    <ChildComponent
-                      data={threeDMap}
-                      cnum={threeDMap.length === 16 ? 15 : 0}
-                    />
-                  </Col>
-                </Row>
-              </Container>
-            </div>
+           
             <Row className="clusterwise-chart-container">
               <Col className="bcc">
                 <Barchart2 fid={1001} />
@@ -714,7 +777,7 @@ class DataComponent extends React.Component {
           </div>
         </div>
         <div className="onepage">
-          <h3 className="table-name">TECHNOLOGY LAB (CLUSTER: PATNA)</h3>
+          <h3 className="table-name">TECHNOLOGY LAB (CLUSTER: Chennai)</h3>
           {/* civil */}
           <div className="table-name">CIVIL</div>
           <Table style={thStyle} bordered className="pdf-table">
@@ -731,7 +794,7 @@ class DataComponent extends React.Component {
             </thead>
             <tbody>
               {/* cluster's data1  */}
-              {patnadata1.map((data) => {
+              {chennaidata1.map((data) => {
                 return (
                   <tr>
                     <td style={thStyle} className="table-data">
@@ -762,7 +825,7 @@ class DataComponent extends React.Component {
             </thead>
             <tbody>
               {/* cluster's data2 */}
-              {patnadata2.map((data) => {
+              {chennaidata2.map((data) => {
                 return (
                   <tr>
                     <td style={thStyle} className="table-data">
@@ -793,7 +856,7 @@ class DataComponent extends React.Component {
             </thead>
             <tbody>
               {/* cluster's data3 */}
-              {patnadata3.map((data) => {
+              {chennaidata3.map((data) => {
                 return (
                   <tr>
                     <td style={thStyle} className="table-data">
@@ -811,9 +874,9 @@ class DataComponent extends React.Component {
           </Table>
         </div>
 
-        {/* patna workshop */}
+        {/* chennai workshop */}
         <div className="onepage">
-          <h3>WORKSHOP (CLUSTER: PATNA)</h3>
+          <h3>WORKSHOP (CLUSTER: Chennai)</h3>
           {/* civil */}
           <div className="table-name">CIVIL</div>
           <Table style={thStyle} bordered className="pdf-table">
@@ -829,7 +892,7 @@ class DataComponent extends React.Component {
             </thead>
             <tbody>
               {/* cluster's data4 */}
-              {patnadata4.map((data) => {
+              {chennaidata4.map((data) => {
                 return (
                   <tr>
                     <td style={thStyle} className="table-data">
@@ -860,7 +923,7 @@ class DataComponent extends React.Component {
             </thead>
             <tbody>
               {/* cluster's data5 */}
-              {patnadata5.map((data) => {
+              {chennaidata5.map((data) => {
                 return (
                   <tr>
                     <td style={thStyle} className="table-data">
@@ -891,7 +954,7 @@ class DataComponent extends React.Component {
             </thead>
             <tbody>
               {/* cluster's data6 */}
-              {patnadata6.map((data) => {
+              {chennaidata6.map((data) => {
                 return (
                   <tr>
                     <td style={thStyle} className="table-data">
@@ -909,10 +972,10 @@ class DataComponent extends React.Component {
           </Table>
         </div>
 
-        {/* cluster: katihar */}
+        {/* cluster: cuddalore */}
 
         <div className="onepage">
-          <h3 className="table-name">TECHNOLOGY LAB (CLUSTER: KATIHAR)</h3>
+          <h3 className="table-name">TECHNOLOGY LAB (CLUSTER: Cuddalore)</h3>
           {/* civil */}
           <div className="table-name">CIVIL</div>
           <Table style={thStyle} bordered className="pdf-table">
@@ -929,7 +992,7 @@ class DataComponent extends React.Component {
             </thead>
             <tbody>
               {/* cluster's data1  */}
-              {katihardata1.map((data) => {
+              {cuddaloredata1.map((data) => {
                 return (
                   <tr>
                     <td style={thStyle} className="table-data">
@@ -960,7 +1023,7 @@ class DataComponent extends React.Component {
             </thead>
             <tbody>
               {/* cluster's data2 */}
-              {katihardata2.map((data) => {
+              {cuddaloredata2.map((data) => {
                 return (
                   <tr>
                     <td style={thStyle} className="table-data">
@@ -991,7 +1054,7 @@ class DataComponent extends React.Component {
             </thead>
             <tbody>
               {/* cluster's data3 */}
-              {katihardata3.map((data) => {
+              {cuddaloredata3.map((data) => {
                 return (
                   <tr>
                     <td style={thStyle} className="table-data">
@@ -1009,9 +1072,9 @@ class DataComponent extends React.Component {
           </Table>
         </div>
 
-        {/* katihar workshop */}
+        {/* cuddalore workshop */}
         <div className="onepage">
-          <h3>WORKSHOP (CLUSTER: KATIHAR)</h3>
+          <h3>WORKSHOP (CLUSTER: Cuddalore)</h3>
           {/* civil */}
           <div className="table-name">CIVIL</div>
           <Table style={thStyle} bordered className="pdf-table">
@@ -1027,7 +1090,7 @@ class DataComponent extends React.Component {
             </thead>
             <tbody>
               {/* cluster's data4 */}
-              {katihardata4.map((data) => {
+              {cuddaloredata4.map((data) => {
                 return (
                   <tr>
                     <td style={thStyle} className="table-data">
@@ -1058,7 +1121,7 @@ class DataComponent extends React.Component {
             </thead>
             <tbody>
               {/* cluster's data5 */}
-              {katihardata5.map((data) => {
+              {cuddaloredata5.map((data) => {
                 return (
                   <tr>
                     <td style={thStyle} className="table-data">
@@ -1089,7 +1152,7 @@ class DataComponent extends React.Component {
             </thead>
             <tbody>
               {/* cluster's data6 */}
-              {katihardata6.map((data) => {
+              {cuddaloredata6.map((data) => {
                 return (
                   <tr>
                     <td style={thStyle} className="table-data">
@@ -1107,10 +1170,10 @@ class DataComponent extends React.Component {
           </Table>
         </div>
 
-        {/* cluster: motihari */}
+        {/* cluster: tiru */}
 
         <div className="onepage">
-          <h3 className="table-name">TECHNOLOGY LAB (CLUSTER: MOTIHARI)</h3>
+          <h3 className="table-name">TECHNOLOGY LAB (CLUSTER: Tiruvannamalai)</h3>
           {/* civil */}
           <div className="table-name">CIVIL</div>
           <Table style={thStyle} bordered className="pdf-table">
@@ -1127,7 +1190,7 @@ class DataComponent extends React.Component {
             </thead>
             <tbody>
               {/* cluster's data1  */}
-              {motiharidata1.map((data) => {
+              {tirudata1.map((data) => {
                 return (
                   <tr>
                     <td style={thStyle} className="table-data">
@@ -1158,7 +1221,7 @@ class DataComponent extends React.Component {
             </thead>
             <tbody>
               {/* cluster's data2 */}
-              {motiharidata2.map((data) => {
+              {tirudata2.map((data) => {
                 return (
                   <tr>
                     <td style={thStyle} className="table-data">
@@ -1189,7 +1252,7 @@ class DataComponent extends React.Component {
             </thead>
             <tbody>
               {/* cluster's data3 */}
-              {motiharidata3.map((data) => {
+              {tirudata3.map((data) => {
                 return (
                   <tr>
                     <td style={thStyle} className="table-data">
@@ -1207,9 +1270,9 @@ class DataComponent extends React.Component {
           </Table>
         </div>
 
-        {/* motihari workshop */}
+        {/* tiru workshop */}
         <div className="onepage">
-          <h3>WORKSHOP (CLUSTER: MOTIHARI)</h3>
+          <h3>WORKSHOP (CLUSTER: Tiruvannamalai)</h3>
           {/* civil */}
           <div className="table-name">CIVIL</div>
           <Table style={thStyle} bordered className="pdf-table">
@@ -1225,7 +1288,7 @@ class DataComponent extends React.Component {
             </thead>
             <tbody>
               {/* cluster's data4 */}
-              {motiharidata4.map((data) => {
+              {tirudata4.map((data) => {
                 return (
                   <tr>
                     <td style={thStyle} className="table-data">
@@ -1256,7 +1319,7 @@ class DataComponent extends React.Component {
             </thead>
             <tbody>
               {/* cluster's data5 */}
-              {motiharidata5.map((data) => {
+              {tirudata5.map((data) => {
                 return (
                   <tr>
                     <td style={thStyle} className="table-data">
@@ -1287,7 +1350,7 @@ class DataComponent extends React.Component {
             </thead>
             <tbody>
               {/* cluster's data6 */}
-              {motiharidata6.map((data) => {
+              {tirudata6.map((data) => {
                 return (
                   <tr>
                     <td style={thStyle} className="table-data">
@@ -1308,7 +1371,7 @@ class DataComponent extends React.Component {
         {/* muzaffarpur */}
 
         <div className="onepage">
-          <h3 className="table-name">TECHNOLOGY LAB (CLUSTER: MUZAFFARPUR)</h3>
+          <h3 className="table-name">TECHNOLOGY LAB (CLUSTER: Vellore)</h3>
           {/* civil */}
           <div className="table-name">CIVIL</div>
           <Table style={thStyle} bordered className="pdf-table">
@@ -1325,7 +1388,7 @@ class DataComponent extends React.Component {
             </thead>
             <tbody>
               {/* cluster's data1  */}
-              {muzzdata1.map((data) => {
+              {velloredata1.map((data) => {
                 return (
                   <tr>
                     <td style={thStyle} className="table-data">
@@ -1356,7 +1419,7 @@ class DataComponent extends React.Component {
             </thead>
             <tbody>
               {/* cluster's data2 */}
-              {muzzdata2.map((data) => {
+              {velloredata2.map((data) => {
                 return (
                   <tr>
                     <td style={thStyle} className="table-data">
@@ -1387,7 +1450,7 @@ class DataComponent extends React.Component {
             </thead>
             <tbody>
               {/* cluster's data3 */}
-              {muzzdata3.map((data) => {
+              {velloredata3.map((data) => {
                 return (
                   <tr>
                     <td style={thStyle} className="table-data">
@@ -1405,9 +1468,9 @@ class DataComponent extends React.Component {
           </Table>
         </div>
 
-        {/* muzz workshop */}
+        {/* vellore workshop */}
         <div className="onepage">
-          <h3>WORKSHOP (CLUSTER: MUZAFFARPUR)</h3>
+          <h3>WORKSHOP (CLUSTER: Vellore)</h3>
           {/* civil */}
           <div className="table-name">CIVIL</div>
           <Table style={thStyle} bordered className="pdf-table">
@@ -1423,7 +1486,7 @@ class DataComponent extends React.Component {
             </thead>
             <tbody>
               {/* cluster's data4 */}
-              {muzzdata4.map((data) => {
+              {velloredata4.map((data) => {
                 return (
                   <tr>
                     <td style={thStyle} className="table-data">
@@ -1454,7 +1517,7 @@ class DataComponent extends React.Component {
             </thead>
             <tbody>
               {/* cluster's data5 */}
-              {muzzdata5.map((data) => {
+              {velloredata5.map((data) => {
                 return (
                   <tr>
                     <td style={thStyle} className="table-data">
@@ -1485,7 +1548,7 @@ class DataComponent extends React.Component {
             </thead>
             <tbody>
               {/* cluster's data6 */}
-              {muzzdata6.map((data) => {
+              {velloredata6.map((data) => {
                 return (
                   <tr>
                     <td style={thStyle} className="table-data">
@@ -1503,9 +1566,9 @@ class DataComponent extends React.Component {
           </Table>
         </div>
 
-        {/* cluster munger */}
+        {/* cluster erode */}
         <div className="onepage">
-          <h3 className="table-name">TECHNOLOGY LAB (CLUSTER: MUNGER)</h3>
+          <h3 className="table-name">TECHNOLOGY LAB (CLUSTER: Erode)</h3>
           {/* civil */}
           <div className="table-name">CIVIL</div>
           <Table style={thStyle} bordered className="pdf-table">
@@ -1522,7 +1585,7 @@ class DataComponent extends React.Component {
             </thead>
             <tbody>
               {/* cluster's data1  */}
-              {mungerdata1.map((data) => {
+              {erodedata1.map((data) => {
                 return (
                   <tr>
                     <td style={thStyle} className="table-data">
@@ -1553,7 +1616,7 @@ class DataComponent extends React.Component {
             </thead>
             <tbody>
               {/* cluster's data2 */}
-              {mungerdata2.map((data) => {
+              {erodedata2.map((data) => {
                 return (
                   <tr>
                     <td style={thStyle} className="table-data">
@@ -1584,7 +1647,7 @@ class DataComponent extends React.Component {
             </thead>
             <tbody>
               {/* cluster's data3 */}
-              {mungerdata3.map((data) => {
+              {erodedata3.map((data) => {
                 return (
                   <tr>
                     <td style={thStyle} className="table-data">
@@ -1602,9 +1665,9 @@ class DataComponent extends React.Component {
           </Table>
         </div>
 
-        {/* muzz workshop */}
+        {/* vellore workshop */}
         <div className="onepage">
-          <h3>WORKSHOP (CLUSTER: MUNGER)</h3>
+          <h3>WORKSHOP (CLUSTER: Erode)</h3>
           {/* civil */}
           <div className="table-name">CIVIL</div>
           <Table style={thStyle} bordered className="pdf-table">
@@ -1620,7 +1683,7 @@ class DataComponent extends React.Component {
             </thead>
             <tbody>
               {/* cluster's data4 */}
-              {mungerdata4.map((data) => {
+              {erodedata4.map((data) => {
                 return (
                   <tr>
                     <td style={thStyle} className="table-data">
@@ -1651,7 +1714,7 @@ class DataComponent extends React.Component {
             </thead>
             <tbody>
               {/* cluster's data5 */}
-              {mungerdata5.map((data) => {
+              {erodedata5.map((data) => {
                 return (
                   <tr>
                     <td style={thStyle} className="table-data">
@@ -1682,7 +1745,7 @@ class DataComponent extends React.Component {
             </thead>
             <tbody>
               {/* cluster's data6 */}
-              {mungerdata6.map((data) => {
+              {erodedata6.map((data) => {
                 return (
                   <tr>
                     <td style={thStyle} className="table-data">
@@ -1700,10 +1763,10 @@ class DataComponent extends React.Component {
           </Table>
         </div>
 
-        {/* cluster nalanda */}
+        {/* cluster madurai */}
 
         <div className="onepage">
-          <h3 className="table-name">TECHNOLOGY LAB (CLUSTER: NALANDA)</h3>
+          <h3 className="table-name">TECHNOLOGY LAB (CLUSTER: Madurai)</h3>
           {/* civil */}
           <div className="table-name">CIVIL</div>
           <Table style={thStyle} bordered className="pdf-table">
@@ -1720,7 +1783,7 @@ class DataComponent extends React.Component {
             </thead>
             <tbody>
               {/* cluster's data1  */}
-              {nalandadata1.map((data) => {
+              {maduraidata1.map((data) => {
                 return (
                   <tr>
                     <td style={thStyle} className="table-data">
@@ -1751,7 +1814,7 @@ class DataComponent extends React.Component {
             </thead>
             <tbody>
               {/* cluster's data2 */}
-              {nalandadata2.map((data) => {
+              {maduraidata2.map((data) => {
                 return (
                   <tr>
                     <td style={thStyle} className="table-data">
@@ -1782,7 +1845,7 @@ class DataComponent extends React.Component {
             </thead>
             <tbody>
               {/* cluster's data3 */}
-              {nalandadata3.map((data) => {
+              {maduraidata3.map((data) => {
                 return (
                   <tr>
                     <td style={thStyle} className="table-data">
@@ -1800,9 +1863,9 @@ class DataComponent extends React.Component {
           </Table>
         </div>
 
-        {/* nalanda workshop */}
+        {/* madurai workshop */}
         <div className="onepage">
-          <h3>WORKSHOP (CLUSTER: NALANDA)</h3>
+          <h3>WORKSHOP (CLUSTER: Madurai)</h3>
           {/* civil */}
           <div className="table-name">CIVIL</div>
           <Table style={thStyle} bordered className="pdf-table">
@@ -1818,7 +1881,7 @@ class DataComponent extends React.Component {
             </thead>
             <tbody>
               {/* cluster's data4 */}
-              {nalandadata4.map((data) => {
+              {maduraidata4.map((data) => {
                 return (
                   <tr>
                     <td style={thStyle} className="table-data">
@@ -1849,7 +1912,7 @@ class DataComponent extends React.Component {
             </thead>
             <tbody>
               {/* cluster's data5 */}
-              {nalandadata5.map((data) => {
+              {maduraidata5.map((data) => {
                 return (
                   <tr>
                     <td style={thStyle} className="table-data">
@@ -1880,7 +1943,7 @@ class DataComponent extends React.Component {
             </thead>
             <tbody>
               {/* cluster's data6 */}
-              {nalandadata6.map((data) => {
+              {maduraidata6.map((data) => {
                 return (
                   <tr>
                     <td style={thStyle} className="table-data">
@@ -1898,10 +1961,10 @@ class DataComponent extends React.Component {
           </Table>
         </div>
 
-        {/* cluster rohtas */}
+        {/* cluster salem */}
 
         <div className="onepage">
-          <h3 className="table-name">TECHNOLOGY LAB (CLUSTER: ROHTAS)</h3>
+          <h3 className="table-name">TECHNOLOGY LAB (CLUSTER: Salem)</h3>
           {/* civil */}
           <div className="table-name">CIVIL</div>
           <Table style={thStyle} bordered className="pdf-table">
@@ -1918,7 +1981,7 @@ class DataComponent extends React.Component {
             </thead>
             <tbody>
               {/* cluster's data1  */}
-              {rohtasdata1.map((data) => {
+              {salemdata1.map((data) => {
                 return (
                   <tr>
                     <td style={thStyle} className="table-data">
@@ -1949,7 +2012,7 @@ class DataComponent extends React.Component {
             </thead>
             <tbody>
               {/* cluster's data2 */}
-              {rohtasdata2.map((data) => {
+              {salemdata2.map((data) => {
                 return (
                   <tr>
                     <td style={thStyle} className="table-data">
@@ -1980,7 +2043,7 @@ class DataComponent extends React.Component {
             </thead>
             <tbody>
               {/* cluster's data3 */}
-              {rohtasdata3.map((data) => {
+              {salemdata3.map((data) => {
                 return (
                   <tr>
                     <td style={thStyle} className="table-data">
@@ -1998,9 +2061,9 @@ class DataComponent extends React.Component {
           </Table>
         </div>
 
-        {/* rohtas workshop */}
+        {/* salem workshop */}
         <div className="onepage">
-          <h3>WORKSHOP (CLUSTER: ROHTAS)</h3>
+          <h3>WORKSHOP (CLUSTER: Salem)</h3>
           {/* civil */}
           <div className="table-name">CIVIL</div>
           <Table style={thStyle} bordered className="pdf-table">
@@ -2016,7 +2079,7 @@ class DataComponent extends React.Component {
             </thead>
             <tbody>
               {/* cluster's data4 */}
-              {rohtasdata4.map((data) => {
+              {salemdata4.map((data) => {
                 return (
                   <tr>
                     <td style={thStyle} className="table-data">
@@ -2047,7 +2110,7 @@ class DataComponent extends React.Component {
             </thead>
             <tbody>
               {/* cluster's data5 */}
-              {rohtasdata5.map((data) => {
+              {salemdata5.map((data) => {
                 return (
                   <tr>
                     <td style={thStyle} className="table-data">
@@ -2078,7 +2141,7 @@ class DataComponent extends React.Component {
             </thead>
             <tbody>
               {/* cluster's data6 */}
-              {rohtasdata6.map((data) => {
+              {salemdata6.map((data) => {
                 return (
                   <tr>
                     <td style={thStyle} className="table-data">
@@ -2096,10 +2159,10 @@ class DataComponent extends React.Component {
           </Table>
         </div>
 
-        {/* cluster supaul */}
+        {/* cluster nilgiri */}
 
         <div className="onepage">
-          <h3 className="table-name">TECHNOLOGY LAB (CLUSTER: SUPAUL)</h3>
+          <h3 className="table-name">TECHNOLOGY LAB (CLUSTER: The Nilgiris)</h3>
           {/* civil */}
           <div className="table-name">CIVIL</div>
           <Table style={thStyle} bordered className="pdf-table">
@@ -2116,7 +2179,7 @@ class DataComponent extends React.Component {
             </thead>
             <tbody>
               {/* cluster's data1  */}
-              {supauldata1.map((data) => {
+              {nilgiridata1.map((data) => {
                 return (
                   <tr>
                     <td style={thStyle} className="table-data">
@@ -2147,7 +2210,7 @@ class DataComponent extends React.Component {
             </thead>
             <tbody>
               {/* cluster's data2 */}
-              {supauldata2.map((data) => {
+              {nilgiridata2.map((data) => {
                 return (
                   <tr>
                     <td style={thStyle} className="table-data">
@@ -2178,7 +2241,7 @@ class DataComponent extends React.Component {
             </thead>
             <tbody>
               {/* cluster's data3 */}
-              {supauldata3.map((data) => {
+              {nilgiridata3.map((data) => {
                 return (
                   <tr>
                     <td style={thStyle} className="table-data">
@@ -2196,9 +2259,9 @@ class DataComponent extends React.Component {
           </Table>
         </div>
 
-        {/* rohtas workshop */}
+        {/* salem workshop */}
         <div className="onepage">
-          <h3>WORKSHOP (CLUSTER: SUPAUL)</h3>
+          <h3>WORKSHOP (CLUSTER: The Nilgiris)</h3>
           {/* civil */}
           <div className="table-name">CIVIL</div>
           <Table style={thStyle} bordered className="pdf-table">
@@ -2214,7 +2277,7 @@ class DataComponent extends React.Component {
             </thead>
             <tbody>
               {/* cluster's data4 */}
-              {supauldata4.map((data) => {
+              {nilgiridata4.map((data) => {
                 return (
                   <tr>
                     <td style={thStyle} className="table-data">
@@ -2245,7 +2308,7 @@ class DataComponent extends React.Component {
             </thead>
             <tbody>
               {/* cluster's data5 */}
-              {supauldata5.map((data) => {
+              {nilgiridata5.map((data) => {
                 return (
                   <tr>
                     <td style={thStyle} className="table-data">
@@ -2276,7 +2339,7 @@ class DataComponent extends React.Component {
             </thead>
             <tbody>
               {/* cluster's data6 */}
-              {supauldata6.map((data) => {
+              {nilgiridata6.map((data) => {
                 return (
                   <tr>
                     <td style={thStyle} className="table-data">
@@ -2293,6 +2356,1191 @@ class DataComponent extends React.Component {
             </tbody>
           </Table>
         </div>
+
+
+
+        <div className="onepage">
+          <h3 className="table-name">TECHNOLOGY LAB (CLUSTER: Theni)</h3>
+          {/* civil */}
+          <div className="table-name">CIVIL</div>
+          <Table style={thStyle} bordered className="pdf-table">
+            <thead>
+              <tr>
+                <th style={thStyle}>ITI NAME</th>
+
+                {cellContentsCivilTechHead.map((content) => (
+                  <th style={thStyle} className="table-header">
+                    {content}
+                  </th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {/* cluster's data1  */}
+              {thenidata1.map((data) => {
+                return (
+                  <tr>
+                    <td style={thStyle} className="table-data">
+                      {data.ITI_Name}
+                    </td>
+                    {cellContentsCivilTech.map((content) => (
+                      <td style={thStyle} className="table-data">
+                        {data[content]}
+                      </td>
+                    ))}
+                  </tr>
+                );
+              })}
+            </tbody>
+          </Table>
+          {/* delivery */}
+          <div className="table-name">Delivery</div>
+          <Table style={thStyle} bordered className="pdf-table">
+            <thead>
+              <tr>
+                <th style={thStyle}>ITI NAME</th>
+                {cellContentsDelTechHead.map((content) => (
+                  <th style={thStyle} className="table-header">
+                    {content}
+                  </th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {/* cluster's data2 */}
+              {thenidata2.map((data) => {
+                return (
+                  <tr>
+                    <td style={thStyle} className="table-data">
+                      {data.ITI_Name}
+                    </td>
+                    {cellContentsDelTech.map((content) => (
+                      <td style={thStyle} className="table-data">
+                        {data[content]}
+                      </td>
+                    ))}
+                  </tr>
+                );
+              })}
+            </tbody>
+          </Table>
+          {/* Installation */}
+          <div className="table-name">Installation</div>
+          <Table style={thStyle} bordered className="pdf-table">
+            <thead>
+              <tr>
+                <th style={thStyle}>ITI NAME</th>
+                {cellContentsDelTechHead.map((content) => (
+                  <th style={thStyle} className="table-header">
+                    {content}
+                  </th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {/* cluster's data3 */}
+              {thenidata3.map((data) => {
+                return (
+                  <tr>
+                    <td style={thStyle} className="table-data">
+                      {data.ITI_Name}
+                    </td>
+                    {cellContentsDelTech.map((content) => (
+                      <td style={thStyle} className="table-data">
+                        {data[content]}
+                      </td>
+                    ))}
+                  </tr>
+                );
+              })}
+            </tbody>
+          </Table>
+        </div>
+
+        {/* salem workshop */}
+        <div className="onepage">
+          <h3>WORKSHOP (CLUSTER: Theni)</h3>
+          {/* civil */}
+          <div className="table-name">CIVIL</div>
+          <Table style={thStyle} bordered className="pdf-table">
+            <thead>
+              <tr>
+                <th style={thStyle}>ITI NAME</th>
+                {cellContentsCivilWksHead.map((content) => (
+                  <th style={thStyle} className="table-header">
+                    {content}
+                  </th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {/* cluster's data4 */}
+              {thenidata4.map((data) => {
+                return (
+                  <tr>
+                    <td style={thStyle} className="table-data">
+                      {data.ITI_Name}
+                    </td>
+                    {cellContentsCivilWks.map((content) => (
+                      <td style={thStyle} className="table-data">
+                        {data[content]}
+                      </td>
+                    ))}
+                  </tr>
+                );
+              })}
+            </tbody>
+          </Table>
+          {/* delivery */}
+          <div className="table-name">Delivery</div>
+          <Table style={thStyle} bordered className="pdf-table">
+            <thead>
+              <tr>
+                <th style={thStyle}>ITI NAME</th>
+                {cellContentsDelWksHead.map((content) => (
+                  <th style={thStyle} className="table-header">
+                    {content}
+                  </th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {/* cluster's data5 */}
+              {thenidata5.map((data) => {
+                return (
+                  <tr>
+                    <td style={thStyle} className="table-data">
+                      {data.ITI_Name}
+                    </td>
+                    {cellContentsDelWks.map((content) => (
+                      <td style={thStyle} className="table-data">
+                        {data[content]}
+                      </td>
+                    ))}
+                  </tr>
+                );
+              })}
+            </tbody>
+          </Table>
+          {/* Installation */}
+          <div className="table-name">Installation</div>
+          <Table style={thStyle} bordered className="pdf-table">
+            <thead>
+              <tr>
+                <th style={thStyle}>ITI NAME</th>
+                {cellContentsDelWksHead.map((content) => (
+                  <th style={thStyle} className="table-header">
+                    {content}
+                  </th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {/* cluster's data6 */}
+              {thenidata6.map((data) => {
+                return (
+                  <tr>
+                    <td style={thStyle} className="table-data">
+                      {data.ITI_Name}
+                    </td>
+                    {cellContentsDelWks.map((content) => (
+                      <td style={thStyle} className="table-data">
+                        {data[content]}
+                      </td>
+                    ))}
+                  </tr>
+                );
+              })}
+            </tbody>
+          </Table>
+        </div>
+
+
+        <div className="onepage">
+          <h3 className="table-name">TECHNOLOGY LAB (CLUSTER: Nagapattinam)</h3>
+          {/* civil */}
+          <div className="table-name">CIVIL</div>
+          <Table style={thStyle} bordered className="pdf-table">
+            <thead>
+              <tr>
+                <th style={thStyle}>ITI NAME</th>
+
+                {cellContentsCivilTechHead.map((content) => (
+                  <th style={thStyle} className="table-header">
+                    {content}
+                  </th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {/* cluster's data1  */}
+              {nagadata1.map((data) => {
+                return (
+                  <tr>
+                    <td style={thStyle} className="table-data">
+                      {data.ITI_Name}
+                    </td>
+                    {cellContentsCivilTech.map((content) => (
+                      <td style={thStyle} className="table-data">
+                        {data[content]}
+                      </td>
+                    ))}
+                  </tr>
+                );
+              })}
+            </tbody>
+          </Table>
+          {/* delivery */}
+          <div className="table-name">Delivery</div>
+          <Table style={thStyle} bordered className="pdf-table">
+            <thead>
+              <tr>
+                <th style={thStyle}>ITI NAME</th>
+                {cellContentsDelTechHead.map((content) => (
+                  <th style={thStyle} className="table-header">
+                    {content}
+                  </th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {/* cluster's data2 */}
+              {nagadata2.map((data) => {
+                return (
+                  <tr>
+                    <td style={thStyle} className="table-data">
+                      {data.ITI_Name}
+                    </td>
+                    {cellContentsDelTech.map((content) => (
+                      <td style={thStyle} className="table-data">
+                        {data[content]}
+                      </td>
+                    ))}
+                  </tr>
+                );
+              })}
+            </tbody>
+          </Table>
+          {/* Installation */}
+          <div className="table-name">Installation</div>
+          <Table style={thStyle} bordered className="pdf-table">
+            <thead>
+              <tr>
+                <th style={thStyle}>ITI NAME</th>
+                {cellContentsDelTechHead.map((content) => (
+                  <th style={thStyle} className="table-header">
+                    {content}
+                  </th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {/* cluster's data3 */}
+              {nagadata3.map((data) => {
+                return (
+                  <tr>
+                    <td style={thStyle} className="table-data">
+                      {data.ITI_Name}
+                    </td>
+                    {cellContentsDelTech.map((content) => (
+                      <td style={thStyle} className="table-data">
+                        {data[content]}
+                      </td>
+                    ))}
+                  </tr>
+                );
+              })}
+            </tbody>
+          </Table>
+        </div>
+
+        {/* salem workshop */}
+        <div className="onepage">
+          <h3>WORKSHOP (CLUSTER: Nagapattinam)</h3>
+          {/* civil */}
+          <div className="table-name">CIVIL</div>
+          <Table style={thStyle} bordered className="pdf-table">
+            <thead>
+              <tr>
+                <th style={thStyle}>ITI NAME</th>
+                {cellContentsCivilWksHead.map((content) => (
+                  <th style={thStyle} className="table-header">
+                    {content}
+                  </th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {/* cluster's data4 */}
+              {nagadata4.map((data) => {
+                return (
+                  <tr>
+                    <td style={thStyle} className="table-data">
+                      {data.ITI_Name}
+                    </td>
+                    {cellContentsCivilWks.map((content) => (
+                      <td style={thStyle} className="table-data">
+                        {data[content]}
+                      </td>
+                    ))}
+                  </tr>
+                );
+              })}
+            </tbody>
+          </Table>
+          {/* delivery */}
+          <div className="table-name">Delivery</div>
+          <Table style={thStyle} bordered className="pdf-table">
+            <thead>
+              <tr>
+                <th style={thStyle}>ITI NAME</th>
+                {cellContentsDelWksHead.map((content) => (
+                  <th style={thStyle} className="table-header">
+                    {content}
+                  </th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {/* cluster's data5 */}
+              {nagadata5.map((data) => {
+                return (
+                  <tr>
+                    <td style={thStyle} className="table-data">
+                      {data.ITI_Name}
+                    </td>
+                    {cellContentsDelWks.map((content) => (
+                      <td style={thStyle} className="table-data">
+                        {data[content]}
+                      </td>
+                    ))}
+                  </tr>
+                );
+              })}
+            </tbody>
+          </Table>
+          {/* Installation */}
+          <div className="table-name">Installation</div>
+          <Table style={thStyle} bordered className="pdf-table">
+            <thead>
+              <tr>
+                <th style={thStyle}>ITI NAME</th>
+                {cellContentsDelWksHead.map((content) => (
+                  <th style={thStyle} className="table-header">
+                    {content}
+                  </th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {/* cluster's data6 */}
+              {nagadata6.map((data) => {
+                return (
+                  <tr>
+                    <td style={thStyle} className="table-data">
+                      {data.ITI_Name}
+                    </td>
+                    {cellContentsDelWks.map((content) => (
+                      <td style={thStyle} className="table-data">
+                        {data[content]}
+                      </td>
+                    ))}
+                  </tr>
+                );
+              })}
+            </tbody>
+          </Table>
+        </div>
+
+
+
+
+        <div className="onepage">
+          <h3 className="table-name">TECHNOLOGY LAB (CLUSTER: Thanjavur)</h3>
+          {/* civil */}
+          <div className="table-name">CIVIL</div>
+          <Table style={thStyle} bordered className="pdf-table">
+            <thead>
+              <tr>
+                <th style={thStyle}>ITI NAME</th>
+
+                {cellContentsCivilTechHead.map((content) => (
+                  <th style={thStyle} className="table-header">
+                    {content}
+                  </th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {/* cluster's data1  */}
+              {thanjadata1.map((data) => {
+                return (
+                  <tr>
+                    <td style={thStyle} className="table-data">
+                      {data.ITI_Name}
+                    </td>
+                    {cellContentsCivilTech.map((content) => (
+                      <td style={thStyle} className="table-data">
+                        {data[content]}
+                      </td>
+                    ))}
+                  </tr>
+                );
+              })}
+            </tbody>
+          </Table>
+          {/* delivery */}
+          <div className="table-name">Delivery</div>
+          <Table style={thStyle} bordered className="pdf-table">
+            <thead>
+              <tr>
+                <th style={thStyle}>ITI NAME</th>
+                {cellContentsDelTechHead.map((content) => (
+                  <th style={thStyle} className="table-header">
+                    {content}
+                  </th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {/* cluster's data2 */}
+              {thanjadata2.map((data) => {
+                return (
+                  <tr>
+                    <td style={thStyle} className="table-data">
+                      {data.ITI_Name}
+                    </td>
+                    {cellContentsDelTech.map((content) => (
+                      <td style={thStyle} className="table-data">
+                        {data[content]}
+                      </td>
+                    ))}
+                  </tr>
+                );
+              })}
+            </tbody>
+          </Table>
+          {/* Installation */}
+          <div className="table-name">Installation</div>
+          <Table style={thStyle} bordered className="pdf-table">
+            <thead>
+              <tr>
+                <th style={thStyle}>ITI NAME</th>
+                {cellContentsDelTechHead.map((content) => (
+                  <th style={thStyle} className="table-header">
+                    {content}
+                  </th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {/* cluster's data3 */}
+              {thanjadata3.map((data) => {
+                return (
+                  <tr>
+                    <td style={thStyle} className="table-data">
+                      {data.ITI_Name}
+                    </td>
+                    {cellContentsDelTech.map((content) => (
+                      <td style={thStyle} className="table-data">
+                        {data[content]}
+                      </td>
+                    ))}
+                  </tr>
+                );
+              })}
+            </tbody>
+          </Table>
+        </div>
+
+        {/* salem workshop */}
+        <div className="onepage">
+          <h3>WORKSHOP (CLUSTER: Thanjavur)</h3>
+          {/* civil */}
+          <div className="table-name">CIVIL</div>
+          <Table style={thStyle} bordered className="pdf-table">
+            <thead>
+              <tr>
+                <th style={thStyle}>ITI NAME</th>
+                {cellContentsCivilWksHead.map((content) => (
+                  <th style={thStyle} className="table-header">
+                    {content}
+                  </th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {/* cluster's data4 */}
+              {thanjadata4.map((data) => {
+                return (
+                  <tr>
+                    <td style={thStyle} className="table-data">
+                      {data.ITI_Name}
+                    </td>
+                    {cellContentsCivilWks.map((content) => (
+                      <td style={thStyle} className="table-data">
+                        {data[content]}
+                      </td>
+                    ))}
+                  </tr>
+                );
+              })}
+            </tbody>
+          </Table>
+          {/* delivery */}
+          <div className="table-name">Delivery</div>
+          <Table style={thStyle} bordered className="pdf-table">
+            <thead>
+              <tr>
+                <th style={thStyle}>ITI NAME</th>
+                {cellContentsDelWksHead.map((content) => (
+                  <th style={thStyle} className="table-header">
+                    {content}
+                  </th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {/* cluster's data5 */}
+              {thanjadata5.map((data) => {
+                return (
+                  <tr>
+                    <td style={thStyle} className="table-data">
+                      {data.ITI_Name}
+                    </td>
+                    {cellContentsDelWks.map((content) => (
+                      <td style={thStyle} className="table-data">
+                        {data[content]}
+                      </td>
+                    ))}
+                  </tr>
+                );
+              })}
+            </tbody>
+          </Table>
+          {/* Installation */}
+          <div className="table-name">Installation</div>
+          <Table style={thStyle} bordered className="pdf-table">
+            <thead>
+              <tr>
+                <th style={thStyle}>ITI NAME</th>
+                {cellContentsDelWksHead.map((content) => (
+                  <th style={thStyle} className="table-header">
+                    {content}
+                  </th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {/* cluster's data6 */}
+              {thanjadata6.map((data) => {
+                return (
+                  <tr>
+                    <td style={thStyle} className="table-data">
+                      {data.ITI_Name}
+                    </td>
+                    {cellContentsDelWks.map((content) => (
+                      <td style={thStyle} className="table-data">
+                        {data[content]}
+                      </td>
+                    ))}
+                  </tr>
+                );
+              })}
+            </tbody>
+          </Table>
+        </div>
+
+        <div className="onepage">
+          <h3 className="table-name">TECHNOLOGY LAB (CLUSTER: Kanniyakumari)</h3>
+          {/* civil */}
+          <div className="table-name">CIVIL</div>
+          <Table style={thStyle} bordered className="pdf-table">
+            <thead>
+              <tr>
+                <th style={thStyle}>ITI NAME</th>
+
+                {cellContentsCivilTechHead.map((content) => (
+                  <th style={thStyle} className="table-header">
+                    {content}
+                  </th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {/* cluster's data1  */}
+              {kandata1.map((data) => {
+                return (
+                  <tr>
+                    <td style={thStyle} className="table-data">
+                      {data.ITI_Name}
+                    </td>
+                    {cellContentsCivilTech.map((content) => (
+                      <td style={thStyle} className="table-data">
+                        {data[content]}
+                      </td>
+                    ))}
+                  </tr>
+                );
+              })}
+            </tbody>
+          </Table>
+          {/* delivery */}
+          <div className="table-name">Delivery</div>
+          <Table style={thStyle} bordered className="pdf-table">
+            <thead>
+              <tr>
+                <th style={thStyle}>ITI NAME</th>
+                {cellContentsDelTechHead.map((content) => (
+                  <th style={thStyle} className="table-header">
+                    {content}
+                  </th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {/* cluster's data2 */}
+              {kandata2.map((data) => {
+                return (
+                  <tr>
+                    <td style={thStyle} className="table-data">
+                      {data.ITI_Name}
+                    </td>
+                    {cellContentsDelTech.map((content) => (
+                      <td style={thStyle} className="table-data">
+                        {data[content]}
+                      </td>
+                    ))}
+                  </tr>
+                );
+              })}
+            </tbody>
+          </Table>
+          {/* Installation */}
+          <div className="table-name">Installation</div>
+          <Table style={thStyle} bordered className="pdf-table">
+            <thead>
+              <tr>
+                <th style={thStyle}>ITI NAME</th>
+                {cellContentsDelTechHead.map((content) => (
+                  <th style={thStyle} className="table-header">
+                    {content}
+                  </th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {/* cluster's data3 */}
+              {kandata3.map((data) => {
+                return (
+                  <tr>
+                    <td style={thStyle} className="table-data">
+                      {data.ITI_Name}
+                    </td>
+                    {cellContentsDelTech.map((content) => (
+                      <td style={thStyle} className="table-data">
+                        {data[content]}
+                      </td>
+                    ))}
+                  </tr>
+                );
+              })}
+            </tbody>
+          </Table>
+        </div>
+
+        {/* salem workshop */}
+        <div className="onepage">
+          <h3>WORKSHOP (CLUSTER: Kanniyakumari)</h3>
+          {/* civil */}
+          <div className="table-name">CIVIL</div>
+          <Table style={thStyle} bordered className="pdf-table">
+            <thead>
+              <tr>
+                <th style={thStyle}>ITI NAME</th>
+                {cellContentsCivilWksHead.map((content) => (
+                  <th style={thStyle} className="table-header">
+                    {content}
+                  </th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {/* cluster's data4 */}
+              {kandata4.map((data) => {
+                return (
+                  <tr>
+                    <td style={thStyle} className="table-data">
+                      {data.ITI_Name}
+                    </td>
+                    {cellContentsCivilWks.map((content) => (
+                      <td style={thStyle} className="table-data">
+                        {data[content]}
+                      </td>
+                    ))}
+                  </tr>
+                );
+              })}
+            </tbody>
+          </Table>
+          {/* delivery */}
+          <div className="table-name">Delivery</div>
+          <Table style={thStyle} bordered className="pdf-table">
+            <thead>
+              <tr>
+                <th style={thStyle}>ITI NAME</th>
+                {cellContentsDelWksHead.map((content) => (
+                  <th style={thStyle} className="table-header">
+                    {content}
+                  </th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {/* cluster's data5 */}
+              {kandata5.map((data) => {
+                return (
+                  <tr>
+                    <td style={thStyle} className="table-data">
+                      {data.ITI_Name}
+                    </td>
+                    {cellContentsDelWks.map((content) => (
+                      <td style={thStyle} className="table-data">
+                        {data[content]}
+                      </td>
+                    ))}
+                  </tr>
+                );
+              })}
+            </tbody>
+          </Table>
+          {/* Installation */}
+          <div className="table-name">Installation</div>
+          <Table style={thStyle} bordered className="pdf-table">
+            <thead>
+              <tr>
+                <th style={thStyle}>ITI NAME</th>
+                {cellContentsDelWksHead.map((content) => (
+                  <th style={thStyle} className="table-header">
+                    {content}
+                  </th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {/* cluster's data6 */}
+              {kandata6.map((data) => {
+                return (
+                  <tr>
+                    <td style={thStyle} className="table-data">
+                      {data.ITI_Name}
+                    </td>
+                    {cellContentsDelWks.map((content) => (
+                      <td style={thStyle} className="table-data">
+                        {data[content]}
+                      </td>
+                    ))}
+                  </tr>
+                );
+              })}
+            </tbody>
+          </Table>
+        </div>
+
+        <div className="onepage">
+          <h3 className="table-name">TECHNOLOGY LAB (CLUSTER: Ramanathpuram)</h3>
+          {/* civil */}
+          <div className="table-name">CIVIL</div>
+          <Table style={thStyle} bordered className="pdf-table">
+            <thead>
+              <tr>
+                <th style={thStyle}>ITI NAME</th>
+
+                {cellContentsCivilTechHead.map((content) => (
+                  <th style={thStyle} className="table-header">
+                    {content}
+                  </th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {/* cluster's data1  */}
+              {ramanathdata1.map((data) => {
+                return (
+                  <tr>
+                    <td style={thStyle} className="table-data">
+                      {data.ITI_Name}
+                    </td>
+                    {cellContentsCivilTech.map((content) => (
+                      <td style={thStyle} className="table-data">
+                        {data[content]}
+                      </td>
+                    ))}
+                  </tr>
+                );
+              })}
+            </tbody>
+          </Table>
+          {/* delivery */}
+          <div className="table-name">Delivery</div>
+          <Table style={thStyle} bordered className="pdf-table">
+            <thead>
+              <tr>
+                <th style={thStyle}>ITI NAME</th>
+                {cellContentsDelTechHead.map((content) => (
+                  <th style={thStyle} className="table-header">
+                    {content}
+                  </th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {/* cluster's data2 */}
+              {ramanathdata2.map((data) => {
+                return (
+                  <tr>
+                    <td style={thStyle} className="table-data">
+                      {data.ITI_Name}
+                    </td>
+                    {cellContentsDelTech.map((content) => (
+                      <td style={thStyle} className="table-data">
+                        {data[content]}
+                      </td>
+                    ))}
+                  </tr>
+                );
+              })}
+            </tbody>
+          </Table>
+          {/* Installation */}
+          <div className="table-name">Installation</div>
+          <Table style={thStyle} bordered className="pdf-table">
+            <thead>
+              <tr>
+                <th style={thStyle}>ITI NAME</th>
+                {cellContentsDelTechHead.map((content) => (
+                  <th style={thStyle} className="table-header">
+                    {content}
+                  </th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {/* cluster's data3 */}
+              {ramanathdata3.map((data) => {
+                return (
+                  <tr>
+                    <td style={thStyle} className="table-data">
+                      {data.ITI_Name}
+                    </td>
+                    {cellContentsDelTech.map((content) => (
+                      <td style={thStyle} className="table-data">
+                        {data[content]}
+                      </td>
+                    ))}
+                  </tr>
+                );
+              })}
+            </tbody>
+          </Table>
+        </div>
+
+        {/* salem workshop */}
+        <div className="onepage">
+          <h3>WORKSHOP (CLUSTER: Ramanathpuram)</h3>
+          {/* civil */}
+          <div className="table-name">CIVIL</div>
+          <Table style={thStyle} bordered className="pdf-table">
+            <thead>
+              <tr>
+                <th style={thStyle}>ITI NAME</th>
+                {cellContentsCivilWksHead.map((content) => (
+                  <th style={thStyle} className="table-header">
+                    {content}
+                  </th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {/* cluster's data4 */}
+              {ramanathdata4.map((data) => {
+                return (
+                  <tr>
+                    <td style={thStyle} className="table-data">
+                      {data.ITI_Name}
+                    </td>
+                    {cellContentsCivilWks.map((content) => (
+                      <td style={thStyle} className="table-data">
+                        {data[content]}
+                      </td>
+                    ))}
+                  </tr>
+                );
+              })}
+            </tbody>
+          </Table>
+          {/* delivery */}
+          <div className="table-name">Delivery</div>
+          <Table style={thStyle} bordered className="pdf-table">
+            <thead>
+              <tr>
+                <th style={thStyle}>ITI NAME</th>
+                {cellContentsDelWksHead.map((content) => (
+                  <th style={thStyle} className="table-header">
+                    {content}
+                  </th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {/* cluster's data5 */}
+              {ramanathdata5.map((data) => {
+                return (
+                  <tr>
+                    <td style={thStyle} className="table-data">
+                      {data.ITI_Name}
+                    </td>
+                    {cellContentsDelWks.map((content) => (
+                      <td style={thStyle} className="table-data">
+                        {data[content]}
+                      </td>
+                    ))}
+                  </tr>
+                );
+              })}
+            </tbody>
+          </Table>
+          {/* Installation */}
+          <div className="table-name">Installation</div>
+          <Table style={thStyle} bordered className="pdf-table">
+            <thead>
+              <tr>
+                <th style={thStyle}>ITI NAME</th>
+                {cellContentsDelWksHead.map((content) => (
+                  <th style={thStyle} className="table-header">
+                    {content}
+                  </th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {/* cluster's data6 */}
+              {ramanathdata6.map((data) => {
+                return (
+                  <tr>
+                    <td style={thStyle} className="table-data">
+                      {data.ITI_Name}
+                    </td>
+                    {cellContentsDelWks.map((content) => (
+                      <td style={thStyle} className="table-data">
+                        {data[content]}
+                      </td>
+                    ))}
+                  </tr>
+                );
+              })}
+            </tbody>
+          </Table>
+        </div>
+
+        <div className="onepage">
+          <h3 className="table-name">TECHNOLOGY LAB (CLUSTER: Tirunelvi)</h3>
+          {/* civil */}
+          <div className="table-name">CIVIL</div>
+          <Table style={thStyle} bordered className="pdf-table">
+            <thead>
+              <tr>
+                <th style={thStyle}>ITI NAME</th>
+
+                {cellContentsCivilTechHead.map((content) => (
+                  <th style={thStyle} className="table-header">
+                    {content}
+                  </th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {/* cluster's data1  */}
+              {tirunelvidata1.map((data) => {
+                return (
+                  <tr>
+                    <td style={thStyle} className="table-data">
+                      {data.ITI_Name}
+                    </td>
+                    {cellContentsCivilTech.map((content) => (
+                      <td style={thStyle} className="table-data">
+                        {data[content]}
+                      </td>
+                    ))}
+                  </tr>
+                );
+              })}
+            </tbody>
+          </Table>
+          {/* delivery */}
+          <div className="table-name">Delivery</div>
+          <Table style={thStyle} bordered className="pdf-table">
+            <thead>
+              <tr>
+                <th style={thStyle}>ITI NAME</th>
+                {cellContentsDelTechHead.map((content) => (
+                  <th style={thStyle} className="table-header">
+                    {content}
+                  </th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {/* cluster's data2 */}
+              {tirunelvidata2.map((data) => {
+                return (
+                  <tr>
+                    <td style={thStyle} className="table-data">
+                      {data.ITI_Name}
+                    </td>
+                    {cellContentsDelTech.map((content) => (
+                      <td style={thStyle} className="table-data">
+                        {data[content]}
+                      </td>
+                    ))}
+                  </tr>
+                );
+              })}
+            </tbody>
+          </Table>
+          {/* Installation */}
+          <div className="table-name">Installation</div>
+          <Table style={thStyle} bordered className="pdf-table">
+            <thead>
+              <tr>
+                <th style={thStyle}>ITI NAME</th>
+                {cellContentsDelTechHead.map((content) => (
+                  <th style={thStyle} className="table-header">
+                    {content}
+                  </th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {/* cluster's data3 */}
+              {tirunelvidata3.map((data) => {
+                return (
+                  <tr>
+                    <td style={thStyle} className="table-data">
+                      {data.ITI_Name}
+                    </td>
+                    {cellContentsDelTech.map((content) => (
+                      <td style={thStyle} className="table-data">
+                        {data[content]}
+                      </td>
+                    ))}
+                  </tr>
+                );
+              })}
+            </tbody>
+          </Table>
+        </div>
+
+        {/* salem workshop */}
+        <div className="onepage">
+          <h3>WORKSHOP (CLUSTER: Tirunelvi)</h3>
+          {/* civil */}
+          <div className="table-name">CIVIL</div>
+          <Table style={thStyle} bordered className="pdf-table">
+            <thead>
+              <tr>
+                <th style={thStyle}>ITI NAME</th>
+                {cellContentsCivilWksHead.map((content) => (
+                  <th style={thStyle} className="table-header">
+                    {content}
+                  </th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {/* cluster's data4 */}
+              {tirunelvidata4.map((data) => {
+                return (
+                  <tr>
+                    <td style={thStyle} className="table-data">
+                      {data.ITI_Name}
+                    </td>
+                    {cellContentsCivilWks.map((content) => (
+                      <td style={thStyle} className="table-data">
+                        {data[content]}
+                      </td>
+                    ))}
+                  </tr>
+                );
+              })}
+            </tbody>
+          </Table>
+          {/* delivery */}
+          <div className="table-name">Delivery</div>
+          <Table style={thStyle} bordered className="pdf-table">
+            <thead>
+              <tr>
+                <th style={thStyle}>ITI NAME</th>
+                {cellContentsDelWksHead.map((content) => (
+                  <th style={thStyle} className="table-header">
+                    {content}
+                  </th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {/* cluster's data5 */}
+              {tirunelvidata5.map((data) => {
+                return (
+                  <tr>
+                    <td style={thStyle} className="table-data">
+                      {data.ITI_Name}
+                    </td>
+                    {cellContentsDelWks.map((content) => (
+                      <td style={thStyle} className="table-data">
+                        {data[content]}
+                      </td>
+                    ))}
+                  </tr>
+                );
+              })}
+            </tbody>
+          </Table>
+          {/* Installation */}
+          <div className="table-name">Installation</div>
+          <Table style={thStyle} bordered className="pdf-table">
+            <thead>
+              <tr>
+                <th style={thStyle}>ITI NAME</th>
+                {cellContentsDelWksHead.map((content) => (
+                  <th style={thStyle} className="table-header">
+                    {content}
+                  </th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {/* cluster's data6 */}
+              {tirunelvidata6.map((data) => {
+                return (
+                  <tr>
+                    <td style={thStyle} className="table-data">
+                      {data.ITI_Name}
+                    </td>
+                    {cellContentsDelWks.map((content) => (
+                      <td style={thStyle} className="table-data">
+                        {data[content]}
+                      </td>
+                    ))}
+                  </tr>
+                );
+              })}
+            </tbody>
+          </Table>
+        </div>
+
+
+
       </div>
     );
   }

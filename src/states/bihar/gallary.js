@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 
 function PhotoGallery() {
   const jwt = localStorage.getItem("jwt");
+  const state = localStorage.getItem("state");
   const [images, setImages] = useState([]);
   const [deleting, setDeleting] = useState(false);
   const apiUrl =
@@ -17,7 +18,7 @@ function PhotoGallery() {
 
   useEffect(() => {
     axios
-      .get(`${apiUrl}/cloudImg/allImages`, {
+      .get(`${apiUrl}/cloudImg/allImages?stateName=${state}`, {
         headers: {
           "Content-Type": "application/json",
           Authorization: `Bearer ${jwt}`,
@@ -25,7 +26,7 @@ function PhotoGallery() {
       })
       .then((res) => setImages(res.data))
       .catch((err) => console.error(err));
-  }, [jwt, apiUrl]);
+  }, [jwt, apiUrl,state]);
 
   useEffect(() => {
     const token = localStorage.getItem("jwt");

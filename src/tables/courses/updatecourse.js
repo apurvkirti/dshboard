@@ -37,10 +37,12 @@ export default function Course(props) {
     let color;
     if (val === 0) {
       color = "grey";
+      return <Icon color={color} name="square outline" size="small" />;
     } else if (val === 1) {
       color = "blue";
+      return <Icon color={color} name="check circle" size="small" />;
     }
-    return <Icon color={color} name="check circle" size="small" />;
+    
   }
 
   const [startDate, setStartDate] = useState("");
@@ -138,7 +140,7 @@ export default function Course(props) {
         <div>
           <h2 className="formheader4">Courses</h2>
           <div className="legend">
-            Yet to start: <Icon color="grey" name="check circle" size="small" />{" "}
+            Yet to start: <Icon color="grey" name="square outline" size="small" />{" "}
             Started:
             <Icon color="blue" name="check circle" size="small" />
           </div>

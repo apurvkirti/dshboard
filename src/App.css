@@ -988,9 +988,7 @@
 .coursecell{
   padding:1px !important;
 }
-.coursestable.ui.table tbody tr td.selectable{
-  cursor: pointer !important;
-}
+
 .coursestable.ui.collapsing.table {
   margin-left: auto;
   margin-right: auto;

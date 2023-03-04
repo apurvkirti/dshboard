@@ -72,7 +72,7 @@ function ImageUploader() {
         },
       });
    
-      navigate("/dashboard");
+      navigate("/dashboardTamilNadu");
       window.location.reload();
     } catch (error) {
       console.log(error);
@@ -80,8 +80,8 @@ function ImageUploader() {
   };
   const username = localStorage.getItem("username");
   function handledelete() {
-    if (username === "master_admin") {
-      navigate("/gallary");
+    if ( username.startsWith("master_admin") ) {
+      navigate("/gallaryTamilNadu");
     } else {
       window.alert("Sorry! You are not authorized to access this feature");
     }

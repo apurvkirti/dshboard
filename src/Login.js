@@ -29,6 +29,7 @@ const Login = () => {
       window.location.href = "/about";
     } catch (err) {
       setError(err.response.data.message);
+      console.log(error);
     }
   };
 

@@ -75,7 +75,7 @@ export default function Final() {
       window.scrollTo({
         top: deliveryRef.current.offsetTop,
         behavior: "smooth",
-      });
+      }); 
     } else if (option === "Installation") {
       window.scrollTo({
         top: installationRef.current.offsetTop,
@@ -99,7 +99,7 @@ export default function Final() {
   // for user_selective view
 
   function RenderCourse({ selectedTitle }) {
-    if (username === "master_admin") {
+    if (username.startsWith("master_admin")) {
       return (
         <>
           <UpdCourses clust={selectedTitle} form_id = {20} />
@@ -115,7 +115,7 @@ export default function Final() {
   }
 
   function RenderCivilTech({ selectedTitle }) {
-    if (username === "user1" || username === "master_admin" || username === "civ_admin_2") {
+    if (username.startsWith("civ_admin_2") || username.startsWith("master_admin")) {
       return (
         <>
           <UpdateCivilTech clust={selectedTitle} formId = {4001} />
@@ -131,7 +131,7 @@ export default function Final() {
   }
 
   function RenderCivilWks({ selectedTitle }) {
-    if (username === "user1" || username === "master_admin") {
+    if (username.startsWith("civ_admin_2") || username.startsWith("master_admin")) {
       return (
         <>
           <UpdateCivilWks clust={selectedTitle} formId = {4002}/>
@@ -146,7 +146,7 @@ export default function Final() {
     }
   }
   function RenderDelTech({ selectedTitle }) {
-    if (username === "user2" || username === "master_admin") {
+    if (username.startsWith("del_admin_2") || username.startsWith("master_admin")) {
       return (
         <>
           <UpdateDeliveryTech clust={selectedTitle}formId = {5001} />
@@ -161,7 +161,7 @@ export default function Final() {
     }
   }
   function RenderDelWks({ selectedTitle }) {
-    if (username === "user2" || username === "master_admin") {
+    if (username.startsWith("del_admin_2") || username.startsWith("master_admin")) {
       return (
         <>
           <UpdateDeliveryWks clust={selectedTitle} formId = {5002} />
@@ -176,7 +176,7 @@ export default function Final() {
     }
   }
   function RenderInsTech({ selectedTitle }) {
-    if (username === "user3" || username === "master_admin") {
+    if (username.startsWith("ins_admin_2") || username.startsWith("master_admin")) {
       return (
         <>
           <UpdateInsTech clust={selectedTitle} formId = {6001}/>
@@ -191,7 +191,7 @@ export default function Final() {
     }
   }
   function RenderInsWks({ selectedTitle }) {
-    if (username === "user3" || username === "master_admin") {
+    if (username.startsWith("ins_admin_2") || username.startsWith("master_admin")) {
       return (
         <>
           <UpdateInsWks clust={selectedTitle} formId = {6002}/>
@@ -220,7 +220,7 @@ export default function Final() {
   const [screenshot, setScreenshot] = useState(null);
 
   const handlescreenClick = () => {
-    navigate("/pdf");
+    navigate("/pdfTamilNadu");
   };
 
   const myDivRef1 = useRef(null);

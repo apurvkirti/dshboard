@@ -2,7 +2,7 @@ import TextTruncate from "../truncate";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Icon, Table, Popup } from "semantic-ui-react";
-import Button from "react-bootstrap/Button";
+
 
 // import { useNavigate } from "react-router-dom";
 
@@ -35,38 +35,18 @@ export default function Course(props) {
     let color;
     if (val === 0) {
       color = "grey";
+      return <Icon color={color} name="square outline" size="small" />;
     } else if (val === 1) {
       color = "blue";
+      return <Icon color={color} name="check circle" size="small" />;
     }
-    return <Icon color={color} name="check circle" size="small" />;
+    
   }
+  
 
-  const [startDate, setStartDate] = useState("");
-  const [endDate, setEndDate] = useState("");
 
-  const handleSubmit = async (e, key, collegeId) => {
-    e.preventDefault();
-    try {
-      const response = await axios.post(
-        `${apiUrl}/course/updateDate?collegeId=${collegeId}`,
-        {
-          key,
-          startDate,
-          endDate,
-        },
-        {
-          headers: {
-            Authorization: `Bearer ${jwt}`,
-            "Content-Type": "application/json",
-          },
-        }
-      );
-      console.log(response.data);
-      window.location.reload();
-    } catch (error) {
-      console.error(error);
-    }
-  };
+
+
   function formatDate(dateStr) {
     const date = new Date(dateStr);
     const options = { year: "numeric", month: "short", day: "numeric" };
@@ -135,7 +115,7 @@ export default function Course(props) {
         <div>
           <h2 className="formheader4">Courses</h2>
           <div className="legend">
-            Yet to start: <Icon color="grey" name="check circle" size="small" />{" "}
+            Yet to start: <Icon color="grey" name="square outline" size="small" />{" "}
             Started:
             <Icon color="blue" name="check circle" size="small" />
           </div>
@@ -182,55 +162,17 @@ export default function Course(props) {
                         />
                       ) : (
                         <Popup
+                          hoverable
                           trigger={
                             <div>{renderIcon(data[jobTitle].changeStatus)}</div>
                           }
                           content={
-                            <div style={{ width: "22vw", height: "25vh" }}>
-                              <form
-                                className="noticeform"
-                                onSubmit={(e) =>
-                                  handleSubmit(e, jobTitle, data.customId)
-                                }
-                              >
-                                <div className="titlearea">
-                                  Start date:
-                                  <input
-                                    className="inputtitle"
-                                    type="date"
-                                    value={startDate}
-                                    onChange={(e) =>
-                                      setStartDate(e.target.value)
-                                    }
-                                    required
-                                  />
-                                </div>
-
-                                <div className="titlearea">
-                                  End Date:
-                                  <input
-                                    className="inputtitle"
-                                    type="date"
-                                    value={endDate}
-                                    onChange={(e) => setEndDate(e.target.value)}
-                                    required
-                                  />
-                                </div>
-
-                                <div className="buttonnotice">
-                                  <Button
-                                    className="addnotice"
-                                    type="submit"
-                                    variant="primary"
-                                  >
-                                    Click to Add
-                                  </Button>
-                                </div>
-                              </form>
+                            <div style={{ width: "10vw", height: "5vh" }}>
+                                No Data available!
                             </div>
                           }
-                          on="click"
                         />
+                    
                       )}
                     </Table.Cell>
                   ))}

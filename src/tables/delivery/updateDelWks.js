@@ -108,12 +108,14 @@ export default function UpdateForm(props) {
     let color;
     if (val === -1) {
       color = "grey";
+      return <Icon color={color} name="square outline" size="large" />;
     } else if (val === 0) {
       color = "yellow";
+      return <Icon color={color} name="check circle" size="large" />;
     } else if (val === 1) {
       color = "green";
+      return <Icon color={color} name="check circle" size="large" />;
     }
-    return <Icon color={color} name="check circle" size="large" />;
   }
 
   function handleChange(customId, value, val) {
@@ -173,7 +175,7 @@ export default function UpdateForm(props) {
       <div>
         <h2 className="formheader1">TTL Delivery Status</h2>
         <div className="legend">
-          Yet to start: <Icon color="grey" name="check circle" size="large" />{" "}
+          Yet to start: <Icon color="grey" name="square outline" size="large" />{" "}
           Work in progress:{" "}
           <Icon color="yellow" name="check circle" size="large" /> Completed:{" "}
           <Icon color="green" name="check circle" size="large" />

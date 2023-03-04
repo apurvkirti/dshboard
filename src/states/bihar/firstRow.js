@@ -80,7 +80,7 @@ export default function Chart() {
   ];
 
   const handleUpload = () => {
-    navigate("/upd");
+    navigate("/uploadImageBihar");
   };
 
   const [highlighted1, setHighlighted1] = useState(false);

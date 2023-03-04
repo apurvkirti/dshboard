@@ -3,10 +3,13 @@ import DashboardBihar from "./states/bihar/dashboardBihar";
 import DashboardTamilNadu from "./states/tamilNadu/dashboardTamilNadu";
 // import Notice from "./states/"; not required
 import UploadImgBihar from "./states/bihar/uploadimgBihar";
+import UploadImgTamilNadu from "./states/tamilNadu/uploadimgTamilNadu";
 import GallaryBihar from "./states/bihar/gallary";
+import GallaryTamilNadu from "./states/tamilNadu/gallary";
 // import Del from "./components/deletenotice"; not required
 import About from "./about";
 import PDFBihar from "./states/bihar/pdfButton";
+import PDFTamilNadu from "./states/tamilNadu/pdfButton";
 
 
 
@@ -29,9 +32,12 @@ function App() {
           <Route path="/dashboardTamilNadu" element={<DashboardTamilNadu/>} />
           <Route path="/" element={<Login/>} />
           <Route path="/uploadImageBihar" element={<UploadImgBihar/>}/>
+          <Route path="/uploadImageTamilNadu" element={<UploadImgTamilNadu/>}/>
           <Route path="/gallaryBihar" element={<GallaryBihar/>}/>
+          <Route path="/gallaryTamilNadu" element={<GallaryTamilNadu/>}/>
           <Route path="/about" element={<About/>}/>
-          <Route path="/pdfbihar" element={<PDFBihar/>}/>
+          <Route path="/pdfBihar" element={<PDFBihar/>}/>
+          <Route path="/pdfTamilNadu" element={<PDFTamilNadu/>}/>
         </Routes>
       </div>
     </Router>
