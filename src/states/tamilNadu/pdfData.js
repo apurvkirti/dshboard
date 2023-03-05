@@ -458,12 +458,14 @@ class DataComponent extends React.Component {
       overall3 &&
       overall3.length > 1
     ) {
-      civilTechCompleted = (overall1[1].tech_actual / 9).toFixed(2);
-      civilWorkshopCompleted = ((overall1[1].wks_actual / 48) * 5).toFixed(2);
-      delTechCompleted = (overall2[1].tech_actual / 9).toFixed(2);
-      delWorkshopCompleted = ((overall2[1].wks_actual / 51) * 5).toFixed(2);
-      insTechCompleted = (overall3[1].tech_actual / 9).toFixed(2);
-      insWorkshopCompleted = ((overall3[1].wks_actual / 51) * 5).toFixed(2);
+      civilTechCompleted = ((overall1[1].tech_actual / overall1[1].tech_overall)*100).toFixed(2);
+      civilWorkshopCompleted = ((overall1[1].wks_actual / overall1[1].wks_overall)*100).toFixed(2);
+  
+      delTechCompleted = ((overall2[1].tech_actual / overall2[1].tech_overall)*100).toFixed(2);
+      delWorkshopCompleted = ((overall2[1].wks_actual / overall2[1].wks_overall) * 100).toFixed(2);
+  
+      insTechCompleted = ((overall3[1].tech_actual / overall3[1].tech_overall)*100).toFixed(2);
+      insWorkshopCompleted = ((overall3[1].wks_actual / overall3[1].wks_overall)*100).toFixed(2);
     }
 
     const { chennaidata1 } = this.state;

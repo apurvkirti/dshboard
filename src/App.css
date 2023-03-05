@@ -1070,3 +1070,38 @@
   height:10vh;
   
 }
+.upload-form{
+  display:flex !important;
+  background-color: #e7e8eb;
+  width:25vw;
+  height:70vh;
+  border-radius: 5px;
+  justify-content: center !important;
+  align-items: center;
+}
+
+
+.file-selector{
+  width:20vw;
+  background-color:#93a298;
+  border-radius: 3px;
+  padding:1vh;
+  margin-bottom:10px;
+}
+.upload-caption,.upload-site{
+  width:20vw;
+  border-color:white;
+  padding:1vh;
+  border-radius: 5px;
+  margin-bottom:10px;
+}
+
+.image_upload_button{
+  width:20vw;
+}
+.delete-image-b{
+  margin-top:10px;
+  width:20vw;
+  background-color: #ff6f27 !important;
+  border-color:#ff6f27 !important;
+}

@@ -38,9 +38,9 @@ export default function About() {
         window.scrollTo({ top: 0, behavior: 'smooth' });
       };
 
-      const handleClick2 = () => {
-        window.scrollTo({ top: 600, behavior: 'smooth' });
-      };
+      // const handleClick2 = () => {
+      //   window.scrollTo({ top: 600, behavior: 'smooth' });
+      // };
 
 
       const buttonStyle = {
@@ -49,12 +49,12 @@ export default function About() {
         fontWeight: isHighlighted ? 'bold' : 'normal',
         transform: isHighlighted ? 'scale(0.8)' : 'none',
       };
-      const button2Style = {
-        backgroundColor: isHighlighted ?  'grey' : '#292c35',
+      // const button2Style = {
+      //   backgroundColor: isHighlighted ?  'grey' : '#292c35',
      
-        fontWeight: isHighlighted ? 'normal' : 'bold',
-        transform: isHighlighted ? 'none': 'scale(0.8)',
-      };
+      //   fontWeight: isHighlighted ? 'normal' : 'bold',
+      //   transform: isHighlighted ? 'none': 'scale(0.8)',
+      // };
      
       const navtobuttonBihar = () => {
         if(State === "Bihar" || State === "ALL"){
@@ -83,9 +83,9 @@ export default function About() {
                 <Nav.Link className="navhome" onClick={handleClick} style={buttonStyle}>
                   Home
                 </Nav.Link>
-                <Nav.Link className="navabt" onClick={handleClick2} style={button2Style}>
+                {/* <Nav.Link className="navabt" onClick={handleClick2} style={button2Style}>
                   About
-                </Nav.Link>
+                </Nav.Link> */}
                 <NavDropdown
                   className="navstates"
                   title="Select States / Union Territories"

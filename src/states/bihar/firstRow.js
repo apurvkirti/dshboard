@@ -57,14 +57,14 @@ export default function Chart() {
     data3 &&
     data3.length > 1
   ) {
-    civilTechCompleted = (data1[1].tech_actual / 9).toFixed(2);
-    civilWorkshopCompleted = ((data1[1].wks_actual / 48) * 5).toFixed(2);
+    civilTechCompleted = ((data1[1].tech_actual / data1[1].tech_overall)*100).toFixed(2);
+    civilWorkshopCompleted = ((data1[1].wks_actual / data1[1].wks_overall)*100).toFixed(2);
 
-    delTechCompleted = (data2[1].tech_actual / 9).toFixed(2);
-    delWorkshopCompleted = ((data2[1].wks_actual / 51) * 5).toFixed(2);
+    delTechCompleted = ((data2[1].tech_actual / data2[1].tech_overall)*100).toFixed(2);
+    delWorkshopCompleted = ((data2[1].wks_actual / data2[1].wks_overall) * 100).toFixed(2);
 
-    insTechCompleted = (data3[1].tech_actual / 9).toFixed(2);
-    insWorkshopCompleted = ((data3[1].wks_actual / 51) * 5).toFixed(2);
+    insTechCompleted = ((data3[1].tech_actual / data3[1].tech_overall)*100).toFixed(2);
+    insWorkshopCompleted = ((data3[1].wks_actual / data3[1].wks_overall)*100).toFixed(2);
   }
 
   const civildata = [
