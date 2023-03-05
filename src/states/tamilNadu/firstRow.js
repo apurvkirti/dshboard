@@ -8,7 +8,6 @@ import Table from "react-bootstrap/Table";
 
 import { useNavigate } from "react-router-dom";
 
-
 let civilTechCompleted = 0;
 let civilWorkshopCompleted = 0;
 
@@ -57,14 +56,32 @@ export default function Chart() {
     data3 &&
     data3.length > 1
   ) {
-    civilTechCompleted = ((data1[1].tech_actual / data1[1].tech_overall)*100).toFixed(2);
-    civilWorkshopCompleted = ((data1[1].wks_actual / data1[1].wks_overall)*100).toFixed(2);
+    civilTechCompleted = (
+      (data1[1].tech_actual / data1[1].tech_overall) *
+      100
+    ).toFixed(2);
+    civilWorkshopCompleted = (
+      (data1[1].wks_actual / data1[1].wks_overall) *
+      100
+    ).toFixed(2);
 
-    delTechCompleted = ((data2[1].tech_actual / data2[1].tech_overall)*100).toFixed(2);
-    delWorkshopCompleted = ((data2[1].wks_actual / data2[1].wks_overall) * 100).toFixed(2);
+    delTechCompleted = (
+      (data2[1].tech_actual / data2[1].tech_overall) *
+      100
+    ).toFixed(2);
+    delWorkshopCompleted = (
+      (data2[1].wks_actual / data2[1].wks_overall) *
+      100
+    ).toFixed(2);
 
-    insTechCompleted = ((data3[1].tech_actual / data3[1].tech_overall)*100).toFixed(2);
-    insWorkshopCompleted = ((data3[1].wks_actual / data3[1].wks_overall)*100).toFixed(2);
+    insTechCompleted = (
+      (data3[1].tech_actual / data3[1].tech_overall) *
+      100
+    ).toFixed(2);
+    insWorkshopCompleted = (
+      (data3[1].wks_actual / data3[1].wks_overall) *
+      100
+    ).toFixed(2);
   }
 
   const civildata = [
@@ -83,7 +100,7 @@ export default function Chart() {
   const handleUpload = () => {
     if (username.startsWith("reg")) {
       window.alert("Sorry! You are not authorized to access this feature");
-    }else{
+    } else {
       navigate("/uploadImageTamilNadu");
     }
   };
@@ -102,7 +119,7 @@ export default function Chart() {
   const handleEnter2 = () => {
     setHighlighted2(true);
   };
- 
+
   const handleLeave2 = () => {
     setHighlighted2(false);
   };
@@ -117,7 +134,7 @@ export default function Chart() {
   return (
     <>
       <div className="chartcontainer">
-          <div className="firstcontainer">
+        <div className="firstcontainer">
           <div className="namer">
             <p className="names">Phase 1</p>
             <p className="names">(71 ITIs)</p>
@@ -126,9 +143,8 @@ export default function Chart() {
           <div className="uploadimage" onClick={handleUpload}>
             Upload Site-Status Photo
           </div>
-          </div>
-          
-  
+        </div>
+
         <div>
           <Table bordered hover className="childtable1">
             <thead>
