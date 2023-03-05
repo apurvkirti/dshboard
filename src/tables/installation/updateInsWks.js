@@ -158,7 +158,7 @@ export default function UpdateForm(props) {
     "VR Welding & Painting",
     "Auto MRO Cut Sections",
     "Battery Electrical Vehicle",
-    "IO Engine Vehicle",
+    "IC Engine Vehicle",
     "EV Kit (Electronic Vehicle Kit)",
     "Industrial Robotics Setup",
     "VFD Machine",
@@ -534,7 +534,7 @@ export default function UpdateForm(props) {
                         switch (value) {
                           case -1:
                             NotificationManager.info(
-                              `Updated ${data.ITI_Name}'s IO_Engine_Vehicle to Not yet started`,
+                              `Updated ${data.ITI_Name}'s IC_Engine_Vehicle to Not yet started`,
                               "",
                               6000,
                               {}
@@ -542,7 +542,7 @@ export default function UpdateForm(props) {
                             break;
                           case 0:
                             NotificationManager.warning(
-                              `Updated ${data.ITI_Name}'s IO_Engine_Vehicle to work in Progress`,
+                              `Updated ${data.ITI_Name}'s IC_Engine_Vehicle to work in Progress`,
                               "",
                               6000,
                               {}
@@ -550,7 +550,7 @@ export default function UpdateForm(props) {
                             break;
                           case 1:
                             NotificationManager.success(
-                              `${data.ITI_Name}'s IO_Engine_Vehicle marked Completed`,
+                              `${data.ITI_Name}'s IC_Engine_Vehicle marked Completed`,
                               "",
                               6000,
                               {}

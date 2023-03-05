@@ -53,7 +53,7 @@ export default function MyComponent(props) {
     "VR Welding & Painting",
     "Auto MRO Cut Sections",
     "Battery Electrical Vehicle",
-    "IO Engine Vehicle",
+    "IC Engine Vehicle",
     "EV Kit (Electronic Vehicle Kit)",
     "Industrial Robotics Setup",
     "VFD Machine",
