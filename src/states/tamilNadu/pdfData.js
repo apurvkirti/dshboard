@@ -678,7 +678,7 @@ class DataComponent extends React.Component {
       "VR Welding & Painting",
       "Auto MRO Cut Sections",
       "Battery Electrical Vehicle",
-      "IO Engine Vehicle",
+      "IC Engine Vehicle",
       "EV Kit",
       "Industrial Robotics Setup",
       "VFD Machine",
