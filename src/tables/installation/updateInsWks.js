@@ -55,7 +55,7 @@ export default function UpdateForm(props) {
       VR_Welding_and_Painting,
       Auto_MRO_Cut_Sections,
       Battery_Electrical_Vehicle,
-      IO_Engine_Vehicle,
+      IC_Engine_Vehicle,
       EV_Kit,
       Industrial_Robotics_Setup,
       VFD_Machine,
@@ -81,7 +81,7 @@ export default function UpdateForm(props) {
       "Battery_Electrical_Vehicle",
       Battery_Electrical_Vehicle
     );
-    localStorage.setItem("IO_Engine_Vehicle", IO_Engine_Vehicle);
+    localStorage.setItem("IC_Engine_Vehicle", IC_Engine_Vehicle);
     localStorage.setItem("EV_Kit", EV_Kit);
     localStorage.setItem(
       "Industrial_Robotics_Setup",
@@ -527,10 +527,10 @@ export default function UpdateForm(props) {
                   <Dropdown
                     text=" "
                     options={options}
-                    value={data.IO_Engine_Vehicle}
+                    value={data.IC_Engine_Vehicle}
                     onChange={(e, { value }) => {
                       if (window.confirm("Are you sure you want to Update?")) {
-                        handleChange(data.customId, value, "IO_Engine_Vehicle");
+                        handleChange(data.customId, value, "IC_Engine_Vehicle");
                         switch (value) {
                           case -1:
                             NotificationManager.info(
@@ -562,7 +562,7 @@ export default function UpdateForm(props) {
                       }
                     }}
                   />
-                  {renderIcon(data.IO_Engine_Vehicle)}
+                  {renderIcon(data.IC_Engine_Vehicle)}
                 </Table.Cell>
                 <Table.Cell className="ttt" textAlign="center" selectable>
                   <Dropdown

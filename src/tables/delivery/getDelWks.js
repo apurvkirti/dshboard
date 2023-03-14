@@ -140,7 +140,7 @@ export default function MyComponent(props) {
                   {renderIcon(data.Battery_Electrical_Vehicle)}
                 </Table.Cell>
                 <Table.Cell className="ttt" textAlign="center" selectable>
-                  {renderIcon(data.IO_Engine_Vehicle)}
+                  {renderIcon(data.IC_Engine_Vehicle)}
                 </Table.Cell>
                 <Table.Cell className="ttt" textAlign="center" selectable>
                   {renderIcon(data.EV_Kit)}
