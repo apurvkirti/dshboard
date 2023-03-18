@@ -1,18 +1,26 @@
 import Login from "./Login";
+import About from "./about";
+
+
+import DashboardAssam from "./states/assam/dashboardAssam";
 import DashboardBihar from "./states/bihar/dashboardBihar";
 import DashboardTamilNadu from "./states/tamilNadu/dashboardTamilNadu";
-// import Notice from "./states/"; not required
+
+import UploadImgAssam from "./states/assam/uploadimgAssam";
 import UploadImgBihar from "./states/bihar/uploadimgBihar";
 import UploadImgTamilNadu from "./states/tamilNadu/uploadimgTamilNadu";
+
+import GallaryAssam from "./states/assam/gallary";
 import GallaryBihar from "./states/bihar/gallary";
 import GallaryTamilNadu from "./states/tamilNadu/gallary";
-// import Del from "./components/deletenotice"; not required
-import About from "./about";
+
+
+import PDFAssam from "./states/assam/pdfButton";
 import PDFBihar from "./states/bihar/pdfButton";
 import PDFTamilNadu from "./states/tamilNadu/pdfButton";
 
-
-
+// import Notice from "./states/"; not required
+// import Del from "./components/deletenotice"; not required
 import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 <link
@@ -28,14 +36,22 @@ function App() {
     <Router>
       <div className="main">
         <Routes>
+          <Route path="/" element={<Login/>} />
+          <Route path="/about" element={<About/>}/>
+
+          <Route path="/dashboardAssam" element={<DashboardAssam/>} />
           <Route path="/dashboardBihar" element={<DashboardBihar/>} />
           <Route path="/dashboardTamilNadu" element={<DashboardTamilNadu/>} />
-          <Route path="/" element={<Login/>} />
+
+          <Route path="/uploadImageAssam" element={<UploadImgAssam/>}/>
           <Route path="/uploadImageBihar" element={<UploadImgBihar/>}/>
           <Route path="/uploadImageTamilNadu" element={<UploadImgTamilNadu/>}/>
+
+          <Route path="/gallaryAssam" element={<GallaryAssam/>}/>
           <Route path="/gallaryBihar" element={<GallaryBihar/>}/>
           <Route path="/gallaryTamilNadu" element={<GallaryTamilNadu/>}/>
-          <Route path="/about" element={<About/>}/>
+
+          <Route path="/pdfAssam" element={<PDFAssam/>}/>
           <Route path="/pdfBihar" element={<PDFBihar/>}/>
           <Route path="/pdfTamilNadu" element={<PDFTamilNadu/>}/>
         </Routes>

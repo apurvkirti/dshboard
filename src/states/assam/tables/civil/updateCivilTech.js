@@ -11,12 +11,11 @@ import {
 import "react-notifications/lib/notifications.css";
 
 
-
+ 
 export default function UpdateForm(props) {
   const fId = props.formId ;
   const jwt = localStorage.getItem("jwt");
-  const state = localStorage.getItem("state");
-  let ClustName = props.clust ? props.clust : (state==="Bihar")? "PATNA": "CHENNAI";
+  let ClustName = props.clust ? props.clust : "Cluster1ITI";
   const options = [
     { key: "option1", text: "Yet to Start", value: -1 },
     { key: "option2", text: "Work in Progress", value: 0 },
@@ -121,10 +120,7 @@ export default function UpdateForm(props) {
       Authorization:
         `Bearer ${jwt}`,
     };
-    // const apiUrl =
-    // process.env.NODE_ENV === "production"
-    //   ? process.env.REACT_APP_API_URL_PROD
-    //   : process.env.REACT_APP_API_URL_DEV;
+ 
     axios
       .patch(
         `${apiUrl}/college/update_tmp/?id=${customId}&form_Id=${fId}`,
@@ -169,17 +165,17 @@ export default function UpdateForm(props) {
       <div className="legend">Yet to start: <Icon color= "grey" name="square outline" size="large" />  Work in progress: <Icon color="yellow" name="check circle" size="large" />  Completed: <Icon color="green" name="check circle" size="large" /></div>
 
       </div>
-      <Table className="tc" celled collapsing>
+      <Table className="tc-as" celled collapsing>
         <Table.Header color="orange">
           <Table.Row>
-            <Table.HeaderCell id="base-techlab" rowSpan="3" textAlign="center">
-              ITI Name
+          <Table.HeaderCell id="base-techlab" rowSpan="3" textAlign="center">
+              Institute Name
             </Table.HeaderCell>
             <Table.HeaderCell id="base-techlab" rowSpan="3" textAlign="center">
-              Cluster
+              Cluster Number
             </Table.HeaderCell>
             <Table.HeaderCell id="base-techlab" rowSpan="3" textAlign="center">
-              District
+              Institute Type
             </Table.HeaderCell>
             <Table.HeaderCell id="teclab-heading" textAlign="center" colSpan="15">
               TECHNOLOGY LAB ( CIVIL )
@@ -192,7 +188,6 @@ export default function UpdateForm(props) {
               <TextTruncate text={text} limit={15} />
             </Table.HeaderCell>
           ))}
-          
         </Table.Row>
         </Table.Header>
 
@@ -201,8 +196,8 @@ export default function UpdateForm(props) {
             return (
               <Table.Row>
                 <Table.Cell collapsing>{data.ITI_Name}</Table.Cell>
-                <Table.Cell collapsing>{data.Cluster}</Table.Cell>
-                <Table.Cell collapsing>{data.District}</Table.Cell>
+                <Table.Cell collapsing textAlign="center">{data.Cluster[7]}</Table.Cell>
+                <Table.Cell collapsing textAlign="center"> {data.Institute_Type}</Table.Cell>
 
                 <Table.Cell className="ttt" textAlign="center" selectable>
                   <Dropdown

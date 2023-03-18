@@ -38,10 +38,6 @@ export default function About() {
         window.scrollTo({ top: 0, behavior: 'smooth' });
       };
 
-      // const handleClick2 = () => {
-      //   window.scrollTo({ top: 600, behavior: 'smooth' });
-      // };
-
 
       const buttonStyle = {
         backgroundColor: isHighlighted ? '#292c35' : 'grey',
@@ -49,17 +45,22 @@ export default function About() {
         fontWeight: isHighlighted ? 'bold' : 'normal',
         transform: isHighlighted ? 'scale(0.8)' : 'none',
       };
-      // const button2Style = {
-      //   backgroundColor: isHighlighted ?  'grey' : '#292c35',
-     
-      //   fontWeight: isHighlighted ? 'normal' : 'bold',
-      //   transform: isHighlighted ? 'none': 'scale(0.8)',
-      // };
-     
+ 
+      const navtobuttonAssam = () => {
+        if(State === "Assam" || State === "ALL"){
+          localStorage.setItem("state", "Assam");
+          Navigate("/dashboardAssam");
+        }else{
+          window.alert("Sorry! you are not authorized")
+        }
+       
+      };
       const navtobuttonBihar = () => {
         if(State === "Bihar" || State === "ALL"){
           localStorage.setItem("state", "Bihar");
           Navigate("/dashboardBihar");
+        }else{
+          window.alert("Sorry! you are not authorized")
         }
        
       };
@@ -67,6 +68,8 @@ export default function About() {
         if(State === "Tamil_Nadu" || State === "ALL"){
           localStorage.setItem("state", "Tamil_Nadu");
           Navigate("/dashboardTamilNadu");
+        }else{
+          window.alert("Sorry! you are not authorized")
         }
       
       };
@@ -96,6 +99,7 @@ export default function About() {
                   </NavDropdown.Item>
                   <NavDropdown.Item>ANDHRA PRADESH</NavDropdown.Item>
                   <NavDropdown.Item>ARUNACHAL PRADESH</NavDropdown.Item>
+                  <NavDropdown.Item onClick={navtobuttonAssam}>ASSAM</NavDropdown.Item>
                   <NavDropdown.Item onClick={navtobuttonBihar}>BIHAR</NavDropdown.Item>
                   <NavDropdown.Item>CHANDIGARH</NavDropdown.Item>
                   <NavDropdown.Item>CHHATTISGARH</NavDropdown.Item>
