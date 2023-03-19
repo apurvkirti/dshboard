@@ -52,7 +52,7 @@ export default function Course(props) {
     e.preventDefault();
     try {
       const response = await axios.post(
-        `${apiUrl}/course/updateDate?collegeId=${collegeId}`,
+        `${apiUrl}/course/updateDate?collegeId=${collegeId}&form_Id=${fId}`,
         {
           key,
           startDate,
